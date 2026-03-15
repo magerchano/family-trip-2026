@@ -448,6 +448,24 @@ h1, h2, h3, h4 {
   color: #8a8178;
   line-height: 1.5;
 }
+
+/* ── Keys Accent Overrides ───────────────────── */
+.stay-card--keys .stay-card__label {
+  color: var(--keys-accent);
+}
+
+.day-entry--keys .day-header__number {
+  color: var(--keys-accent);
+}
+
+.dining-col__heading--keys {
+  border-bottom-color: var(--keys-accent);
+}
+
+.dining-tag--bib {
+  background: var(--keys-accent);
+  color: var(--white);
+}
 </style>
 </head>
 <body>
@@ -654,6 +672,176 @@ h1, h2, h3, h4 {
             <span class="dining-tag dining-tag--listed">Michelin Listed</span>
           </div>
           <p class="dining-item__desc">Perfect last-day brunch or lunch</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ── Keys + Everglades Section ──────────────── -->
+<section id="keys">
+
+  <!-- Photo Opener -->
+  <div class="chs-opener">
+    <img class="chs-opener__img" src="https://images.unsplash.com/photo-1580745294857-df74e81fa924?w=1600&q=80" alt="Florida Keys aerial view">
+    <div class="chs-opener__text">
+      <h2 class="chs-opener__title">Florida Keys + Everglades</h2>
+      <p class="chs-opener__tagline">Reef snorkeling, airboats, and alligators that don't care about your plans.</p>
+    </div>
+  </div>
+
+  <!-- Pitch -->
+  <div class="chs-pitch">
+    <p>The stronger pick if you want the trip to lean harder into reef snorkeling, tropical water, and Everglades wildlife. Cheeca Lodge puts you on North America's only living coral barrier reef. The tradeoff: June puts you into Everglades wet season and the start of Atlantic hurricane season, and the most dependable Michelin anchors are in Miami/Surfside, not deep in the Keys.</p>
+  </div>
+
+  <!-- Stay Plan Cards -->
+  <div class="chs-stays">
+    <div class="stay-card stay-card--keys">
+      <div class="stay-card__label">Nights 1–2</div>
+      <h3 class="stay-card__heading">Four Seasons at The Surf Club</h3>
+      <p class="stay-card__desc">Surfside/Miami. This is where the Michelin dining happens —The Surf Club Restaurant is a one-star pick. Beach, pool, and a refined launch point before heading south.</p>
+    </div>
+    <div class="stay-card stay-card--keys">
+      <div class="stay-card__label">Nights 3–7</div>
+      <h3 class="stay-card__heading">Cheeca Lodge & Spa, Islamorada</h3>
+      <p class="stay-card__desc">Oceanfront resort in the heart of the Keys. Snorkeling, kayaking, watersports on property, and group excursion coordination built in. Swap for Hawks Cay if you want more kid-focused activities.</p>
+    </div>
+  </div>
+
+  <!-- Day-by-Day Timeline -->
+  <div class="chs-timeline">
+    <h3 class="chs-section-heading">Day by Day</h3>
+
+    <div class="day-entry day-entry--keys">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-header__number">Day 1</span>
+        <span class="day-header__title">Arrive in Surfside</span>
+        <span class="day-header__toggle">+</span>
+      </div>
+      <div class="day-detail">
+        <div class="day-detail__inner">Settle into the Four Seasons at The Surf Club. Dinner at The Surf Club Restaurant —Michelin one-star, and the cleanest way to satisfy the fancy dinner brief without turning the trip into a restaurant crawl with suitcases.</div>
+      </div>
+    </div>
+
+    <div class="day-entry day-entry--keys">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-header__number">Day 2</span>
+        <span class="day-header__title">Everglades Adventure Day</span>
+        <span class="day-header__toggle">+</span>
+      </div>
+      <div class="day-detail">
+        <div class="day-detail__inner">Your big Everglades day while still on the Miami side. Two options: Miccosukee airboat + village/museum/alligator demo for max kid excitement, or the Shark Valley tram tour for a more naturalist, National Park vibe. That night: Michael's Genuine (Michelin Bib Gourmand, explicitly tagged as family-friendly) or Cote Miami if the adults want one more serious dinner.</div>
+      </div>
+    </div>
+
+    <div class="day-entry day-entry--keys">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-header__number">Day 3</span>
+        <span class="day-header__title">Drive to Islamorada</span>
+        <span class="day-header__toggle">+</span>
+      </div>
+      <div class="day-detail">
+        <div class="day-detail__inner">Scenic drive down to the Keys. Check into Cheeca Lodge and use the day for pool, dock, beach, and a slow evening. Cheeca is oceanfront with watersports on property —let the tropical resort mode kick in gradually.</div>
+      </div>
+    </div>
+
+    <div class="day-entry day-entry--keys">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-header__number">Day 4</span>
+        <span class="day-header__title">Coral Reef Snorkeling</span>
+        <span class="day-header__toggle">+</span>
+      </div>
+      <div class="day-detail">
+        <div class="day-detail__inner">Book Cheeca's snorkel tour to North America's only living coral barrier reef. This is the day that makes the Keys version feel meaningfully more "adventure" than Charleston. Tropical fish, reef formations, and genuinely unique marine life. Jax and Rey will talk about this one for years.</div>
+      </div>
+    </div>
+
+    <div class="day-entry day-entry--keys">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-header__number">Day 5</span>
+        <span class="day-header__title">Private Boat Excursion</span>
+        <span class="day-header__toggle">+</span>
+      </div>
+      <div class="day-detail">
+        <div class="day-detail__inner">A private excursion or group watersports outing through Cheeca's on-property team. They handle group tours, private excursions, fishing trips, rentals, and lessons. This is the family boat day —customize it to what sounds fun.</div>
+      </div>
+    </div>
+
+    <div class="day-entry day-entry--keys">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-header__number">Day 6</span>
+        <span class="day-header__title">True Resort Day</span>
+        <span class="day-header__toggle">+</span>
+      </div>
+      <div class="day-detail">
+        <div class="day-detail__inner">The whole point of paying for a nice Keys resort is not spending every hour in a car proving you are "maximizing" Florida. Beach, pool, paddle, fish, repeat. Zero agenda. Maximum relaxation.</div>
+      </div>
+    </div>
+
+    <div class="day-entry day-entry--keys">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-header__number">Day 7</span>
+        <span class="day-header__title">One More Water Day or Hawks Cay</span>
+        <span class="day-header__toggle">+</span>
+      </div>
+      <div class="day-detail">
+        <div class="day-detail__inner">One more water activity at Cheeca, or if the kids want a big finale, hit Hawks Cay for their snorkel, sandbar, and dolphin-linked resort activities. Hawks Cay is more activity-heavy and more kid-tilted —a great backup or day trip option.</div>
+      </div>
+    </div>
+
+    <div class="day-entry day-entry--keys">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-header__number">Day 8</span>
+        <span class="day-header__title">Drive Back & Depart</span>
+        <span class="day-header__toggle">+</span>
+      </div>
+      <div class="day-detail">
+        <div class="day-detail__inner">Drive back toward Miami and depart. Keep it simple —the trip has already delivered.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dining Section -->
+  <div class="chs-dining">
+    <h3 class="chs-section-heading">The Food</h3>
+    <p class="chs-dining__subline">Strongest in Miami/Surfside, casual in the Keys</p>
+
+    <div class="dining-grid">
+      <div class="dining-col">
+        <h4 class="dining-col__heading dining-col__heading--keys">Starred Dinners (Miami Side)</h4>
+        <div class="dining-item">
+          <div class="dining-item__top">
+            <span class="dining-item__name">The Surf Club Restaurant</span>
+            <span class="dining-tag dining-tag--star">1 Star</span>
+          </div>
+          <p class="dining-item__desc">At your hotel —easy, elegant, no-brainer</p>
+        </div>
+        <div class="dining-item">
+          <div class="dining-item__top">
+            <span class="dining-item__name">Cote Miami</span>
+            <span class="dining-tag dining-tag--star">1 Star</span>
+          </div>
+          <p class="dining-item__desc">Korean steakhouse, serious adult dinner</p>
+        </div>
+      </div>
+
+      <div class="dining-col">
+        <h4 class="dining-col__heading dining-col__heading--keys">Family-Friendly</h4>
+        <div class="dining-item">
+          <div class="dining-item__top">
+            <span class="dining-item__name">Michael's Genuine</span>
+            <span class="dining-tag dining-tag--bib">Bib Gourmand</span>
+            <span class="dining-tag dining-tag--family">Kid Friendly</span>
+          </div>
+          <p class="dining-item__desc">Michelin-tagged as family-friendly. Reliable, great food, kids welcome.</p>
+        </div>
+        <div class="dining-item">
+          <div class="dining-item__top">
+            <span class="dining-item__name">Keys Casual Dining</span>
+          </div>
+          <p class="dining-item__desc">Islamorada has solid local seafood spots —think fresh catch, waterfront decks, flip-flop dress code</p>
         </div>
       </div>
     </div>
