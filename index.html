@@ -466,6 +466,92 @@ h1, h2, h3, h4 {
   background: var(--keys-accent);
   color: var(--white);
 }
+
+/* ── Comparison Section ────────────────────────── */
+.comparison {
+  background: var(--gray-warm);
+  padding: var(--space-3xl) 0;
+}
+
+.comparison h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.comparison__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+}
+
+@media (max-width: 768px) {
+  .comparison__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.comparison__col h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: var(--space-md);
+}
+
+.comparison__col--charleston h3 {
+  color: var(--charleston-accent);
+}
+
+.comparison__col--keys h3 {
+  color: var(--keys-accent);
+}
+
+.comparison__item {
+  display: flex;
+  gap: var(--space-sm);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--gray-light);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.comparison__item:first-of-type {
+  border-top: 1px solid var(--gray-light);
+}
+
+.comparison__prefix {
+  font-weight: 700;
+  flex-shrink: 0;
+  line-height: 1.65;
+}
+
+.comparison__col--charleston .comparison__item--pro .comparison__prefix {
+  color: var(--charleston-accent);
+}
+
+.comparison__col--keys .comparison__item--pro .comparison__prefix {
+  color: var(--keys-accent);
+}
+
+.comparison__item--con .comparison__prefix {
+  color: #9a948b;
+}
+
+.comparison__bottom-line {
+  max-width: var(--max-content);
+  margin-inline: auto;
+  margin-top: var(--space-xl);
+  text-align: center;
+}
+
+.comparison__bottom-line p {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: var(--charcoal);
+  font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -847,6 +933,85 @@ h1, h2, h3, h4 {
     </div>
   </div>
 
+</section>
+
+<!-- ── The Honest Comparison ───────────────────── -->
+<section class="comparison">
+  <div class="container container--wide">
+    <h2>The Honest Comparison</h2>
+
+    <div class="comparison__grid">
+      <!-- Charleston column -->
+      <div class="comparison__col comparison__col--charleston">
+        <h3>Charleston + Kiawah</h3>
+        <div class="comparison__item comparison__item--pro">
+          <span class="comparison__prefix">+</span>
+          <span>Best overall trip design for a group with kids + adults who like nice food. City + resort in one week.</span>
+        </div>
+        <div class="comparison__item comparison__item--pro">
+          <span class="comparison__prefix">+</span>
+          <span>15 Michelin restaurants including 3 one-stars and 3 Bib Gourmands. Serious food city now.</span>
+        </div>
+        <div class="comparison__item comparison__item--pro">
+          <span class="comparison__prefix">+</span>
+          <span>Villa/home options on Kiawah mean real space for 7 people instead of pretending adjoining hotel rooms are a personality trait.</span>
+        </div>
+        <div class="comparison__item comparison__item--pro">
+          <span class="comparison__prefix">+</span>
+          <span>Private dolphin charters and family kayaking directly through Kiawah — easy logistics, built for families.</span>
+        </div>
+        <div class="comparison__item comparison__item--pro">
+          <span class="comparison__prefix">+</span>
+          <span>Lower weather risk in June compared to south Florida.</span>
+        </div>
+        <div class="comparison__item comparison__item--con">
+          <span class="comparison__prefix">&minus;</span>
+          <span>Less tropical — Lowcountry marsh and dolphins, not coral reefs and tropical water. Different flavor of nature.</span>
+        </div>
+        <div class="comparison__item comparison__item--con">
+          <span class="comparison__prefix">&minus;</span>
+          <span>No Everglades equivalent — the wildlife is beautiful but less dramatic than airboats and alligators.</span>
+        </div>
+      </div>
+
+      <!-- Keys column -->
+      <div class="comparison__col comparison__col--keys">
+        <h3>Keys + Everglades</h3>
+        <div class="comparison__item comparison__item--pro">
+          <span class="comparison__prefix">+</span>
+          <span>North America's only living coral barrier reef. Snorkeling here is a genuinely unique experience.</span>
+        </div>
+        <div class="comparison__item comparison__item--pro">
+          <span class="comparison__prefix">+</span>
+          <span>Everglades airboat day is unforgettable for kids. Alligators, airboats, the whole show.</span>
+        </div>
+        <div class="comparison__item comparison__item--pro">
+          <span class="comparison__prefix">+</span>
+          <span>More tropical and adventurous feel overall. This trip looks different from a normal beach vacation.</span>
+        </div>
+        <div class="comparison__item comparison__item--pro">
+          <span class="comparison__prefix">+</span>
+          <span>More water activities — snorkeling, boating, fishing, kayaking, all in warm tropical water.</span>
+        </div>
+        <div class="comparison__item comparison__item--con">
+          <span class="comparison__prefix">&minus;</span>
+          <span>June = wet season + hurricane season. Everglades are already soggy. Atlantic hurricane season starts June 1. Real tradeoff.</span>
+        </div>
+        <div class="comparison__item comparison__item--con">
+          <span class="comparison__prefix">&minus;</span>
+          <span>Michelin dining is a Miami add-on, not a Keys feature. The food story requires a split stay to work.</span>
+        </div>
+        <div class="comparison__item comparison__item--con">
+          <span class="comparison__prefix">&minus;</span>
+          <span>More driving — Miami to Islamorada is ~90 min. The trip is a split-stay by design, not one clean resort week.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="comparison__bottom-line">
+      <p>If you want the best balanced family trip, go Charleston + Kiawah. If you want the more memorable nature-and-water trip, go Florida Keys + Everglades and accept that the food piece is strongest when you tack on Miami.</p>
+    </div>
+  </div>
 </section>
 
 <script>
