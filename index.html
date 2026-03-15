@@ -766,6 +766,35 @@ h1, h2, h3, h4 {
   .scorecard__trip {
     padding-left: var(--space-sm);
   }
+
+  .scorecard__circles {
+    gap: 2px;
+  }
+
+  .scorecard__circle {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* ── Scroll Reveal ──────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Footer ─────────────────────────────────────── */
+.site-footer {
+  text-align: center;
+  padding: var(--space-xl);
+  font-size: 0.85rem;
+  color: #9a948b;
+  background: var(--cream);
 }
 </style>
 </head>
@@ -795,12 +824,12 @@ h1, h2, h3, h4 {
   </div>
 
   <!-- Pitch -->
-  <div class="chs-pitch">
+  <div class="chs-pitch reveal">
     <p>The best blend of a true resort stay, easy family logistics, and now, real Michelin credibility. Charleston's Michelin selection shows 15 restaurants, including 3 one-stars and 3 Bib Gourmands. Kiawah gives you a genuine resort setup with villas, kids' pools, dolphin trips, and guided family kayaking.</p>
   </div>
 
   <!-- Stay Plan Cards -->
-  <div class="chs-stays">
+  <div class="chs-stays reveal">
     <div class="stay-card">
       <div class="stay-card__label">Nights 1–3</div>
       <h3 class="stay-card__heading">The Charleston Place</h3>
@@ -814,7 +843,7 @@ h1, h2, h3, h4 {
   </div>
 
   <!-- Day-by-Day Timeline -->
-  <div class="chs-timeline">
+  <div class="chs-timeline reveal">
     <h3 class="chs-section-heading">Day by Day</h3>
 
     <div class="day-entry">
@@ -907,7 +936,7 @@ h1, h2, h3, h4 {
   </div>
 
   <!-- Dining Section -->
-  <div class="chs-dining">
+  <div class="chs-dining reveal">
     <h3 class="chs-section-heading">The Food</h3>
     <p class="chs-dining__subline">Charleston's Michelin lineup is no joke</p>
 
@@ -993,12 +1022,12 @@ h1, h2, h3, h4 {
   </div>
 
   <!-- Pitch -->
-  <div class="chs-pitch">
+  <div class="chs-pitch reveal">
     <p>The stronger pick if you want the trip to lean harder into reef snorkeling, tropical water, and Everglades wildlife. Cheeca Lodge puts you on North America's only living coral barrier reef. The tradeoff: June puts you into Everglades wet season and the start of Atlantic hurricane season, and the most dependable Michelin anchors are in Miami/Surfside, not deep in the Keys.</p>
   </div>
 
   <!-- Stay Plan Cards -->
-  <div class="chs-stays">
+  <div class="chs-stays reveal">
     <div class="stay-card stay-card--keys">
       <div class="stay-card__label">Nights 1–2</div>
       <h3 class="stay-card__heading">Four Seasons at The Surf Club</h3>
@@ -1012,7 +1041,7 @@ h1, h2, h3, h4 {
   </div>
 
   <!-- Day-by-Day Timeline -->
-  <div class="chs-timeline">
+  <div class="chs-timeline reveal">
     <h3 class="chs-section-heading">Day by Day</h3>
 
     <div class="day-entry day-entry--keys">
@@ -1105,7 +1134,7 @@ h1, h2, h3, h4 {
   </div>
 
   <!-- Dining Section -->
-  <div class="chs-dining">
+  <div class="chs-dining reveal">
     <h3 class="chs-section-heading">The Food</h3>
     <p class="chs-dining__subline">Strongest in Miami/Surfside, casual in the Keys</p>
 
@@ -1157,7 +1186,7 @@ h1, h2, h3, h4 {
 
     <div class="comparison__grid">
       <!-- Charleston column -->
-      <div class="comparison__col comparison__col--charleston">
+      <div class="comparison__col comparison__col--charleston reveal">
         <h3>Charleston + Kiawah</h3>
         <div class="comparison__item comparison__item--pro">
           <span class="comparison__prefix">+</span>
@@ -1190,7 +1219,7 @@ h1, h2, h3, h4 {
       </div>
 
       <!-- Keys column -->
-      <div class="comparison__col comparison__col--keys">
+      <div class="comparison__col comparison__col--keys reveal">
         <h3>Keys + Everglades</h3>
         <div class="comparison__item comparison__item--pro">
           <span class="comparison__prefix">+</span>
@@ -1223,7 +1252,7 @@ h1, h2, h3, h4 {
       </div>
     </div>
 
-    <div class="comparison__bottom-line">
+    <div class="comparison__bottom-line reveal">
       <p>If you want the best balanced family trip, go Charleston + Kiawah. If you want the more memorable nature-and-water trip, go Florida Keys + Everglades and accept that the food piece is strongest when you tack on Miami.</p>
     </div>
   </div>
@@ -1232,9 +1261,9 @@ h1, h2, h3, h4 {
 <!-- SCORECARD START -->
 <section class="scorecard">
   <div class="container container--wide">
-    <h2>Rate Each Trip</h2>
+    <h2 class="reveal">Rate Each Trip</h2>
 
-    <div class="scorecard__voter">
+    <div class="scorecard__voter reveal">
       <select id="voterSelect" onchange="loadVoterScores()">
         <option value="">-- Select Your Name --</option>
         <option value="jan">Jan</option>
@@ -1260,6 +1289,8 @@ h1, h2, h3, h4 {
   </div>
 </section>
 <!-- SCORECARD END -->
+
+<footer class="site-footer">Made with love and strong opinions about dolphins.</footer>
 
 <script>
 function toggleDay(header) {
@@ -1466,6 +1497,13 @@ function updateResults() {
 // Initialize
 buildScorecardGrid();
 updateResults();
+
+// ── Scroll Reveal ────────────────────────────────
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+reveals.forEach(el => revealObserver.observe(el));
 </script>
 </body>
 </html>
