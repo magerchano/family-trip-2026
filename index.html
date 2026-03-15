@@ -93,9 +93,103 @@ h1, h2, h3, h4 {
   font-weight: 700;
   line-height: 1.2;
 }
+
+/* ── Hero Section ─────────────────────────────── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80') center/cover no-repeat;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-lg);
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.8rem, 8vw, 6rem);
+  color: var(--white);
+  animation: fadeUp 0.8s ease both;
+}
+
+.hero__subline {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: var(--space-md);
+  animation: fadeUp 0.8s ease both;
+  animation-delay: 0.15s;
+}
+
+.hero__pills {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--space-xl);
+  animation: fadeUp 0.8s ease both;
+  animation-delay: 0.3s;
+}
+
+.hero__pill {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  border: 2px solid var(--white);
+  border-radius: 50px;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  background: transparent;
+  transition: background 0.3s ease, color 0.3s ease;
+  opacity: 1;
+}
+
+.hero__pill:hover {
+  background: var(--white);
+  color: var(--charcoal);
+  opacity: 1;
+}
 </style>
 </head>
 <body>
+
+<section class="hero">
+  <div class="hero__content">
+    <h1 class="hero__title">Summer 2026</h1>
+    <p class="hero__subline">Two trips. One family. You decide.</p>
+    <div class="hero__pills">
+      <a href="#charleston" class="hero__pill">Charleston + Kiawah</a>
+      <a href="#keys" class="hero__pill">Keys + Everglades</a>
+    </div>
+  </div>
+</section>
 
 <script>
 </script>
