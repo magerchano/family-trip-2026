@@ -552,6 +552,221 @@ h1, h2, h3, h4 {
   color: var(--charcoal);
   font-style: italic;
 }
+
+/* ── Scorecard Section ───────────────────────── */
+.scorecard {
+  background: var(--gray-warm);
+  padding: 0 0 var(--space-3xl) 0;
+}
+
+.scorecard h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  padding-top: var(--space-3xl);
+}
+
+.scorecard__voter {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.scorecard__voter select {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--gray-light);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--charcoal);
+  cursor: pointer;
+  appearance: auto;
+}
+
+.scorecard__grid {
+  max-width: var(--max-section);
+  margin-inline: auto;
+  padding: 0 var(--space-lg);
+}
+
+.scorecard__row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.scorecard__row:first-child {
+  border-top: 1px solid var(--gray-light);
+}
+
+.scorecard__category {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  min-width: 180px;
+  flex-shrink: 0;
+}
+
+.scorecard__trip {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.scorecard__trip-label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  min-width: 90px;
+}
+
+.scorecard__trip-label--charleston {
+  color: var(--charleston-accent);
+}
+
+.scorecard__trip-label--keys {
+  color: var(--keys-accent);
+}
+
+.scorecard__circles {
+  display: flex;
+  gap: 6px;
+}
+
+.scorecard__circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--charleston-accent);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  display: inline-block;
+}
+
+.scorecard__circle:hover {
+  opacity: 0.7;
+}
+
+.scorecard__circle--filled {
+  background: var(--charleston-accent);
+}
+
+.scorecard__circle--keys {
+  border-color: var(--keys-accent);
+}
+
+.scorecard__circle--keys.scorecard__circle--filled {
+  background: var(--keys-accent);
+}
+
+.scorecard__submit {
+  text-align: center;
+  margin-top: var(--space-xl);
+}
+
+.scorecard__submit button {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.75rem 2.5rem;
+  border: 2px solid var(--charcoal);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--charcoal);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.scorecard__submit button:hover {
+  background: var(--charcoal);
+  color: var(--white);
+}
+
+/* Results */
+.scorecard__results {
+  max-width: var(--max-content);
+  margin-inline: auto;
+  margin-top: var(--space-2xl);
+  padding: 0 var(--space-lg);
+}
+
+.scorecard__results h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.scorecard__results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+}
+
+.scorecard__results-table th {
+  text-align: left;
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 2px solid var(--gray-light);
+  font-weight: 600;
+}
+
+.scorecard__results-table th:nth-child(2) {
+  color: var(--charleston-accent);
+}
+
+.scorecard__results-table th:nth-child(3) {
+  color: var(--keys-accent);
+}
+
+.scorecard__results-table td {
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.scorecard__results-table tr.scorecard__total-row td {
+  font-weight: 700;
+  border-top: 2px solid var(--gray-light);
+}
+
+.scorecard__voter-breakdown {
+  margin-top: var(--space-lg);
+  font-size: 0.85rem;
+  color: #8a8178;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.scorecard__no-results {
+  text-align: center;
+  color: #8a8178;
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .scorecard__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  .scorecard__category {
+    min-width: auto;
+  }
+
+  .scorecard__trip {
+    padding-left: var(--space-sm);
+  }
+}
 </style>
 </head>
 <body>
@@ -1014,6 +1229,38 @@ h1, h2, h3, h4 {
   </div>
 </section>
 
+<!-- SCORECARD START -->
+<section class="scorecard">
+  <div class="container container--wide">
+    <h2>Rate Each Trip</h2>
+
+    <div class="scorecard__voter">
+      <select id="voterSelect" onchange="loadVoterScores()">
+        <option value="">-- Select Your Name --</option>
+        <option value="jan">Jan</option>
+        <option value="haley">Haley</option>
+        <option value="michael">Michael</option>
+        <option value="trey">Trey</option>
+        <option value="katy">Katy</option>
+      </select>
+    </div>
+
+    <div class="scorecard__grid" id="scorecardGrid"></div>
+
+    <div class="scorecard__submit">
+      <button onclick="submitScores()">Submit Scores</button>
+    </div>
+
+    <div class="scorecard__results" id="scorecardResults">
+      <h3>Results</h3>
+      <div id="resultsContent">
+        <p class="scorecard__no-results">No scores yet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- SCORECARD END -->
+
 <script>
 function toggleDay(header) {
   const entry = header.closest('.day-entry');
@@ -1021,6 +1268,204 @@ function toggleDay(header) {
   const toggle = header.querySelector('.day-header__toggle');
   toggle.textContent = entry.classList.contains('open') ? '\u2212' : '+';
 }
+
+// ── Scorecard Logic ──────────────────────────────
+const CATEGORIES = [
+  { key: 'food', label: 'Food & Dining' },
+  { key: 'activities', label: 'Activities & Adventure' },
+  { key: 'kids', label: 'Kid-Friendliness' },
+  { key: 'lodging', label: 'Lodging & Comfort' },
+  { key: 'weather', label: 'Weather Confidence' },
+  { key: 'excitement', label: 'Overall Excitement' }
+];
+const TRIPS = ['charleston', 'keys'];
+const VOTERS = ['jan', 'haley', 'michael', 'trey', 'katy'];
+const STORAGE_KEY = 'familyTrip2026Scores';
+
+let currentScores = { charleston: {}, keys: {} };
+
+function getScores() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch (e) {
+    return {};
+  }
+}
+
+function saveScores(scores) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(scores));
+}
+
+function buildScorecardGrid() {
+  const grid = document.getElementById('scorecardGrid');
+  grid.innerHTML = '';
+  CATEGORIES.forEach(function(cat) {
+    const row = document.createElement('div');
+    row.className = 'scorecard__row';
+
+    const catName = document.createElement('div');
+    catName.className = 'scorecard__category';
+    catName.textContent = cat.label;
+    row.appendChild(catName);
+
+    TRIPS.forEach(function(trip) {
+      const tripDiv = document.createElement('div');
+      tripDiv.className = 'scorecard__trip';
+
+      const label = document.createElement('span');
+      label.className = 'scorecard__trip-label scorecard__trip-label--' + trip;
+      label.textContent = trip === 'charleston' ? 'Charleston' : 'Keys';
+      tripDiv.appendChild(label);
+
+      const circles = document.createElement('div');
+      circles.className = 'scorecard__circles';
+      for (var i = 1; i <= 5; i++) {
+        var circle = document.createElement('span');
+        circle.className = 'scorecard__circle' + (trip === 'keys' ? ' scorecard__circle--keys' : '');
+        circle.setAttribute('data-trip', trip);
+        circle.setAttribute('data-category', cat.key);
+        circle.setAttribute('data-score', i);
+        circle.addEventListener('click', handleCircleClick);
+        circles.appendChild(circle);
+      }
+      tripDiv.appendChild(circles);
+      row.appendChild(tripDiv);
+    });
+
+    grid.appendChild(row);
+  });
+}
+
+function handleCircleClick(e) {
+  var circle = e.currentTarget;
+  var trip = circle.getAttribute('data-trip');
+  var category = circle.getAttribute('data-category');
+  var score = parseInt(circle.getAttribute('data-score'));
+  var current = currentScores[trip][category] || 0;
+  if (current === score) {
+    selectScore(trip, category, 0);
+  } else {
+    selectScore(trip, category, score);
+  }
+}
+
+function selectScore(trip, category, score) {
+  currentScores[trip][category] = score;
+  highlightCircles(trip, category, score);
+}
+
+function highlightCircles(trip, category, score) {
+  var circles = document.querySelectorAll(
+    '.scorecard__circle[data-trip="' + trip + '"][data-category="' + category + '"]'
+  );
+  circles.forEach(function(c) {
+    var val = parseInt(c.getAttribute('data-score'));
+    if (val <= score && score > 0) {
+      c.classList.add('scorecard__circle--filled');
+    } else {
+      c.classList.remove('scorecard__circle--filled');
+    }
+  });
+}
+
+function submitScores() {
+  var voter = document.getElementById('voterSelect').value;
+  if (!voter) {
+    alert('Please select your name first.');
+    return;
+  }
+  var missing = [];
+  CATEGORIES.forEach(function(cat) {
+    TRIPS.forEach(function(trip) {
+      if (!currentScores[trip][cat.key]) {
+        var tripLabel = trip === 'charleston' ? 'Charleston' : 'Keys';
+        missing.push(cat.label + ' (' + tripLabel + ')');
+      }
+    });
+  });
+  if (missing.length > 0) {
+    alert('Please rate all categories before submitting.\n\nMissing:\n' + missing.join('\n'));
+    return;
+  }
+  var allScores = getScores();
+  allScores[voter] = {
+    charleston: Object.assign({}, currentScores.charleston),
+    keys: Object.assign({}, currentScores.keys)
+  };
+  saveScores(allScores);
+  updateResults();
+}
+
+function loadVoterScores() {
+  var voter = document.getElementById('voterSelect').value;
+  currentScores = { charleston: {}, keys: {} };
+  if (voter) {
+    var allScores = getScores();
+    if (allScores[voter]) {
+      currentScores.charleston = Object.assign({}, allScores[voter].charleston || {});
+      currentScores.keys = Object.assign({}, allScores[voter].keys || {});
+    }
+  }
+  CATEGORIES.forEach(function(cat) {
+    TRIPS.forEach(function(trip) {
+      highlightCircles(trip, cat.key, currentScores[trip][cat.key] || 0);
+    });
+  });
+}
+
+function updateResults() {
+  var allScores = getScores();
+  var container = document.getElementById('resultsContent');
+  var votersWithScores = VOTERS.filter(function(v) { return allScores[v]; });
+
+  if (votersWithScores.length === 0) {
+    container.innerHTML = '<p class="scorecard__no-results">No scores yet.</p>';
+    return;
+  }
+
+  var html = '<table class="scorecard__results-table">';
+  html += '<thead><tr><th>Category</th><th>Charleston Avg</th><th>Keys Avg</th></tr></thead>';
+  html += '<tbody>';
+
+  var totalChs = 0;
+  var totalKeys = 0;
+
+  CATEGORIES.forEach(function(cat) {
+    var sumChs = 0, sumKeys = 0;
+    votersWithScores.forEach(function(v) {
+      sumChs += (allScores[v].charleston && allScores[v].charleston[cat.key]) || 0;
+      sumKeys += (allScores[v].keys && allScores[v].keys[cat.key]) || 0;
+    });
+    var avgChs = (sumChs / votersWithScores.length).toFixed(1);
+    var avgKeys = (sumKeys / votersWithScores.length).toFixed(1);
+    totalChs += parseFloat(avgChs);
+    totalKeys += parseFloat(avgKeys);
+    html += '<tr><td>' + cat.label + '</td><td>' + avgChs + '</td><td>' + avgKeys + '</td></tr>';
+  });
+
+  html += '<tr class="scorecard__total-row"><td>Total</td><td>' + totalChs.toFixed(1) + ' / 30</td><td>' + totalKeys.toFixed(1) + ' / 30</td></tr>';
+  html += '</tbody></table>';
+
+  html += '<div class="scorecard__voter-breakdown">';
+  votersWithScores.forEach(function(v) {
+    var vChs = 0, vKeys = 0;
+    CATEGORIES.forEach(function(cat) {
+      vChs += (allScores[v].charleston && allScores[v].charleston[cat.key]) || 0;
+      vKeys += (allScores[v].keys && allScores[v].keys[cat.key]) || 0;
+    });
+    var name = v.charAt(0).toUpperCase() + v.slice(1);
+    html += name + ': Charleston ' + vChs + ' / Keys ' + vKeys;
+    html += '<br>';
+  });
+  html += '</div>';
+
+  container.innerHTML = html;
+}
+
+// Initialize
+buildScorecardGrid();
+updateResults();
 </script>
 </body>
 </html>
