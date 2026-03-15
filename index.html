@@ -176,6 +176,278 @@ h1, h2, h3, h4 {
   color: var(--charcoal);
   opacity: 1;
 }
+
+/* ── Charleston Section ──────────────────────── */
+.chs-opener {
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.chs-opener__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.chs-opener::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0.05) 100%);
+}
+
+.chs-opener__text {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: var(--space-2xl) var(--space-lg);
+}
+
+.chs-opener__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  color: var(--white);
+}
+
+.chs-opener__tagline {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  color: rgba(255,255,255,0.85);
+  font-weight: 400;
+  margin-top: var(--space-sm);
+}
+
+.chs-pitch {
+  max-width: var(--max-content);
+  margin-inline: auto;
+  padding: var(--space-3xl) var(--space-lg);
+  text-align: center;
+}
+
+.chs-pitch p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--charcoal);
+}
+
+/* Stay cards */
+.chs-stays {
+  max-width: var(--max-section);
+  margin-inline: auto;
+  padding: 0 var(--space-lg) var(--space-3xl);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+
+.stay-card {
+  border: 1px solid var(--gray-light);
+  border-radius: 6px;
+  padding: var(--space-xl);
+  background: var(--white);
+}
+
+.stay-card__label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--charleston-accent);
+  margin-bottom: var(--space-sm);
+}
+
+.stay-card__heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 1.25;
+  margin-bottom: var(--space-md);
+}
+
+.stay-card__desc {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #5a5347;
+}
+
+@media (max-width: 768px) {
+  .chs-stays {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Day-by-day timeline */
+.chs-timeline {
+  max-width: var(--max-content);
+  margin-inline: auto;
+  padding: 0 var(--space-lg) var(--space-3xl);
+}
+
+.chs-section-heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.day-entry {
+  border-top: 1px solid var(--gray-light);
+}
+
+.day-entry:last-child {
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.day-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.day-header__number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--charleston-accent);
+  white-space: nowrap;
+}
+
+.day-header__title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  flex: 1;
+}
+
+.day-header__toggle {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: #aaa;
+  flex-shrink: 0;
+  width: 1.2em;
+  text-align: center;
+  line-height: 1;
+}
+
+.day-detail {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.day-detail__inner {
+  padding: 0 0 var(--space-lg) 0;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #5a5347;
+}
+
+.day-entry.open .day-detail {
+  max-height: 300px;
+}
+
+/* Dining section */
+.chs-dining {
+  max-width: var(--max-section);
+  margin-inline: auto;
+  padding: 0 var(--space-lg) var(--space-3xl);
+}
+
+.chs-dining__subline {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: #8a8178;
+  margin-top: calc(-1 * var(--space-md));
+  margin-bottom: var(--space-xl);
+}
+
+.dining-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+}
+
+@media (max-width: 768px) {
+  .dining-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dining-col__heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.4rem;
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px dashed var(--charleston-accent);
+  margin-bottom: var(--space-md);
+}
+
+.dining-item {
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.dining-item:last-child {
+  border-bottom: none;
+}
+
+.dining-item__top {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: 0.2rem;
+}
+
+.dining-item__name {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.dining-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: 4px;
+  padding: 0.15rem 0.5rem;
+  line-height: 1.4;
+}
+
+.dining-tag--star {
+  background: #d4a039;
+  color: var(--white);
+}
+
+.dining-tag--listed {
+  background: var(--charleston-accent);
+  color: var(--white);
+}
+
+.dining-tag--family {
+  background: #4a8c5c;
+  color: var(--white);
+}
+
+.dining-item__desc {
+  font-size: 0.85rem;
+  color: #8a8178;
+  line-height: 1.5;
+}
 </style>
 </head>
 <body>
@@ -191,7 +463,211 @@ h1, h2, h3, h4 {
   </div>
 </section>
 
+<!-- ── Charleston + Kiawah Section ─────────────── -->
+<section id="charleston">
+
+  <!-- Photo Opener -->
+  <div class="chs-opener">
+    <img class="chs-opener__img" src="https://images.unsplash.com/photo-1569597384533-acc7bbb85867?w=1600&q=80" alt="Charleston waterfront">
+    <div class="chs-opener__text">
+      <h2 class="chs-opener__title">Charleston + Kiawah Island</h2>
+      <p class="chs-opener__tagline">Michelin stars, dolphin charters, and resort life done right.</p>
+    </div>
+  </div>
+
+  <!-- Pitch -->
+  <div class="chs-pitch">
+    <p>The best blend of a true resort stay, easy family logistics, and now, real Michelin credibility. Charleston's Michelin selection shows 15 restaurants, including 3 one-stars and 3 Bib Gourmands. Kiawah gives you a genuine resort setup with villas, kids' pools, dolphin trips, and guided family kayaking.</p>
+  </div>
+
+  <!-- Stay Plan Cards -->
+  <div class="chs-stays">
+    <div class="stay-card">
+      <div class="stay-card__label">Nights 1–3</div>
+      <h3 class="stay-card__heading">The Charleston Place</h3>
+      <p class="stay-card__desc">The polished city-base move. Downtown Charleston, walkable to everything, two-bedroom suite options for the crew. This is where you feel fancy without trying.</p>
+    </div>
+    <div class="stay-card">
+      <div class="stay-card__label">Nights 4–7</div>
+      <h3 class="stay-card__heading">Kiawah Island Resort Villa</h3>
+      <p class="stay-card__desc">Switch to full resort mode. A 3+ bedroom villa with resort access means pools, beach, and space to spread out. The Sanctuary is the prestige move, but a villa is smarter for seven people.</p>
+    </div>
+  </div>
+
+  <!-- Day-by-Day Timeline -->
+  <div class="chs-timeline">
+    <h3 class="chs-section-heading">Day by Day</h3>
+
+    <div class="day-entry">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-header__number">Day 1</span>
+        <span class="day-header__title">Arrive & Settle Into Charleston</span>
+        <span class="day-header__toggle">+</span>
+      </div>
+      <div class="day-detail">
+        <div class="day-detail__inner">Arrive in Charleston, check into The Charleston Place, keep the first night easy. Dinner at Sorelle — Michelin-listed, stylish, and a good "everyone feels like this trip is fancy" opener.</div>
+      </div>
+    </div>
+
+    <div class="day-entry">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-header__number">Day 2</span>
+        <span class="day-header__title">The Big Food & City Day</span>
+        <span class="day-header__toggle">+</span>
+      </div>
+      <div class="day-detail">
+        <div class="day-detail__inner">Your main food-and-city day. For lunch or an easier meal with kids: Leon's Oyster Shop, Lewis Barbecue, or Rodney Scott's BBQ. For the more adult-forward dinner: book Wild Common, Vern's, or Malagón Mercado y Taperia — all Michelin one-star picks. Explore the historic district, Rainbow Row, and the waterfront in between meals.</div>
+      </div>
+    </div>
+
+    <div class="day-entry">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-header__number">Day 3</span>
+        <span class="day-header__title">Bulls Island Wildlife Adventure</span>
+        <span class="day-header__toggle">+</span>
+      </div>
+      <div class="day-detail">
+        <div class="day-detail__inner">Animal and boating day from Charleston with the Bulls Island ferry. The naturalist-led trip includes dolphins, sea turtles, and birdlife on the ride over — a real wildlife note before switching into resort mode. Jax and Rey will love this one.</div>
+      </div>
+    </div>
+
+    <div class="day-entry">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-header__number">Day 4</span>
+        <span class="day-header__title">Transfer to Kiawah — Pool Day</span>
+        <span class="day-header__toggle">+</span>
+      </div>
+      <div class="day-detail">
+        <div class="day-detail__inner">Transfer to Kiawah and go full resort. Beach time, multiple pool complexes including the Night Heron pools with slides and spray features. This is the day Jax and Rey burn off their existence in chlorinated joy while the adults recover with something cold in hand.</div>
+      </div>
+    </div>
+
+    <div class="day-entry">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-header__number">Day 5</span>
+        <span class="day-header__title">Private Dolphin Charter</span>
+        <span class="day-header__toggle">+</span>
+      </div>
+      <div class="day-detail">
+        <div class="day-detail__inner">Book Kiawah's Dolphin Encounters as a private single-party boat. Their charter setup handles groups of 7 easily, and this is one of the cleanest low-hassle private wildlife outings available. The whole family on one boat, dolphins doing their thing.</div>
+      </div>
+    </div>
+
+    <div class="day-entry">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-header__number">Day 6</span>
+        <span class="day-header__title">Family Kayaking with Naturalist</span>
+        <span class="day-header__toggle">+</span>
+      </div>
+      <div class="day-detail">
+        <div class="day-detail__inner">Guided family kayaking with a Kiawah naturalist through Lowcountry marshes. Spot dolphins, birds, and maybe even bobcats. Built for families, not serious paddlers cosplaying as explorers. Easy pace, great scenery, memorable without being exhausting.</div>
+      </div>
+    </div>
+
+    <div class="day-entry">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-header__number">Day 7</span>
+        <span class="day-header__title">Beach, Pool & Decompress</span>
+        <span class="day-header__toggle">+</span>
+      </div>
+      <div class="day-detail">
+        <div class="day-detail__inner">Keep it light: beach, pools, or one of Kiawah's family activities like a sunset cruise or shelling expedition. You already got your wildlife hits — this is the decompression day instead of stuffing in another overplanned "memories" block.</div>
+      </div>
+    </div>
+
+    <div class="day-entry">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-header__number">Day 8</span>
+        <span class="day-header__title">Depart (One Last Meal)</span>
+        <span class="day-header__toggle">+</span>
+      </div>
+      <div class="day-detail">
+        <div class="day-detail__inner">Depart. If there's time, one last Michelin meal: FIG, Lowland, or The Restaurant at Zero George make for a strong final brunch or lunch depending on flight times.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dining Section -->
+  <div class="chs-dining">
+    <h3 class="chs-section-heading">The Food</h3>
+    <p class="chs-dining__subline">Charleston's Michelin lineup is no joke</p>
+
+    <div class="dining-grid">
+      <div class="dining-col">
+        <h4 class="dining-col__heading">Special Dinners</h4>
+        <div class="dining-item">
+          <div class="dining-item__top">
+            <span class="dining-item__name">Wild Common</span>
+            <span class="dining-tag dining-tag--star">1 Star</span>
+          </div>
+          <p class="dining-item__desc">The top pick for a truly special evening</p>
+        </div>
+        <div class="dining-item">
+          <div class="dining-item__top">
+            <span class="dining-item__name">Vern's</span>
+            <span class="dining-tag dining-tag--star">1 Star</span>
+          </div>
+          <p class="dining-item__desc">Creative, ambitious, memorable</p>
+        </div>
+        <div class="dining-item">
+          <div class="dining-item__top">
+            <span class="dining-item__name">Malagón Mercado y Taperia</span>
+            <span class="dining-tag dining-tag--star">1 Star</span>
+          </div>
+          <p class="dining-item__desc">Spanish-inspired, refined, fun atmosphere</p>
+        </div>
+        <div class="dining-item">
+          <div class="dining-item__top">
+            <span class="dining-item__name">Sorelle</span>
+            <span class="dining-tag dining-tag--listed">Michelin Listed</span>
+          </div>
+          <p class="dining-item__desc">Stylish opening-night pick</p>
+        </div>
+      </div>
+
+      <div class="dining-col">
+        <h4 class="dining-col__heading">Family-Friendly</h4>
+        <div class="dining-item">
+          <div class="dining-item__top">
+            <span class="dining-item__name">Leon's Oyster Shop</span>
+            <span class="dining-tag dining-tag--family">Kid Friendly</span>
+          </div>
+          <p class="dining-item__desc">Oysters, fried chicken, easy energy</p>
+        </div>
+        <div class="dining-item">
+          <div class="dining-item__top">
+            <span class="dining-item__name">Lewis Barbecue</span>
+            <span class="dining-tag dining-tag--family">Kid Friendly</span>
+          </div>
+          <p class="dining-item__desc">Texas-style BBQ, impossibly good brisket</p>
+        </div>
+        <div class="dining-item">
+          <div class="dining-item__top">
+            <span class="dining-item__name">Rodney Scott's BBQ</span>
+            <span class="dining-tag dining-tag--family">Kid Friendly</span>
+          </div>
+          <p class="dining-item__desc">Whole-hog legend, James Beard winner</p>
+        </div>
+        <div class="dining-item">
+          <div class="dining-item__top">
+            <span class="dining-item__name">FIG</span>
+            <span class="dining-tag dining-tag--listed">Michelin Listed</span>
+          </div>
+          <p class="dining-item__desc">Perfect last-day brunch or lunch</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
 <script>
+function toggleDay(header) {
+  const entry = header.closest('.day-entry');
+  entry.classList.toggle('open');
+  const toggle = header.querySelector('.day-header__toggle');
+  toggle.textContent = entry.classList.contains('open') ? '\u2212' : '+';
+}
 </script>
 </body>
 </html>
