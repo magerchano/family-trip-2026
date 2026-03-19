@@ -335,6 +335,125 @@ h1, h2, h3, h4 {
   line-height: 1.6;
 }
 
+/* ── Day-by-Day Itinerary ────────────────────── */
+.itinerary__subtitle {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  color: var(--charcoal);
+  opacity: 0.55;
+  text-align: center;
+  margin-top: calc(-1 * var(--space-lg));
+  margin-bottom: var(--space-2xl);
+}
+
+.day-entry {
+  border-top: 1px solid var(--gray-light);
+}
+
+.day-entry:last-child {
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.day-entry__header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-md);
+  padding: var(--space-lg) 0;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.day-entry__header:hover {
+  opacity: 0.75;
+}
+
+.day-entry__number {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.day-entry__number--teal {
+  color: var(--charleston-accent);
+}
+
+.day-entry__number--gold {
+  color: var(--accent-gold);
+}
+
+.day-entry__title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--charcoal);
+  flex: 1;
+}
+
+.day-entry__toggle {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  color: var(--charcoal);
+  opacity: 0.4;
+  line-height: 1;
+}
+
+.day-entry__detail {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0 0 0 0;
+}
+
+.day-entry__detail--open {
+  max-height: 500px;
+  padding-bottom: var(--space-lg);
+}
+
+.day-entry__detail p {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--charcoal);
+  opacity: 0.7;
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+.itinerary__divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin: var(--space-2xl) 0;
+}
+
+.itinerary__divider::before,
+.itinerary__divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gray-light);
+}
+
+.itinerary__divider span {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-transform: lowercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-gold);
+  white-space: nowrap;
+}
+
+.itinerary__couples-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--accent-gold);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
 /* ── Responsive ───────────────────────────────── */
 @media (max-width: 768px) {
   .timeline {
@@ -410,10 +529,124 @@ h1, h2, h3, h4 {
     </div>
   </section>
 
+  <section class="itinerary section">
+    <h2 class="section__heading">The Week</h2>
+    <p class="itinerary__subtitle">Monday through Saturday &mdash; the family trip</p>
+
+    <div class="day-entry" onclick="toggleDay(this)">
+      <div class="day-entry__header">
+        <span class="day-entry__number day-entry__number--teal">Monday June 8</span>
+        <span class="day-entry__title">&ldquo;Arrive &amp; Settle In&rdquo;</span>
+        <span class="day-entry__toggle">+</span>
+      </div>
+      <div class="day-entry__detail">
+        <p>Arrive in Charleston, check into Mill House. Keep the first night easy &mdash; walk the neighborhood, get oriented, casual dinner. Consider Leon&rsquo;s Oyster Shop or Poogan&rsquo;s Porch for an easy opener that works for everyone.</p>
+      </div>
+    </div>
+
+    <div class="day-entry" onclick="toggleDay(this)">
+      <div class="day-entry__header">
+        <span class="day-entry__number day-entry__number--teal">Tuesday June 9</span>
+        <span class="day-entry__title">&ldquo;The Big Food &amp; City Day&rdquo;</span>
+        <span class="day-entry__toggle">+</span>
+      </div>
+      <div class="day-entry__detail">
+        <p>The main exploring day. Historic district, Rainbow Row, the Battery, waterfront. Lunch at one of the buzzier spots (Chubby Fish if you&rsquo;re willing to line up, or Xiao Bao Biscuit for something easier). Michelin dinner for the adults if Jan&rsquo;s up for babysitting, or a family-friendly spot like Rodney Scott&rsquo;s.</p>
+      </div>
+    </div>
+
+    <div class="day-entry" onclick="toggleDay(this)">
+      <div class="day-entry__header">
+        <span class="day-entry__number day-entry__number--teal">Wednesday June 10</span>
+        <span class="day-entry__title">&ldquo;Kiawah Island Day Trip&rdquo;</span>
+        <span class="day-entry__toggle">+</span>
+      </div>
+      <div class="day-entry__detail">
+        <p>Day trip to Kiawah for beach, pools, and a dolphin charter or family kayaking. Book Kiawah&rsquo;s Dolphin Encounters as a single-party boat &mdash; their charter setup handles groups of 7 easily. Back to Charleston for dinner.</p>
+      </div>
+    </div>
+
+    <div class="day-entry" onclick="toggleDay(this)">
+      <div class="day-entry__header">
+        <span class="day-entry__number day-entry__number--teal">Thursday June 11</span>
+        <span class="day-entry__title">&ldquo;Oyster Farm &amp; Water Day&rdquo;</span>
+        <span class="day-entry__toggle">+</span>
+      </div>
+      <div class="day-entry__detail">
+        <p>Charleston Oyster Farm tour in the morning (charlestonoysterfarm.com). Afternoon at the beach or pool. Evening: try one of the TikTok-viral spots &mdash; Fleet Landing for waterfront seafood or Darling Oyster Bar.</p>
+      </div>
+    </div>
+
+    <div class="day-entry" onclick="toggleDay(this)">
+      <div class="day-entry__header">
+        <span class="day-entry__number day-entry__number--teal">Friday June 12</span>
+        <span class="day-entry__title">&ldquo;Bulls Island or Flex Day&rdquo;</span>
+        <span class="day-entry__toggle">+</span>
+      </div>
+      <div class="day-entry__detail">
+        <p>Option A: Bulls Island ferry &mdash; naturalist-led trip with dolphins, sea turtles, and birdlife. Jax and Rey will love this. Option B: Flex day &mdash; pool, shopping on King Street, or revisit a favorite spot. Last family dinner &mdash; make it a good one.</p>
+      </div>
+    </div>
+
+    <div class="day-entry" onclick="toggleDay(this)">
+      <div class="day-entry__header">
+        <span class="day-entry__number day-entry__number--teal">Saturday June 13</span>
+        <span class="day-entry__title">&ldquo;Family Departs&rdquo;</span>
+        <span class="day-entry__toggle">+</span>
+      </div>
+      <div class="day-entry__detail">
+        <p>Family heads out. Michael and Haley check into the couples weekend hotel. Decompress. Evening: special dinner at Wild Common (Michelin 1-star tasting menu) or Vern&rsquo;s.</p>
+      </div>
+    </div>
+
+    <div class="itinerary__divider"><span>just us</span></div>
+
+    <h3 class="itinerary__couples-heading">The Couples Weekend</h3>
+
+    <div class="day-entry" onclick="toggleDay(this)">
+      <div class="day-entry__header">
+        <span class="day-entry__number day-entry__number--gold">Saturday Evening</span>
+        <span class="day-entry__title">&ldquo;The Upgrade&rdquo;</span>
+        <span class="day-entry__toggle">+</span>
+      </div>
+      <div class="day-entry__detail">
+        <p>Check into the couples hotel. Dinner at a starred restaurant &mdash; Wild Common, Vern&rsquo;s, or Malag&oacute;n. This is the night to go all out.</p>
+      </div>
+    </div>
+
+    <div class="day-entry" onclick="toggleDay(this)">
+      <div class="day-entry__header">
+        <span class="day-entry__number day-entry__number--gold">Sunday June 14</span>
+        <span class="day-entry__title">&ldquo;Slow Day&rdquo;</span>
+        <span class="day-entry__toggle">+</span>
+      </div>
+      <div class="day-entry__detail">
+        <p>Sleep in. Coffee walk (see coffee guide below). Brunch. Explore at your own pace. No agenda, no kids, no schedule. Dinner wherever sounds right &mdash; maybe Merci (26 seats, James Beard semifinalist) or FIG.</p>
+      </div>
+    </div>
+
+    <div class="day-entry" onclick="toggleDay(this)">
+      <div class="day-entry__header">
+        <span class="day-entry__number day-entry__number--gold">Monday June 15</span>
+        <span class="day-entry__title">&ldquo;Depart&rdquo;</span>
+        <span class="day-entry__toggle">+</span>
+      </div>
+      <div class="day-entry__detail">
+        <p>One last coffee, one last walk. Head to the airport.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- more sections will be added later -->
 
   <script>
-    // Future interactivity
+    function toggleDay(entry) {
+      const detail = entry.querySelector('.day-entry__detail');
+      const toggle = entry.querySelector('.day-entry__toggle');
+      const isOpen = detail.classList.contains('day-entry__detail--open');
+      detail.classList.toggle('day-entry__detail--open');
+      toggle.textContent = isOpen ? '+' : '\u2212';
+    }
   </script>
 </body>
 </html>
