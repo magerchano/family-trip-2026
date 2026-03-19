@@ -454,6 +454,185 @@ h1, h2, h3, h4 {
   margin-bottom: var(--space-xl);
 }
 
+/* ── Restaurant Guide ─────────────────────────── */
+.food__subtitle {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  color: var(--charcoal);
+  opacity: 0.55;
+  text-align: center;
+  margin-top: calc(-1 * var(--space-lg));
+  margin-bottom: var(--space-2xl);
+}
+
+.voter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-2xl);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--charcoal);
+  opacity: 0.7;
+}
+
+.voter-bar select {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  padding: 0.3em 0.6em;
+  border: 1px solid var(--gray-light);
+  border-radius: 6px;
+  background: var(--white);
+  color: var(--charcoal);
+  cursor: pointer;
+}
+
+.resto-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.resto-card {
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.resto-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.resto-card__img {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+}
+
+.resto-card__body {
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.resto-card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.resto-badge {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.2em 0.6em;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.resto-badge--michelin {
+  background: #d4a039;
+  color: var(--white);
+}
+
+.resto-badge--bib {
+  background: var(--charleston-accent);
+  color: var(--white);
+}
+
+.resto-badge--michelin-listed {
+  background: transparent;
+  border: 1px solid var(--charleston-accent);
+  color: var(--charleston-accent);
+}
+
+.resto-badge--beard {
+  background: var(--charcoal);
+  color: var(--white);
+}
+
+.resto-badge--nyt {
+  background: var(--charcoal);
+  color: var(--white);
+}
+
+.resto-badge--tiktok {
+  background: #e1306c;
+  color: var(--white);
+}
+
+.resto-badge--haleys {
+  background: #f5c6d0;
+  color: var(--charcoal);
+}
+
+.resto-card__name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--charcoal);
+}
+
+.resto-card__pitch {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--charcoal);
+  opacity: 0.65;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.resto-card__meta {
+  display: flex;
+  gap: var(--space-md);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--charcoal);
+  opacity: 0.5;
+}
+
+.resto-card__vote {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: var(--space-xs);
+  padding: 0.4em 0.8em;
+  border: 1px solid var(--gray-light);
+  border-radius: 100px;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--charcoal);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  width: fit-content;
+}
+
+.resto-card__vote:hover {
+  border-color: #e1306c;
+  background: rgba(225, 48, 108, 0.04);
+}
+
+.resto-card__vote .vote-heart {
+  font-size: 1rem;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.resto-card__vote.voted .vote-heart {
+  color: #e1306c;
+}
+
 /* ── Responsive ───────────────────────────────── */
 @media (max-width: 768px) {
   .timeline {
@@ -467,6 +646,16 @@ h1, h2, h3, h4 {
 
   .stays__grid {
     grid-template-columns: 1fr;
+  }
+
+  .resto-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .resto-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 </style>
@@ -637,6 +826,216 @@ h1, h2, h3, h4 {
     </div>
   </section>
 
+  <section class="food section">
+    <h2 class="section__heading">The Food</h2>
+    <p class="food__subtitle">Our picks, the Michelin list, the TikTok hits, and everything in between</p>
+
+    <div class="voter-bar">
+      <label for="voterSelect">Voting as:</label>
+      <select id="voterSelect" onchange="updateVoteDisplay()">
+        <option value="">Pick your name</option>
+        <option value="Jan">Jan</option>
+        <option value="Haley">Haley</option>
+        <option value="Michael">Michael</option>
+        <option value="Trey">Trey</option>
+        <option value="Katy">Katy</option>
+      </select>
+    </div>
+
+    <div class="resto-grid">
+
+      <div class="resto-card" data-restaurant="wild-common">
+        <div class="resto-card__img" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80')"></div>
+        <div class="resto-card__body">
+          <div class="resto-card__badges">
+            <span class="resto-badge resto-badge--michelin">Michelin Star</span>
+          </div>
+          <h4 class="resto-card__name">Wild Common</h4>
+          <p class="resto-card__pitch">Michelin-starred tasting menu that actually lives up to the hype. $95 per person.</p>
+          <div class="resto-card__meta">
+            <span class="resto-card__meal">Dinner</span>
+            <span class="resto-card__kid">Adults Only</span>
+          </div>
+          <button class="resto-card__vote" onclick="toggleVote('wild-common')">
+            <span class="vote-heart">&hearts;</span> <span class="vote-count">0</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="resto-card" data-restaurant="chubby-fish">
+        <div class="resto-card__img" style="background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80')"></div>
+        <div class="resto-card__body">
+          <div class="resto-card__badges">
+            <span class="resto-badge resto-badge--nyt">NYT Top 50</span>
+            <span class="resto-badge resto-badge--beard">James Beard</span>
+            <span class="resto-badge resto-badge--tiktok">TikTok</span>
+          </div>
+          <h4 class="resto-card__name">Chubby Fish</h4>
+          <p class="resto-card__pitch">NYT Top 50. Caviar sliders that broke TikTok. No reservations &mdash; line up at 5pm.</p>
+          <div class="resto-card__meta">
+            <span class="resto-card__meal">Dinner</span>
+            <span class="resto-card__kid">Adults Only</span>
+          </div>
+          <button class="resto-card__vote" onclick="toggleVote('chubby-fish')">
+            <span class="vote-heart">&hearts;</span> <span class="vote-count">0</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="resto-card" data-restaurant="verns">
+        <div class="resto-card__img" style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80')"></div>
+        <div class="resto-card__body">
+          <div class="resto-card__badges">
+            <span class="resto-badge resto-badge--michelin">Michelin Star</span>
+          </div>
+          <h4 class="resto-card__name">Vern&rsquo;s</h4>
+          <p class="resto-card__pitch">Intimate, candlelit, Michelin-starred. The date-night restaurant.</p>
+          <div class="resto-card__meta">
+            <span class="resto-card__meal">Dinner</span>
+            <span class="resto-card__kid">Adults Only</span>
+          </div>
+          <button class="resto-card__vote" onclick="toggleVote('verns')">
+            <span class="vote-heart">&hearts;</span> <span class="vote-count">0</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="resto-card" data-restaurant="leons-oyster-shop">
+        <div class="resto-card__img" style="background-image: url('https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=80')"></div>
+        <div class="resto-card__body">
+          <div class="resto-card__badges">
+            <span class="resto-badge resto-badge--bib">Bib Gourmand</span>
+            <span class="resto-badge resto-badge--tiktok">TikTok</span>
+            <span class="resto-badge resto-badge--haleys">Haley&rsquo;s List</span>
+          </div>
+          <h4 class="resto-card__name">Leon&rsquo;s Oyster Shop</h4>
+          <p class="resto-card__pitch">Fried chicken, oysters, and soft-serve in a converted auto body shop.</p>
+          <div class="resto-card__meta">
+            <span class="resto-card__meal">Lunch / Dinner</span>
+            <span class="resto-card__kid">Kid Friendly</span>
+          </div>
+          <button class="resto-card__vote" onclick="toggleVote('leons-oyster-shop')">
+            <span class="vote-heart">&hearts;</span> <span class="vote-count">0</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="resto-card" data-restaurant="rodney-scotts-bbq">
+        <div class="resto-card__img" style="background-image: url('https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&q=80')"></div>
+        <div class="resto-card__body">
+          <div class="resto-card__badges">
+            <span class="resto-badge resto-badge--bib">Bib Gourmand</span>
+            <span class="resto-badge resto-badge--beard">James Beard</span>
+            <span class="resto-badge resto-badge--tiktok">TikTok</span>
+          </div>
+          <h4 class="resto-card__name">Rodney Scott&rsquo;s BBQ</h4>
+          <p class="resto-card__pitch">Whole-hog legend. James Beard winner. Impossibly good brisket.</p>
+          <div class="resto-card__meta">
+            <span class="resto-card__meal">Lunch / Dinner</span>
+            <span class="resto-card__kid">Kid Friendly</span>
+          </div>
+          <button class="resto-card__vote" onclick="toggleVote('rodney-scotts-bbq')">
+            <span class="vote-heart">&hearts;</span> <span class="vote-count">0</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="resto-card" data-restaurant="poogans-porch">
+        <div class="resto-card__img" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80')"></div>
+        <div class="resto-card__body">
+          <div class="resto-card__badges">
+            <span class="resto-badge resto-badge--tiktok">TikTok</span>
+            <span class="resto-badge resto-badge--haleys">Haley&rsquo;s List</span>
+          </div>
+          <h4 class="resto-card__name">Poogan&rsquo;s Porch</h4>
+          <p class="resto-card__pitch">Classic Charleston since 1976. Biscuits, she-crab soup, fried chicken.</p>
+          <div class="resto-card__meta">
+            <span class="resto-card__meal">Brunch / Dinner</span>
+            <span class="resto-card__kid">Kid Friendly</span>
+          </div>
+          <button class="resto-card__vote" onclick="toggleVote('poogans-porch')">
+            <span class="vote-heart">&hearts;</span> <span class="vote-count">0</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="resto-card" data-restaurant="xiao-bao-biscuit">
+        <div class="resto-card__img" style="background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80')"></div>
+        <div class="resto-card__body">
+          <div class="resto-card__badges">
+            <span class="resto-badge resto-badge--michelin-listed">Michelin Listed</span>
+            <span class="resto-badge resto-badge--haleys">Haley&rsquo;s List</span>
+          </div>
+          <h4 class="resto-card__name">Xiao Bao Biscuit</h4>
+          <p class="resto-card__pitch">Creative Asian fusion beloved by locals. Casual, fun, Michelin-listed.</p>
+          <div class="resto-card__meta">
+            <span class="resto-card__meal">Lunch / Dinner</span>
+            <span class="resto-card__kid">Kid Friendly</span>
+          </div>
+          <button class="resto-card__vote" onclick="toggleVote('xiao-bao-biscuit')">
+            <span class="vote-heart">&hearts;</span> <span class="vote-count">0</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="resto-card" data-restaurant="hometeam-bbq">
+        <div class="resto-card__img" style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80')"></div>
+        <div class="resto-card__body">
+          <div class="resto-card__badges">
+            <span class="resto-badge resto-badge--haleys">Haley&rsquo;s List</span>
+          </div>
+          <h4 class="resto-card__name">Hometeam BBQ</h4>
+          <p class="resto-card__pitch">Get the gameday brisket. Laid-back BBQ on the water.</p>
+          <div class="resto-card__meta">
+            <span class="resto-card__meal">Lunch / Dinner</span>
+            <span class="resto-card__kid">Kid Friendly</span>
+          </div>
+          <button class="resto-card__vote" onclick="toggleVote('hometeam-bbq')">
+            <span class="vote-heart">&hearts;</span> <span class="vote-count">0</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="resto-card" data-restaurant="callies-hot-little-biscuit">
+        <div class="resto-card__img" style="background-image: url('https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=80')"></div>
+        <div class="resto-card__body">
+          <div class="resto-card__badges">
+            <span class="resto-badge resto-badge--tiktok">TikTok</span>
+            <span class="resto-badge resto-badge--haleys">Haley&rsquo;s List</span>
+          </div>
+          <h4 class="resto-card__name">Callie&rsquo;s Hot Little Biscuit</h4>
+          <p class="resto-card__pitch">The biscuit that put Charleston breakfast on TikTok.</p>
+          <div class="resto-card__meta">
+            <span class="resto-card__meal">Breakfast</span>
+            <span class="resto-card__kid">Kid Friendly</span>
+          </div>
+          <button class="resto-card__vote" onclick="toggleVote('callies-hot-little-biscuit')">
+            <span class="vote-heart">&hearts;</span> <span class="vote-count">0</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="resto-card" data-restaurant="sugar-bakeshop">
+        <div class="resto-card__img" style="background-image: url('https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&q=80')"></div>
+        <div class="resto-card__body">
+          <div class="resto-card__badges">
+            <span class="resto-badge resto-badge--tiktok">TikTok</span>
+          </div>
+          <h4 class="resto-card__name">Sugar Bakeshop</h4>
+          <p class="resto-card__pitch">20 years of cupcakes and sweets. 121K TikTok posts about this place.</p>
+          <div class="resto-card__meta">
+            <span class="resto-card__meal">Dessert</span>
+            <span class="resto-card__kid">Kid Friendly</span>
+          </div>
+          <button class="resto-card__vote" onclick="toggleVote('sugar-bakeshop')">
+            <span class="vote-heart">&hearts;</span> <span class="vote-count">0</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- more sections will be added later -->
 
   <script>
@@ -647,6 +1046,59 @@ h1, h2, h3, h4 {
       detail.classList.toggle('day-entry__detail--open');
       toggle.textContent = isOpen ? '+' : '\u2212';
     }
+
+    /* ── Restaurant Voting ───────────────────────── */
+    const VOTE_KEY = 'charlestonTrip2026Votes';
+
+    function getVotes() {
+      try {
+        return JSON.parse(localStorage.getItem(VOTE_KEY)) || {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function saveVotes(votes) {
+      localStorage.setItem(VOTE_KEY, JSON.stringify(votes));
+    }
+
+    function toggleVote(restaurantId) {
+      const voter = document.getElementById('voterSelect').value;
+      if (!voter) { alert('Pick your name first!'); return; }
+      const votes = getVotes();
+      if (!votes[restaurantId]) votes[restaurantId] = [];
+      const idx = votes[restaurantId].indexOf(voter);
+      if (idx > -1) {
+        votes[restaurantId].splice(idx, 1);
+      } else {
+        votes[restaurantId].push(voter);
+      }
+      saveVotes(votes);
+      updateVoteDisplay();
+    }
+
+    function updateVoteDisplay() {
+      const votes = getVotes();
+      const voter = document.getElementById('voterSelect').value;
+      document.querySelectorAll('.resto-card').forEach(function(card) {
+        const id = card.dataset.restaurant;
+        const voters = votes[id] || [];
+        const btn = card.querySelector('.resto-card__vote');
+        const heart = btn.querySelector('.vote-heart');
+        const count = btn.querySelector('.vote-count');
+        count.textContent = voters.length;
+        if (voter && voters.indexOf(voter) > -1) {
+          heart.innerHTML = '\u2665';
+          btn.classList.add('voted');
+        } else {
+          heart.innerHTML = '\u2661';
+          btn.classList.remove('voted');
+        }
+        btn.title = voters.length ? 'Votes: ' + voters.join(', ') : 'No votes yet';
+      });
+    }
+
+    updateVoteDisplay();
   </script>
 </body>
 </html>
