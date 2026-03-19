@@ -838,6 +838,147 @@ h1, h2, h3, h4 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ── Coffee Guide Section ─────────────────────── */
+.coffee-section {
+  padding: var(--space-3xl) 0 var(--space-2xl);
+  background: var(--gray-warm);
+}
+
+.coffee-section__title {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  text-align: center;
+  color: var(--charcoal);
+  margin-bottom: var(--space-xs);
+}
+
+.coffee-section__sub {
+  font-family: var(--font-body);
+  text-align: center;
+  color: #8a8078;
+  font-size: 0.95rem;
+  margin-bottom: var(--space-xl);
+}
+
+.coffee-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+.coffee-card {
+  display: flex;
+  flex-direction: row;
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.coffee-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.coffee-card__img {
+  width: 200px;
+  min-height: 200px;
+  flex-shrink: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.coffee-card__body {
+  flex: 1;
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.coffee-card__name {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  line-height: 1.3;
+}
+
+.coffee-card__vibe {
+  font-size: 0.88rem;
+  color: #6b6156;
+  line-height: 1.4;
+  margin-bottom: var(--space-xs);
+}
+
+.coffee-card__details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-md);
+  font-size: 0.82rem;
+  color: #8a8078;
+}
+
+.coffee-card__distance,
+.coffee-card__hours,
+.coffee-card__rating {
+  white-space: nowrap;
+}
+
+.coffee-card__tiktok {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ff6b35, #ee1d52);
+  color: #fff;
+  padding: 0.15em 0.5em;
+  border-radius: 6px;
+  margin-left: var(--space-xs);
+  vertical-align: middle;
+}
+
+.coffee-card__order {
+  font-size: 0.88rem;
+  color: var(--charcoal);
+  margin-top: auto;
+}
+
+.coffee-card__haley {
+  cursor: pointer;
+  font-size: 1.3rem;
+  user-select: none;
+  transition: transform 0.15s ease;
+  align-self: flex-start;
+  margin-top: var(--space-xs);
+}
+
+.coffee-card__haley:hover {
+  transform: scale(1.15);
+}
+
+@media (max-width: 900px) {
+  .coffee-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .coffee-card {
+    flex-direction: column;
+  }
+
+  .coffee-card__img {
+    width: 100%;
+    height: 180px;
+    min-height: 180px;
+  }
+
+  .coffee-section__title {
+    font-size: 2.2rem;
+  }
+}
 </style>
 </head>
 <body>
@@ -1300,7 +1441,155 @@ h1, h2, h3, h4 {
 
   </section>
 
-  <!-- more sections will be added later -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <!--  COFFEE GUIDE                                  -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section class="coffee-section">
+    <div class="container container--wide">
+      <h2 class="coffee-section__title">The Coffee</h2>
+      <p class="coffee-section__sub">Walking distance from Mill House, sorted by how much you need to go</p>
+
+      <div class="coffee-grid">
+
+        <div class="coffee-card" data-coffee="harken">
+          <div class="coffee-card__img" style="background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80')"></div>
+          <div class="coffee-card__body">
+            <h4 class="coffee-card__name">Harken Cafe</h4>
+            <p class="coffee-card__vibe">French Quarter charm, legendary pastries, line on weekends</p>
+            <div class="coffee-card__details">
+              <span class="coffee-card__distance">📍 1 min walk</span>
+              <span class="coffee-card__hours">🕐 Mon-Fri 7am-3pm, Sat 8am-3pm, Sun 8am-1pm</span>
+              <span class="coffee-card__rating">⭐ 4.6 Yelp <span class="coffee-card__tiktok">🔥 TikTok</span></span>
+            </div>
+            <p class="coffee-card__order"><strong>Order:</strong> Biscuit sandwich + cortado</p>
+            <div class="coffee-card__haley" onclick="cycleHeart('harken')">
+              <span class="heart-display">🤍🤍</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="coffee-card" data-coffee="rise">
+          <div class="coffee-card__img" style="background-image: url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400&q=80')"></div>
+          <div class="coffee-card__body">
+            <h4 class="coffee-card__name">The Rise Coffee Bar</h4>
+            <p class="coffee-card__vibe">Most Instagrammable coffee in Charleston. Garden patio oasis.</p>
+            <div class="coffee-card__details">
+              <span class="coffee-card__distance">📍 5 min walk</span>
+              <span class="coffee-card__hours">🕐 Daily 7am-5pm</span>
+              <span class="coffee-card__rating">⭐ 4.5 Yelp <span class="coffee-card__tiktok">🔥 TikTok</span></span>
+            </div>
+            <p class="coffee-card__order"><strong>Order:</strong> Seasonal signature latte</p>
+            <div class="coffee-card__haley" onclick="cycleHeart('rise')">
+              <span class="heart-display">🤍🤍</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="coffee-card" data-coffee="badbunnies">
+          <div class="coffee-card__img" style="background-image: url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=400&q=80')"></div>
+          <div class="coffee-card__body">
+            <h4 class="coffee-card__name">Bad Bunnies Coffee</h4>
+            <p class="coffee-card__vibe">Perfect 5.0 rating. Artist-built hidden gem. Everything house-made.</p>
+            <div class="coffee-card__details">
+              <span class="coffee-card__distance">📍 8 min walk</span>
+              <span class="coffee-card__hours">🕐 Mon-Fri 7:30am-2pm, Sat 8am-2pm, closed Sun</span>
+              <span class="coffee-card__rating">⭐ 5.0 Yelp <span class="coffee-card__tiktok">🔥 Growing</span></span>
+            </div>
+            <p class="coffee-card__order"><strong>Order:</strong> Brown sugar iced coffee</p>
+            <div class="coffee-card__haley" onclick="cycleHeart('badbunnies')">
+              <span class="heart-display">🤍🤍</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="coffee-card" data-coffee="secondstate">
+          <div class="coffee-card__img" style="background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&q=80')"></div>
+          <div class="coffee-card__body">
+            <h4 class="coffee-card__name">Second State Coffee</h4>
+            <p class="coffee-card__vibe">Charleston&rsquo;s homegrown specialty roaster since 2012.</p>
+            <div class="coffee-card__details">
+              <span class="coffee-card__distance">📍 5 min walk</span>
+              <span class="coffee-card__hours">🕐 Mon-Fri 7am-5pm, Sat-Sun 8am-5pm</span>
+              <span class="coffee-card__rating">⭐ 4.6 Yelp</span>
+            </div>
+            <p class="coffee-card__order"><strong>Order:</strong> Vanilla cortado</p>
+            <div class="coffee-card__haley" onclick="cycleHeart('secondstate')">
+              <span class="heart-display">🤍🤍</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="coffee-card" data-coffee="babas">
+          <div class="coffee-card__img" style="background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80')"></div>
+          <div class="coffee-card__body">
+            <h4 class="coffee-card__name">Babas on Wentworth</h4>
+            <p class="coffee-card__vibe">European cafe that becomes a cocktail bar at night. Freshly opened.</p>
+            <div class="coffee-card__details">
+              <span class="coffee-card__distance">📍 4 min walk</span>
+              <span class="coffee-card__hours">🕐 Daily 7am-8pm</span>
+              <span class="coffee-card__rating">⭐ 4.5 Yelp <span class="coffee-card__tiktok">🔥 Growing</span></span>
+            </div>
+            <p class="coffee-card__order"><strong>Order:</strong> Peanut mocha</p>
+            <div class="coffee-card__haley" onclick="cycleHeart('babas')">
+              <span class="heart-display">🤍🤍</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="coffee-card" data-coffee="kudu">
+          <div class="coffee-card__img" style="background-image: url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400&q=80')"></div>
+          <div class="coffee-card__body">
+            <h4 class="coffee-card__name">Kudu Coffee</h4>
+            <p class="coffee-card__vibe">Secret garden courtyard with fountain. The OG Charleston coffee spot.</p>
+            <div class="coffee-card__details">
+              <span class="coffee-card__distance">📍 10 min walk</span>
+              <span class="coffee-card__hours">🕐 Daily 7am-8pm</span>
+              <span class="coffee-card__rating">⭐ 4.6 Yelp <span class="coffee-card__tiktok">🔥 TikTok</span></span>
+            </div>
+            <p class="coffee-card__order"><strong>Order:</strong> Nitro cold brew</p>
+            <div class="coffee-card__haley" onclick="cycleHeart('kudu')">
+              <span class="heart-display">🤍🤍</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="coffee-card" data-coffee="bittybeau">
+          <div class="coffee-card__img" style="background-image: url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=400&q=80')"></div>
+          <div class="coffee-card__body">
+            <h4 class="coffee-card__name">Bitty &amp; Beau&rsquo;s</h4>
+            <p class="coffee-card__vibe">Nationally famous. GMA, CNN, Today Show. #5 on TripAdvisor. Feel-good energy.</p>
+            <div class="coffee-card__details">
+              <span class="coffee-card__distance">📍 3 min walk</span>
+              <span class="coffee-card__hours">🕐 Daily 9am-5pm</span>
+              <span class="coffee-card__rating">⭐ 4.8 Yelp <span class="coffee-card__tiktok">🔥 TikTok</span></span>
+            </div>
+            <p class="coffee-card__order"><strong>Order:</strong> Peanut Butter Java Chip Frappe</p>
+            <div class="coffee-card__haley" onclick="cycleHeart('bittybeau')">
+              <span class="heart-display">🤍🤍</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="coffee-card" data-coffee="thedaily">
+          <div class="coffee-card__img" style="background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&q=80')"></div>
+          <div class="coffee-card__body">
+            <h4 class="coffee-card__name">The Daily</h4>
+            <p class="coffee-card__vibe">THE TikTok coffee spot. 169K posts. Clean aesthetic, gourmet toasts.</p>
+            <div class="coffee-card__details">
+              <span class="coffee-card__distance">📍 12 min walk</span>
+              <span class="coffee-card__hours">🕐 Daily 7am-5pm</span>
+              <span class="coffee-card__rating">⭐ 4.5 Yelp <span class="coffee-card__tiktok">🔥 Viral</span></span>
+            </div>
+            <p class="coffee-card__order"><strong>Order:</strong> Avocado toast + espresso</p>
+            <div class="coffee-card__haley" onclick="cycleHeart('thedaily')">
+              <span class="heart-display">🤍🤍</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <script>
     function toggleDay(entry) {
@@ -1419,6 +1708,45 @@ h1, h2, h3, h4 {
         tbody.appendChild(tr);
       }
     }
+
+    /* ── Coffee Heart Toggle ─────────────────────── */
+    var COFFEE_KEY = 'charlestonTrip2026Coffee';
+
+    function getCoffeePrefs() {
+      try {
+        return JSON.parse(localStorage.getItem(COFFEE_KEY)) || {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function saveCoffeePrefs(prefs) {
+      localStorage.setItem(COFFEE_KEY, JSON.stringify(prefs));
+    }
+
+    function cycleHeart(shopId) {
+      var prefs = getCoffeePrefs();
+      var current = prefs[shopId] || 0;
+      var next = (current + 1) % 3;
+      prefs[shopId] = next;
+      saveCoffeePrefs(prefs);
+      updateCoffeeHearts();
+    }
+
+    function updateCoffeeHearts() {
+      var prefs = getCoffeePrefs();
+      var hearts = ['🤍🤍', '❤️', '❤️❤️'];
+      document.querySelectorAll('.coffee-card').forEach(function(card) {
+        var id = card.dataset.coffee;
+        var level = prefs[id] || 0;
+        var display = card.querySelector('.heart-display');
+        if (display) {
+          display.textContent = hearts[level];
+        }
+      });
+    }
+
+    updateCoffeeHearts();
   </script>
 </body>
 </html>
