@@ -633,6 +633,186 @@ h1, h2, h3, h4 {
   color: #e1306c;
 }
 
+/* ── Master Table ─────────────────────────────── */
+.full-list__heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  text-align: center;
+  margin-top: var(--space-3xl);
+  margin-bottom: var(--space-sm);
+  color: var(--charcoal);
+}
+
+.full-list__subline {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--charcoal);
+  opacity: 0.5;
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: 12px;
+}
+
+.filter-bar__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.filter-pill {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.35em 0.9em;
+  border: 1px solid var(--gray-light);
+  border-radius: 100px;
+  background: transparent;
+  color: var(--charcoal);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-pill:hover {
+  border-color: var(--charleston-accent);
+  color: var(--charleston-accent);
+}
+
+.filter-pill--active {
+  background: var(--charleston-accent);
+  border-color: var(--charleston-accent);
+  color: var(--white);
+}
+
+.filter-bar__toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--charcoal);
+  cursor: pointer;
+  margin-left: auto;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.filter-bar__toggle input[type="checkbox"] {
+  accent-color: var(--charleston-accent);
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.filter-bar__search {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  padding: 0.4em 0.8em;
+  border: 1px solid var(--gray-light);
+  border-radius: 8px;
+  background: var(--cream);
+  color: var(--charcoal);
+  width: 180px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.filter-bar__search:focus {
+  border-color: var(--charleston-accent);
+}
+
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 12px;
+  border: 1px solid var(--gray-light);
+}
+
+.master-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.master-table thead th {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.9em 1em;
+  background: var(--gray-warm);
+  color: var(--charcoal);
+  text-align: left;
+  border-bottom: 1px solid var(--gray-light);
+  white-space: nowrap;
+}
+
+.master-table tbody tr {
+  transition: background 0.15s ease;
+}
+
+.master-table tbody tr:nth-child(even) {
+  background: var(--cream);
+}
+
+.master-table tbody tr:nth-child(odd) {
+  background: var(--white);
+}
+
+.master-table tbody tr:hover {
+  background: #f0ebe4;
+}
+
+.master-table td {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  padding: 0.75em 1em;
+  border-bottom: 1px solid var(--gray-light);
+  color: var(--charcoal);
+  vertical-align: middle;
+}
+
+.master-table td:first-child {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.master-table .table-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.master-table .table-badge {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.15em 0.5em;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.master-table .no-results {
+  text-align: center;
+  padding: var(--space-xl);
+  color: var(--charcoal);
+  opacity: 0.5;
+  font-style: italic;
+}
+
 /* ── Responsive ───────────────────────────────── */
 @media (max-width: 768px) {
   .timeline {
@@ -1034,6 +1214,90 @@ h1, h2, h3, h4 {
       </div>
 
     </div>
+
+    <!-- Full Restaurant Master Table -->
+    <h3 class="full-list__heading">The Full List</h3>
+    <p class="full-list__subline">Every restaurant on the radar</p>
+
+    <div class="filter-bar">
+      <div class="filter-bar__pills" id="mealFilters">
+        <button class="filter-pill filter-pill--active" data-meal="All" onclick="setMealFilter(this)">All</button>
+        <button class="filter-pill" data-meal="Breakfast" onclick="setMealFilter(this)">Breakfast</button>
+        <button class="filter-pill" data-meal="Brunch" onclick="setMealFilter(this)">Brunch</button>
+        <button class="filter-pill" data-meal="Lunch" onclick="setMealFilter(this)">Lunch</button>
+        <button class="filter-pill" data-meal="Dinner" onclick="setMealFilter(this)">Dinner</button>
+        <button class="filter-pill" data-meal="Dessert" onclick="setMealFilter(this)">Dessert</button>
+      </div>
+      <label class="filter-bar__toggle">
+        <input type="checkbox" id="kidFriendlyToggle" onchange="filterTable()">
+        Kid-Friendly Only
+      </label>
+      <input type="text" class="filter-bar__search" id="tableSearch" placeholder="Search restaurants..." oninput="filterTable()">
+    </div>
+
+    <div class="table-wrap">
+      <table class="master-table" id="masterTable">
+        <thead>
+          <tr>
+            <th>Restaurant</th>
+            <th>Best For</th>
+            <th>Vibe</th>
+            <th>Kids</th>
+            <th>Reservations</th>
+            <th>Booking</th>
+            <th>Buzz</th>
+          </tr>
+        </thead>
+        <tbody id="masterTableBody">
+          <tr data-meals="Dinner" data-kids="No"><td>Wild Common</td><td>Dinner</td><td>Tasting menu, $95pp, inventive</td><td>No</td><td>Required</td><td>Resy</td><td><div class="table-badges"><span class="table-badge resto-badge--michelin">Michelin Star</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="No"><td>Vern&rsquo;s</td><td>Dinner</td><td>Intimate candlelit, Lowcountry meets global</td><td>No</td><td>Required</td><td>Resy</td><td><div class="table-badges"><span class="table-badge resto-badge--michelin">Michelin Star</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Older"><td>Malag&oacute;n Mercado y Taperia</td><td>Dinner</td><td>Spanish market + taperia, small &amp; large plates</td><td>Older</td><td>Recommended</td><td>Resy</td><td><div class="table-badges"><span class="table-badge resto-badge--michelin">Michelin Star</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes"><td>Rodney Scott&rsquo;s BBQ</td><td>Lunch, Dinner</td><td>Whole-hog legend, counter service</td><td>Yes</td><td>Walk-in</td><td>&mdash;</td><td><div class="table-badges"><span class="table-badge resto-badge--bib">Bib Gourmand</span><span class="table-badge resto-badge--beard">James Beard</span><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes"><td>Lewis Barbecue</td><td>Lunch, Dinner</td><td>Texas-style BBQ, brisket king</td><td>Yes</td><td>Walk-in</td><td>&mdash;</td><td><div class="table-badges"><span class="table-badge resto-badge--bib">Bib Gourmand</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes"><td>Leon&rsquo;s Oyster Shop</td><td>Lunch, Dinner</td><td>Fried chicken + oysters, retro auto shop</td><td>Yes</td><td>Walk-in</td><td>&mdash;</td><td><div class="table-badges"><span class="table-badge resto-badge--bib">Bib Gourmand</span><span class="table-badge resto-badge--tiktok">TikTok</span><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="No"><td>Chubby Fish</td><td>Dinner</td><td>Daily-catch seafood, caviar sliders, no resos</td><td>No</td><td>None</td><td>Walk-in line at 5pm</td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span><span class="table-badge resto-badge--nyt">NYT Top 50</span><span class="table-badge resto-badge--beard">James Beard</span><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Older"><td>FIG</td><td>Dinner</td><td>20+ year flagship, seasonal American</td><td>Older</td><td>Required</td><td>Resy</td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Older"><td>Husk</td><td>Lunch, Dinner</td><td>Sean Brock landmark, Southern ingredients</td><td>Older</td><td>Recommended</td><td>Resy</td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Older"><td>Sorelle</td><td>Dinner</td><td>Italian, &ldquo;Pillows of Gold&rdquo; tortelloni</td><td>Older</td><td>Recommended</td><td>Resy</td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="No"><td>Lowland</td><td>Dinner</td><td>James Beard chef, contemporary</td><td>No</td><td>Required</td><td>Resy</td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes"><td>Xiao Bao Biscuit</td><td>Lunch, Dinner</td><td>Creative Asian fusion, casual beloved</td><td>Yes</td><td>Walk-in</td><td>&mdash;</td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="No"><td>The Establishment</td><td>Dinner</td><td>Contemporary American</td><td>No</td><td>Recommended</td><td>Resy</td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes"><td>The Obstinate Daughter</td><td>Lunch, Dinner</td><td>Italian-American, Sullivan&rsquo;s Island beach</td><td>Yes</td><td>Recommended</td><td>Resy</td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="No"><td>Zero George Restaurant</td><td>Dinner</td><td>Hotel restaurant, contemporary</td><td>No</td><td>Required</td><td>Resy</td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="No"><td>Merci</td><td>Dinner</td><td>26 seats, European, beef Wellington for two</td><td>No</td><td>Required</td><td>Resy</td><td><div class="table-badges"><span class="table-badge resto-badge--beard">James Beard</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes"><td>Renzo</td><td>Lunch, Dinner</td><td>Italian-leaning, &ldquo;Kevin McCallister Pizza&rdquo;</td><td>Yes</td><td>Recommended</td><td>Resy</td><td><div class="table-badges"><span class="table-badge resto-badge--beard">James Beard</span><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Older"><td>Palmira</td><td>Dinner</td><td>Beef cheeks, emerging chef</td><td>Older</td><td>Recommended</td><td>Resy</td><td><div class="table-badges"><span class="table-badge resto-badge--beard">James Beard</span><span class="table-badge resto-badge--nyt">NYT</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Older"><td>Bintu Atelier</td><td>Dinner</td><td>Senegalese-inspired, Gullah influences</td><td>Older</td><td>Required</td><td>Resy</td><td><div class="table-badges"><span class="table-badge resto-badge--beard">James Beard</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes"><td>Fleet Landing</td><td>Lunch, Dinner</td><td>Waterfront raw bar, harbor views</td><td>Yes</td><td>Recommended</td><td>OpenTable</td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes"><td>Juanitas</td><td>Lunch, Dinner</td><td>Mexican, vibrant</td><td>Yes</td><td>Walk-in</td><td>&mdash;</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes"><td>Hometeam BBQ</td><td>Lunch, Dinner</td><td>BBQ on the water, gameday brisket</td><td>Yes</td><td>Walk-in</td><td>&mdash;</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Older"><td>Le Farfalle</td><td>Dinner</td><td>Italian, handmade pasta</td><td>Older</td><td>Required</td><td>Resy</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes"><td>Rancho Lewis</td><td>Lunch, Dinner</td><td>Tex-Mex meets Lowcountry</td><td>Yes</td><td>Walk-in</td><td>&mdash;</td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Older"><td>The Matador</td><td>Dinner</td><td>Tequila bar + Mexican</td><td>Older</td><td>Recommended</td><td>OpenTable</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Lunch" data-kids="Yes"><td>Goat Sheep Cow</td><td>Lunch</td><td>Cheese + charcuterie shop</td><td>Yes</td><td>Walk-in</td><td>&mdash;</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Older"><td>Church and Union</td><td>Dinner</td><td>Upscale American, King Street</td><td>Older</td><td>Recommended</td><td>OpenTable</td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="No"><td>The Peacock</td><td>Dinner</td><td>Cocktails + small plates</td><td>No</td><td>Recommended</td><td>Resy</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Older"><td>Darling Oyster Bar</td><td>Dinner</td><td>Gorgeous seafood, Upper King</td><td>Older</td><td>Recommended</td><td>Resy</td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Brunch,Lunch" data-kids="Yes"><td>Babas</td><td>Brunch, Lunch</td><td>European all-day cafe</td><td>Yes</td><td>Walk-in</td><td>&mdash;</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Brunch,Dinner" data-kids="Yes"><td>Poogan&rsquo;s Porch</td><td>Brunch, Dinner</td><td>Classic Southern since 1976</td><td>Yes</td><td>Recommended</td><td>OpenTable</td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Breakfast" data-kids="Yes"><td>Callie&rsquo;s Hot Little Biscuit</td><td>Breakfast</td><td>The biscuit that launched a thousand TikToks</td><td>Yes</td><td>Walk-in</td><td>&mdash;</td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Breakfast,Brunch" data-kids="Yes"><td>Millers All Day</td><td>Breakfast, Brunch</td><td>All-day breakfast, cozy</td><td>Yes</td><td>Walk-in</td><td>&mdash;</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes"><td>Sullivan&rsquo;s Fish Camp</td><td>Lunch, Dinner</td><td>Elevated fish camp, Sullivan&rsquo;s Island</td><td>Yes</td><td>Recommended</td><td>Resy</td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
+          <tr data-meals="Dessert" data-kids="Yes"><td>Sugar Bakeshop</td><td>Dessert</td><td>20-year cupcake institution</td><td>Yes</td><td>Walk-in</td><td>&mdash;</td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
+          <tr data-meals="Dessert" data-kids="Yes"><td>Peace Pie</td><td>Dessert</td><td>Handmade pies</td><td>Yes</td><td>Walk-in</td><td>&mdash;</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Dessert" data-kids="Yes"><td>Jeni&rsquo;s</td><td>Dessert</td><td>Ice cream chain, great flavors</td><td>Yes</td><td>Walk-in</td><td>&mdash;</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Dessert" data-kids="Yes"><td>Carmella&rsquo;s</td><td>Dessert</td><td>Dessert bar + cafe</td><td>Yes</td><td>Walk-in</td><td>&mdash;</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Lunch" data-kids="Yes"><td>Hannibal&rsquo;s Kitchen</td><td>Lunch</td><td>Soul food legend, crab rice</td><td>Yes</td><td>Walk-in</td><td>&mdash;</td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes"><td>Jack of Cups</td><td>Lunch, Dinner</td><td>Red curry mac and cheese fusion</td><td>Yes</td><td>Walk-in</td><td>&mdash;</td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes"><td>Tutti Pizza</td><td>Lunch, Dinner</td><td>Casual square pizza, neighborhood</td><td>Yes</td><td>Walk-in</td><td>&mdash;</td><td><div class="table-badges"></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes"><td>Kultura</td><td>Lunch, Dinner</td><td>Filipino, one of few in Lowcountry</td><td>Yes</td><td>Walk-in</td><td>&mdash;</td><td><div class="table-badges"></div></td></tr>
+          <tr data-meals="Breakfast" data-kids="Yes"><td>Grit Bakery</td><td>Breakfast</td><td>Croissants, blue corn sourdough</td><td>Yes</td><td>Walk-in</td><td>&mdash;</td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Yes"><td>Cane Pazzo</td><td>Dinner</td><td>Italian family-style, &ldquo;mad dog&rdquo;</td><td>Yes</td><td>Recommended</td><td>OpenTable</td><td><div class="table-badges"></div></td></tr>
+          <tr data-meals="Breakfast,Brunch" data-kids="Yes"><td>The Daily</td><td>Breakfast, Brunch</td><td>TikTok darling, avocado toast + espresso</td><td>Yes</td><td>Walk-in</td><td>&mdash;</td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+
   </section>
 
   <!-- more sections will be added later -->
@@ -1099,6 +1363,62 @@ h1, h2, h3, h4 {
     }
 
     updateVoteDisplay();
+
+    /* ── Master Table Filtering ──────────────────── */
+    var activeMealFilter = 'All';
+
+    function setMealFilter(btn) {
+      var meal = btn.dataset.meal;
+      // Toggle: if clicking the active filter, reset to All
+      if (meal === activeMealFilter && meal !== 'All') {
+        activeMealFilter = 'All';
+      } else {
+        activeMealFilter = meal;
+      }
+      // Update pill styles
+      document.querySelectorAll('#mealFilters .filter-pill').forEach(function(p) {
+        p.classList.remove('filter-pill--active');
+        if (p.dataset.meal === activeMealFilter) {
+          p.classList.add('filter-pill--active');
+        }
+      });
+      filterTable();
+    }
+
+    function filterTable() {
+      var kidFilter = document.getElementById('kidFriendlyToggle').checked;
+      var searchTerm = document.getElementById('tableSearch').value.toLowerCase();
+      var rows = document.querySelectorAll('#masterTableBody tr');
+      var visibleCount = 0;
+
+      rows.forEach(function(row) {
+        var meals = row.dataset.meals || '';
+        var kids = row.dataset.kids || '';
+        var name = row.querySelector('td').textContent.toLowerCase();
+
+        var mealMatch = activeMealFilter === 'All' || meals.indexOf(activeMealFilter) > -1;
+        var kidMatch = !kidFilter || kids === 'Yes';
+        var searchMatch = !searchTerm || name.indexOf(searchTerm) > -1;
+
+        if (mealMatch && kidMatch && searchMatch) {
+          row.style.display = '';
+          visibleCount++;
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      // Show/hide no-results row
+      var existingNoResults = document.getElementById('noResultsRow');
+      if (existingNoResults) existingNoResults.remove();
+      if (visibleCount === 0) {
+        var tbody = document.getElementById('masterTableBody');
+        var tr = document.createElement('tr');
+        tr.id = 'noResultsRow';
+        tr.innerHTML = '<td colspan="7" class="no-results">No restaurants match your filters</td>';
+        tbody.appendChild(tr);
+      }
+    }
   </script>
 </body>
 </html>
