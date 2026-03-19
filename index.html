@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Summer 2026: Family Trip Comparison</title>
+<title>Charleston — June 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -21,6 +21,7 @@
   /* Destination accents */
   --charleston-accent: #1a7a8a;
   --keys-accent: #c4654a;
+  --accent-gold: #d4a039;
 
   /* Typography */
   --font-display: 'Cormorant Garamond', serif;
@@ -113,7 +114,8 @@ h1, h2, h3, h4 {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80') center/cover no-repeat;
+  background: url('https://images.unsplash.com/photo-1569597384533-acc7bbb85867?w=1600&q=80') center / cover no-repeat;
+  overflow: hidden;
 }
 
 .hero::before {
@@ -126,122 +128,130 @@ h1, h2, h3, h4 {
 .hero__content {
   position: relative;
   z-index: 1;
-  padding: var(--space-lg);
+  animation: fadeUp 1s ease-out both;
 }
 
 .hero__title {
   font-family: var(--font-display);
+  font-size: clamp(3.5rem, 10vw, 8rem);
   font-weight: 700;
-  font-size: clamp(2.8rem, 8vw, 6rem);
   color: var(--white);
-  animation: fadeUp 0.8s ease both;
-}
-
-.hero__subline {
-  font-family: var(--font-body);
-  font-size: clamp(1rem, 2.5vw, 1.35rem);
-  color: rgba(255, 255, 255, 0.85);
-  margin-top: var(--space-md);
-  animation: fadeUp 0.8s ease both;
-  animation-delay: 0.15s;
-}
-
-.hero__pills {
-  display: flex;
-  gap: var(--space-md);
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: var(--space-xl);
-  animation: fadeUp 0.8s ease both;
-  animation-delay: 0.3s;
-}
-
-.hero__pill {
-  display: inline-block;
-  padding: 0.75rem 2rem;
-  border: 2px solid var(--white);
-  border-radius: 50px;
-  color: var(--white);
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: 1rem;
   letter-spacing: 0.02em;
-  background: transparent;
-  transition: background 0.3s ease, color 0.3s ease;
-  opacity: 1;
+  line-height: 1;
 }
 
-.hero__pill:hover {
-  background: var(--white);
-  color: var(--charcoal);
-  opacity: 1;
-}
-
-/* ── Charleston Section ──────────────────────── */
-.chs-opener {
-  position: relative;
-  min-height: 400px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.chs-opener__img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.chs-opener::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0.05) 100%);
-}
-
-.chs-opener__text {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  padding: var(--space-2xl) var(--space-lg);
-}
-
-.chs-opener__title {
+.hero__date {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(2.2rem, 6vw, 4rem);
-  color: var(--white);
-}
-
-.chs-opener__tagline {
-  font-family: var(--font-body);
-  font-size: clamp(0.95rem, 2vw, 1.15rem);
-  color: rgba(255,255,255,0.85);
+  font-size: clamp(1.25rem, 3vw, 2rem);
   font-weight: 400;
+  color: var(--white);
   margin-top: var(--space-sm);
+  letter-spacing: 0.05em;
 }
 
-.chs-pitch {
-  max-width: var(--max-content);
-  margin-inline: auto;
-  padding: var(--space-3xl) var(--space-lg);
-  text-align: center;
+.hero__tagline {
+  font-family: var(--font-body);
+  font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: var(--space-lg);
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
 }
 
-.chs-pitch p {
-  font-size: 1.15rem;
-  line-height: 1.8;
-  color: var(--charcoal);
-}
-
-/* Stay cards */
-.chs-stays {
+/* ── Section Shared ───────────────────────────── */
+.section {
   max-width: var(--max-section);
   margin-inline: auto;
-  padding: 0 var(--space-lg) var(--space-3xl);
+  padding: var(--space-3xl) var(--space-lg);
+}
+
+.section__heading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+  color: var(--charcoal);
+}
+
+/* ── Timeline ─────────────────────────────────── */
+.timeline {
+  display: flex;
+  gap: var(--space-md);
+  align-items: stretch;
+  margin-bottom: var(--space-xl);
+}
+
+.timeline__block {
+  flex: 1;
+  border-radius: 12px;
+  padding: var(--space-lg) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.timeline__block--family {
+  background: var(--charleston-accent);
+  color: var(--white);
+  flex: 5;
+}
+
+.timeline__block--couple {
+  background: var(--accent-gold);
+  color: var(--white);
+  flex: 2;
+}
+
+.timeline__dates {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.85;
+}
+
+.timeline__label {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.timeline__sub {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  opacity: 0.85;
+  margin-top: var(--space-xs);
+}
+
+.timeline__badge {
+  display: inline-block;
+  margin-top: var(--space-sm);
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.25em 0.75em;
+  border-radius: 100px;
+  width: fit-content;
+}
+
+.timeline__note {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--charcoal);
+  opacity: 0.6;
+  text-align: center;
+  max-width: 600px;
+  margin-inline: auto;
+  line-height: 1.6;
+}
+
+/* ── Stay Cards ───────────────────────────────── */
+.stays__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-lg);
@@ -249,1261 +259,161 @@ h1, h2, h3, h4 {
 
 .stay-card {
   border: 1px solid var(--gray-light);
-  border-radius: 6px;
-  padding: var(--space-xl);
+  border-radius: 12px;
+  padding: var(--space-xl) var(--space-lg);
   background: var(--white);
 }
 
 .stay-card__label {
   font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 700;
+  font-size: 0.75rem;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--charleston-accent);
+  letter-spacing: 0.08em;
   margin-bottom: var(--space-sm);
 }
 
-.stay-card__heading {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.6rem;
-  line-height: 1.25;
-  margin-bottom: var(--space-md);
+.stay-card__label--teal {
+  color: var(--charleston-accent);
 }
 
-.stay-card__desc {
-  font-size: 0.95rem;
+.stay-card__label--gold {
+  color: var(--accent-gold);
+}
+
+.stay-card__title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  color: var(--charcoal);
+}
+
+.stay-card__text {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--charcoal);
+  opacity: 0.75;
   line-height: 1.7;
-  color: #5a5347;
 }
 
-@media (max-width: 768px) {
-  .chs-stays {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Day-by-day timeline */
-.chs-timeline {
-  max-width: var(--max-content);
-  margin-inline: auto;
-  padding: 0 var(--space-lg) var(--space-3xl);
-}
-
-.chs-section-heading {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
-  text-align: center;
-  margin-bottom: var(--space-xl);
-}
-
-.day-entry {
-  border-top: 1px solid var(--gray-light);
-}
-
-.day-entry:last-child {
-  border-bottom: 1px solid var(--gray-light);
-}
-
-.day-header {
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
-  padding: var(--space-md) 0;
-  cursor: pointer;
-  user-select: none;
-}
-
-.day-header__number {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.3rem;
-  color: var(--charleston-accent);
-  white-space: nowrap;
-}
-
-.day-header__title {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 1rem;
-  flex: 1;
-}
-
-.day-header__toggle {
-  font-family: var(--font-body);
-  font-size: 1.1rem;
-  color: #aaa;
-  flex-shrink: 0;
-  width: 1.2em;
-  text-align: center;
-  line-height: 1;
-}
-
-.day-detail {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease;
-}
-
-.day-detail__inner {
-  padding: 0 0 var(--space-lg) 0;
-  font-size: 0.95rem;
-  line-height: 1.75;
-  color: #5a5347;
-}
-
-.day-entry.open .day-detail {
-  max-height: 300px;
-}
-
-/* Dining section */
-.chs-dining {
-  max-width: var(--max-section);
-  margin-inline: auto;
-  padding: 0 var(--space-lg) var(--space-3xl);
-}
-
-.chs-dining__subline {
-  text-align: center;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  color: #8a8178;
-  margin-top: calc(-1 * var(--space-md));
-  margin-bottom: var(--space-xl);
-}
-
-.dining-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-xl);
-}
-
-@media (max-width: 768px) {
-  .dining-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.dining-col__heading {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.4rem;
-  padding-bottom: var(--space-sm);
-  border-bottom: 2px dashed var(--charleston-accent);
-  margin-bottom: var(--space-md);
-}
-
-.dining-item {
-  padding: var(--space-md) 0;
-  border-bottom: 1px solid var(--gray-light);
-}
-
-.dining-item:last-child {
-  border-bottom: none;
-}
-
-.dining-item__top {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  margin-bottom: 0.2rem;
-}
-
-.dining-item__name {
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 0.95rem;
-}
-
-.dining-tag {
+.stay-card__badge {
   display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  border-radius: 4px;
-  padding: 0.15rem 0.5rem;
-  line-height: 1.4;
-}
-
-.dining-tag--star {
-  background: #d4a039;
-  color: var(--white);
-}
-
-.dining-tag--listed {
-  background: var(--charleston-accent);
-  color: var(--white);
-}
-
-.dining-tag--family {
-  background: #4a8c5c;
-  color: var(--white);
-}
-
-.dining-item__desc {
-  font-size: 0.85rem;
-  color: #8a8178;
-  line-height: 1.5;
-}
-
-/* ── Keys Accent Overrides ───────────────────── */
-.stay-card--keys .stay-card__label {
-  color: var(--keys-accent);
-}
-
-.day-entry--keys .day-header__number {
-  color: var(--keys-accent);
-}
-
-.dining-col__heading--keys {
-  border-bottom-color: var(--keys-accent);
-}
-
-.dining-tag--bib {
-  background: var(--keys-accent);
-  color: var(--white);
-}
-
-/* ── Comparison Section ────────────────────────── */
-.comparison {
-  background: var(--gray-warm);
-  padding: var(--space-3xl) 0;
-}
-
-.comparison h2 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(2rem, 5vw, 3rem);
-  text-align: center;
-  margin-bottom: var(--space-xl);
-}
-
-.comparison__grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-xl);
-}
-
-@media (max-width: 768px) {
-  .comparison__grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.comparison__col h3 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.5rem;
-  margin-bottom: var(--space-md);
-}
-
-.comparison__col--charleston h3 {
-  color: var(--charleston-accent);
-}
-
-.comparison__col--keys h3 {
-  color: var(--keys-accent);
-}
-
-.comparison__item {
-  display: flex;
-  gap: var(--space-sm);
-  padding: var(--space-md) 0;
-  border-bottom: 1px solid var(--gray-light);
-  font-size: 0.95rem;
-  line-height: 1.65;
-}
-
-.comparison__item:first-of-type {
-  border-top: 1px solid var(--gray-light);
-}
-
-.comparison__prefix {
-  font-weight: 700;
-  flex-shrink: 0;
-  line-height: 1.65;
-}
-
-.comparison__col--charleston .comparison__item--pro .comparison__prefix {
-  color: var(--charleston-accent);
-}
-
-.comparison__col--keys .comparison__item--pro .comparison__prefix {
-  color: var(--keys-accent);
-}
-
-.comparison__item--con .comparison__prefix {
-  color: #9a948b;
-}
-
-.comparison__bottom-line {
-  max-width: var(--max-content);
-  margin-inline: auto;
-  margin-top: var(--space-xl);
-  text-align: center;
-}
-
-.comparison__bottom-line p {
-  font-size: 1.1rem;
-  line-height: 1.75;
-  color: var(--charcoal);
-  font-style: italic;
-}
-
-/* ── Scorecard Section ───────────────────────── */
-.scorecard {
-  background: var(--gray-warm);
-  padding: 0 0 var(--space-3xl) 0;
-}
-
-.scorecard h2 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(2rem, 5vw, 3rem);
-  text-align: center;
-  margin-bottom: var(--space-xl);
-  padding-top: var(--space-3xl);
-}
-
-.scorecard__voter {
-  text-align: center;
-  margin-bottom: var(--space-xl);
-}
-
-.scorecard__voter select {
+  margin-top: var(--space-md);
   font-family: var(--font-body);
-  font-size: 1rem;
-  padding: 0.6rem 1.2rem;
-  border: 1px solid var(--gray-light);
-  border-radius: 8px;
-  background: var(--white);
-  color: var(--charcoal);
-  cursor: pointer;
-  appearance: auto;
-}
-
-.scorecard__grid {
-  max-width: var(--max-section);
-  margin-inline: auto;
-  padding: 0 var(--space-lg);
-}
-
-.scorecard__row {
-  display: flex;
-  align-items: center;
-  gap: var(--space-lg);
-  padding: var(--space-md) 0;
-  border-bottom: 1px solid var(--gray-light);
-}
-
-.scorecard__row:first-child {
-  border-top: 1px solid var(--gray-light);
-}
-
-.scorecard__category {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 0.95rem;
-  min-width: 180px;
-  flex-shrink: 0;
-}
-
-.scorecard__trip {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-}
-
-.scorecard__trip-label {
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 700;
+  font-size: 0.6875rem;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  min-width: 90px;
-}
-
-.scorecard__trip-label--charleston {
   color: var(--charleston-accent);
+  border: 1px solid var(--charleston-accent);
+  padding: 0.3em 0.8em;
+  border-radius: 100px;
 }
 
-.scorecard__trip-label--keys {
-  color: var(--keys-accent);
-}
-
-.scorecard__circles {
+.stay-card__options {
+  list-style: none;
   display: flex;
-  gap: 6px;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-top: var(--space-sm);
 }
 
-.scorecard__circle {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  border: 2px solid var(--charleston-accent);
-  background: transparent;
-  cursor: pointer;
-  transition: background 0.15s ease;
-  display: inline-block;
-}
-
-.scorecard__circle:hover {
-  opacity: 0.7;
-}
-
-.scorecard__circle--filled {
-  background: var(--charleston-accent);
-}
-
-.scorecard__circle--keys {
-  border-color: var(--keys-accent);
-}
-
-.scorecard__circle--keys.scorecard__circle--filled {
-  background: var(--keys-accent);
-}
-
-.scorecard__submit {
-  text-align: center;
-  margin-top: var(--space-xl);
-}
-
-.scorecard__submit button {
+.stay-card__option-name {
   font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 1rem;
-  padding: 0.75rem 2.5rem;
-  border: 2px solid var(--charcoal);
-  border-radius: 8px;
-  background: transparent;
+  font-size: 0.9375rem;
+  font-weight: 500;
   color: var(--charcoal);
-  cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+  margin-bottom: 0.15em;
 }
 
-.scorecard__submit button:hover {
-  background: var(--charcoal);
-  color: var(--white);
-}
-
-/* Results */
-.scorecard__results {
-  max-width: var(--max-content);
-  margin-inline: auto;
-  margin-top: var(--space-2xl);
-  padding: 0 var(--space-lg);
-}
-
-.scorecard__results h3 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.6rem;
-  text-align: center;
-  margin-bottom: var(--space-lg);
-}
-
-.scorecard__results-table {
-  width: 100%;
-  border-collapse: collapse;
+.stay-card__option-desc {
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 0.875rem;
+  color: var(--charcoal);
+  opacity: 0.6;
+  line-height: 1.6;
 }
 
-.scorecard__results-table th {
-  text-align: left;
-  padding: var(--space-sm) var(--space-md);
-  border-bottom: 2px solid var(--gray-light);
-  font-weight: 600;
-}
-
-.scorecard__results-table th:nth-child(2) {
-  color: var(--charleston-accent);
-}
-
-.scorecard__results-table th:nth-child(3) {
-  color: var(--keys-accent);
-}
-
-.scorecard__results-table td {
-  padding: var(--space-sm) var(--space-md);
-  border-bottom: 1px solid var(--gray-light);
-}
-
-.scorecard__results-table tr.scorecard__total-row td {
-  font-weight: 700;
-  border-top: 2px solid var(--gray-light);
-}
-
-.scorecard__voter-breakdown {
-  margin-top: var(--space-lg);
-  font-size: 0.85rem;
-  color: #8a8178;
-  text-align: center;
-  line-height: 1.8;
-}
-
-.scorecard__no-results {
-  text-align: center;
-  color: #8a8178;
-  font-size: 0.95rem;
-  font-style: italic;
-}
-
+/* ── Responsive ───────────────────────────────── */
 @media (max-width: 768px) {
-  .scorecard__row {
+  .timeline {
     flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-sm);
   }
 
-  .scorecard__category {
-    min-width: auto;
+  .timeline__block--family,
+  .timeline__block--couple {
+    flex: none;
   }
 
-  .scorecard__trip {
-    padding-left: var(--space-sm);
+  .stays__grid {
+    grid-template-columns: 1fr;
   }
-
-  .scorecard__circles {
-    gap: 2px;
-  }
-
-  .scorecard__circle {
-    width: 44px;
-    height: 44px;
-  }
-}
-
-/* ── Scroll Reveal ──────────────────────────────── */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ── Footer ─────────────────────────────────────── */
-.site-footer {
-  text-align: center;
-  padding: var(--space-xl);
-  font-size: 0.85rem;
-  color: #9a948b;
-  background: var(--cream);
 }
 </style>
 </head>
 <body>
 
-<section class="hero">
-  <div class="hero__content">
-    <h1 class="hero__title">Summer 2026</h1>
-    <p class="hero__subline">Two trips. One family. You decide.</p>
-    <div class="hero__pills">
-      <a href="#charleston" class="hero__pill">Charleston + Kiawah</a>
-      <a href="#keys" class="hero__pill">Keys + Everglades</a>
+  <section class="hero">
+    <div class="hero__content">
+      <h1 class="hero__title">Charleston</h1>
+      <p class="hero__date">June 2026</p>
+      <p class="hero__tagline">The plan. The food. The coffee.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ── Charleston + Kiawah Section ─────────────── -->
-<section id="charleston">
-
-  <!-- Photo Opener -->
-  <div class="chs-opener">
-    <img class="chs-opener__img" src="https://images.unsplash.com/photo-1569597384533-acc7bbb85867?w=1600&q=80" alt="Charleston waterfront">
-    <div class="chs-opener__text">
-      <h2 class="chs-opener__title">Charleston + Kiawah Island</h2>
-      <p class="chs-opener__tagline">Michelin stars, dolphin charters, and resort life done right.</p>
-    </div>
-  </div>
-
-  <!-- Pitch -->
-  <div class="chs-pitch reveal">
-    <p>The best blend of a true resort stay, easy family logistics, and now, real Michelin credibility. Charleston's Michelin selection shows 15 restaurants, including 3 one-stars and 3 Bib Gourmands. Kiawah gives you a genuine resort setup with villas, kids' pools, dolphin trips, and guided family kayaking.</p>
-  </div>
-
-  <!-- Stay Plan Cards -->
-  <div class="chs-stays reveal">
-    <div class="stay-card">
-      <div class="stay-card__label">Nights 1–3</div>
-      <h3 class="stay-card__heading">The Charleston Place</h3>
-      <p class="stay-card__desc">The polished city-base move. Downtown Charleston, walkable to everything, two-bedroom suite options for the crew. This is where you feel fancy without trying.</p>
-    </div>
-    <div class="stay-card">
-      <div class="stay-card__label">Nights 4–7</div>
-      <h3 class="stay-card__heading">Kiawah Island Resort Villa</h3>
-      <p class="stay-card__desc">Switch to full resort mode. A 3+ bedroom villa with resort access means pools, beach, and space to spread out. The Sanctuary is the prestige move, but a villa is smarter for seven people.</p>
-    </div>
-  </div>
-
-  <!-- Day-by-Day Timeline -->
-  <div class="chs-timeline reveal">
-    <h3 class="chs-section-heading">Day by Day</h3>
-
-    <div class="day-entry">
-      <div class="day-header" onclick="toggleDay(this)">
-        <span class="day-header__number">Day 1</span>
-        <span class="day-header__title">Arrive & Settle Into Charleston</span>
-        <span class="day-header__toggle">+</span>
+  <section class="plan section">
+    <h2 class="section__heading">The Plan</h2>
+    <div class="timeline">
+      <div class="timeline__block timeline__block--family">
+        <span class="timeline__dates">Mon June 8 &ndash; Sat June 13</span>
+        <span class="timeline__label">Family Trip</span>
+        <span class="timeline__sub">Mill House Hotel</span>
+        <span class="timeline__badge">Hilton Points</span>
       </div>
-      <div class="day-detail">
-        <div class="day-detail__inner">Arrive in Charleston, check into The Charleston Place, keep the first night easy. Dinner at Sorelle — Michelin-listed, stylish, and a good "everyone feels like this trip is fancy" opener.</div>
+      <div class="timeline__block timeline__block--couple">
+        <span class="timeline__dates">Sat June 13 &ndash; Mon June 15</span>
+        <span class="timeline__label">Couples Weekend</span>
+        <span class="timeline__sub">Hotel TBD</span>
       </div>
     </div>
+    <p class="timeline__note">The couples weekend can shift to before the family trip (June 6&ndash;8) if dates work better.</p>
+  </section>
 
-    <div class="day-entry">
-      <div class="day-header" onclick="toggleDay(this)">
-        <span class="day-header__number">Day 2</span>
-        <span class="day-header__title">The Big Food & City Day</span>
-        <span class="day-header__toggle">+</span>
+  <section class="stays section">
+    <h2 class="section__heading">Where We're Staying</h2>
+    <div class="stays__grid">
+      <div class="stay-card">
+        <p class="stay-card__label stay-card__label--teal">Family Trip &mdash; June 8&ndash;13</p>
+        <h3 class="stay-card__title">Mill House Hotel</h3>
+        <p class="stay-card__text">Downtown Charleston on Hilton Points. Walking distance to everything &mdash; restaurants, waterfront, historic district. The home base for the whole crew.</p>
+        <span class="stay-card__badge">Hilton Redemption</span>
       </div>
-      <div class="day-detail">
-        <div class="day-detail__inner">Your main food-and-city day. For lunch or an easier meal with kids: Leon's Oyster Shop, Lewis Barbecue, or Rodney Scott's BBQ. For the more adult-forward dinner: book Wild Common, Vern's, or Malagón Mercado y Taperia — all Michelin one-star picks. Explore the historic district, Rainbow Row, and the waterfront in between meals.</div>
-      </div>
-    </div>
-
-    <div class="day-entry">
-      <div class="day-header" onclick="toggleDay(this)">
-        <span class="day-header__number">Day 3</span>
-        <span class="day-header__title">Bulls Island Wildlife Adventure</span>
-        <span class="day-header__toggle">+</span>
-      </div>
-      <div class="day-detail">
-        <div class="day-detail__inner">Animal and boating day from Charleston with the Bulls Island ferry. The naturalist-led trip includes dolphins, sea turtles, and birdlife on the ride over — a real wildlife note before switching into resort mode. Jax and Rey will love this one.</div>
-      </div>
-    </div>
-
-    <div class="day-entry">
-      <div class="day-header" onclick="toggleDay(this)">
-        <span class="day-header__number">Day 4</span>
-        <span class="day-header__title">Transfer to Kiawah — Pool Day</span>
-        <span class="day-header__toggle">+</span>
-      </div>
-      <div class="day-detail">
-        <div class="day-detail__inner">Transfer to Kiawah and go full resort. Beach time, multiple pool complexes including the Night Heron pools with slides and spray features. This is the day Jax and Rey burn off their existence in chlorinated joy while the adults recover with something cold in hand.</div>
+      <div class="stay-card">
+        <p class="stay-card__label stay-card__label--gold">Just Us &mdash; June 13&ndash;15</p>
+        <h3 class="stay-card__title">Hotel Options</h3>
+        <ul class="stay-card__options">
+          <li>
+            <p class="stay-card__option-name">Zero George</p>
+            <p class="stay-card__option-desc">The one we know and love. Intimate, 18 rooms, great restaurant.</p>
+          </li>
+          <li>
+            <p class="stay-card__option-name">Wentworth Mansion</p>
+            <p class="stay-card__option-desc">The upgrade. 21 rooms, Gilded Age mansion, on-site spa, Circa 1886 restaurant.</p>
+          </li>
+          <li>
+            <p class="stay-card__option-name">86 Cannon</p>
+            <p class="stay-card__option-desc">The hidden gem. 10 rooms, adults-only, saltwater pool, highest-rated in Charleston.</p>
+          </li>
+        </ul>
       </div>
     </div>
+  </section>
 
-    <div class="day-entry">
-      <div class="day-header" onclick="toggleDay(this)">
-        <span class="day-header__number">Day 5</span>
-        <span class="day-header__title">Private Dolphin Charter</span>
-        <span class="day-header__toggle">+</span>
-      </div>
-      <div class="day-detail">
-        <div class="day-detail__inner">Book Kiawah's Dolphin Encounters as a private single-party boat. Their charter setup handles groups of 7 easily, and this is one of the cleanest low-hassle private wildlife outings available. The whole family on one boat, dolphins doing their thing.</div>
-      </div>
-    </div>
+  <!-- more sections will be added later -->
 
-    <div class="day-entry">
-      <div class="day-header" onclick="toggleDay(this)">
-        <span class="day-header__number">Day 6</span>
-        <span class="day-header__title">Family Kayaking with Naturalist</span>
-        <span class="day-header__toggle">+</span>
-      </div>
-      <div class="day-detail">
-        <div class="day-detail__inner">Guided family kayaking with a Kiawah naturalist through Lowcountry marshes. Spot dolphins, birds, and maybe even bobcats. Built for families, not serious paddlers cosplaying as explorers. Easy pace, great scenery, memorable without being exhausting.</div>
-      </div>
-    </div>
-
-    <div class="day-entry">
-      <div class="day-header" onclick="toggleDay(this)">
-        <span class="day-header__number">Day 7</span>
-        <span class="day-header__title">Beach, Pool & Decompress</span>
-        <span class="day-header__toggle">+</span>
-      </div>
-      <div class="day-detail">
-        <div class="day-detail__inner">Keep it light: beach, pools, or one of Kiawah's family activities like a sunset cruise or shelling expedition. You already got your wildlife hits — this is the decompression day instead of stuffing in another overplanned "memories" block.</div>
-      </div>
-    </div>
-
-    <div class="day-entry">
-      <div class="day-header" onclick="toggleDay(this)">
-        <span class="day-header__number">Day 8</span>
-        <span class="day-header__title">Depart (One Last Meal)</span>
-        <span class="day-header__toggle">+</span>
-      </div>
-      <div class="day-detail">
-        <div class="day-detail__inner">Depart. If there's time, one last Michelin meal: FIG, Lowland, or The Restaurant at Zero George make for a strong final brunch or lunch depending on flight times.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Dining Section -->
-  <div class="chs-dining reveal">
-    <h3 class="chs-section-heading">The Food</h3>
-    <p class="chs-dining__subline">Charleston's Michelin lineup is no joke</p>
-
-    <div class="dining-grid">
-      <div class="dining-col">
-        <h4 class="dining-col__heading">Special Dinners</h4>
-        <div class="dining-item">
-          <div class="dining-item__top">
-            <span class="dining-item__name">Wild Common</span>
-            <span class="dining-tag dining-tag--star">1 Star</span>
-          </div>
-          <p class="dining-item__desc">The top pick for a truly special evening</p>
-        </div>
-        <div class="dining-item">
-          <div class="dining-item__top">
-            <span class="dining-item__name">Vern's</span>
-            <span class="dining-tag dining-tag--star">1 Star</span>
-          </div>
-          <p class="dining-item__desc">Creative, ambitious, memorable</p>
-        </div>
-        <div class="dining-item">
-          <div class="dining-item__top">
-            <span class="dining-item__name">Malagón Mercado y Taperia</span>
-            <span class="dining-tag dining-tag--star">1 Star</span>
-          </div>
-          <p class="dining-item__desc">Spanish-inspired, refined, fun atmosphere</p>
-        </div>
-        <div class="dining-item">
-          <div class="dining-item__top">
-            <span class="dining-item__name">Sorelle</span>
-            <span class="dining-tag dining-tag--listed">Michelin Listed</span>
-          </div>
-          <p class="dining-item__desc">Stylish opening-night pick</p>
-        </div>
-      </div>
-
-      <div class="dining-col">
-        <h4 class="dining-col__heading">Family-Friendly</h4>
-        <div class="dining-item">
-          <div class="dining-item__top">
-            <span class="dining-item__name">Leon's Oyster Shop</span>
-            <span class="dining-tag dining-tag--family">Kid Friendly</span>
-          </div>
-          <p class="dining-item__desc">Oysters, fried chicken, easy energy</p>
-        </div>
-        <div class="dining-item">
-          <div class="dining-item__top">
-            <span class="dining-item__name">Lewis Barbecue</span>
-            <span class="dining-tag dining-tag--family">Kid Friendly</span>
-          </div>
-          <p class="dining-item__desc">Texas-style BBQ, impossibly good brisket</p>
-        </div>
-        <div class="dining-item">
-          <div class="dining-item__top">
-            <span class="dining-item__name">Rodney Scott's BBQ</span>
-            <span class="dining-tag dining-tag--family">Kid Friendly</span>
-          </div>
-          <p class="dining-item__desc">Whole-hog legend, James Beard winner</p>
-        </div>
-        <div class="dining-item">
-          <div class="dining-item__top">
-            <span class="dining-item__name">FIG</span>
-            <span class="dining-tag dining-tag--listed">Michelin Listed</span>
-          </div>
-          <p class="dining-item__desc">Perfect last-day brunch or lunch</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-<!-- ── Keys + Everglades Section ──────────────── -->
-<section id="keys">
-
-  <!-- Photo Opener -->
-  <div class="chs-opener">
-    <img class="chs-opener__img" src="https://images.unsplash.com/photo-1580745294857-df74e81fa924?w=1600&q=80" alt="Florida Keys aerial view">
-    <div class="chs-opener__text">
-      <h2 class="chs-opener__title">Florida Keys + Everglades</h2>
-      <p class="chs-opener__tagline">Reef snorkeling, airboats, and alligators that don't care about your plans.</p>
-    </div>
-  </div>
-
-  <!-- Pitch -->
-  <div class="chs-pitch reveal">
-    <p>The stronger pick if you want the trip to lean harder into reef snorkeling, tropical water, and Everglades wildlife. Cheeca Lodge puts you on North America's only living coral barrier reef. The tradeoff: June puts you into Everglades wet season and the start of Atlantic hurricane season, and the most dependable Michelin anchors are in Miami/Surfside, not deep in the Keys.</p>
-  </div>
-
-  <!-- Stay Plan Cards -->
-  <div class="chs-stays reveal">
-    <div class="stay-card stay-card--keys">
-      <div class="stay-card__label">Nights 1–2</div>
-      <h3 class="stay-card__heading">Four Seasons at The Surf Club</h3>
-      <p class="stay-card__desc">Surfside/Miami. This is where the Michelin dining happens —The Surf Club Restaurant is a one-star pick. Beach, pool, and a refined launch point before heading south.</p>
-    </div>
-    <div class="stay-card stay-card--keys">
-      <div class="stay-card__label">Nights 3–7</div>
-      <h3 class="stay-card__heading">Cheeca Lodge & Spa, Islamorada</h3>
-      <p class="stay-card__desc">Oceanfront resort in the heart of the Keys. Snorkeling, kayaking, watersports on property, and group excursion coordination built in. Swap for Hawks Cay if you want more kid-focused activities.</p>
-    </div>
-  </div>
-
-  <!-- Day-by-Day Timeline -->
-  <div class="chs-timeline reveal">
-    <h3 class="chs-section-heading">Day by Day</h3>
-
-    <div class="day-entry day-entry--keys">
-      <div class="day-header" onclick="toggleDay(this)">
-        <span class="day-header__number">Day 1</span>
-        <span class="day-header__title">Arrive in Surfside</span>
-        <span class="day-header__toggle">+</span>
-      </div>
-      <div class="day-detail">
-        <div class="day-detail__inner">Settle into the Four Seasons at The Surf Club. Dinner at The Surf Club Restaurant —Michelin one-star, and the cleanest way to satisfy the fancy dinner brief without turning the trip into a restaurant crawl with suitcases.</div>
-      </div>
-    </div>
-
-    <div class="day-entry day-entry--keys">
-      <div class="day-header" onclick="toggleDay(this)">
-        <span class="day-header__number">Day 2</span>
-        <span class="day-header__title">Everglades Adventure Day</span>
-        <span class="day-header__toggle">+</span>
-      </div>
-      <div class="day-detail">
-        <div class="day-detail__inner">Your big Everglades day while still on the Miami side. Two options: Miccosukee airboat + village/museum/alligator demo for max kid excitement, or the Shark Valley tram tour for a more naturalist, National Park vibe. That night: Michael's Genuine (Michelin Bib Gourmand, explicitly tagged as family-friendly) or Cote Miami if the adults want one more serious dinner.</div>
-      </div>
-    </div>
-
-    <div class="day-entry day-entry--keys">
-      <div class="day-header" onclick="toggleDay(this)">
-        <span class="day-header__number">Day 3</span>
-        <span class="day-header__title">Drive to Islamorada</span>
-        <span class="day-header__toggle">+</span>
-      </div>
-      <div class="day-detail">
-        <div class="day-detail__inner">Scenic drive down to the Keys. Check into Cheeca Lodge and use the day for pool, dock, beach, and a slow evening. Cheeca is oceanfront with watersports on property —let the tropical resort mode kick in gradually.</div>
-      </div>
-    </div>
-
-    <div class="day-entry day-entry--keys">
-      <div class="day-header" onclick="toggleDay(this)">
-        <span class="day-header__number">Day 4</span>
-        <span class="day-header__title">Coral Reef Snorkeling</span>
-        <span class="day-header__toggle">+</span>
-      </div>
-      <div class="day-detail">
-        <div class="day-detail__inner">Book Cheeca's snorkel tour to North America's only living coral barrier reef. This is the day that makes the Keys version feel meaningfully more "adventure" than Charleston. Tropical fish, reef formations, and genuinely unique marine life. Jax and Rey will talk about this one for years.</div>
-      </div>
-    </div>
-
-    <div class="day-entry day-entry--keys">
-      <div class="day-header" onclick="toggleDay(this)">
-        <span class="day-header__number">Day 5</span>
-        <span class="day-header__title">Private Boat Excursion</span>
-        <span class="day-header__toggle">+</span>
-      </div>
-      <div class="day-detail">
-        <div class="day-detail__inner">A private excursion or group watersports outing through Cheeca's on-property team. They handle group tours, private excursions, fishing trips, rentals, and lessons. This is the family boat day —customize it to what sounds fun.</div>
-      </div>
-    </div>
-
-    <div class="day-entry day-entry--keys">
-      <div class="day-header" onclick="toggleDay(this)">
-        <span class="day-header__number">Day 6</span>
-        <span class="day-header__title">True Resort Day</span>
-        <span class="day-header__toggle">+</span>
-      </div>
-      <div class="day-detail">
-        <div class="day-detail__inner">The whole point of paying for a nice Keys resort is not spending every hour in a car proving you are "maximizing" Florida. Beach, pool, paddle, fish, repeat. Zero agenda. Maximum relaxation.</div>
-      </div>
-    </div>
-
-    <div class="day-entry day-entry--keys">
-      <div class="day-header" onclick="toggleDay(this)">
-        <span class="day-header__number">Day 7</span>
-        <span class="day-header__title">One More Water Day or Hawks Cay</span>
-        <span class="day-header__toggle">+</span>
-      </div>
-      <div class="day-detail">
-        <div class="day-detail__inner">One more water activity at Cheeca, or if the kids want a big finale, hit Hawks Cay for their snorkel, sandbar, and dolphin-linked resort activities. Hawks Cay is more activity-heavy and more kid-tilted —a great backup or day trip option.</div>
-      </div>
-    </div>
-
-    <div class="day-entry day-entry--keys">
-      <div class="day-header" onclick="toggleDay(this)">
-        <span class="day-header__number">Day 8</span>
-        <span class="day-header__title">Drive Back & Depart</span>
-        <span class="day-header__toggle">+</span>
-      </div>
-      <div class="day-detail">
-        <div class="day-detail__inner">Drive back toward Miami and depart. Keep it simple —the trip has already delivered.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Dining Section -->
-  <div class="chs-dining reveal">
-    <h3 class="chs-section-heading">The Food</h3>
-    <p class="chs-dining__subline">Strongest in Miami/Surfside, casual in the Keys</p>
-
-    <div class="dining-grid">
-      <div class="dining-col">
-        <h4 class="dining-col__heading dining-col__heading--keys">Starred Dinners (Miami Side)</h4>
-        <div class="dining-item">
-          <div class="dining-item__top">
-            <span class="dining-item__name">The Surf Club Restaurant</span>
-            <span class="dining-tag dining-tag--star">1 Star</span>
-          </div>
-          <p class="dining-item__desc">At your hotel —easy, elegant, no-brainer</p>
-        </div>
-        <div class="dining-item">
-          <div class="dining-item__top">
-            <span class="dining-item__name">Cote Miami</span>
-            <span class="dining-tag dining-tag--star">1 Star</span>
-          </div>
-          <p class="dining-item__desc">Korean steakhouse, serious adult dinner</p>
-        </div>
-      </div>
-
-      <div class="dining-col">
-        <h4 class="dining-col__heading dining-col__heading--keys">Family-Friendly</h4>
-        <div class="dining-item">
-          <div class="dining-item__top">
-            <span class="dining-item__name">Michael's Genuine</span>
-            <span class="dining-tag dining-tag--bib">Bib Gourmand</span>
-            <span class="dining-tag dining-tag--family">Kid Friendly</span>
-          </div>
-          <p class="dining-item__desc">Michelin-tagged as family-friendly. Reliable, great food, kids welcome.</p>
-        </div>
-        <div class="dining-item">
-          <div class="dining-item__top">
-            <span class="dining-item__name">Keys Casual Dining</span>
-          </div>
-          <p class="dining-item__desc">Islamorada has solid local seafood spots —think fresh catch, waterfront decks, flip-flop dress code</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-<!-- ── The Honest Comparison ───────────────────── -->
-<section class="comparison">
-  <div class="container container--wide">
-    <h2>The Honest Comparison</h2>
-
-    <div class="comparison__grid">
-      <!-- Charleston column -->
-      <div class="comparison__col comparison__col--charleston reveal">
-        <h3>Charleston + Kiawah</h3>
-        <div class="comparison__item comparison__item--pro">
-          <span class="comparison__prefix">+</span>
-          <span>Best overall trip design for a group with kids + adults who like nice food. City + resort in one week.</span>
-        </div>
-        <div class="comparison__item comparison__item--pro">
-          <span class="comparison__prefix">+</span>
-          <span>15 Michelin restaurants including 3 one-stars and 3 Bib Gourmands. Serious food city now.</span>
-        </div>
-        <div class="comparison__item comparison__item--pro">
-          <span class="comparison__prefix">+</span>
-          <span>Villa/home options on Kiawah mean real space for 7 people instead of pretending adjoining hotel rooms are a personality trait.</span>
-        </div>
-        <div class="comparison__item comparison__item--pro">
-          <span class="comparison__prefix">+</span>
-          <span>Private dolphin charters and family kayaking directly through Kiawah — easy logistics, built for families.</span>
-        </div>
-        <div class="comparison__item comparison__item--pro">
-          <span class="comparison__prefix">+</span>
-          <span>Lower weather risk in June compared to south Florida.</span>
-        </div>
-        <div class="comparison__item comparison__item--con">
-          <span class="comparison__prefix">&minus;</span>
-          <span>Less tropical — Lowcountry marsh and dolphins, not coral reefs and tropical water. Different flavor of nature.</span>
-        </div>
-        <div class="comparison__item comparison__item--con">
-          <span class="comparison__prefix">&minus;</span>
-          <span>No Everglades equivalent — the wildlife is beautiful but less dramatic than airboats and alligators.</span>
-        </div>
-      </div>
-
-      <!-- Keys column -->
-      <div class="comparison__col comparison__col--keys reveal">
-        <h3>Keys + Everglades</h3>
-        <div class="comparison__item comparison__item--pro">
-          <span class="comparison__prefix">+</span>
-          <span>North America's only living coral barrier reef. Snorkeling here is a genuinely unique experience.</span>
-        </div>
-        <div class="comparison__item comparison__item--pro">
-          <span class="comparison__prefix">+</span>
-          <span>Everglades airboat day is unforgettable for kids. Alligators, airboats, the whole show.</span>
-        </div>
-        <div class="comparison__item comparison__item--pro">
-          <span class="comparison__prefix">+</span>
-          <span>More tropical and adventurous feel overall. This trip looks different from a normal beach vacation.</span>
-        </div>
-        <div class="comparison__item comparison__item--pro">
-          <span class="comparison__prefix">+</span>
-          <span>More water activities — snorkeling, boating, fishing, kayaking, all in warm tropical water.</span>
-        </div>
-        <div class="comparison__item comparison__item--con">
-          <span class="comparison__prefix">&minus;</span>
-          <span>June = wet season + hurricane season. Everglades are already soggy. Atlantic hurricane season starts June 1. Real tradeoff.</span>
-        </div>
-        <div class="comparison__item comparison__item--con">
-          <span class="comparison__prefix">&minus;</span>
-          <span>Michelin dining is a Miami add-on, not a Keys feature. The food story requires a split stay to work.</span>
-        </div>
-        <div class="comparison__item comparison__item--con">
-          <span class="comparison__prefix">&minus;</span>
-          <span>More driving — Miami to Islamorada is ~90 min. The trip is a split-stay by design, not one clean resort week.</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="comparison__bottom-line reveal">
-      <p>If you want the best balanced family trip, go Charleston + Kiawah. If you want the more memorable nature-and-water trip, go Florida Keys + Everglades and accept that the food piece is strongest when you tack on Miami.</p>
-    </div>
-  </div>
-</section>
-
-<!-- SCORECARD START -->
-<section class="scorecard">
-  <div class="container container--wide">
-    <h2 class="reveal">Rate Each Trip</h2>
-
-    <div class="scorecard__voter reveal">
-      <select id="voterSelect" onchange="loadVoterScores()">
-        <option value="">-- Select Your Name --</option>
-        <option value="jan">Jan</option>
-        <option value="haley">Haley</option>
-        <option value="michael">Michael</option>
-        <option value="trey">Trey</option>
-        <option value="katy">Katy</option>
-      </select>
-    </div>
-
-    <div class="scorecard__grid" id="scorecardGrid"></div>
-
-    <div class="scorecard__submit">
-      <button onclick="submitScores()">Submit Scores</button>
-    </div>
-
-    <div class="scorecard__results" id="scorecardResults">
-      <h3>Results</h3>
-      <div id="resultsContent">
-        <p class="scorecard__no-results">No scores yet.</p>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- SCORECARD END -->
-
-<footer class="site-footer">Made with love and strong opinions about dolphins.</footer>
-
-<script>
-function toggleDay(header) {
-  const entry = header.closest('.day-entry');
-  entry.classList.toggle('open');
-  const toggle = header.querySelector('.day-header__toggle');
-  toggle.textContent = entry.classList.contains('open') ? '\u2212' : '+';
-}
-
-// ── Scorecard Logic ──────────────────────────────
-const CATEGORIES = [
-  { key: 'food', label: 'Food & Dining' },
-  { key: 'activities', label: 'Activities & Adventure' },
-  { key: 'kids', label: 'Kid-Friendliness' },
-  { key: 'lodging', label: 'Lodging & Comfort' },
-  { key: 'weather', label: 'Weather Confidence' },
-  { key: 'excitement', label: 'Overall Excitement' }
-];
-const TRIPS = ['charleston', 'keys'];
-const VOTERS = ['jan', 'haley', 'michael', 'trey', 'katy'];
-const STORAGE_KEY = 'familyTrip2026Scores';
-
-let currentScores = { charleston: {}, keys: {} };
-
-function getScores() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : {};
-  } catch (e) {
-    return {};
-  }
-}
-
-function saveScores(scores) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(scores));
-}
-
-function buildScorecardGrid() {
-  const grid = document.getElementById('scorecardGrid');
-  grid.innerHTML = '';
-  CATEGORIES.forEach(function(cat) {
-    const row = document.createElement('div');
-    row.className = 'scorecard__row';
-
-    const catName = document.createElement('div');
-    catName.className = 'scorecard__category';
-    catName.textContent = cat.label;
-    row.appendChild(catName);
-
-    TRIPS.forEach(function(trip) {
-      const tripDiv = document.createElement('div');
-      tripDiv.className = 'scorecard__trip';
-
-      const label = document.createElement('span');
-      label.className = 'scorecard__trip-label scorecard__trip-label--' + trip;
-      label.textContent = trip === 'charleston' ? 'Charleston' : 'Keys';
-      tripDiv.appendChild(label);
-
-      const circles = document.createElement('div');
-      circles.className = 'scorecard__circles';
-      for (var i = 1; i <= 5; i++) {
-        var circle = document.createElement('span');
-        circle.className = 'scorecard__circle' + (trip === 'keys' ? ' scorecard__circle--keys' : '');
-        circle.setAttribute('data-trip', trip);
-        circle.setAttribute('data-category', cat.key);
-        circle.setAttribute('data-score', i);
-        circle.addEventListener('click', handleCircleClick);
-        circles.appendChild(circle);
-      }
-      tripDiv.appendChild(circles);
-      row.appendChild(tripDiv);
-    });
-
-    grid.appendChild(row);
-  });
-}
-
-function handleCircleClick(e) {
-  var circle = e.currentTarget;
-  var trip = circle.getAttribute('data-trip');
-  var category = circle.getAttribute('data-category');
-  var score = parseInt(circle.getAttribute('data-score'));
-  var current = currentScores[trip][category] || 0;
-  if (current === score) {
-    selectScore(trip, category, 0);
-  } else {
-    selectScore(trip, category, score);
-  }
-}
-
-function selectScore(trip, category, score) {
-  currentScores[trip][category] = score;
-  highlightCircles(trip, category, score);
-}
-
-function highlightCircles(trip, category, score) {
-  var circles = document.querySelectorAll(
-    '.scorecard__circle[data-trip="' + trip + '"][data-category="' + category + '"]'
-  );
-  circles.forEach(function(c) {
-    var val = parseInt(c.getAttribute('data-score'));
-    if (val <= score && score > 0) {
-      c.classList.add('scorecard__circle--filled');
-    } else {
-      c.classList.remove('scorecard__circle--filled');
-    }
-  });
-}
-
-function submitScores() {
-  var voter = document.getElementById('voterSelect').value;
-  if (!voter) {
-    alert('Please select your name first.');
-    return;
-  }
-  var missing = [];
-  CATEGORIES.forEach(function(cat) {
-    TRIPS.forEach(function(trip) {
-      if (!currentScores[trip][cat.key]) {
-        var tripLabel = trip === 'charleston' ? 'Charleston' : 'Keys';
-        missing.push(cat.label + ' (' + tripLabel + ')');
-      }
-    });
-  });
-  if (missing.length > 0) {
-    alert('Please rate all categories before submitting.\n\nMissing:\n' + missing.join('\n'));
-    return;
-  }
-  var allScores = getScores();
-  allScores[voter] = {
-    charleston: Object.assign({}, currentScores.charleston),
-    keys: Object.assign({}, currentScores.keys)
-  };
-  saveScores(allScores);
-  updateResults();
-}
-
-function loadVoterScores() {
-  var voter = document.getElementById('voterSelect').value;
-  currentScores = { charleston: {}, keys: {} };
-  if (voter) {
-    var allScores = getScores();
-    if (allScores[voter]) {
-      currentScores.charleston = Object.assign({}, allScores[voter].charleston || {});
-      currentScores.keys = Object.assign({}, allScores[voter].keys || {});
-    }
-  }
-  CATEGORIES.forEach(function(cat) {
-    TRIPS.forEach(function(trip) {
-      highlightCircles(trip, cat.key, currentScores[trip][cat.key] || 0);
-    });
-  });
-}
-
-function updateResults() {
-  var allScores = getScores();
-  var container = document.getElementById('resultsContent');
-  var votersWithScores = VOTERS.filter(function(v) { return allScores[v]; });
-
-  if (votersWithScores.length === 0) {
-    container.innerHTML = '<p class="scorecard__no-results">No scores yet.</p>';
-    return;
-  }
-
-  var html = '<table class="scorecard__results-table">';
-  html += '<thead><tr><th>Category</th><th>Charleston Avg</th><th>Keys Avg</th></tr></thead>';
-  html += '<tbody>';
-
-  var totalChs = 0;
-  var totalKeys = 0;
-
-  CATEGORIES.forEach(function(cat) {
-    var sumChs = 0, sumKeys = 0;
-    votersWithScores.forEach(function(v) {
-      sumChs += (allScores[v].charleston && allScores[v].charleston[cat.key]) || 0;
-      sumKeys += (allScores[v].keys && allScores[v].keys[cat.key]) || 0;
-    });
-    var avgChs = (sumChs / votersWithScores.length).toFixed(1);
-    var avgKeys = (sumKeys / votersWithScores.length).toFixed(1);
-    totalChs += parseFloat(avgChs);
-    totalKeys += parseFloat(avgKeys);
-    html += '<tr><td>' + cat.label + '</td><td>' + avgChs + '</td><td>' + avgKeys + '</td></tr>';
-  });
-
-  html += '<tr class="scorecard__total-row"><td>Total</td><td>' + totalChs.toFixed(1) + ' / 30</td><td>' + totalKeys.toFixed(1) + ' / 30</td></tr>';
-  html += '</tbody></table>';
-
-  html += '<div class="scorecard__voter-breakdown">';
-  votersWithScores.forEach(function(v) {
-    var vChs = 0, vKeys = 0;
-    CATEGORIES.forEach(function(cat) {
-      vChs += (allScores[v].charleston && allScores[v].charleston[cat.key]) || 0;
-      vKeys += (allScores[v].keys && allScores[v].keys[cat.key]) || 0;
-    });
-    var name = v.charAt(0).toUpperCase() + v.slice(1);
-    html += name + ': Charleston ' + vChs + ' / Keys ' + vKeys;
-    html += '<br>';
-  });
-  html += '</div>';
-
-  container.innerHTML = html;
-}
-
-// Initialize
-buildScorecardGrid();
-updateResults();
-
-// ── Scroll Reveal ────────────────────────────────
-const reveals = document.querySelectorAll('.reveal');
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-reveals.forEach(el => revealObserver.observe(el));
-</script>
+  <script>
+    // Future interactivity
+  </script>
 </body>
 </html>
