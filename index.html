@@ -979,6 +979,68 @@ h1, h2, h3, h4 {
     font-size: 2.2rem;
   }
 }
+
+/* ── Scroll Reveal ───────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Footer ──────────────────────────────────── */
+.site-footer {
+  text-align: center;
+  padding: var(--space-xl);
+  font-size: 0.85rem;
+  color: #9a948b;
+  background: var(--cream);
+}
+
+/* ── Responsive Touch & Overflow Fixes ───────── */
+@media (max-width: 768px) {
+  .day-entry__header {
+    min-height: 44px;
+    padding: var(--space-md) 0;
+  }
+
+  .resto-card__vote {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .filter-pill {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .voter-bar select {
+    min-height: 44px;
+  }
+
+  .filter-bar__search {
+    min-height: 44px;
+    width: 100%;
+  }
+
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-bar__toggle {
+    margin-left: 0;
+    min-height: 44px;
+  }
+
+  .section {
+    padding: var(--space-2xl) var(--space-md);
+  }
+}
 </style>
 </head>
 <body>
@@ -993,7 +1055,7 @@ h1, h2, h3, h4 {
 
   <section class="plan section">
     <h2 class="section__heading">The Plan</h2>
-    <div class="timeline">
+    <div class="timeline reveal">
       <div class="timeline__block timeline__block--family">
         <span class="timeline__dates">Mon June 8 &ndash; Sat June 13</span>
         <span class="timeline__label">Family Trip</span>
@@ -1012,13 +1074,13 @@ h1, h2, h3, h4 {
   <section class="stays section">
     <h2 class="section__heading">Where We're Staying</h2>
     <div class="stays__grid">
-      <div class="stay-card">
+      <div class="stay-card reveal">
         <p class="stay-card__label stay-card__label--teal">Family Trip &mdash; June 8&ndash;13</p>
         <h3 class="stay-card__title">Mill House Hotel</h3>
         <p class="stay-card__text">Downtown Charleston on Hilton Points. Walking distance to everything &mdash; restaurants, waterfront, historic district. The home base for the whole crew.</p>
         <span class="stay-card__badge">Hilton Redemption</span>
       </div>
-      <div class="stay-card">
+      <div class="stay-card reveal">
         <p class="stay-card__label stay-card__label--gold">Just Us &mdash; June 13&ndash;15</p>
         <h3 class="stay-card__title">Hotel Options</h3>
         <ul class="stay-card__options">
@@ -1040,10 +1102,10 @@ h1, h2, h3, h4 {
   </section>
 
   <section class="itinerary section">
-    <h2 class="section__heading">The Week</h2>
-    <p class="itinerary__subtitle">Monday through Saturday &mdash; the family trip</p>
+    <h2 class="section__heading reveal">The Week</h2>
+    <p class="itinerary__subtitle reveal">Monday through Saturday &mdash; the family trip</p>
 
-    <div class="day-entry" onclick="toggleDay(this)">
+    <div class="day-entry reveal" onclick="toggleDay(this)">
       <div class="day-entry__header">
         <span class="day-entry__number day-entry__number--teal">Monday June 8</span>
         <span class="day-entry__title">&ldquo;Arrive &amp; Settle In&rdquo;</span>
@@ -1054,7 +1116,7 @@ h1, h2, h3, h4 {
       </div>
     </div>
 
-    <div class="day-entry" onclick="toggleDay(this)">
+    <div class="day-entry reveal" onclick="toggleDay(this)">
       <div class="day-entry__header">
         <span class="day-entry__number day-entry__number--teal">Tuesday June 9</span>
         <span class="day-entry__title">&ldquo;The Big Food &amp; City Day&rdquo;</span>
@@ -1065,7 +1127,7 @@ h1, h2, h3, h4 {
       </div>
     </div>
 
-    <div class="day-entry" onclick="toggleDay(this)">
+    <div class="day-entry reveal" onclick="toggleDay(this)">
       <div class="day-entry__header">
         <span class="day-entry__number day-entry__number--teal">Wednesday June 10</span>
         <span class="day-entry__title">&ldquo;Kiawah Island Day Trip&rdquo;</span>
@@ -1076,7 +1138,7 @@ h1, h2, h3, h4 {
       </div>
     </div>
 
-    <div class="day-entry" onclick="toggleDay(this)">
+    <div class="day-entry reveal" onclick="toggleDay(this)">
       <div class="day-entry__header">
         <span class="day-entry__number day-entry__number--teal">Thursday June 11</span>
         <span class="day-entry__title">&ldquo;Oyster Farm &amp; Water Day&rdquo;</span>
@@ -1087,7 +1149,7 @@ h1, h2, h3, h4 {
       </div>
     </div>
 
-    <div class="day-entry" onclick="toggleDay(this)">
+    <div class="day-entry reveal" onclick="toggleDay(this)">
       <div class="day-entry__header">
         <span class="day-entry__number day-entry__number--teal">Friday June 12</span>
         <span class="day-entry__title">&ldquo;Bulls Island or Flex Day&rdquo;</span>
@@ -1098,7 +1160,7 @@ h1, h2, h3, h4 {
       </div>
     </div>
 
-    <div class="day-entry" onclick="toggleDay(this)">
+    <div class="day-entry reveal" onclick="toggleDay(this)">
       <div class="day-entry__header">
         <span class="day-entry__number day-entry__number--teal">Saturday June 13</span>
         <span class="day-entry__title">&ldquo;Family Departs&rdquo;</span>
@@ -1113,7 +1175,7 @@ h1, h2, h3, h4 {
 
     <h3 class="itinerary__couples-heading">The Couples Weekend</h3>
 
-    <div class="day-entry" onclick="toggleDay(this)">
+    <div class="day-entry reveal" onclick="toggleDay(this)">
       <div class="day-entry__header">
         <span class="day-entry__number day-entry__number--gold">Saturday Evening</span>
         <span class="day-entry__title">&ldquo;The Upgrade&rdquo;</span>
@@ -1124,7 +1186,7 @@ h1, h2, h3, h4 {
       </div>
     </div>
 
-    <div class="day-entry" onclick="toggleDay(this)">
+    <div class="day-entry reveal" onclick="toggleDay(this)">
       <div class="day-entry__header">
         <span class="day-entry__number day-entry__number--gold">Sunday June 14</span>
         <span class="day-entry__title">&ldquo;Slow Day&rdquo;</span>
@@ -1135,7 +1197,7 @@ h1, h2, h3, h4 {
       </div>
     </div>
 
-    <div class="day-entry" onclick="toggleDay(this)">
+    <div class="day-entry reveal" onclick="toggleDay(this)">
       <div class="day-entry__header">
         <span class="day-entry__number day-entry__number--gold">Monday June 15</span>
         <span class="day-entry__title">&ldquo;Depart&rdquo;</span>
@@ -1148,10 +1210,10 @@ h1, h2, h3, h4 {
   </section>
 
   <section class="food section">
-    <h2 class="section__heading">The Food</h2>
-    <p class="food__subtitle">Our picks, the Michelin list, the TikTok hits, and everything in between</p>
+    <h2 class="section__heading reveal">The Food</h2>
+    <p class="food__subtitle reveal">Our picks, the Michelin list, the TikTok hits, and everything in between</p>
 
-    <div class="voter-bar">
+    <div class="voter-bar reveal">
       <label for="voterSelect">Voting as:</label>
       <select id="voterSelect" onchange="updateVoteDisplay()">
         <option value="">Pick your name</option>
@@ -1163,7 +1225,7 @@ h1, h2, h3, h4 {
       </select>
     </div>
 
-    <div class="resto-grid">
+    <div class="resto-grid reveal">
 
       <div class="resto-card" data-restaurant="wild-common">
         <div class="resto-card__img" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80')"></div>
@@ -1357,10 +1419,10 @@ h1, h2, h3, h4 {
     </div>
 
     <!-- Full Restaurant Master Table -->
-    <h3 class="full-list__heading">The Full List</h3>
-    <p class="full-list__subline">Every restaurant on the radar</p>
+    <h3 class="full-list__heading reveal">The Full List</h3>
+    <p class="full-list__subline reveal">Every restaurant on the radar</p>
 
-    <div class="filter-bar">
+    <div class="filter-bar reveal">
       <div class="filter-bar__pills" id="mealFilters">
         <button class="filter-pill filter-pill--active" data-meal="All" onclick="setMealFilter(this)">All</button>
         <button class="filter-pill" data-meal="Breakfast" onclick="setMealFilter(this)">Breakfast</button>
@@ -1376,7 +1438,7 @@ h1, h2, h3, h4 {
       <input type="text" class="filter-bar__search" id="tableSearch" placeholder="Search restaurants..." oninput="filterTable()">
     </div>
 
-    <div class="table-wrap">
+    <div class="table-wrap reveal">
       <table class="master-table" id="masterTable">
         <thead>
           <tr>
@@ -1446,10 +1508,10 @@ h1, h2, h3, h4 {
   <!-- ═══════════════════════════════════════════════ -->
   <section class="coffee-section">
     <div class="container container--wide">
-      <h2 class="coffee-section__title">The Coffee</h2>
-      <p class="coffee-section__sub">Walking distance from Mill House, sorted by how much you need to go</p>
+      <h2 class="coffee-section__title reveal">The Coffee</h2>
+      <p class="coffee-section__sub reveal">Walking distance from Mill House, sorted by how much you need to go</p>
 
-      <div class="coffee-grid">
+      <div class="coffee-grid reveal">
 
         <div class="coffee-card" data-coffee="harken">
           <div class="coffee-card__img" style="background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80')"></div>
@@ -1590,6 +1652,8 @@ h1, h2, h3, h4 {
       </div>
     </div>
   </section>
+
+  <footer class="site-footer">Made with love and strong opinions about dolphins.</footer>
 
   <script>
     function toggleDay(entry) {
@@ -1747,6 +1811,13 @@ h1, h2, h3, h4 {
     }
 
     updateCoffeeHearts();
+
+    /* ── Scroll Reveal ─────────────────────────────── */
+    document.querySelectorAll('.reveal').forEach(el => {
+      new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }).observe(el);
+    });
   </script>
 </body>
 </html>
