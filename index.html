@@ -1166,6 +1166,88 @@ h1, h2, h3, h4 {
   }
 }
 
+/* ── Private Stay Card ────────────────────────── */
+.stay-card--private {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: linear-gradient(135deg, #fef9f0 0%, #f9f0e0 100%);
+  border: 1px solid rgba(212, 160, 57, 0.35);
+}
+
+.stay-card__lock {
+  font-size: 1.75rem;
+  opacity: 0.3;
+  margin: var(--space-sm) 0 var(--space-xs);
+}
+
+.stay-card__title--private {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: var(--space-sm);
+}
+
+.stay-card__text--private {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--charcoal);
+  opacity: 0.55;
+  line-height: 1.65;
+  font-style: italic;
+}
+
+.stay-card__badge--gold {
+  color: var(--accent-gold);
+  border-color: var(--accent-gold);
+}
+
+/* ── Couples Teaser ──────────────────────────── */
+.couples-teaser {
+  background: linear-gradient(135deg, #fef9f0 0%, #f9f0e0 100%);
+  border: 1px solid rgba(212, 160, 57, 0.35);
+  border-radius: 12px;
+  padding: var(--space-2xl) var(--space-xl);
+  text-align: center;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.couples-teaser__lock {
+  font-size: 2rem;
+  opacity: 0.3;
+  margin-bottom: var(--space-md);
+}
+
+.couples-teaser__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--accent-gold);
+  margin-bottom: var(--space-xs);
+}
+
+.couples-teaser__dates {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--charcoal);
+  opacity: 0.5;
+  margin-bottom: var(--space-md);
+}
+
+.couples-teaser__text {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--charcoal);
+  opacity: 0.55;
+  font-style: italic;
+  line-height: 1.65;
+}
+
 /* ── Scroll Reveal ───────────────────────────── */
 .reveal {
   opacity: 0;
@@ -1251,7 +1333,8 @@ h1, h2, h3, h4 {
       <div class="timeline__block timeline__block--couple">
         <span class="timeline__dates">Sat June 13 &ndash; Mon June 15</span>
         <span class="timeline__label">Couples Weekend</span>
-        <span class="timeline__sub">Hotel TBD</span>
+        <span class="timeline__sub">The Spectator Hotel</span>
+        <span class="timeline__badge">Confirmed</span>
       </div>
     </div>
     <p class="timeline__note">The couples weekend can shift to before the family trip (June 6&ndash;8) if dates work better.</p>
@@ -1266,27 +1349,12 @@ h1, h2, h3, h4 {
         <p class="stay-card__text">Downtown Charleston on Hilton Points. Walking distance to everything &mdash; restaurants, waterfront, historic district. The home base for the whole crew.</p>
         <span class="stay-card__badge">Hilton Redemption</span>
       </div>
-      <div class="stay-card reveal">
+      <div class="stay-card stay-card--private reveal">
         <p class="stay-card__label stay-card__label--gold">Just Us &mdash; June 13&ndash;15</p>
-        <h3 class="stay-card__title">Hotel Options</h3>
-        <ul class="stay-card__options">
-          <li>
-            <p class="stay-card__option-name">Zero George</p>
-            <p class="stay-card__option-desc">The one we know and love. Intimate, 18 rooms, great restaurant.</p>
-          </li>
-          <li>
-            <p class="stay-card__option-name">Wentworth Mansion</p>
-            <p class="stay-card__option-desc">The upgrade. 21 rooms, Gilded Age mansion, on-site spa, Circa 1886 restaurant.</p>
-          </li>
-          <li>
-            <p class="stay-card__option-name">The Spectator Hotel</p>
-            <p class="stay-card__option-desc">The service pick. 41 rooms, personal butler for every guest, Jazz Age aesthetic, top-5 bar in the country.</p>
-          </li>
-          <li>
-            <p class="stay-card__option-name">86 Cannon</p>
-            <p class="stay-card__option-desc">The hidden gem. 10 rooms, adults-only, saltwater pool, highest-rated in Charleston.</p>
-          </li>
-        </ul>
+        <div class="stay-card__lock">&#128274;</div>
+        <h3 class="stay-card__title stay-card__title--private">Couples Weekend</h3>
+        <p class="stay-card__text stay-card__text--private">Details are private &mdash; this section is just for the two of us.</p>
+        <span class="stay-card__badge stay-card__badge--gold">The Spectator Hotel &mdash; Confirmed</span>
       </div>
     </div>
   </section>
@@ -1361,41 +1429,13 @@ h1, h2, h3, h4 {
       </div>
     </div>
 
-    <div class="itinerary__divider"><span>just us</span></div>
+    <div class="itinerary__divider reveal"><span>just us</span></div>
 
-    <h3 class="itinerary__couples-heading">The Couples Weekend</h3>
-
-    <div class="day-entry reveal" onclick="toggleDay(this)">
-      <div class="day-entry__header">
-        <span class="day-entry__number day-entry__number--gold">Saturday Evening</span>
-        <span class="day-entry__title">&ldquo;The Upgrade&rdquo;</span>
-        <span class="day-entry__toggle">+</span>
-      </div>
-      <div class="day-entry__detail">
-        <p>Check into the couples hotel. Dinner at a starred restaurant &mdash; Wild Common, Vern&rsquo;s, or Malag&oacute;n. This is the night to go all out.</p>
-      </div>
-    </div>
-
-    <div class="day-entry reveal" onclick="toggleDay(this)">
-      <div class="day-entry__header">
-        <span class="day-entry__number day-entry__number--gold">Sunday June 14</span>
-        <span class="day-entry__title">&ldquo;Slow Day&rdquo;</span>
-        <span class="day-entry__toggle">+</span>
-      </div>
-      <div class="day-entry__detail">
-        <p>Sleep in. Coffee walk (see coffee guide below). Brunch. Explore at your own pace. No agenda, no kids, no schedule. Dinner wherever sounds right &mdash; maybe Merci (26 seats, James Beard semifinalist) or FIG.</p>
-      </div>
-    </div>
-
-    <div class="day-entry reveal" onclick="toggleDay(this)">
-      <div class="day-entry__header">
-        <span class="day-entry__number day-entry__number--gold">Monday June 15</span>
-        <span class="day-entry__title">&ldquo;Depart&rdquo;</span>
-        <span class="day-entry__toggle">+</span>
-      </div>
-      <div class="day-entry__detail">
-        <p>One last coffee, one last walk. Head to the airport.</p>
-      </div>
+    <div class="couples-teaser reveal">
+      <div class="couples-teaser__lock">&#128274;</div>
+      <h3 class="couples-teaser__title">The Couples Weekend</h3>
+      <p class="couples-teaser__dates">June 13&ndash;15 &mdash; The Spectator Hotel</p>
+      <p class="couples-teaser__text">This part of the trip is private. Details live on a separate page.</p>
     </div>
   </section>
 

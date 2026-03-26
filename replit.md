@@ -4,7 +4,8 @@ A static single-page website comparing two family vacation options (Charleston +
 
 ## Project Structure
 
-- `index.html` — The entire site (self-contained HTML/CSS/JS, no build step needed)
+- `index.html` — Main family trip page (self-contained HTML/CSS/JS, no build step needed)
+- `couples.html` — Private couples weekend page, password-protected (password: "connections")
 - `docs/plans/` — Supporting planning documents
 
 ## Running the App

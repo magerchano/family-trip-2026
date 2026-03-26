@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Just Us — Charleston June 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ── Design Tokens ─────────────────────────────── */
+:root {
+  --sand: #f5e6d0;
+  --cream: #fef9f0;
+  --white: #ffffff;
+  --charcoal: #2c2418;
+  --gray-light: #e8e4de;
+  --gray-warm: #f0ebe4;
+  --charleston-accent: #1a7a8a;
+  --keys-accent: #c4654a;
+  --accent-gold: #d4a039;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+  --max-content: 700px;
+  --max-section: 1100px;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--charcoal);
+  background-color: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img { max-width: 100%; display: block; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  color: var(--charleston-accent);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+a:hover { opacity: 0.75; }
+
+/* ── Password Gate ─────────────────────────────── */
+#password-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cream);
+  flex-direction: column;
+  padding: var(--space-lg);
+}
+
+.gate__inner {
+  text-align: center;
+  max-width: 380px;
+  width: 100%;
+}
+
+.gate__lock {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-lg);
+  opacity: 0.4;
+}
+
+.gate__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: var(--space-sm);
+}
+
+.gate__subtitle {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--charcoal);
+  opacity: 0.55;
+  margin-bottom: var(--space-2xl);
+  line-height: 1.6;
+}
+
+.gate__input-wrap {
+  position: relative;
+  margin-bottom: var(--space-md);
+}
+
+.gate__input {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.85em 1em;
+  border: 1px solid var(--gray-light);
+  border-radius: 10px;
+  background: var(--white);
+  color: var(--charcoal);
+  outline: none;
+  text-align: center;
+  letter-spacing: 0.05em;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gate__input:focus {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 3px rgba(212, 160, 57, 0.15);
+}
+
+.gate__input--error {
+  border-color: #c0392b;
+  box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.1);
+  animation: shake 0.35s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+.gate__btn {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  padding: 0.85em 1em;
+  border: none;
+  border-radius: 10px;
+  background: var(--accent-gold);
+  color: var(--white);
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.gate__btn:hover { opacity: 0.88; }
+.gate__btn:active { transform: scale(0.98); }
+
+.gate__error {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: #c0392b;
+  margin-top: var(--space-sm);
+  min-height: 1.25em;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.gate__error--visible { opacity: 1; }
+
+/* ── Page Content (hidden until unlocked) ──────── */
+#page-content {
+  display: none;
+}
+
+/* ── Hero ─────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=1600&q=80') center / cover no-repeat;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 1s ease-out both;
+}
+
+.hero__eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: var(--space-md);
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 9vw, 7rem);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.hero__date {
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 2.5vw, 1.75rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: var(--space-sm);
+  letter-spacing: 0.05em;
+}
+
+.hero__tagline {
+  font-family: var(--font-body);
+  font-size: clamp(0.8rem, 1.4vw, 1rem);
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: var(--space-lg);
+  letter-spacing: 0.1em;
+  text-transform: lowercase;
+}
+
+/* ── Section Shared ───────────────────────────── */
+.section {
+  max-width: var(--max-section);
+  margin-inline: auto;
+  padding: var(--space-3xl) var(--space-lg);
+}
+
+.section__heading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+  color: var(--charcoal);
+}
+
+.section__heading--gold {
+  color: var(--accent-gold);
+}
+
+/* ── Hotel Stay Section ───────────────────────── */
+.stay-booked {
+  background: var(--white);
+  border: 2px solid var(--accent-gold);
+  border-radius: 16px;
+  padding: var(--space-2xl) var(--space-xl);
+  max-width: 680px;
+  margin: 0 auto var(--space-2xl);
+  position: relative;
+}
+
+.stay-booked__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: var(--accent-gold);
+  color: var(--white);
+  padding: 0.35em 0.9em;
+  border-radius: 100px;
+  margin-bottom: var(--space-md);
+}
+
+.stay-booked__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: var(--space-sm);
+}
+
+.stay-booked__dates {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-gold);
+  margin-bottom: var(--space-md);
+}
+
+.stay-booked__desc {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--charcoal);
+  opacity: 0.75;
+  line-height: 1.75;
+}
+
+.stay-options-heading {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  opacity: 0.45;
+  text-align: center;
+  margin-bottom: var(--space-lg);
+  text-transform: lowercase;
+  letter-spacing: 0.04em;
+}
+
+.stay-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-md);
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0.6;
+}
+
+.stay-option {
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: 12px;
+  padding: var(--space-lg);
+}
+
+.stay-option__name {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 0.25em;
+}
+
+.stay-option__desc {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--charcoal);
+  opacity: 0.65;
+  line-height: 1.6;
+}
+
+/* ── Day-by-Day ───────────────────────────────── */
+.day-entry {
+  border-top: 1px solid var(--gray-light);
+}
+
+.day-entry:last-child {
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.day-entry__header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-md);
+  padding: var(--space-lg) 0;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.day-entry__header:hover { opacity: 0.75; }
+
+.day-entry__number {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--accent-gold);
+}
+
+.day-entry__title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--charcoal);
+  flex: 1;
+}
+
+.day-entry__toggle {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  color: var(--charcoal);
+  opacity: 0.4;
+  line-height: 1;
+}
+
+.day-entry__detail {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+}
+
+.day-entry__detail--open {
+  max-height: 500px;
+  padding-bottom: var(--space-lg);
+}
+
+.day-entry__detail p {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--charcoal);
+  opacity: 0.7;
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+/* ── Dining Section ───────────────────────────── */
+.dining-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+
+.dining-card {
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: 12px;
+  padding: var(--space-lg);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dining-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+}
+
+.dining-card__badge {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.2em 0.6em;
+  border-radius: 100px;
+  display: inline-block;
+  margin-bottom: var(--space-sm);
+}
+
+.dining-card__badge--star {
+  background: var(--accent-gold);
+  color: var(--white);
+}
+
+.dining-card__badge--semifinalist {
+  background: var(--charleston-accent);
+  color: var(--white);
+}
+
+.dining-card__badge--notable {
+  background: transparent;
+  border: 1px solid var(--charcoal);
+  color: var(--charcoal);
+  opacity: 0.6;
+}
+
+.dining-card__name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 0.4em;
+}
+
+.dining-card__desc {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--charcoal);
+  opacity: 0.65;
+  line-height: 1.65;
+}
+
+/* ── Scroll Reveal ───────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Footer ──────────────────────────────────── */
+.site-footer {
+  text-align: center;
+  padding: var(--space-xl);
+  font-size: 0.85rem;
+  color: #9a948b;
+  background: var(--cream);
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-2xl) var(--space-md);
+  }
+
+  .stay-booked {
+    padding: var(--space-xl) var(--space-lg);
+  }
+
+  .day-entry__header {
+    min-height: 44px;
+    padding: var(--space-md) 0;
+  }
+}
+</style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!--  PASSWORD GATE                                 -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div id="password-gate">
+    <div class="gate__inner">
+      <div class="gate__lock">&#128274;</div>
+      <h1 class="gate__title">Just Us</h1>
+      <p class="gate__subtitle">This page is private.<br>Enter the password to continue.</p>
+      <form onsubmit="checkPassword(); return false;">
+        <div class="gate__input-wrap">
+          <input
+            type="password"
+            id="gate-input"
+            class="gate__input"
+            placeholder="password"
+            autocomplete="off"
+            autocapitalize="none"
+            autocorrect="off"
+            spellcheck="false"
+          >
+        </div>
+        <button type="submit" class="gate__btn">Unlock</button>
+      </form>
+      <p class="gate__error" id="gate-error">Incorrect password. Try again.</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!--  PAGE CONTENT                                  -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div id="page-content">
+
+    <section class="hero">
+      <div class="hero__content">
+        <p class="hero__eyebrow">Charleston &mdash; June 2026</p>
+        <h1 class="hero__title">Just Us</h1>
+        <p class="hero__date">June 13&ndash;15 &mdash; The Couples Weekend</p>
+        <p class="hero__tagline">no schedule. no kids. no agenda.</p>
+      </div>
+    </section>
+
+    <!-- ── Where We're Staying ────────────────────── -->
+    <section class="section">
+      <h2 class="section__heading reveal">Where We&rsquo;re Staying</h2>
+
+      <div class="stay-booked reveal">
+        <div class="stay-booked__badge">&#10003; Confirmed Booking</div>
+        <h3 class="stay-booked__title">The Spectator Hotel</h3>
+        <p class="stay-booked__dates">2 nights &mdash; Saturday June 13 to Monday June 15</p>
+        <p class="stay-booked__desc">The service pick. 41 rooms, personal butler for every guest, Jazz Age aesthetic, top-5 bar in the country. The kind of place that makes the whole weekend feel like an occasion.</p>
+      </div>
+
+      <p class="stay-options-heading">Other hotels we considered</p>
+      <div class="stay-options reveal">
+        <div class="stay-option">
+          <p class="stay-option__name">Zero George</p>
+          <p class="stay-option__desc">The one we know and love. Intimate, 18 rooms, great restaurant.</p>
+        </div>
+        <div class="stay-option">
+          <p class="stay-option__name">Wentworth Mansion</p>
+          <p class="stay-option__desc">The upgrade. 21 rooms, Gilded Age mansion, on-site spa, Circa 1886 restaurant.</p>
+        </div>
+        <div class="stay-option">
+          <p class="stay-option__name">86 Cannon</p>
+          <p class="stay-option__desc">The hidden gem. 10 rooms, adults-only, saltwater pool, highest-rated in Charleston.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── The Itinerary ──────────────────────────── -->
+    <section class="section" style="padding-top: 0;">
+      <h2 class="section__heading section__heading--gold reveal">The Weekend</h2>
+
+      <div class="day-entry reveal" onclick="toggleDay(this)">
+        <div class="day-entry__header">
+          <span class="day-entry__number">Saturday Evening</span>
+          <span class="day-entry__title">&ldquo;The Upgrade&rdquo;</span>
+          <span class="day-entry__toggle">+</span>
+        </div>
+        <div class="day-entry__detail">
+          <p>Family heads out. Check into The Spectator. Let the butler take care of you. Dinner at a starred restaurant &mdash; Wild Common, Vern&rsquo;s, or Malag&oacute;n. This is the night to go all out.</p>
+        </div>
+      </div>
+
+      <div class="day-entry reveal" onclick="toggleDay(this)">
+        <div class="day-entry__header">
+          <span class="day-entry__number">Sunday June 14</span>
+          <span class="day-entry__title">&ldquo;Slow Day&rdquo;</span>
+          <span class="day-entry__toggle">+</span>
+        </div>
+        <div class="day-entry__detail">
+          <p>Sleep in. Coffee walk &mdash; try The Rise or Kudu&rsquo;s garden courtyard. Brunch. Explore at your own pace. No agenda, no kids, no schedule. Dinner wherever sounds right &mdash; maybe Merci (26 seats, James Beard semifinalist) or FIG.</p>
+        </div>
+      </div>
+
+      <div class="day-entry reveal" onclick="toggleDay(this)">
+        <div class="day-entry__header">
+          <span class="day-entry__number">Monday June 15</span>
+          <span class="day-entry__title">&ldquo;Depart&rdquo;</span>
+          <span class="day-entry__toggle">+</span>
+        </div>
+        <div class="day-entry__detail">
+          <p>One last coffee, one last walk. Check out. Head to the airport.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Dining ──────────────────────────────────── -->
+    <section class="section" style="background: var(--gray-warm); max-width: none; padding-inline: var(--space-lg);">
+      <div style="max-width: var(--max-section); margin-inline: auto;">
+        <h2 class="section__heading reveal">Dinner Options</h2>
+        <p class="reveal" style="text-align: center; font-size: 0.9375rem; color: var(--charcoal); opacity: 0.55; margin-top: calc(-1 * var(--space-lg)); margin-bottom: var(--space-2xl);">The adults-only, reservation-required tier</p>
+
+        <div class="dining-grid reveal">
+
+          <div class="dining-card">
+            <span class="dining-card__badge dining-card__badge--star">Michelin Star</span>
+            <h4 class="dining-card__name">Wild Common</h4>
+            <p class="dining-card__desc">Michelin-starred tasting menu that actually lives up to the hype. $95 per person. Inventive, inventive, inventive. Book via Resy.</p>
+          </div>
+
+          <div class="dining-card">
+            <span class="dining-card__badge dining-card__badge--star">Michelin Star</span>
+            <h4 class="dining-card__name">Vern&rsquo;s</h4>
+            <p class="dining-card__desc">Intimate, candlelit, Michelin-starred. The date-night restaurant. Lowcountry meets global. Book via Resy.</p>
+          </div>
+
+          <div class="dining-card">
+            <span class="dining-card__badge dining-card__badge--star">Michelin Star</span>
+            <h4 class="dining-card__name">Malag&oacute;n Mercado y Taperia</h4>
+            <p class="dining-card__desc">Spanish market and taperia. Small and large plates in a lively, vibrant room. Michelin-starred. Book via Resy.</p>
+          </div>
+
+          <div class="dining-card">
+            <span class="dining-card__badge dining-card__badge--semifinalist">James Beard Semifinalist</span>
+            <h4 class="dining-card__name">Merci</h4>
+            <p class="dining-card__desc">Only 26 seats. James Beard semifinalist. The intimate, off-the-radar pick. Reserve early.</p>
+          </div>
+
+          <div class="dining-card">
+            <span class="dining-card__badge dining-card__badge--notable">Charleston Classic</span>
+            <h4 class="dining-card__name">FIG</h4>
+            <p class="dining-card__desc">Farm to table before it was a trend. Mike Lata&rsquo;s James Beard Award-winning restaurant. Always excellent. Book via Resy.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">Made with love for just the two of us.</footer>
+
+  </div><!-- end #page-content -->
+
+  <script>
+    (function () {
+      var SESSION_KEY = 'couplesPageUnlocked2026';
+
+      function unlock() {
+        document.getElementById('password-gate').style.display = 'none';
+        document.getElementById('page-content').style.display = 'block';
+        initReveal();
+      }
+
+      if (sessionStorage.getItem(SESSION_KEY) === '1') {
+        unlock();
+      }
+
+      window.checkPassword = function () {
+        var input = document.getElementById('gate-input');
+        var error = document.getElementById('gate-error');
+        var val = input.value.trim().toLowerCase();
+
+        if (val === 'connections') {
+          sessionStorage.setItem(SESSION_KEY, '1');
+          unlock();
+        } else {
+          input.classList.remove('gate__input--error');
+          void input.offsetWidth;
+          input.classList.add('gate__input--error');
+          error.classList.add('gate__error--visible');
+          input.value = '';
+          setTimeout(function () {
+            input.classList.remove('gate__input--error');
+          }, 400);
+        }
+      };
+
+      function initReveal() {
+        document.querySelectorAll('.reveal').forEach(function (el) {
+          new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) e.target.classList.add('visible');
+            });
+          }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }).observe(el);
+        });
+      }
+    })();
+
+    function toggleDay(entry) {
+      var detail = entry.querySelector('.day-entry__detail');
+      var toggle = entry.querySelector('.day-entry__toggle');
+      var isOpen = detail.classList.contains('day-entry__detail--open');
+      detail.classList.toggle('day-entry__detail--open');
+      toggle.textContent = isOpen ? '+' : '\u2212';
+    }
+  </script>
+</body>
+</html>
