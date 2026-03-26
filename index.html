@@ -451,6 +451,7 @@ h1, h2, h3, h4 {
   font-weight: 700;
   color: var(--accent-gold);
   text-align: center;
+  display: none;
   margin-bottom: var(--space-xl);
 }
 
@@ -1203,49 +1204,24 @@ h1, h2, h3, h4 {
   border-color: var(--accent-gold);
 }
 
-/* ── Couples Teaser ──────────────────────────── */
-.couples-teaser {
-  background: linear-gradient(135deg, #fef9f0 0%, #f9f0e0 100%);
-  border: 1px solid rgba(212, 160, 57, 0.35);
-  border-radius: 12px;
-  padding: var(--space-2xl) var(--space-xl);
-  text-align: center;
-  max-width: 520px;
-  margin: 0 auto;
-}
-
-.couples-teaser__lock {
-  font-size: 2rem;
-  opacity: 0.3;
-  margin-bottom: var(--space-md);
-}
-
-.couples-teaser__title {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 700;
-  color: var(--accent-gold);
-  margin-bottom: var(--space-xs);
-}
-
-.couples-teaser__dates {
+/* ── Plan Aside ──────────────────────────────── */
+.plan__aside {
+  display: inline-block;
+  margin-top: var(--space-md);
+  padding: 0.3rem 0.65rem;
+  border: 1px solid rgba(44, 36, 24, 0.1);
+  border-radius: 5px;
   font-family: var(--font-body);
-  font-size: 0.8125rem;
-  font-weight: 500;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
-  color: var(--charcoal);
-  opacity: 0.5;
-  margin-bottom: var(--space-md);
+  color: rgba(44, 36, 24, 0.22);
+  text-decoration: none;
+  transition: color 0.2s, border-color 0.2s;
 }
-
-.couples-teaser__text {
-  font-family: var(--font-body);
-  font-size: 0.9375rem;
-  color: var(--charcoal);
-  opacity: 0.55;
-  font-style: italic;
-  line-height: 1.65;
+.plan__aside:hover {
+  color: rgba(44, 36, 24, 0.45);
+  border-color: rgba(44, 36, 24, 0.22);
 }
 
 /* ── Scroll Reveal ───────────────────────────── */
@@ -1330,14 +1306,8 @@ h1, h2, h3, h4 {
         <span class="timeline__sub">Mill House Hotel</span>
         <span class="timeline__badge">Hilton Points</span>
       </div>
-      <div class="timeline__block timeline__block--couple">
-        <span class="timeline__dates">Sat June 13 &ndash; Mon June 15</span>
-        <span class="timeline__label">Couples Weekend</span>
-        <span class="timeline__sub">The Spectator Hotel</span>
-        <span class="timeline__badge">Confirmed</span>
-      </div>
     </div>
-    <p class="timeline__note">The couples weekend can shift to before the family trip (June 6&ndash;8) if dates work better.</p>
+    <a href="couples.html" class="plan__aside">the extension</a>
   </section>
 
   <section class="stays section">
@@ -1348,13 +1318,6 @@ h1, h2, h3, h4 {
         <h3 class="stay-card__title">Mill House Hotel</h3>
         <p class="stay-card__text">Downtown Charleston on Hilton Points. Walking distance to everything &mdash; restaurants, waterfront, historic district. The home base for the whole crew.</p>
         <span class="stay-card__badge">Hilton Redemption</span>
-      </div>
-      <div class="stay-card stay-card--private reveal">
-        <p class="stay-card__label stay-card__label--gold">Just Us &mdash; June 13&ndash;15</p>
-        <div class="stay-card__lock">&#128274;</div>
-        <h3 class="stay-card__title stay-card__title--private">Couples Weekend</h3>
-        <p class="stay-card__text stay-card__text--private">Details are private &mdash; this section is just for the two of us.</p>
-        <span class="stay-card__badge stay-card__badge--gold">The Spectator Hotel &mdash; Confirmed</span>
       </div>
     </div>
   </section>
@@ -1425,18 +1388,10 @@ h1, h2, h3, h4 {
         <span class="day-entry__toggle">+</span>
       </div>
       <div class="day-entry__detail">
-        <p>Family heads out. Michael and Haley check into the couples weekend hotel. Decompress. Evening: special dinner at Wild Common (Michelin 1-star tasting menu) or Vern&rsquo;s.</p>
+        <p>Family heads out. Michael and Haley check in for a few extra days. Decompress. Evening: special dinner at Wild Common (Michelin 1-star tasting menu) or Vern&rsquo;s.</p>
       </div>
     </div>
 
-    <div class="itinerary__divider reveal"><span>just us</span></div>
-
-    <div class="couples-teaser reveal">
-      <div class="couples-teaser__lock">&#128274;</div>
-      <h3 class="couples-teaser__title">The Couples Weekend</h3>
-      <p class="couples-teaser__dates">June 13&ndash;15 &mdash; The Spectator Hotel</p>
-      <p class="couples-teaser__text">This part of the trip is private. Details live on a separate page.</p>
-    </div>
   </section>
 
   <section class="food section">
