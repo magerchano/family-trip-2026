@@ -264,26 +264,99 @@ h1, h2, h3, h4 {
   background: var(--white);
 }
 
-.stay-card--featured {
-  padding: 0;
-  overflow: hidden;
-  max-width: 700px;
+.hotel-feature {
+  max-width: var(--max-section);
   margin-inline: auto;
 }
 
-.stay-card__img {
-  height: 280px;
+.hotel-collage {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 8px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: var(--space-xl);
+}
+
+.hotel-collage__main {
+  background-size: cover;
+  background-position: center;
+  min-height: 340px;
+}
+
+.hotel-collage__side {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.hotel-collage__thumb {
   background-size: cover;
   background-position: center;
 }
 
-.stay-card__content {
-  padding: var(--space-xl) var(--space-lg);
+.hotel-info {
+  text-align: center;
+  max-width: var(--max-content);
+  margin-inline: auto;
+}
+
+.hotel-info__label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--charleston-accent);
+  margin-bottom: var(--space-sm);
+}
+
+.hotel-info__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 0.15em;
+}
+
+.hotel-info__sub {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--charcoal);
+  opacity: 0.45;
+  margin-bottom: var(--space-md);
+}
+
+.hotel-info__text {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--charcoal);
+  opacity: 0.75;
+  line-height: 1.8;
+  margin-bottom: var(--space-md);
+}
+
+.hotel-info__address {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--charcoal);
+  opacity: 0.4;
+  letter-spacing: 0.03em;
 }
 
 @media (max-width: 768px) {
-  .stay-card__img {
-    height: 200px;
+  .hotel-collage {
+    grid-template-columns: 1fr;
+  }
+  .hotel-collage__main {
+    min-height: 220px;
+  }
+  .hotel-collage__side {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .hotel-collage__thumb {
+    min-height: 120px;
   }
 }
 
@@ -1202,7 +1275,7 @@ h1, h2, h3, h4 {
       <div class="timeline__block timeline__block--family">
         <span class="timeline__dates">Mon June 8 &ndash; Sat June 13</span>
         <span class="timeline__label">Family Trip</span>
-        <span class="timeline__sub">Mill House Hotel</span>
+        <span class="timeline__sub">Mills House Hotel</span>
         <span class="timeline__badge">Downtown Charleston</span>
       </div>
     </div>
@@ -1210,15 +1283,23 @@ h1, h2, h3, h4 {
   </section>
 
   <section class="stays section">
-    <h2 class="section__heading">Where We're Staying</h2>
-    <div class="stays__grid">
-      <div class="stay-card stay-card--featured reveal">
-        <div class="stay-card__img" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80')"></div>
-        <div class="stay-card__content">
-          <p class="stay-card__label stay-card__label--teal">June 8&ndash;13 &bull; 5 Nights</p>
-          <h3 class="stay-card__title">Mill House Hotel</h3>
-          <p class="stay-card__text">Downtown Charleston on Queen Street &mdash; walking distance to every restaurant, coffee shop, and waterfront spot on this page. The home base for the whole crew.</p>
+    <h2 class="section__heading reveal">Where We're Staying</h2>
+
+    <div class="hotel-feature reveal">
+      <div class="hotel-collage">
+        <div class="hotel-collage__main" style="background-image: url('https://stories-editor.hilton.com/wp-content/uploads/2022/10/Mills-House-Charleston-Curio-Collection-by-Hilton-Exterior.jpg')"></div>
+        <div class="hotel-collage__side">
+          <div class="hotel-collage__thumb" style="background-image: url('https://stories-editor.hilton.com/wp-content/uploads/2022/10/Mills-House-Charleston-Curio-Collection-by-Hilton-Accommodations-City-View-King-Room.jpg')"></div>
+          <div class="hotel-collage__thumb" style="background-image: url('https://assets.resortpass.com/uploads/image/picture/30584/details_MillsHouse_pool.jpg')"></div>
+          <div class="hotel-collage__thumb" style="background-image: url('https://assets.resortpass.com/uploads/image/picture/30591/details_MillsHouse_courtyard.jpg')"></div>
         </div>
+      </div>
+      <div class="hotel-info">
+        <p class="hotel-info__label">June 8&ndash;13 &bull; 5 Nights</p>
+        <h3 class="hotel-info__name">Mills House Charleston</h3>
+        <p class="hotel-info__sub">Curio Collection by Hilton</p>
+        <p class="hotel-info__text">Historic landmark on Meeting Street at the heart of downtown. Rooftop pool, courtyard dining, and walking distance to every restaurant, coffee shop, and waterfront spot on this page. The home base for the whole crew.</p>
+        <p class="hotel-info__address">115 Meeting Street, Charleston, SC</p>
       </div>
     </div>
   </section>
@@ -1234,7 +1315,7 @@ h1, h2, h3, h4 {
         <span class="day-entry__toggle">+</span>
       </div>
       <div class="day-entry__detail">
-        <p>Arrive in Charleston, check into Mill House. Keep the first night easy &mdash; walk the neighborhood, get oriented, casual dinner. Consider Leon&rsquo;s Oyster Shop or Poogan&rsquo;s Porch for an easy opener that works for everyone.</p>
+        <p>Arrive in Charleston, check into Mills House. Keep the first night easy &mdash; walk the neighborhood, get oriented, casual dinner. Consider Leon&rsquo;s Oyster Shop or Poogan&rsquo;s Porch for an easy opener that works for everyone.</p>
       </div>
     </div>
 
@@ -1597,7 +1678,7 @@ h1, h2, h3, h4 {
   <section class="coffee-section">
     <div class="container container--wide">
       <h2 class="coffee-section__title reveal">The Coffee</h2>
-      <p class="coffee-section__sub reveal">Walking distance from Mill House, sorted by how much you need to go</p>
+      <p class="coffee-section__sub reveal">Walking distance from Mills House, sorted by how much you need to go</p>
 
       <div class="coffee-grid reveal">
 
