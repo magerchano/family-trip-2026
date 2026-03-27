@@ -264,6 +264,29 @@ h1, h2, h3, h4 {
   background: var(--white);
 }
 
+.stay-card--featured {
+  padding: 0;
+  overflow: hidden;
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+.stay-card__img {
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+}
+
+.stay-card__content {
+  padding: var(--space-xl) var(--space-lg);
+}
+
+@media (max-width: 768px) {
+  .stay-card__img {
+    height: 200px;
+  }
+}
+
 .stay-card__label {
   font-family: var(--font-body);
   font-size: 0.75rem;
@@ -1189,17 +1212,14 @@ h1, h2, h3, h4 {
   <section class="stays section">
     <h2 class="section__heading">Where We're Staying</h2>
     <div class="stays__grid">
-      <div class="stay-card reveal">
-        <p class="stay-card__label stay-card__label--teal">Family Trip &mdash; June 8&ndash;13</p>
-        <h3 class="stay-card__title">Mill House Hotel</h3>
-        <p class="stay-card__text">Downtown Charleston on Hilton Points. Walking distance to everything &mdash; restaurants, waterfront, historic district. The home base for the whole crew.</p>
-        <span class="stay-card__badge">Hilton Redemption</span>
-      </div>
-      <div class="stay-card reveal">
-        <p class="stay-card__label stay-card__label--gold">Couples Weekend &mdash; June 13&ndash;15</p>
-        <h3 class="stay-card__title">The Spectator Hotel</h3>
-        <p class="stay-card__text">Personal butler service for every guest. Jazz Age aesthetic, top-5 bar in the country. 41 rooms on State Street &mdash; steps from everything.</p>
-        <span class="stay-card__badge stay-card__badge--gold">Butler Service</span>
+      <div class="stay-card stay-card--featured reveal">
+        <div class="stay-card__img" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80')"></div>
+        <div class="stay-card__content">
+          <p class="stay-card__label stay-card__label--teal">June 8&ndash;13 &bull; 5 Nights</p>
+          <h3 class="stay-card__title">Mill House Hotel</h3>
+          <p class="stay-card__text">Downtown Charleston on Hilton Points. Queen Street &mdash; walking distance to every restaurant, coffee shop, and waterfront spot on this page. The home base for the whole crew.</p>
+          <span class="stay-card__badge">Hilton Redemption</span>
+        </div>
       </div>
     </div>
   </section>
@@ -1270,7 +1290,7 @@ h1, h2, h3, h4 {
         <span class="day-entry__toggle">+</span>
       </div>
       <div class="day-entry__detail">
-        <p>Family heads out. Check into <strong>The Spectator Hotel</strong> &mdash; butler service, Jazz Age vibes, the works. Evening: dinner at <strong>Vern&rsquo;s</strong> (Michelin 1-star, intimate candlelit). Book on Resy &mdash; opens <strong>May 14</strong> (30 days before June 13).</p>
+        <p>Family heads out. Safe travels everyone &mdash; what a week.</p>
       </div>
     </div>
 
