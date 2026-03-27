@@ -3,9 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
 <title>Charleston — June 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -423,40 +420,6 @@ h1, h2, h3, h4 {
   max-width: 640px;
 }
 
-.itinerary__divider {
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
-  margin: var(--space-2xl) 0;
-}
-
-.itinerary__divider::before,
-.itinerary__divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--gray-light);
-}
-
-.itinerary__divider span {
-  font-family: var(--font-body);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  text-transform: lowercase;
-  letter-spacing: 0.06em;
-  color: var(--accent-gold);
-  white-space: nowrap;
-}
-
-.itinerary__couples-heading {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 700;
-  color: var(--accent-gold);
-  text-align: center;
-  display: none;
-  margin-bottom: var(--space-xl);
-}
 
 /* ── Restaurant Guide ─────────────────────────── */
 .food__subtitle {
@@ -637,191 +600,86 @@ h1, h2, h3, h4 {
   color: #e1306c;
 }
 
-/* ── Priority Booking Panel ─────────────────── */
-.priority-booking {
-  background: var(--charcoal);
-  border-radius: 12px;
-  padding: var(--space-xl) var(--space-lg);
-  margin: var(--space-3xl) auto var(--space-lg);
-  max-width: var(--max-section);
-}
-
-.priority-booking__heading {
-  font-family: var(--font-display);
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  color: var(--cream);
-  margin-bottom: var(--space-xs);
-}
-
-.priority-booking__sub {
-  font-size: 0.9rem;
-  color: rgba(254, 249, 240, 0.55);
-  margin-bottom: var(--space-lg);
-  font-family: var(--font-body);
-}
-
-.pb-item {
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
-  padding: var(--space-md) 0;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.pb-item:last-child {
-  border-bottom: none;
-}
-
-.pb-rank {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  color: var(--accent-gold);
-  min-width: 2rem;
-  text-align: center;
-  flex-shrink: 0;
-}
-
-.pb-info {
-  flex: 1;
-  min-width: 0;
-}
-
-.pb-name {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  color: var(--cream);
+/* ── Card Priority Ranking ────────────────────── */
+.resto-card__priority {
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  flex-wrap: wrap;
+  margin-top: var(--space-xs);
 }
 
-.pb-itinerary-badge {
+.priority-label {
   font-family: var(--font-body);
   font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
+  font-weight: 500;
   text-transform: uppercase;
-  background: var(--charleston-accent);
+  letter-spacing: 0.08em;
+  color: var(--charcoal);
+  opacity: 0.4;
+}
+
+.priority-dots {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.priority-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--charcoal);
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  opacity: 0.4;
+}
+
+.priority-dot:hover {
+  opacity: 0.7;
+}
+
+.priority-dot--selected {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
   color: var(--white);
-  padding: 2px 8px;
-  border-radius: 20px;
+  opacity: 1;
 }
 
-.pb-dates {
-  font-size: 0.85rem;
-  color: rgba(254, 249, 240, 0.65);
-  margin-top: 2px;
+.sort-priority-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--space-md);
+}
+
+.sort-priority-btn {
   font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.4em 1em;
+  border: 1px solid var(--gray-light);
+  border-radius: 100px;
+  background: transparent;
+  color: var(--charcoal);
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.pb-dates strong {
-  color: var(--cream);
-}
-
-.pb-days-away {
-  font-weight: 600;
+.sort-priority-btn:hover {
+  border-color: var(--accent-gold);
   color: var(--accent-gold);
 }
 
-.pb-days-away--open {
-  color: #6fd87b;
-}
-
-.pb-meta {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  flex-shrink: 0;
-}
-
-.pb-votes {
-  font-size: 0.85rem;
-  color: rgba(254, 249, 240, 0.55);
-  font-family: var(--font-body);
-  white-space: nowrap;
-}
-
-.pb-votes-count {
-  font-weight: 700;
-  color: var(--cream);
-}
-
-.pb-platform {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 3px 8px;
-  border-radius: 20px;
-  white-space: nowrap;
-}
-
-.pb-platform--resy {
-  background: #e8422e;
-  color: #fff;
-}
-
-.pb-platform--opentable {
-  background: #da3743;
-  color: #fff;
-}
-
-.priority-booking__walkins {
-  margin-top: var(--space-lg);
-  border-top: 1px solid rgba(255,255,255,0.12);
-  padding-top: var(--space-lg);
-}
-
-.priority-booking__walkins-heading {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  color: rgba(254, 249, 240, 0.5);
-  margin-bottom: var(--space-md);
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-}
-
-.pb-walkin-item {
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
-  padding: var(--space-sm) 0;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-
-.pb-walkin-item:last-child {
-  border-bottom: none;
-}
-
-.pb-walkin-rank {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  color: rgba(254, 249, 240, 0.35);
-  min-width: 1.5rem;
-  text-align: center;
-  flex-shrink: 0;
-}
-
-.pb-walkin-name {
-  flex: 1;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  color: rgba(254, 249, 240, 0.7);
-}
-
-.pb-walkin-votes {
-  font-size: 0.8rem;
-  color: rgba(254, 249, 240, 0.4);
-  font-family: var(--font-body);
-  white-space: nowrap;
-}
-
-.pb-walkin-votes-count {
-  color: rgba(254, 249, 240, 0.65);
-  font-weight: 600;
+.sort-priority-btn--active {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: var(--white);
 }
 
 .full-list__heading {
@@ -1247,6 +1105,15 @@ h1, h2, h3, h4 {
   background: var(--cream);
 }
 
+.couples-link {
+  color: rgba(154, 148, 139, 0.3);
+  text-decoration: none;
+  font-size: 0.7rem;
+}
+.couples-link:hover {
+  color: rgba(154, 148, 139, 0.6);
+}
+
 /* ── Responsive Touch & Overflow Fixes ───────── */
 @media (max-width: 768px) {
   .day-entry__header {
@@ -1403,7 +1270,7 @@ h1, h2, h3, h4 {
 
     <div class="voter-bar reveal">
       <label for="voterSelect">Voting as:</label>
-      <select id="voterSelect" onchange="updateVoteDisplay()">
+      <select id="voterSelect" onchange="updateVoteDisplay(); updatePriorityDisplay()">
         <option value="">Pick your name</option>
         <option value="Jan">Jan</option>
         <option value="Haley">Haley</option>
@@ -1413,7 +1280,11 @@ h1, h2, h3, h4 {
       </select>
     </div>
 
-    <div class="resto-grid reveal">
+    <div class="sort-priority-bar reveal">
+      <button class="sort-priority-btn" id="sortPriorityBtn" onclick="togglePrioritySort()">Sort by Priority</button>
+    </div>
+
+    <div class="resto-grid reveal" id="restoGrid">
 
       <div class="resto-card" data-restaurant="wild-common">
         <div class="resto-card__img" style="background-image: url('https://www.wildcommoncharleston.com/wp-content/uploads/2025/11/Wild_Common_Winter_Menu_12122024_0017.jpg')"></div>
@@ -1430,6 +1301,16 @@ h1, h2, h3, h4 {
           <button class="resto-card__vote" onclick="toggleVote('wild-common')">
             <span class="vote-heart">&hearts;</span> <span class="vote-count">0</span>
           </button>
+          <div class="resto-card__priority">
+            <span class="priority-label">Priority</span>
+            <div class="priority-dots">
+              <span class="priority-dot" data-priority="1" onclick="setPriority('wild-common', 1)">1</span>
+              <span class="priority-dot" data-priority="2" onclick="setPriority('wild-common', 2)">2</span>
+              <span class="priority-dot" data-priority="3" onclick="setPriority('wild-common', 3)">3</span>
+              <span class="priority-dot" data-priority="4" onclick="setPriority('wild-common', 4)">4</span>
+              <span class="priority-dot" data-priority="5" onclick="setPriority('wild-common', 5)">5</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1450,6 +1331,16 @@ h1, h2, h3, h4 {
           <button class="resto-card__vote" onclick="toggleVote('chubby-fish')">
             <span class="vote-heart">&hearts;</span> <span class="vote-count">0</span>
           </button>
+          <div class="resto-card__priority">
+            <span class="priority-label">Priority</span>
+            <div class="priority-dots">
+              <span class="priority-dot" data-priority="1" onclick="setPriority('chubby-fish', 1)">1</span>
+              <span class="priority-dot" data-priority="2" onclick="setPriority('chubby-fish', 2)">2</span>
+              <span class="priority-dot" data-priority="3" onclick="setPriority('chubby-fish', 3)">3</span>
+              <span class="priority-dot" data-priority="4" onclick="setPriority('chubby-fish', 4)">4</span>
+              <span class="priority-dot" data-priority="5" onclick="setPriority('chubby-fish', 5)">5</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1468,6 +1359,16 @@ h1, h2, h3, h4 {
           <button class="resto-card__vote" onclick="toggleVote('verns')">
             <span class="vote-heart">&hearts;</span> <span class="vote-count">0</span>
           </button>
+          <div class="resto-card__priority">
+            <span class="priority-label">Priority</span>
+            <div class="priority-dots">
+              <span class="priority-dot" data-priority="1" onclick="setPriority('verns', 1)">1</span>
+              <span class="priority-dot" data-priority="2" onclick="setPriority('verns', 2)">2</span>
+              <span class="priority-dot" data-priority="3" onclick="setPriority('verns', 3)">3</span>
+              <span class="priority-dot" data-priority="4" onclick="setPriority('verns', 4)">4</span>
+              <span class="priority-dot" data-priority="5" onclick="setPriority('verns', 5)">5</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1488,6 +1389,16 @@ h1, h2, h3, h4 {
           <button class="resto-card__vote" onclick="toggleVote('leons-oyster-shop')">
             <span class="vote-heart">&hearts;</span> <span class="vote-count">0</span>
           </button>
+          <div class="resto-card__priority">
+            <span class="priority-label">Priority</span>
+            <div class="priority-dots">
+              <span class="priority-dot" data-priority="1" onclick="setPriority('leons-oyster-shop', 1)">1</span>
+              <span class="priority-dot" data-priority="2" onclick="setPriority('leons-oyster-shop', 2)">2</span>
+              <span class="priority-dot" data-priority="3" onclick="setPriority('leons-oyster-shop', 3)">3</span>
+              <span class="priority-dot" data-priority="4" onclick="setPriority('leons-oyster-shop', 4)">4</span>
+              <span class="priority-dot" data-priority="5" onclick="setPriority('leons-oyster-shop', 5)">5</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1508,6 +1419,16 @@ h1, h2, h3, h4 {
           <button class="resto-card__vote" onclick="toggleVote('rodney-scotts-bbq')">
             <span class="vote-heart">&hearts;</span> <span class="vote-count">0</span>
           </button>
+          <div class="resto-card__priority">
+            <span class="priority-label">Priority</span>
+            <div class="priority-dots">
+              <span class="priority-dot" data-priority="1" onclick="setPriority('rodney-scotts-bbq', 1)">1</span>
+              <span class="priority-dot" data-priority="2" onclick="setPriority('rodney-scotts-bbq', 2)">2</span>
+              <span class="priority-dot" data-priority="3" onclick="setPriority('rodney-scotts-bbq', 3)">3</span>
+              <span class="priority-dot" data-priority="4" onclick="setPriority('rodney-scotts-bbq', 4)">4</span>
+              <span class="priority-dot" data-priority="5" onclick="setPriority('rodney-scotts-bbq', 5)">5</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1527,6 +1448,16 @@ h1, h2, h3, h4 {
           <button class="resto-card__vote" onclick="toggleVote('poogans-porch')">
             <span class="vote-heart">&hearts;</span> <span class="vote-count">0</span>
           </button>
+          <div class="resto-card__priority">
+            <span class="priority-label">Priority</span>
+            <div class="priority-dots">
+              <span class="priority-dot" data-priority="1" onclick="setPriority('poogans-porch', 1)">1</span>
+              <span class="priority-dot" data-priority="2" onclick="setPriority('poogans-porch', 2)">2</span>
+              <span class="priority-dot" data-priority="3" onclick="setPriority('poogans-porch', 3)">3</span>
+              <span class="priority-dot" data-priority="4" onclick="setPriority('poogans-porch', 4)">4</span>
+              <span class="priority-dot" data-priority="5" onclick="setPriority('poogans-porch', 5)">5</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1546,6 +1477,16 @@ h1, h2, h3, h4 {
           <button class="resto-card__vote" onclick="toggleVote('xiao-bao-biscuit')">
             <span class="vote-heart">&hearts;</span> <span class="vote-count">0</span>
           </button>
+          <div class="resto-card__priority">
+            <span class="priority-label">Priority</span>
+            <div class="priority-dots">
+              <span class="priority-dot" data-priority="1" onclick="setPriority('xiao-bao-biscuit', 1)">1</span>
+              <span class="priority-dot" data-priority="2" onclick="setPriority('xiao-bao-biscuit', 2)">2</span>
+              <span class="priority-dot" data-priority="3" onclick="setPriority('xiao-bao-biscuit', 3)">3</span>
+              <span class="priority-dot" data-priority="4" onclick="setPriority('xiao-bao-biscuit', 4)">4</span>
+              <span class="priority-dot" data-priority="5" onclick="setPriority('xiao-bao-biscuit', 5)">5</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1564,6 +1505,16 @@ h1, h2, h3, h4 {
           <button class="resto-card__vote" onclick="toggleVote('hometeam-bbq')">
             <span class="vote-heart">&hearts;</span> <span class="vote-count">0</span>
           </button>
+          <div class="resto-card__priority">
+            <span class="priority-label">Priority</span>
+            <div class="priority-dots">
+              <span class="priority-dot" data-priority="1" onclick="setPriority('hometeam-bbq', 1)">1</span>
+              <span class="priority-dot" data-priority="2" onclick="setPriority('hometeam-bbq', 2)">2</span>
+              <span class="priority-dot" data-priority="3" onclick="setPriority('hometeam-bbq', 3)">3</span>
+              <span class="priority-dot" data-priority="4" onclick="setPriority('hometeam-bbq', 4)">4</span>
+              <span class="priority-dot" data-priority="5" onclick="setPriority('hometeam-bbq', 5)">5</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1583,6 +1534,16 @@ h1, h2, h3, h4 {
           <button class="resto-card__vote" onclick="toggleVote('callies-hot-little-biscuit')">
             <span class="vote-heart">&hearts;</span> <span class="vote-count">0</span>
           </button>
+          <div class="resto-card__priority">
+            <span class="priority-label">Priority</span>
+            <div class="priority-dots">
+              <span class="priority-dot" data-priority="1" onclick="setPriority('callies-hot-little-biscuit', 1)">1</span>
+              <span class="priority-dot" data-priority="2" onclick="setPriority('callies-hot-little-biscuit', 2)">2</span>
+              <span class="priority-dot" data-priority="3" onclick="setPriority('callies-hot-little-biscuit', 3)">3</span>
+              <span class="priority-dot" data-priority="4" onclick="setPriority('callies-hot-little-biscuit', 4)">4</span>
+              <span class="priority-dot" data-priority="5" onclick="setPriority('callies-hot-little-biscuit', 5)">5</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1601,20 +1562,19 @@ h1, h2, h3, h4 {
           <button class="resto-card__vote" onclick="toggleVote('sugar-bakeshop')">
             <span class="vote-heart">&hearts;</span> <span class="vote-count">0</span>
           </button>
+          <div class="resto-card__priority">
+            <span class="priority-label">Priority</span>
+            <div class="priority-dots">
+              <span class="priority-dot" data-priority="1" onclick="setPriority('sugar-bakeshop', 1)">1</span>
+              <span class="priority-dot" data-priority="2" onclick="setPriority('sugar-bakeshop', 2)">2</span>
+              <span class="priority-dot" data-priority="3" onclick="setPriority('sugar-bakeshop', 3)">3</span>
+              <span class="priority-dot" data-priority="4" onclick="setPriority('sugar-bakeshop', 4)">4</span>
+              <span class="priority-dot" data-priority="5" onclick="setPriority('sugar-bakeshop', 5)">5</span>
+            </div>
+          </div>
         </div>
       </div>
 
-    </div>
-
-    <!-- Priority Booking Panel -->
-    <div class="priority-booking reveal" id="priorityBooking">
-      <h3 class="priority-booking__heading">Priority Booking</h3>
-      <p class="priority-booking__sub">Sorted by when reservation windows open — book before the family loses the table</p>
-      <div class="priority-booking__list" id="priorityBookingList"></div>
-      <div class="priority-booking__walkins" id="priorityWalkins">
-        <h4 class="priority-booking__walkins-heading">No reservation needed</h4>
-        <div class="priority-booking__walkins-list" id="walkinList"></div>
-      </div>
     </div>
 
     <!-- Full Restaurant Master Table -->
@@ -1852,7 +1812,10 @@ h1, h2, h3, h4 {
     </div>
   </section>
 
-  <footer class="site-footer">Made with love and strong opinions about dolphins.</footer>
+  <footer class="site-footer">
+    Made with love and strong opinions about dolphins.
+    <br><a href="couples.html" class="couples-link">...</a>
+  </footer>
 
   <script>
     function toggleDay(entry) {
@@ -1891,129 +1854,88 @@ h1, h2, h3, h4 {
       }
       saveVotes(votes);
       updateVoteDisplay();
-      renderPriorityBooking();
     }
 
-    /* ── Priority Booking Panel ───────────────── */
-    var ITINERARY_IDS = (function() {
-      var ids = [];
-      document.querySelectorAll('[data-restaurant]').forEach(function(card) {
-        ids.push(card.dataset.restaurant);
-      });
-      return ids;
-    }());
+    /* ── Card Priority Ranking ────────────────── */
+    var PRIORITY_KEY = 'charlestonTrip2026Priority';
+    var prioritySortActive = false;
 
-    function getPriorityData() {
-      var votes = getVotes();
-      var rows = document.querySelectorAll('#masterTableBody tr');
-      var reservations = [];
-      var walkins = [];
-
-      rows.forEach(function(row) {
-        var resDays = parseInt(row.dataset.resDays, 10);
-        var tripDate = row.dataset.tripDate;
-        var booking = row.dataset.booking || '';
-        var resId = row.dataset.resId || '';
-        var name = row.querySelector('td') ? row.querySelector('td').textContent.trim() : '';
-        var voteCount = (votes[resId] || []).length;
-
-        if (resDays > 0 && tripDate) {
-          var tripMs = new Date(tripDate + 'T00:00:00').getTime();
-          var openMs = tripMs - resDays * 24 * 60 * 60 * 1000;
-          reservations.push({
-            name: name,
-            resId: resId,
-            resDays: resDays,
-            openMs: openMs,
-            tripDate: tripDate,
-            booking: booking,
-            voteCount: voteCount
-          });
-        } else if (resDays === 0) {
-          walkins.push({ name: name, resId: resId, voteCount: voteCount });
-        }
-      });
-
-      reservations.sort(function(a, b) {
-        if (a.openMs !== b.openMs) return a.openMs - b.openMs;
-        return b.voteCount - a.voteCount;
-      });
-
-      walkins.sort(function(a, b) { return b.voteCount - a.voteCount; });
-
-      return { reservations: reservations, walkins: walkins };
+    function getPriorities() {
+      try {
+        return JSON.parse(localStorage.getItem(PRIORITY_KEY)) || {};
+      } catch (e) {
+        return {};
+      }
     }
 
-    function formatOpenDate(openMs) {
-      var d = new Date(openMs);
-      var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-      return months[d.getMonth()] + ' ' + d.getDate();
+    function savePriorities(data) {
+      localStorage.setItem(PRIORITY_KEY, JSON.stringify(data));
     }
 
-    function daysUntil(openMs) {
-      var today = new Date();
-      today.setHours(0, 0, 0, 0);
-      var diff = Math.ceil((openMs - today.getTime()) / (24 * 60 * 60 * 1000));
-      return diff;
+    function setPriority(restaurantId, level) {
+      var voter = document.getElementById('voterSelect').value;
+      if (!voter) { alert('Pick your name first!'); return; }
+      var priorities = getPriorities();
+      if (!priorities[restaurantId]) priorities[restaurantId] = {};
+      if (priorities[restaurantId][voter] === level) {
+        priorities[restaurantId][voter] = 0;
+      } else {
+        priorities[restaurantId][voter] = level;
+      }
+      savePriorities(priorities);
+      updatePriorityDisplay();
+      if (prioritySortActive) sortCardsByPriority();
     }
 
-    function renderPriorityBooking() {
-      var data = getPriorityData();
-      var listEl = document.getElementById('priorityBookingList');
-      var walkinEl = document.getElementById('walkinList');
-      if (!listEl || !walkinEl) return;
-
-      var resHTML = '';
-      data.reservations.forEach(function(item, i) {
-        var days = daysUntil(item.openMs);
-        var openLabel = formatOpenDate(item.openMs);
-        var daysLabel, daysClass;
-        if (days <= 0) {
-          daysLabel = 'Open now';
-          daysClass = 'pb-days-away--open';
-        } else if (days === 1) {
-          daysLabel = 'Opens tomorrow';
-          daysClass = 'pb-days-away';
-        } else {
-          daysLabel = 'Opens in ' + days + ' day' + (days !== 1 ? 's' : '');
-          daysClass = 'pb-days-away';
-        }
-
-        var platformClass = item.booking.toLowerCase() === 'resy' ? 'pb-platform--resy' : 'pb-platform--opentable';
-
-        var itineraryBadge = '';
-        if (ITINERARY_IDS.indexOf(item.resId) > -1) {
-          itineraryBadge = '<span class="pb-itinerary-badge">On the itinerary</span>';
-        }
-
-        resHTML += '<div class="pb-item">'
-          + '<div class="pb-rank">' + (i + 1) + '</div>'
-          + '<div class="pb-info">'
-          +   '<div class="pb-name">' + item.name + itineraryBadge + '</div>'
-          +   '<div class="pb-dates">Opens <strong>' + openLabel + '</strong> &mdash; <span class="' + daysClass + '">' + daysLabel + '</span></div>'
-          + '</div>'
-          + '<div class="pb-meta">'
-          +   '<span class="pb-votes"><span class="pb-votes-count">' + item.voteCount + '</span> ' + (item.voteCount === 1 ? 'vote' : 'votes') + '</span>'
-          +   '<span class="pb-platform ' + platformClass + '">' + item.booking + '</span>'
-          + '</div>'
-          + '</div>';
+    function updatePriorityDisplay() {
+      var priorities = getPriorities();
+      var voter = document.getElementById('voterSelect').value;
+      document.querySelectorAll('.resto-card').forEach(function(card) {
+        var id = card.dataset.restaurant;
+        var cardPriorities = priorities[id] || {};
+        var voterPriority = voter ? (cardPriorities[voter] || 0) : 0;
+        card.querySelectorAll('.priority-dot').forEach(function(dot) {
+          var dotLevel = parseInt(dot.dataset.priority, 10);
+          if (dotLevel === voterPriority) {
+            dot.classList.add('priority-dot--selected');
+          } else {
+            dot.classList.remove('priority-dot--selected');
+          }
+        });
       });
+    }
 
-      listEl.innerHTML = resHTML || '<p style="color:rgba(254,249,240,0.4);font-size:0.9rem;">No reservation data found.</p>';
+    function getAveragePriority(restaurantId) {
+      var priorities = getPriorities();
+      var cardPriorities = priorities[restaurantId] || {};
+      var values = Object.values(cardPriorities).filter(function(v) { return v > 0; });
+      if (values.length === 0) return 0;
+      var sum = values.reduce(function(a, b) { return a + b; }, 0);
+      return sum / values.length;
+    }
 
-      var walkinHTML = '';
-      data.walkins.forEach(function(item, i) {
-        walkinHTML += '<div class="pb-walkin-item">'
-          + '<div class="pb-walkin-rank">' + (i + 1) + '</div>'
-          + '<div class="pb-walkin-name">' + item.name + '</div>'
-          + '<div class="pb-walkin-votes"><span class="pb-walkin-votes-count">' + item.voteCount + '</span> ' + (item.voteCount === 1 ? 'vote' : 'votes') + '</div>'
-          + '</div>';
+    function sortCardsByPriority() {
+      var grid = document.getElementById('restoGrid');
+      if (!grid) return;
+      var cards = Array.from(grid.querySelectorAll('.resto-card'));
+      cards.sort(function(a, b) {
+        var avgA = getAveragePriority(a.dataset.restaurant);
+        var avgB = getAveragePriority(b.dataset.restaurant);
+        return avgB - avgA;
       });
+      cards.forEach(function(card) { grid.appendChild(card); });
+    }
 
-      walkinEl.innerHTML = walkinHTML;
-      var walkinSection = document.getElementById('priorityWalkins');
-      if (walkinSection) {
-        walkinSection.style.display = data.walkins.length > 0 ? '' : 'none';
+    function togglePrioritySort() {
+      var btn = document.getElementById('sortPriorityBtn');
+      prioritySortActive = !prioritySortActive;
+      if (prioritySortActive) {
+        btn.classList.add('sort-priority-btn--active');
+        sortCardsByPriority();
+      } else {
+        btn.classList.remove('sort-priority-btn--active');
+        // Restore original order by re-reading DOM order (reload needed for true reset)
+        // For simplicity, just turn off future auto-sorts
       }
     }
 
@@ -2039,7 +1961,7 @@ h1, h2, h3, h4 {
     }
 
     updateVoteDisplay();
-    renderPriorityBooking();
+    updatePriorityDisplay();
 
     /* ── Master Table Filtering ──────────────────── */
     var activeMealFilter = 'All';
