@@ -1198,6 +1198,331 @@ h1, h2, h3, h4 {
   transform: translateY(0);
 }
 
+/* ── Planner Board ───────────────────────────── */
+.planner__sub {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  color: var(--charcoal);
+  opacity: 0.55;
+  text-align: center;
+  margin-top: calc(-1 * var(--space-lg));
+  margin-bottom: var(--space-2xl);
+}
+
+.planner__voter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-2xl);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--charcoal);
+  opacity: 0.7;
+}
+
+.planner__voter select {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  padding: 0.3em 0.6em;
+  border: 1px solid var(--gray-light);
+  border-radius: 6px;
+  background: var(--white);
+  color: var(--charcoal);
+  cursor: pointer;
+}
+
+.planner__board {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.planner__sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: sticky;
+  top: 20px;
+  background: var(--white);
+  border-right: 1px solid var(--gray-light);
+  border-radius: 12px;
+  padding: var(--space-md);
+}
+
+.planner__search {
+  width: 100%;
+  border: 1px solid var(--gray-light);
+  border-radius: 8px;
+  padding: 0.5em 0.8em;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--charcoal);
+  background: var(--cream);
+  outline: none;
+  margin-bottom: var(--space-md);
+  transition: border-color 0.2s ease;
+}
+
+.planner__search:focus {
+  border-color: var(--charleston-accent);
+}
+
+.planner__group {
+  margin-bottom: var(--space-md);
+}
+
+.planner__group-title {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--charcoal);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.planner__group-toggle {
+  font-size: 1rem;
+  opacity: 0.4;
+  line-height: 1;
+}
+
+.planner__group-items {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.planner__group-items.collapsed {
+  max-height: 0 !important;
+}
+
+.drag-card {
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: 8px;
+  padding: 8px 10px;
+  cursor: grab;
+  font-size: 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  transition: opacity 0.2s ease, box-shadow 0.2s ease;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.drag-card:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.drag-card:active {
+  cursor: grabbing;
+}
+
+.drag-card--activity {
+  border-left: 3px solid var(--charleston-accent);
+}
+
+.drag-card--coffee {
+  border-left: 3px solid var(--accent-gold);
+}
+
+.drag-card__name {
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.drag-card__badge {
+  font-family: var(--font-body);
+  font-size: 0.55rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.15em 0.5em;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.drag-card__meta {
+  font-size: 0.7rem;
+  opacity: 0.5;
+  width: 100%;
+}
+
+.drag-card__proposed {
+  font-size: 0.65rem;
+  color: var(--charleston-accent);
+  font-style: italic;
+}
+
+.drag-card.placed {
+  opacity: 0.4;
+  border-style: dashed;
+}
+
+.planner__columns {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+  overflow-x: auto;
+  padding-bottom: var(--space-md);
+}
+
+.planner__col {
+  min-width: 160px;
+  width: 160px;
+  flex-shrink: 0;
+}
+
+.planner__col-title {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  color: var(--charcoal);
+}
+
+.planner__col-date {
+  font-size: 0.75rem;
+  opacity: 0.5;
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+.planner__slot {
+  min-height: 70px;
+  border: 2px dashed var(--gray-light);
+  border-radius: 8px;
+  padding: 6px;
+  margin-bottom: 8px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.planner__slot-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--charcoal);
+  opacity: 0.3;
+  font-family: var(--font-body);
+}
+
+.planner__slot.drag-over {
+  border-color: var(--charleston-accent);
+  background: rgba(26, 122, 138, 0.05);
+}
+
+.planner__slot.filled {
+  border-style: solid;
+  border-color: var(--gray-light);
+}
+
+.planner__slot.filled .planner__slot-label {
+  display: none;
+}
+
+.planner__placed-card {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 4px;
+}
+
+.planner__placed-card .drag-card__name {
+  font-size: 0.75rem;
+}
+
+.planner__placed-card .drag-card__badge {
+  font-size: 0.5rem;
+}
+
+.planner__remove {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: var(--charcoal);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  line-height: 1;
+  padding: 2px 4px;
+}
+
+.planner__placed-card:hover .planner__remove {
+  opacity: 0.5;
+}
+
+.planner__remove:hover {
+  opacity: 1 !important;
+  color: #c0392b;
+}
+
+/* Touch drag ghost */
+.drag-ghost {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.85;
+  transform: rotate(2deg) scale(1.05);
+  background: var(--white);
+  border: 1px solid var(--charleston-accent);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 768px) {
+  .planner__board {
+    flex-direction: column;
+  }
+
+  .planner__sidebar {
+    width: 100%;
+    max-height: 300px;
+    border-right: none;
+    border-bottom: 1px solid var(--gray-light);
+    position: relative;
+    top: auto;
+  }
+
+  .planner__columns {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .planner__voter select {
+    min-height: 44px;
+  }
+
+  .planner__search {
+    min-height: 44px;
+  }
+}
+
 /* ── Footer ──────────────────────────────────── */
 .site-footer {
   text-align: center;
@@ -1304,76 +1629,368 @@ h1, h2, h3, h4 {
     </div>
   </section>
 
-  <section class="itinerary section">
+  <section class="planner section">
     <h2 class="section__heading reveal">The Week</h2>
-    <p class="itinerary__subtitle reveal">Monday through Saturday &mdash; the family trip</p>
+    <p class="planner__sub reveal">Drag restaurants, activities, and coffee to plan each day</p>
 
-    <div class="day-entry reveal" onclick="toggleDay(this)">
-      <div class="day-entry__header">
-        <span class="day-entry__number day-entry__number--teal">Monday June 8</span>
-        <span class="day-entry__title">&ldquo;Arrive &amp; Settle In&rdquo;</span>
-        <span class="day-entry__toggle">+</span>
-      </div>
-      <div class="day-entry__detail">
-        <p>Arrive in Charleston, check into Mills House. Keep the first night easy &mdash; walk the neighborhood, get oriented, casual dinner. Consider Leon&rsquo;s Oyster Shop or Poogan&rsquo;s Porch for an easy opener that works for everyone.</p>
-      </div>
+    <div class="planner__voter reveal">
+      <label>Planning as:</label>
+      <select id="plannerVoter">
+        <option value="">Pick your name</option>
+        <option value="Jan">Jan</option>
+        <option value="Haley">Haley</option>
+        <option value="Michael">Michael</option>
+        <option value="Trey">Trey</option>
+        <option value="Katy">Katy</option>
+      </select>
     </div>
 
-    <div class="day-entry reveal" onclick="toggleDay(this)">
-      <div class="day-entry__header">
-        <span class="day-entry__number day-entry__number--teal">Tuesday June 9</span>
-        <span class="day-entry__title">&ldquo;The Big Food &amp; City Day&rdquo;</span>
-        <span class="day-entry__toggle">+</span>
+    <div class="planner__board reveal">
+      <!-- Sidebar -->
+      <div class="planner__sidebar">
+        <input type="text" class="planner__search" placeholder="Search..." id="plannerSearch" oninput="filterSidebar()">
+
+        <div class="planner__group" data-group="restaurants">
+          <h4 class="planner__group-title" onclick="toggleGroup(this)">Restaurants <span class="planner__group-toggle">&minus;</span></h4>
+          <div class="planner__group-items" id="sidebarRestaurants">
+            <div class="drag-card" draggable="true" data-id="wild-common" data-type="restaurant" data-meals="Dinner" data-kid="No">
+              <span class="drag-card__name">Wild Common</span>
+              <span class="drag-card__badge resto-badge--michelin">Michelin Star</span>
+              <span class="drag-card__meta">Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="verns" data-type="restaurant" data-meals="Dinner" data-kid="No">
+              <span class="drag-card__name">Vern's</span>
+              <span class="drag-card__badge resto-badge--michelin">Michelin Star</span>
+              <span class="drag-card__meta">Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="malagon" data-type="restaurant" data-meals="Dinner" data-kid="Older">
+              <span class="drag-card__name">Malag&oacute;n</span>
+              <span class="drag-card__badge resto-badge--michelin">Michelin Star</span>
+              <span class="drag-card__meta">Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="rodney-scotts" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Yes">
+              <span class="drag-card__name">Rodney Scott's BBQ</span>
+              <span class="drag-card__badge resto-badge--bib">Bib Gourmand</span>
+              <span class="drag-card__meta">Lunch / Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="lewis-barbecue" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Yes">
+              <span class="drag-card__name">Lewis Barbecue</span>
+              <span class="drag-card__badge resto-badge--bib">Bib Gourmand</span>
+              <span class="drag-card__meta">Lunch / Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="leons-oyster" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Yes">
+              <span class="drag-card__name">Leon's Oyster Shop</span>
+              <span class="drag-card__badge resto-badge--bib">Bib Gourmand</span>
+              <span class="drag-card__meta">Lunch / Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="chubby-fish" data-type="restaurant" data-meals="Dinner" data-kid="No">
+              <span class="drag-card__name">Chubby Fish</span>
+              <span class="drag-card__badge resto-badge--nyt">NYT Top 50</span>
+              <span class="drag-card__meta">Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="fig" data-type="restaurant" data-meals="Dinner" data-kid="Older">
+              <span class="drag-card__name">FIG</span>
+              <span class="drag-card__badge resto-badge--michelin-listed">Michelin Listed</span>
+              <span class="drag-card__meta">Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="husk" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Older">
+              <span class="drag-card__name">Husk</span>
+              <span class="drag-card__badge resto-badge--michelin-listed">Michelin Listed</span>
+              <span class="drag-card__meta">Lunch / Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="sorelle" data-type="restaurant" data-meals="Dinner" data-kid="Older">
+              <span class="drag-card__name">Sorelle</span>
+              <span class="drag-card__badge resto-badge--michelin-listed">Michelin Listed</span>
+              <span class="drag-card__meta">Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="lowland" data-type="restaurant" data-meals="Dinner" data-kid="No">
+              <span class="drag-card__name">Lowland</span>
+              <span class="drag-card__badge resto-badge--michelin-listed">Michelin Listed</span>
+              <span class="drag-card__meta">Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="xiao-bao" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Yes">
+              <span class="drag-card__name">Xiao Bao Biscuit</span>
+              <span class="drag-card__badge resto-badge--michelin-listed">Michelin Listed</span>
+              <span class="drag-card__meta">Lunch / Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="obstinate-daughter" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Yes">
+              <span class="drag-card__name">The Obstinate Daughter</span>
+              <span class="drag-card__badge resto-badge--michelin-listed">Michelin Listed</span>
+              <span class="drag-card__meta">Lunch / Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="merci" data-type="restaurant" data-meals="Dinner" data-kid="No">
+              <span class="drag-card__name">Merci</span>
+              <span class="drag-card__badge resto-badge--beard">James Beard</span>
+              <span class="drag-card__meta">Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="renzo" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Yes">
+              <span class="drag-card__name">Renzo</span>
+              <span class="drag-card__badge resto-badge--beard">James Beard</span>
+              <span class="drag-card__meta">Lunch / Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="palmira" data-type="restaurant" data-meals="Dinner" data-kid="Older">
+              <span class="drag-card__name">Palmira</span>
+              <span class="drag-card__badge resto-badge--beard">James Beard</span>
+              <span class="drag-card__meta">Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="fleet-landing" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Yes">
+              <span class="drag-card__name">Fleet Landing</span>
+              <span class="drag-card__badge resto-badge--haleys">Haley's List</span>
+              <span class="drag-card__meta">Lunch / Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="hometeam-bbq" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Yes">
+              <span class="drag-card__name">Hometeam BBQ</span>
+              <span class="drag-card__badge resto-badge--haleys">Haley's List</span>
+              <span class="drag-card__meta">Lunch / Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="le-farfalle" data-type="restaurant" data-meals="Dinner" data-kid="Older">
+              <span class="drag-card__name">Le Farfalle</span>
+              <span class="drag-card__badge resto-badge--haleys">Haley's List</span>
+              <span class="drag-card__meta">Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="poogans-porch" data-type="restaurant" data-meals="Brunch,Dinner" data-kid="Yes">
+              <span class="drag-card__name">Poogan's Porch</span>
+              <span class="drag-card__badge resto-badge--tiktok">TikTok</span>
+              <span class="drag-card__meta">Brunch / Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="darling-oyster" data-type="restaurant" data-meals="Dinner" data-kid="Older">
+              <span class="drag-card__name">Darling Oyster Bar</span>
+              <span class="drag-card__badge resto-badge--tiktok">TikTok</span>
+              <span class="drag-card__meta">Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="church-union" data-type="restaurant" data-meals="Dinner" data-kid="Older">
+              <span class="drag-card__name">Church and Union</span>
+              <span class="drag-card__badge resto-badge--tiktok">TikTok</span>
+              <span class="drag-card__meta">Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="callies-biscuit" data-type="restaurant" data-meals="Breakfast" data-kid="Yes">
+              <span class="drag-card__name">Callie's Hot Little Biscuit</span>
+              <span class="drag-card__badge resto-badge--tiktok">TikTok</span>
+              <span class="drag-card__meta">Breakfast</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="millers-all-day" data-type="restaurant" data-meals="Breakfast,Brunch" data-kid="Yes">
+              <span class="drag-card__name">Millers All Day</span>
+              <span class="drag-card__badge resto-badge--haleys">Haley's List</span>
+              <span class="drag-card__meta">Breakfast / Brunch</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="babas-restaurant" data-type="restaurant" data-meals="Brunch,Lunch" data-kid="Yes">
+              <span class="drag-card__name">Babas</span>
+              <span class="drag-card__badge resto-badge--haleys">Haley's List</span>
+              <span class="drag-card__meta">Brunch / Lunch</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="sugar-bakeshop" data-type="restaurant" data-meals="Dessert" data-kid="Yes">
+              <span class="drag-card__name">Sugar Bakeshop</span>
+              <span class="drag-card__badge resto-badge--tiktok">TikTok</span>
+              <span class="drag-card__meta">Dessert</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="sullivans-fish-camp" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Yes">
+              <span class="drag-card__name">Sullivan's Fish Camp</span>
+              <span class="drag-card__meta">Lunch / Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="rancho-lewis" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Yes">
+              <span class="drag-card__name">Rancho Lewis</span>
+              <span class="drag-card__meta">Lunch / Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="juanitas" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Yes">
+              <span class="drag-card__name">Juanitas</span>
+              <span class="drag-card__meta">Lunch / Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="the-matador" data-type="restaurant" data-meals="Dinner" data-kid="Older">
+              <span class="drag-card__name">The Matador</span>
+              <span class="drag-card__meta">Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="goat-sheep-cow" data-type="restaurant" data-meals="Lunch" data-kid="Yes">
+              <span class="drag-card__name">Goat Sheep Cow</span>
+              <span class="drag-card__meta">Lunch</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="the-peacock" data-type="restaurant" data-meals="Dinner" data-kid="Older">
+              <span class="drag-card__name">The Peacock</span>
+              <span class="drag-card__meta">Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="jack-of-cups" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Yes">
+              <span class="drag-card__name">Jack of Cups</span>
+              <span class="drag-card__meta">Lunch / Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="tutti-pizza" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Yes">
+              <span class="drag-card__name">Tutti Pizza</span>
+              <span class="drag-card__meta">Lunch / Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="hannibals-kitchen" data-type="restaurant" data-meals="Lunch" data-kid="Yes">
+              <span class="drag-card__name">Hannibal's Kitchen</span>
+              <span class="drag-card__meta">Lunch</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="grit-bakery" data-type="restaurant" data-meals="Breakfast" data-kid="Yes">
+              <span class="drag-card__name">Grit Bakery</span>
+              <span class="drag-card__meta">Breakfast</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="the-daily-resto" data-type="restaurant" data-meals="Breakfast,Lunch" data-kid="Yes">
+              <span class="drag-card__name">The Daily</span>
+              <span class="drag-card__meta">Breakfast / Lunch</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="cane-pazzo" data-type="restaurant" data-meals="Dinner" data-kid="Older">
+              <span class="drag-card__name">Cane Pazzo</span>
+              <span class="drag-card__meta">Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="peace-pie" data-type="restaurant" data-meals="Lunch" data-kid="Yes">
+              <span class="drag-card__name">Peace Pie</span>
+              <span class="drag-card__meta">Lunch</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="jenis" data-type="restaurant" data-meals="Dessert" data-kid="Yes">
+              <span class="drag-card__name">Jeni's</span>
+              <span class="drag-card__meta">Dessert</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="carmellas" data-type="restaurant" data-meals="Dessert" data-kid="Yes">
+              <span class="drag-card__name">Carmella's</span>
+              <span class="drag-card__meta">Dessert</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="kultura" data-type="restaurant" data-meals="Dinner" data-kid="Older">
+              <span class="drag-card__name">Kultura</span>
+              <span class="drag-card__meta">Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="bintu-atelier" data-type="restaurant" data-meals="Dinner" data-kid="No">
+              <span class="drag-card__name">Bintu Atelier</span>
+              <span class="drag-card__meta">Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="the-establishment" data-type="restaurant" data-meals="Dinner" data-kid="Older">
+              <span class="drag-card__name">The Establishment</span>
+              <span class="drag-card__meta">Dinner</span>
+            </div>
+            <div class="drag-card" draggable="true" data-id="zero-george" data-type="restaurant" data-meals="Dinner" data-kid="No">
+              <span class="drag-card__name">Zero George Restaurant</span>
+              <span class="drag-card__meta">Dinner</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="planner__group" data-group="activities">
+          <h4 class="planner__group-title" onclick="toggleGroup(this)">Activities <span class="planner__group-toggle">&minus;</span></h4>
+          <div class="planner__group-items" id="sidebarActivities">
+            <div class="drag-card drag-card--activity" draggable="true" data-id="kiawah-dolphin" data-type="activity">
+              <span class="drag-card__name">Kiawah Dolphin Charter</span>
+              <span class="drag-card__meta">~3 hrs</span>
+            </div>
+            <div class="drag-card drag-card--activity" draggable="true" data-id="kiawah-kayaking" data-type="activity">
+              <span class="drag-card__name">Kiawah Family Kayaking</span>
+              <span class="drag-card__meta">~2 hrs</span>
+            </div>
+            <div class="drag-card drag-card--activity" draggable="true" data-id="oyster-farm" data-type="activity">
+              <span class="drag-card__name">Charleston Oyster Farm Tour</span>
+              <span class="drag-card__meta">~2 hrs</span>
+            </div>
+            <div class="drag-card drag-card--activity" draggable="true" data-id="bulls-island" data-type="activity">
+              <span class="drag-card__name">Bulls Island Ferry</span>
+              <span class="drag-card__meta">~4 hrs</span>
+            </div>
+            <div class="drag-card drag-card--activity" draggable="true" data-id="historic-walk" data-type="activity">
+              <span class="drag-card__name">Historic District Walk</span>
+              <span class="drag-card__meta">flexible</span>
+            </div>
+            <div class="drag-card drag-card--activity" draggable="true" data-id="king-street" data-type="activity">
+              <span class="drag-card__name">King Street Shopping</span>
+              <span class="drag-card__meta">flexible</span>
+            </div>
+            <div class="drag-card drag-card--activity" draggable="true" data-id="beach-pool" data-type="activity">
+              <span class="drag-card__name">Beach / Pool Day</span>
+              <span class="drag-card__meta">flexible</span>
+            </div>
+            <div class="drag-card drag-card--activity" draggable="true" data-id="sunset-cruise" data-type="activity">
+              <span class="drag-card__name">Sunset Cruise</span>
+              <span class="drag-card__meta">~2 hrs</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="planner__group" data-group="coffee">
+          <h4 class="planner__group-title" onclick="toggleGroup(this)">Coffee <span class="planner__group-toggle">&minus;</span></h4>
+          <div class="planner__group-items" id="sidebarCoffee">
+            <div class="drag-card drag-card--coffee" draggable="true" data-id="harken" data-type="coffee">
+              <span class="drag-card__name">Harken Cafe</span>
+              <span class="drag-card__meta">1 min walk</span>
+            </div>
+            <div class="drag-card drag-card--coffee" draggable="true" data-id="rise-coffee" data-type="coffee">
+              <span class="drag-card__name">The Rise Coffee Bar</span>
+              <span class="drag-card__meta">5 min walk</span>
+            </div>
+            <div class="drag-card drag-card--coffee" draggable="true" data-id="bad-bunnies" data-type="coffee">
+              <span class="drag-card__name">Bad Bunnies Coffee</span>
+              <span class="drag-card__meta">8 min walk</span>
+            </div>
+            <div class="drag-card drag-card--coffee" draggable="true" data-id="second-state" data-type="coffee">
+              <span class="drag-card__name">Second State Coffee</span>
+              <span class="drag-card__meta">5 min walk</span>
+            </div>
+            <div class="drag-card drag-card--coffee" draggable="true" data-id="babas-coffee" data-type="coffee">
+              <span class="drag-card__name">Babas on Wentworth</span>
+              <span class="drag-card__meta">4 min walk</span>
+            </div>
+            <div class="drag-card drag-card--coffee" draggable="true" data-id="kudu-coffee" data-type="coffee">
+              <span class="drag-card__name">Kudu Coffee</span>
+              <span class="drag-card__meta">10 min walk</span>
+            </div>
+            <div class="drag-card drag-card--coffee" draggable="true" data-id="bitty-beaus" data-type="coffee">
+              <span class="drag-card__name">Bitty &amp; Beau's</span>
+              <span class="drag-card__meta">3 min walk</span>
+            </div>
+            <div class="drag-card drag-card--coffee" draggable="true" data-id="the-daily-coffee" data-type="coffee">
+              <span class="drag-card__name">The Daily</span>
+              <span class="drag-card__meta">12 min walk</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="day-entry__detail">
-        <p>The main exploring day. Historic district, Rainbow Row, the Battery, waterfront. Lunch at one of the buzzier spots (Chubby Fish if you&rsquo;re willing to line up, or Xiao Bao Biscuit for something easier). Michelin dinner for the adults if Jan&rsquo;s up for babysitting, or a family-friendly spot like Rodney Scott&rsquo;s.</p>
+
+      <!-- Board columns -->
+      <div class="planner__columns" id="plannerColumns">
+        <div class="planner__col">
+          <h4 class="planner__col-title">Mon<br><span class="planner__col-date">June 8</span></h4>
+          <div class="planner__slot" data-day="mon" data-slot="breakfast"><span class="planner__slot-label">Breakfast</span></div>
+          <div class="planner__slot" data-day="mon" data-slot="coffee"><span class="planner__slot-label">Coffee</span></div>
+          <div class="planner__slot" data-day="mon" data-slot="lunch"><span class="planner__slot-label">Lunch</span></div>
+          <div class="planner__slot" data-day="mon" data-slot="dinner"><span class="planner__slot-label">Dinner</span></div>
+          <div class="planner__slot" data-day="mon" data-slot="other"><span class="planner__slot-label">Other</span></div>
+        </div>
+        <div class="planner__col">
+          <h4 class="planner__col-title">Tue<br><span class="planner__col-date">June 9</span></h4>
+          <div class="planner__slot" data-day="tue" data-slot="breakfast"><span class="planner__slot-label">Breakfast</span></div>
+          <div class="planner__slot" data-day="tue" data-slot="coffee"><span class="planner__slot-label">Coffee</span></div>
+          <div class="planner__slot" data-day="tue" data-slot="lunch"><span class="planner__slot-label">Lunch</span></div>
+          <div class="planner__slot" data-day="tue" data-slot="dinner"><span class="planner__slot-label">Dinner</span></div>
+          <div class="planner__slot" data-day="tue" data-slot="other"><span class="planner__slot-label">Other</span></div>
+        </div>
+        <div class="planner__col">
+          <h4 class="planner__col-title">Wed<br><span class="planner__col-date">June 10</span></h4>
+          <div class="planner__slot" data-day="wed" data-slot="breakfast"><span class="planner__slot-label">Breakfast</span></div>
+          <div class="planner__slot" data-day="wed" data-slot="coffee"><span class="planner__slot-label">Coffee</span></div>
+          <div class="planner__slot" data-day="wed" data-slot="lunch"><span class="planner__slot-label">Lunch</span></div>
+          <div class="planner__slot" data-day="wed" data-slot="dinner"><span class="planner__slot-label">Dinner</span></div>
+          <div class="planner__slot" data-day="wed" data-slot="other"><span class="planner__slot-label">Other</span></div>
+        </div>
+        <div class="planner__col">
+          <h4 class="planner__col-title">Thu<br><span class="planner__col-date">June 11</span></h4>
+          <div class="planner__slot" data-day="thu" data-slot="breakfast"><span class="planner__slot-label">Breakfast</span></div>
+          <div class="planner__slot" data-day="thu" data-slot="coffee"><span class="planner__slot-label">Coffee</span></div>
+          <div class="planner__slot" data-day="thu" data-slot="lunch"><span class="planner__slot-label">Lunch</span></div>
+          <div class="planner__slot" data-day="thu" data-slot="dinner"><span class="planner__slot-label">Dinner</span></div>
+          <div class="planner__slot" data-day="thu" data-slot="other"><span class="planner__slot-label">Other</span></div>
+        </div>
+        <div class="planner__col">
+          <h4 class="planner__col-title">Fri<br><span class="planner__col-date">June 12</span></h4>
+          <div class="planner__slot" data-day="fri" data-slot="breakfast"><span class="planner__slot-label">Breakfast</span></div>
+          <div class="planner__slot" data-day="fri" data-slot="coffee"><span class="planner__slot-label">Coffee</span></div>
+          <div class="planner__slot" data-day="fri" data-slot="lunch"><span class="planner__slot-label">Lunch</span></div>
+          <div class="planner__slot" data-day="fri" data-slot="dinner"><span class="planner__slot-label">Dinner</span></div>
+          <div class="planner__slot" data-day="fri" data-slot="other"><span class="planner__slot-label">Other</span></div>
+        </div>
+        <div class="planner__col">
+          <h4 class="planner__col-title">Sat<br><span class="planner__col-date">June 13</span></h4>
+          <div class="planner__slot" data-day="sat" data-slot="breakfast"><span class="planner__slot-label">Breakfast</span></div>
+          <div class="planner__slot" data-day="sat" data-slot="coffee"><span class="planner__slot-label">Coffee</span></div>
+          <div class="planner__slot" data-day="sat" data-slot="lunch"><span class="planner__slot-label">Lunch</span></div>
+          <div class="planner__slot" data-day="sat" data-slot="dinner"><span class="planner__slot-label">Dinner</span></div>
+          <div class="planner__slot" data-day="sat" data-slot="other"><span class="planner__slot-label">Other</span></div>
+        </div>
       </div>
     </div>
-
-    <div class="day-entry reveal" onclick="toggleDay(this)">
-      <div class="day-entry__header">
-        <span class="day-entry__number day-entry__number--teal">Wednesday June 10</span>
-        <span class="day-entry__title">&ldquo;Kiawah Island Day Trip&rdquo;</span>
-        <span class="day-entry__toggle">+</span>
-      </div>
-      <div class="day-entry__detail">
-        <p>Day trip to Kiawah for beach, pools, and a dolphin charter or family kayaking. Book Kiawah&rsquo;s Dolphin Encounters as a single-party boat &mdash; their charter setup handles groups of 7 easily. Back to Charleston for dinner.</p>
-      </div>
-    </div>
-
-    <div class="day-entry reveal" onclick="toggleDay(this)">
-      <div class="day-entry__header">
-        <span class="day-entry__number day-entry__number--teal">Thursday June 11</span>
-        <span class="day-entry__title">&ldquo;Oyster Farm &amp; Water Day&rdquo;</span>
-        <span class="day-entry__toggle">+</span>
-      </div>
-      <div class="day-entry__detail">
-        <p>Charleston Oyster Farm tour in the morning (charlestonoysterfarm.com). Afternoon at the beach or pool. Evening: try one of the TikTok-viral spots &mdash; Fleet Landing for waterfront seafood or Darling Oyster Bar.</p>
-      </div>
-    </div>
-
-    <div class="day-entry reveal" onclick="toggleDay(this)">
-      <div class="day-entry__header">
-        <span class="day-entry__number day-entry__number--teal">Friday June 12</span>
-        <span class="day-entry__title">&ldquo;Bulls Island or Flex Day&rdquo;</span>
-        <span class="day-entry__toggle">+</span>
-      </div>
-      <div class="day-entry__detail">
-        <p>Option A: Bulls Island ferry &mdash; naturalist-led trip with dolphins, sea turtles, and birdlife. Jax and Rey will love this. Option B: Flex day &mdash; pool, shopping on King Street, or revisit a favorite spot. Last family dinner &mdash; make it a good one.</p>
-      </div>
-    </div>
-
-    <div class="day-entry reveal" onclick="toggleDay(this)">
-      <div class="day-entry__header">
-        <span class="day-entry__number day-entry__number--teal">Saturday June 13</span>
-        <span class="day-entry__title">&ldquo;Family Departs&rdquo;</span>
-        <span class="day-entry__toggle">+</span>
-      </div>
-      <div class="day-entry__detail">
-        <p>Family heads out. Safe travels everyone &mdash; what a week.</p>
-      </div>
-    </div>
-
   </section>
 
   <section class="food section">
@@ -2061,6 +2678,238 @@ h1, h2, h3, h4 {
     }
 
     updateCoffeeHearts();
+
+    /* ── Planner: Drag & Drop ────────────────────── */
+    var PLANNER_KEY = 'charlestonTrip2026Planner';
+
+    // Card registry: map data-id to display info
+    var plannerCards = {};
+    document.querySelectorAll('.planner__sidebar .drag-card').forEach(function(card) {
+      var id = card.dataset.id;
+      var name = card.querySelector('.drag-card__name').textContent;
+      var badgeEl = card.querySelector('.drag-card__badge');
+      var badge = badgeEl ? badgeEl.textContent : '';
+      var badgeClass = badgeEl ? badgeEl.className.replace('drag-card__badge ', '') : '';
+      var type = card.dataset.type;
+      plannerCards[id] = { name: name, badge: badge, badgeClass: badgeClass, type: type };
+    });
+
+    function getPlan() {
+      try {
+        return JSON.parse(localStorage.getItem(PLANNER_KEY) || '{}');
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function savePlan(plan) {
+      localStorage.setItem(PLANNER_KEY, JSON.stringify(plan));
+    }
+
+    function placeCard(daySlotKey, itemId, itemType) {
+      var voter = document.getElementById('plannerVoter').value;
+      if (!voter) { alert('Pick your name first!'); return false; }
+      var plan = getPlan();
+
+      // Remove item from any existing slot
+      Object.keys(plan).forEach(function(key) {
+        if (plan[key] && plan[key].item === itemId) delete plan[key];
+      });
+
+      // Place new item
+      plan[daySlotKey] = { item: itemId, type: itemType, proposedBy: voter };
+      savePlan(plan);
+      renderBoard();
+      return true;
+    }
+
+    function removeCard(daySlotKey) {
+      var plan = getPlan();
+      delete plan[daySlotKey];
+      savePlan(plan);
+      renderBoard();
+    }
+
+    function renderBoard() {
+      var plan = getPlan();
+
+      // Clear all slots
+      document.querySelectorAll('.planner__slot').forEach(function(slot) {
+        var label = slot.querySelector('.planner__slot-label');
+        var placed = slot.querySelector('.planner__placed-card');
+        if (placed) placed.remove();
+        slot.classList.remove('filled');
+        if (label) label.style.display = '';
+      });
+
+      // Reset sidebar cards
+      document.querySelectorAll('.planner__sidebar .drag-card').forEach(function(card) {
+        card.classList.remove('placed');
+      });
+
+      // Place cards from plan
+      var placedIds = {};
+      Object.keys(plan).forEach(function(key) {
+        var entry = plan[key];
+        if (!entry) return;
+        var parts = key.split('-');
+        var day = parts[0];
+        var slot = parts.slice(1).join('-');
+        var slotEl = document.querySelector('.planner__slot[data-day="' + day + '"][data-slot="' + slot + '"]');
+        if (!slotEl) return;
+
+        var info = plannerCards[entry.item];
+        if (!info) return;
+
+        placedIds[entry.item] = true;
+
+        var cardHtml = '<div class="planner__placed-card" data-id="' + entry.item + '">';
+        cardHtml += '<span class="drag-card__name">' + info.name + '</span>';
+        if (info.badge) {
+          cardHtml += '<span class="drag-card__badge ' + info.badgeClass + '">' + info.badge + '</span>';
+        }
+        cardHtml += '<span class="drag-card__proposed">proposed by ' + entry.proposedBy + '</span>';
+        cardHtml += '<button class="planner__remove" onclick="removeCard(\'' + key + '\')">&times;</button>';
+        cardHtml += '</div>';
+
+        slotEl.classList.add('filled');
+        var label = slotEl.querySelector('.planner__slot-label');
+        if (label) label.style.display = 'none';
+        slotEl.insertAdjacentHTML('beforeend', cardHtml);
+      });
+
+      // Grey out placed sidebar cards
+      document.querySelectorAll('.planner__sidebar .drag-card').forEach(function(card) {
+        if (placedIds[card.dataset.id]) {
+          card.classList.add('placed');
+        }
+      });
+    }
+
+    // Desktop drag and drop
+    document.querySelectorAll('.planner__sidebar .drag-card').forEach(function(card) {
+      card.addEventListener('dragstart', function(e) {
+        e.dataTransfer.setData('text/plain', JSON.stringify({
+          id: card.dataset.id,
+          type: card.dataset.type
+        }));
+        e.dataTransfer.effectAllowed = 'move';
+      });
+    });
+
+    document.querySelectorAll('.planner__slot').forEach(function(slot) {
+      slot.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+        slot.classList.add('drag-over');
+      });
+
+      slot.addEventListener('dragleave', function(e) {
+        slot.classList.remove('drag-over');
+      });
+
+      slot.addEventListener('drop', function(e) {
+        e.preventDefault();
+        slot.classList.remove('drag-over');
+        try {
+          var data = JSON.parse(e.dataTransfer.getData('text/plain'));
+          var daySlotKey = slot.dataset.day + '-' + slot.dataset.slot;
+          placeCard(daySlotKey, data.id, data.type);
+        } catch (err) {}
+      });
+    });
+
+    // Mobile touch support
+    var touchDragData = null;
+    var touchGhost = null;
+
+    document.querySelectorAll('.planner__sidebar .drag-card').forEach(function(card) {
+      card.addEventListener('touchstart', function(e) {
+        if (card.classList.contains('placed')) return;
+        var touch = e.touches[0];
+        touchDragData = { id: card.dataset.id, type: card.dataset.type };
+
+        // Create floating ghost
+        touchGhost = document.createElement('div');
+        touchGhost.className = 'drag-ghost';
+        touchGhost.textContent = card.querySelector('.drag-card__name').textContent;
+        document.body.appendChild(touchGhost);
+        touchGhost.style.left = (touch.clientX - 40) + 'px';
+        touchGhost.style.top = (touch.clientY - 20) + 'px';
+      }, { passive: true });
+
+      card.addEventListener('touchmove', function(e) {
+        if (!touchGhost) return;
+        e.preventDefault();
+        var touch = e.touches[0];
+        touchGhost.style.left = (touch.clientX - 40) + 'px';
+        touchGhost.style.top = (touch.clientY - 20) + 'px';
+
+        // Highlight slot under finger
+        document.querySelectorAll('.planner__slot').forEach(function(s) { s.classList.remove('drag-over'); });
+        var el = document.elementFromPoint(touch.clientX, touch.clientY);
+        if (el) {
+          var slotEl = el.closest('.planner__slot');
+          if (slotEl) slotEl.classList.add('drag-over');
+        }
+      }, { passive: false });
+
+      card.addEventListener('touchend', function(e) {
+        if (!touchGhost || !touchDragData) {
+          touchGhost && touchGhost.remove();
+          touchGhost = null;
+          touchDragData = null;
+          return;
+        }
+
+        var touch = e.changedTouches[0];
+        var el = document.elementFromPoint(touch.clientX, touch.clientY);
+        if (el) {
+          var slotEl = el.closest('.planner__slot');
+          if (slotEl) {
+            var daySlotKey = slotEl.dataset.day + '-' + slotEl.dataset.slot;
+            placeCard(daySlotKey, touchDragData.id, touchDragData.type);
+          }
+        }
+
+        document.querySelectorAll('.planner__slot').forEach(function(s) { s.classList.remove('drag-over'); });
+        touchGhost.remove();
+        touchGhost = null;
+        touchDragData = null;
+      });
+    });
+
+    // Sidebar search filter
+    function filterSidebar() {
+      var term = document.getElementById('plannerSearch').value.toLowerCase();
+      document.querySelectorAll('.planner__sidebar .drag-card').forEach(function(card) {
+        var name = card.querySelector('.drag-card__name').textContent.toLowerCase();
+        card.style.display = (!term || name.indexOf(term) > -1) ? '' : 'none';
+      });
+    }
+
+    // Group toggle
+    function toggleGroup(titleEl) {
+      var items = titleEl.nextElementSibling;
+      var toggle = titleEl.querySelector('.planner__group-toggle');
+      if (items.classList.contains('collapsed')) {
+        items.classList.remove('collapsed');
+        items.style.maxHeight = items.scrollHeight + 'px';
+        toggle.innerHTML = '\u2212';
+      } else {
+        items.classList.add('collapsed');
+        items.style.maxHeight = '0';
+        toggle.innerHTML = '+';
+      }
+    }
+
+    // Initialize group heights
+    document.querySelectorAll('.planner__group-items').forEach(function(g) {
+      g.style.maxHeight = g.scrollHeight + 'px';
+    });
+
+    // Render saved state
+    renderBoard();
 
     /* ── Scroll Reveal ─────────────────────────────── */
     document.querySelectorAll('.reveal').forEach(el => {
