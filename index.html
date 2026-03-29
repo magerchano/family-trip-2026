@@ -1198,7 +1198,7 @@ h1, h2, h3, h4 {
   transform: translateY(0);
 }
 
-/* ── Planner Board ───────────────────────────── */
+/* ── Planner: Passport Stamps ────────────────── */
 .planner__sub {
   font-family: var(--font-body);
   font-size: 1.0625rem;
@@ -1232,294 +1232,333 @@ h1, h2, h3, h4 {
   cursor: pointer;
 }
 
-.planner__board {
-  display: flex;
-  gap: var(--space-lg);
-}
-
-.planner__sidebar {
-  width: 260px;
-  flex-shrink: 0;
-  max-height: 80vh;
-  overflow-y: auto;
-  position: sticky;
-  top: 20px;
+/* Day page cards */
+.day-page {
   background: var(--white);
-  border-right: 1px solid var(--gray-light);
-  border-radius: 12px;
-  padding: var(--space-md);
+  border: 1px solid var(--gray-light);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: var(--space-lg);
 }
 
-.planner__search {
-  width: 100%;
-  border: 1px solid var(--gray-light);
-  border-radius: 8px;
-  padding: 0.5em 0.8em;
+.day-page__header {
+  background: var(--charcoal);
+  color: var(--cream);
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.day-page__day {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.day-page__date {
   font-family: var(--font-body);
   font-size: 0.85rem;
-  color: var(--charcoal);
-  background: var(--cream);
-  outline: none;
-  margin-bottom: var(--space-md);
-  transition: border-color 0.2s ease;
+  opacity: 0.6;
 }
 
-.planner__search:focus {
+.day-page__slots {
+  padding: 1rem 1.5rem;
+}
+
+.day-slot {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.day-slot:last-child {
+  border-bottom: none;
+}
+
+.day-slot__label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--charcoal);
+  opacity: 0.4;
+  min-width: 100px;
+  padding-top: 6px;
+  flex-shrink: 0;
+}
+
+.day-slot__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  flex: 1;
+}
+
+.day-slot__add {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px dashed var(--gray-light);
+  background: transparent;
+  color: var(--charcoal);
+  opacity: 0.3;
+  font-size: 1rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.day-slot__add:hover {
+  opacity: 0.7;
+  border-color: var(--charleston-accent);
+  color: var(--charleston-accent);
+}
+
+/* Stamp chips */
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--cream);
+  border: 1px solid var(--gray-light);
+  border-radius: 20px;
+  padding: 4px 10px 4px 12px;
+  font-size: 0.78rem;
+  font-family: var(--font-body);
+  transition: all 0.15s;
+  position: relative;
+}
+
+.stamp:hover {
   border-color: var(--charleston-accent);
 }
 
-.planner__group {
-  margin-bottom: var(--space-md);
-}
-
-.planner__group-title {
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--charcoal);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: var(--space-sm) 0;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-.planner__group-toggle {
-  font-size: 1rem;
-  opacity: 0.4;
-  line-height: 1;
-}
-
-.planner__group-items {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-}
-
-.planner__group-items.collapsed {
-  max-height: 0 !important;
-}
-
-.drag-card {
-  background: var(--white);
-  border: 1px solid var(--gray-light);
-  border-radius: 8px;
-  padding: 8px 10px;
-  cursor: grab;
-  font-size: 0.8rem;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 4px;
-  transition: opacity 0.2s ease, box-shadow 0.2s ease;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-.drag-card:hover {
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-
-.drag-card:active {
-  cursor: grabbing;
-}
-
-.drag-card--activity {
+.stamp--activity {
   border-left: 3px solid var(--charleston-accent);
 }
 
-.drag-card--coffee {
+.stamp--coffee {
   border-left: 3px solid var(--accent-gold);
 }
 
-.drag-card__name {
+.stamp__name {
   font-weight: 600;
-  font-size: 0.8rem;
-}
-
-.drag-card__badge {
-  font-family: var(--font-body);
-  font-size: 0.55rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 0.15em 0.5em;
-  border-radius: 100px;
+  color: var(--charcoal);
   white-space: nowrap;
 }
 
-.drag-card__meta {
-  font-size: 0.7rem;
-  opacity: 0.5;
-  width: 100%;
+.stamp__badge {
+  font-size: 0.6rem;
+  padding: 1px 5px;
+  border-radius: 8px;
+  color: white;
 }
 
-.drag-card__proposed {
-  font-size: 0.65rem;
+.stamp__by {
+  font-size: 0.6rem;
   color: var(--charleston-accent);
   font-style: italic;
 }
 
-.drag-card.placed {
-  opacity: 0.4;
-  border-style: dashed;
-}
-
-.planner__columns {
-  display: flex;
-  gap: 12px;
-  flex: 1;
-  overflow-x: auto;
-  padding-bottom: var(--space-md);
-}
-
-.planner__col {
-  min-width: 160px;
-  width: 160px;
-  flex-shrink: 0;
-}
-
-.planner__col-title {
-  text-align: center;
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: var(--space-md);
-  color: var(--charcoal);
-}
-
-.planner__col-date {
-  font-size: 0.75rem;
-  opacity: 0.5;
-  font-family: var(--font-body);
-  font-weight: 400;
-}
-
-.planner__slot {
-  min-height: 70px;
-  border: 2px dashed var(--gray-light);
-  border-radius: 8px;
-  padding: 6px;
-  margin-bottom: 8px;
-  transition: border-color 0.2s ease, background 0.2s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.planner__slot-label {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--charcoal);
-  opacity: 0.3;
-  font-family: var(--font-body);
-}
-
-.planner__slot.drag-over {
-  border-color: var(--charleston-accent);
-  background: rgba(26, 122, 138, 0.05);
-}
-
-.planner__slot.filled {
-  border-style: solid;
-  border-color: var(--gray-light);
-}
-
-.planner__slot.filled .planner__slot-label {
-  display: none;
-}
-
-.planner__placed-card {
-  width: 100%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding: 4px;
-}
-
-.planner__placed-card .drag-card__name {
-  font-size: 0.75rem;
-}
-
-.planner__placed-card .drag-card__badge {
-  font-size: 0.5rem;
-}
-
-.planner__remove {
-  position: absolute;
-  top: 0;
-  right: 0;
+.stamp__remove {
   background: none;
   border: none;
-  font-size: 0.9rem;
-  cursor: pointer;
   color: var(--charcoal);
   opacity: 0;
-  transition: opacity 0.2s ease;
-  line-height: 1;
-  padding: 2px 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0 2px;
+  transition: opacity 0.15s;
 }
 
-.planner__placed-card:hover .planner__remove {
+.stamp:hover .stamp__remove {
   opacity: 0.5;
 }
 
-.planner__remove:hover {
+.stamp__remove:hover {
   opacity: 1 !important;
   color: #c0392b;
 }
 
-/* Touch drag ghost */
-.drag-ghost {
+/* Modal */
+.planner__modal {
   position: fixed;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0.85;
-  transform: rotate(2deg) scale(1.05);
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.planner__modal.open {
+  display: flex;
+}
+
+.planner__modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(44, 36, 24, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.planner__modal-content {
+  position: relative;
   background: var(--white);
-  border: 1px solid var(--charleston-accent);
-  border-radius: 8px;
-  padding: 8px 10px;
-  font-size: 0.8rem;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.planner__modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.planner__modal-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.planner__modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--charcoal);
+  opacity: 0.4;
+}
+
+.planner__modal-close:hover {
+  opacity: 0.8;
+}
+
+.planner__modal-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.modal-tab {
+  flex: 1;
+  padding: 0.75rem;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
   font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--charcoal);
+  opacity: 0.5;
+  transition: all 0.2s;
+}
+
+.modal-tab.active {
+  opacity: 1;
+  border-bottom-color: var(--charleston-accent);
+  color: var(--charleston-accent);
+}
+
+.planner__modal-search {
+  margin: 1rem 1.5rem 0.5rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--gray-light);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  outline: none;
+  color: var(--charcoal);
+}
+
+.planner__modal-search:focus {
+  border-color: var(--charleston-accent);
+}
+
+.planner__modal-list {
+  overflow-y: auto;
+  padding: 0.5rem 1.5rem 1.5rem;
+  flex: 1;
+}
+
+.modal-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.modal-item:hover {
+  background: var(--cream);
+}
+
+.modal-item:last-child {
+  border-bottom: none;
+}
+
+.modal-item__name {
   font-weight: 600;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  font-size: 0.9rem;
+  margin-right: auto;
+}
+
+.modal-item__badges {
+  display: flex;
+  gap: 3px;
+}
+
+.modal-item__badge {
+  font-size: 0.55rem;
+}
+
+.modal-item__meta {
+  width: 100%;
+  font-size: 0.75rem;
+  opacity: 0.45;
+}
+
+.modal-item.already-added {
+  opacity: 0.35;
+  cursor: default;
 }
 
 @media (max-width: 768px) {
-  .planner__board {
-    flex-direction: column;
-  }
-
-  .planner__sidebar {
-    width: 100%;
-    max-height: 300px;
-    border-right: none;
-    border-bottom: 1px solid var(--gray-light);
-    position: relative;
-    top: auto;
-  }
-
-  .planner__columns {
-    flex-direction: row;
-    overflow-x: auto;
-  }
-
   .planner__voter select {
     min-height: 44px;
   }
 
-  .planner__search {
-    min-height: 44px;
+  .day-slot {
+    flex-wrap: wrap;
+  }
+
+  .day-slot__label {
+    min-width: 80px;
+    font-size: 0.65rem;
+  }
+
+  .day-page__header {
+    padding: 0.75rem 1rem;
+  }
+
+  .day-page__slots {
+    padding: 0.75rem 1rem;
   }
 }
 
@@ -1631,7 +1670,7 @@ h1, h2, h3, h4 {
 
   <section class="planner section">
     <h2 class="section__heading reveal">The Week</h2>
-    <p class="planner__sub reveal">Drag restaurants, activities, and coffee to plan each day</p>
+    <p class="planner__sub reveal">Tap + to add restaurants, activities, and coffee to each day</p>
 
     <div class="planner__voter reveal">
       <label>Planning as:</label>
@@ -1645,350 +1684,227 @@ h1, h2, h3, h4 {
       </select>
     </div>
 
-    <div class="planner__board reveal">
-      <!-- Sidebar -->
-      <div class="planner__sidebar">
-        <input type="text" class="planner__search" placeholder="Search..." id="plannerSearch" oninput="filterSidebar()">
-
-        <div class="planner__group" data-group="restaurants">
-          <h4 class="planner__group-title" onclick="toggleGroup(this)">Restaurants <span class="planner__group-toggle">&minus;</span></h4>
-          <div class="planner__group-items" id="sidebarRestaurants">
-            <div class="drag-card" draggable="true" data-id="wild-common" data-type="restaurant" data-meals="Dinner" data-kid="No">
-              <span class="drag-card__name">Wild Common</span>
-              <span class="drag-card__badge resto-badge--michelin">Michelin Star</span>
-              <span class="drag-card__meta">Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="verns" data-type="restaurant" data-meals="Dinner" data-kid="No">
-              <span class="drag-card__name">Vern's</span>
-              <span class="drag-card__badge resto-badge--michelin">Michelin Star</span>
-              <span class="drag-card__meta">Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="malagon" data-type="restaurant" data-meals="Dinner" data-kid="Older">
-              <span class="drag-card__name">Malag&oacute;n</span>
-              <span class="drag-card__badge resto-badge--michelin">Michelin Star</span>
-              <span class="drag-card__meta">Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="rodney-scotts" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Yes">
-              <span class="drag-card__name">Rodney Scott's BBQ</span>
-              <span class="drag-card__badge resto-badge--bib">Bib Gourmand</span>
-              <span class="drag-card__meta">Lunch / Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="lewis-barbecue" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Yes">
-              <span class="drag-card__name">Lewis Barbecue</span>
-              <span class="drag-card__badge resto-badge--bib">Bib Gourmand</span>
-              <span class="drag-card__meta">Lunch / Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="leons-oyster" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Yes">
-              <span class="drag-card__name">Leon's Oyster Shop</span>
-              <span class="drag-card__badge resto-badge--bib">Bib Gourmand</span>
-              <span class="drag-card__meta">Lunch / Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="chubby-fish" data-type="restaurant" data-meals="Dinner" data-kid="No">
-              <span class="drag-card__name">Chubby Fish</span>
-              <span class="drag-card__badge resto-badge--nyt">NYT Top 50</span>
-              <span class="drag-card__meta">Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="fig" data-type="restaurant" data-meals="Dinner" data-kid="Older">
-              <span class="drag-card__name">FIG</span>
-              <span class="drag-card__badge resto-badge--michelin-listed">Michelin Listed</span>
-              <span class="drag-card__meta">Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="husk" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Older">
-              <span class="drag-card__name">Husk</span>
-              <span class="drag-card__badge resto-badge--michelin-listed">Michelin Listed</span>
-              <span class="drag-card__meta">Lunch / Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="sorelle" data-type="restaurant" data-meals="Dinner" data-kid="Older">
-              <span class="drag-card__name">Sorelle</span>
-              <span class="drag-card__badge resto-badge--michelin-listed">Michelin Listed</span>
-              <span class="drag-card__meta">Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="lowland" data-type="restaurant" data-meals="Dinner" data-kid="No">
-              <span class="drag-card__name">Lowland</span>
-              <span class="drag-card__badge resto-badge--michelin-listed">Michelin Listed</span>
-              <span class="drag-card__meta">Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="xiao-bao" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Yes">
-              <span class="drag-card__name">Xiao Bao Biscuit</span>
-              <span class="drag-card__badge resto-badge--michelin-listed">Michelin Listed</span>
-              <span class="drag-card__meta">Lunch / Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="obstinate-daughter" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Yes">
-              <span class="drag-card__name">The Obstinate Daughter</span>
-              <span class="drag-card__badge resto-badge--michelin-listed">Michelin Listed</span>
-              <span class="drag-card__meta">Lunch / Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="merci" data-type="restaurant" data-meals="Dinner" data-kid="No">
-              <span class="drag-card__name">Merci</span>
-              <span class="drag-card__badge resto-badge--beard">James Beard</span>
-              <span class="drag-card__meta">Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="renzo" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Yes">
-              <span class="drag-card__name">Renzo</span>
-              <span class="drag-card__badge resto-badge--beard">James Beard</span>
-              <span class="drag-card__meta">Lunch / Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="palmira" data-type="restaurant" data-meals="Dinner" data-kid="Older">
-              <span class="drag-card__name">Palmira</span>
-              <span class="drag-card__badge resto-badge--beard">James Beard</span>
-              <span class="drag-card__meta">Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="fleet-landing" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Yes">
-              <span class="drag-card__name">Fleet Landing</span>
-              <span class="drag-card__badge resto-badge--haleys">Haley's List</span>
-              <span class="drag-card__meta">Lunch / Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="hometeam-bbq" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Yes">
-              <span class="drag-card__name">Hometeam BBQ</span>
-              <span class="drag-card__badge resto-badge--haleys">Haley's List</span>
-              <span class="drag-card__meta">Lunch / Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="le-farfalle" data-type="restaurant" data-meals="Dinner" data-kid="Older">
-              <span class="drag-card__name">Le Farfalle</span>
-              <span class="drag-card__badge resto-badge--haleys">Haley's List</span>
-              <span class="drag-card__meta">Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="poogans-porch" data-type="restaurant" data-meals="Brunch,Dinner" data-kid="Yes">
-              <span class="drag-card__name">Poogan's Porch</span>
-              <span class="drag-card__badge resto-badge--tiktok">TikTok</span>
-              <span class="drag-card__meta">Brunch / Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="darling-oyster" data-type="restaurant" data-meals="Dinner" data-kid="Older">
-              <span class="drag-card__name">Darling Oyster Bar</span>
-              <span class="drag-card__badge resto-badge--tiktok">TikTok</span>
-              <span class="drag-card__meta">Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="church-union" data-type="restaurant" data-meals="Dinner" data-kid="Older">
-              <span class="drag-card__name">Church and Union</span>
-              <span class="drag-card__badge resto-badge--tiktok">TikTok</span>
-              <span class="drag-card__meta">Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="callies-biscuit" data-type="restaurant" data-meals="Breakfast" data-kid="Yes">
-              <span class="drag-card__name">Callie's Hot Little Biscuit</span>
-              <span class="drag-card__badge resto-badge--tiktok">TikTok</span>
-              <span class="drag-card__meta">Breakfast</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="millers-all-day" data-type="restaurant" data-meals="Breakfast,Brunch" data-kid="Yes">
-              <span class="drag-card__name">Millers All Day</span>
-              <span class="drag-card__badge resto-badge--haleys">Haley's List</span>
-              <span class="drag-card__meta">Breakfast / Brunch</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="babas-restaurant" data-type="restaurant" data-meals="Brunch,Lunch" data-kid="Yes">
-              <span class="drag-card__name">Babas</span>
-              <span class="drag-card__badge resto-badge--haleys">Haley's List</span>
-              <span class="drag-card__meta">Brunch / Lunch</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="sugar-bakeshop" data-type="restaurant" data-meals="Dessert" data-kid="Yes">
-              <span class="drag-card__name">Sugar Bakeshop</span>
-              <span class="drag-card__badge resto-badge--tiktok">TikTok</span>
-              <span class="drag-card__meta">Dessert</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="sullivans-fish-camp" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Yes">
-              <span class="drag-card__name">Sullivan's Fish Camp</span>
-              <span class="drag-card__meta">Lunch / Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="rancho-lewis" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Yes">
-              <span class="drag-card__name">Rancho Lewis</span>
-              <span class="drag-card__meta">Lunch / Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="juanitas" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Yes">
-              <span class="drag-card__name">Juanitas</span>
-              <span class="drag-card__meta">Lunch / Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="the-matador" data-type="restaurant" data-meals="Dinner" data-kid="Older">
-              <span class="drag-card__name">The Matador</span>
-              <span class="drag-card__meta">Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="goat-sheep-cow" data-type="restaurant" data-meals="Lunch" data-kid="Yes">
-              <span class="drag-card__name">Goat Sheep Cow</span>
-              <span class="drag-card__meta">Lunch</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="the-peacock" data-type="restaurant" data-meals="Dinner" data-kid="Older">
-              <span class="drag-card__name">The Peacock</span>
-              <span class="drag-card__meta">Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="jack-of-cups" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Yes">
-              <span class="drag-card__name">Jack of Cups</span>
-              <span class="drag-card__meta">Lunch / Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="tutti-pizza" data-type="restaurant" data-meals="Lunch,Dinner" data-kid="Yes">
-              <span class="drag-card__name">Tutti Pizza</span>
-              <span class="drag-card__meta">Lunch / Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="hannibals-kitchen" data-type="restaurant" data-meals="Lunch" data-kid="Yes">
-              <span class="drag-card__name">Hannibal's Kitchen</span>
-              <span class="drag-card__meta">Lunch</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="grit-bakery" data-type="restaurant" data-meals="Breakfast" data-kid="Yes">
-              <span class="drag-card__name">Grit Bakery</span>
-              <span class="drag-card__meta">Breakfast</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="the-daily-resto" data-type="restaurant" data-meals="Breakfast,Lunch" data-kid="Yes">
-              <span class="drag-card__name">The Daily</span>
-              <span class="drag-card__meta">Breakfast / Lunch</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="cane-pazzo" data-type="restaurant" data-meals="Dinner" data-kid="Older">
-              <span class="drag-card__name">Cane Pazzo</span>
-              <span class="drag-card__meta">Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="peace-pie" data-type="restaurant" data-meals="Lunch" data-kid="Yes">
-              <span class="drag-card__name">Peace Pie</span>
-              <span class="drag-card__meta">Lunch</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="jenis" data-type="restaurant" data-meals="Dessert" data-kid="Yes">
-              <span class="drag-card__name">Jeni's</span>
-              <span class="drag-card__meta">Dessert</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="carmellas" data-type="restaurant" data-meals="Dessert" data-kid="Yes">
-              <span class="drag-card__name">Carmella's</span>
-              <span class="drag-card__meta">Dessert</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="kultura" data-type="restaurant" data-meals="Dinner" data-kid="Older">
-              <span class="drag-card__name">Kultura</span>
-              <span class="drag-card__meta">Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="bintu-atelier" data-type="restaurant" data-meals="Dinner" data-kid="No">
-              <span class="drag-card__name">Bintu Atelier</span>
-              <span class="drag-card__meta">Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="the-establishment" data-type="restaurant" data-meals="Dinner" data-kid="Older">
-              <span class="drag-card__name">The Establishment</span>
-              <span class="drag-card__meta">Dinner</span>
-            </div>
-            <div class="drag-card" draggable="true" data-id="zero-george" data-type="restaurant" data-meals="Dinner" data-kid="No">
-              <span class="drag-card__name">Zero George Restaurant</span>
-              <span class="drag-card__meta">Dinner</span>
-            </div>
-          </div>
+    <div class="planner__days">
+      <div class="day-page reveal">
+        <div class="day-page__header">
+          <span class="day-page__day">Monday</span>
+          <span class="day-page__date">June 8</span>
         </div>
-
-        <div class="planner__group" data-group="activities">
-          <h4 class="planner__group-title" onclick="toggleGroup(this)">Activities <span class="planner__group-toggle">&minus;</span></h4>
-          <div class="planner__group-items" id="sidebarActivities">
-            <div class="drag-card drag-card--activity" draggable="true" data-id="kiawah-dolphin" data-type="activity">
-              <span class="drag-card__name">Kiawah Dolphin Charter</span>
-              <span class="drag-card__meta">~3 hrs</span>
-            </div>
-            <div class="drag-card drag-card--activity" draggable="true" data-id="kiawah-kayaking" data-type="activity">
-              <span class="drag-card__name">Kiawah Family Kayaking</span>
-              <span class="drag-card__meta">~2 hrs</span>
-            </div>
-            <div class="drag-card drag-card--activity" draggable="true" data-id="oyster-farm" data-type="activity">
-              <span class="drag-card__name">Charleston Oyster Farm Tour</span>
-              <span class="drag-card__meta">~2 hrs</span>
-            </div>
-            <div class="drag-card drag-card--activity" draggable="true" data-id="bulls-island" data-type="activity">
-              <span class="drag-card__name">Bulls Island Ferry</span>
-              <span class="drag-card__meta">~4 hrs</span>
-            </div>
-            <div class="drag-card drag-card--activity" draggable="true" data-id="historic-walk" data-type="activity">
-              <span class="drag-card__name">Historic District Walk</span>
-              <span class="drag-card__meta">flexible</span>
-            </div>
-            <div class="drag-card drag-card--activity" draggable="true" data-id="king-street" data-type="activity">
-              <span class="drag-card__name">King Street Shopping</span>
-              <span class="drag-card__meta">flexible</span>
-            </div>
-            <div class="drag-card drag-card--activity" draggable="true" data-id="beach-pool" data-type="activity">
-              <span class="drag-card__name">Beach / Pool Day</span>
-              <span class="drag-card__meta">flexible</span>
-            </div>
-            <div class="drag-card drag-card--activity" draggable="true" data-id="sunset-cruise" data-type="activity">
-              <span class="drag-card__name">Sunset Cruise</span>
-              <span class="drag-card__meta">~2 hrs</span>
-            </div>
+        <div class="day-page__slots">
+          <div class="day-slot" data-day="mon" data-slot="breakfast">
+            <span class="day-slot__label">Breakfast</span>
+            <div class="day-slot__items" id="mon-breakfast-items"></div>
+            <button class="day-slot__add" onclick="openModal('mon', 'breakfast')">+</button>
           </div>
-        </div>
-
-        <div class="planner__group" data-group="coffee">
-          <h4 class="planner__group-title" onclick="toggleGroup(this)">Coffee <span class="planner__group-toggle">&minus;</span></h4>
-          <div class="planner__group-items" id="sidebarCoffee">
-            <div class="drag-card drag-card--coffee" draggable="true" data-id="harken" data-type="coffee">
-              <span class="drag-card__name">Harken Cafe</span>
-              <span class="drag-card__meta">1 min walk</span>
-            </div>
-            <div class="drag-card drag-card--coffee" draggable="true" data-id="rise-coffee" data-type="coffee">
-              <span class="drag-card__name">The Rise Coffee Bar</span>
-              <span class="drag-card__meta">5 min walk</span>
-            </div>
-            <div class="drag-card drag-card--coffee" draggable="true" data-id="bad-bunnies" data-type="coffee">
-              <span class="drag-card__name">Bad Bunnies Coffee</span>
-              <span class="drag-card__meta">8 min walk</span>
-            </div>
-            <div class="drag-card drag-card--coffee" draggable="true" data-id="second-state" data-type="coffee">
-              <span class="drag-card__name">Second State Coffee</span>
-              <span class="drag-card__meta">5 min walk</span>
-            </div>
-            <div class="drag-card drag-card--coffee" draggable="true" data-id="babas-coffee" data-type="coffee">
-              <span class="drag-card__name">Babas on Wentworth</span>
-              <span class="drag-card__meta">4 min walk</span>
-            </div>
-            <div class="drag-card drag-card--coffee" draggable="true" data-id="kudu-coffee" data-type="coffee">
-              <span class="drag-card__name">Kudu Coffee</span>
-              <span class="drag-card__meta">10 min walk</span>
-            </div>
-            <div class="drag-card drag-card--coffee" draggable="true" data-id="bitty-beaus" data-type="coffee">
-              <span class="drag-card__name">Bitty &amp; Beau's</span>
-              <span class="drag-card__meta">3 min walk</span>
-            </div>
-            <div class="drag-card drag-card--coffee" draggable="true" data-id="the-daily-coffee" data-type="coffee">
-              <span class="drag-card__name">The Daily</span>
-              <span class="drag-card__meta">12 min walk</span>
-            </div>
+          <div class="day-slot" data-day="mon" data-slot="coffee">
+            <span class="day-slot__label">Coffee</span>
+            <div class="day-slot__items" id="mon-coffee-items"></div>
+            <button class="day-slot__add" onclick="openModal('mon', 'coffee')">+</button>
+          </div>
+          <div class="day-slot" data-day="mon" data-slot="lunch">
+            <span class="day-slot__label">Lunch</span>
+            <div class="day-slot__items" id="mon-lunch-items"></div>
+            <button class="day-slot__add" onclick="openModal('mon', 'lunch')">+</button>
+          </div>
+          <div class="day-slot" data-day="mon" data-slot="dinner">
+            <span class="day-slot__label">Dinner</span>
+            <div class="day-slot__items" id="mon-dinner-items"></div>
+            <button class="day-slot__add" onclick="openModal('mon', 'dinner')">+</button>
+          </div>
+          <div class="day-slot" data-day="mon" data-slot="other">
+            <span class="day-slot__label">Activities &amp; Other</span>
+            <div class="day-slot__items" id="mon-other-items"></div>
+            <button class="day-slot__add" onclick="openModal('mon', 'other')">+</button>
           </div>
         </div>
       </div>
 
-      <!-- Board columns -->
-      <div class="planner__columns" id="plannerColumns">
-        <div class="planner__col">
-          <h4 class="planner__col-title">Mon<br><span class="planner__col-date">June 8</span></h4>
-          <div class="planner__slot" data-day="mon" data-slot="breakfast"><span class="planner__slot-label">Breakfast</span></div>
-          <div class="planner__slot" data-day="mon" data-slot="coffee"><span class="planner__slot-label">Coffee</span></div>
-          <div class="planner__slot" data-day="mon" data-slot="lunch"><span class="planner__slot-label">Lunch</span></div>
-          <div class="planner__slot" data-day="mon" data-slot="dinner"><span class="planner__slot-label">Dinner</span></div>
-          <div class="planner__slot" data-day="mon" data-slot="other"><span class="planner__slot-label">Other</span></div>
+      <div class="day-page reveal">
+        <div class="day-page__header">
+          <span class="day-page__day">Tuesday</span>
+          <span class="day-page__date">June 9</span>
         </div>
-        <div class="planner__col">
-          <h4 class="planner__col-title">Tue<br><span class="planner__col-date">June 9</span></h4>
-          <div class="planner__slot" data-day="tue" data-slot="breakfast"><span class="planner__slot-label">Breakfast</span></div>
-          <div class="planner__slot" data-day="tue" data-slot="coffee"><span class="planner__slot-label">Coffee</span></div>
-          <div class="planner__slot" data-day="tue" data-slot="lunch"><span class="planner__slot-label">Lunch</span></div>
-          <div class="planner__slot" data-day="tue" data-slot="dinner"><span class="planner__slot-label">Dinner</span></div>
-          <div class="planner__slot" data-day="tue" data-slot="other"><span class="planner__slot-label">Other</span></div>
+        <div class="day-page__slots">
+          <div class="day-slot" data-day="tue" data-slot="breakfast">
+            <span class="day-slot__label">Breakfast</span>
+            <div class="day-slot__items" id="tue-breakfast-items"></div>
+            <button class="day-slot__add" onclick="openModal('tue', 'breakfast')">+</button>
+          </div>
+          <div class="day-slot" data-day="tue" data-slot="coffee">
+            <span class="day-slot__label">Coffee</span>
+            <div class="day-slot__items" id="tue-coffee-items"></div>
+            <button class="day-slot__add" onclick="openModal('tue', 'coffee')">+</button>
+          </div>
+          <div class="day-slot" data-day="tue" data-slot="lunch">
+            <span class="day-slot__label">Lunch</span>
+            <div class="day-slot__items" id="tue-lunch-items"></div>
+            <button class="day-slot__add" onclick="openModal('tue', 'lunch')">+</button>
+          </div>
+          <div class="day-slot" data-day="tue" data-slot="dinner">
+            <span class="day-slot__label">Dinner</span>
+            <div class="day-slot__items" id="tue-dinner-items"></div>
+            <button class="day-slot__add" onclick="openModal('tue', 'dinner')">+</button>
+          </div>
+          <div class="day-slot" data-day="tue" data-slot="other">
+            <span class="day-slot__label">Activities &amp; Other</span>
+            <div class="day-slot__items" id="tue-other-items"></div>
+            <button class="day-slot__add" onclick="openModal('tue', 'other')">+</button>
+          </div>
         </div>
-        <div class="planner__col">
-          <h4 class="planner__col-title">Wed<br><span class="planner__col-date">June 10</span></h4>
-          <div class="planner__slot" data-day="wed" data-slot="breakfast"><span class="planner__slot-label">Breakfast</span></div>
-          <div class="planner__slot" data-day="wed" data-slot="coffee"><span class="planner__slot-label">Coffee</span></div>
-          <div class="planner__slot" data-day="wed" data-slot="lunch"><span class="planner__slot-label">Lunch</span></div>
-          <div class="planner__slot" data-day="wed" data-slot="dinner"><span class="planner__slot-label">Dinner</span></div>
-          <div class="planner__slot" data-day="wed" data-slot="other"><span class="planner__slot-label">Other</span></div>
+      </div>
+
+      <div class="day-page reveal">
+        <div class="day-page__header">
+          <span class="day-page__day">Wednesday</span>
+          <span class="day-page__date">June 10</span>
         </div>
-        <div class="planner__col">
-          <h4 class="planner__col-title">Thu<br><span class="planner__col-date">June 11</span></h4>
-          <div class="planner__slot" data-day="thu" data-slot="breakfast"><span class="planner__slot-label">Breakfast</span></div>
-          <div class="planner__slot" data-day="thu" data-slot="coffee"><span class="planner__slot-label">Coffee</span></div>
-          <div class="planner__slot" data-day="thu" data-slot="lunch"><span class="planner__slot-label">Lunch</span></div>
-          <div class="planner__slot" data-day="thu" data-slot="dinner"><span class="planner__slot-label">Dinner</span></div>
-          <div class="planner__slot" data-day="thu" data-slot="other"><span class="planner__slot-label">Other</span></div>
+        <div class="day-page__slots">
+          <div class="day-slot" data-day="wed" data-slot="breakfast">
+            <span class="day-slot__label">Breakfast</span>
+            <div class="day-slot__items" id="wed-breakfast-items"></div>
+            <button class="day-slot__add" onclick="openModal('wed', 'breakfast')">+</button>
+          </div>
+          <div class="day-slot" data-day="wed" data-slot="coffee">
+            <span class="day-slot__label">Coffee</span>
+            <div class="day-slot__items" id="wed-coffee-items"></div>
+            <button class="day-slot__add" onclick="openModal('wed', 'coffee')">+</button>
+          </div>
+          <div class="day-slot" data-day="wed" data-slot="lunch">
+            <span class="day-slot__label">Lunch</span>
+            <div class="day-slot__items" id="wed-lunch-items"></div>
+            <button class="day-slot__add" onclick="openModal('wed', 'lunch')">+</button>
+          </div>
+          <div class="day-slot" data-day="wed" data-slot="dinner">
+            <span class="day-slot__label">Dinner</span>
+            <div class="day-slot__items" id="wed-dinner-items"></div>
+            <button class="day-slot__add" onclick="openModal('wed', 'dinner')">+</button>
+          </div>
+          <div class="day-slot" data-day="wed" data-slot="other">
+            <span class="day-slot__label">Activities &amp; Other</span>
+            <div class="day-slot__items" id="wed-other-items"></div>
+            <button class="day-slot__add" onclick="openModal('wed', 'other')">+</button>
+          </div>
         </div>
-        <div class="planner__col">
-          <h4 class="planner__col-title">Fri<br><span class="planner__col-date">June 12</span></h4>
-          <div class="planner__slot" data-day="fri" data-slot="breakfast"><span class="planner__slot-label">Breakfast</span></div>
-          <div class="planner__slot" data-day="fri" data-slot="coffee"><span class="planner__slot-label">Coffee</span></div>
-          <div class="planner__slot" data-day="fri" data-slot="lunch"><span class="planner__slot-label">Lunch</span></div>
-          <div class="planner__slot" data-day="fri" data-slot="dinner"><span class="planner__slot-label">Dinner</span></div>
-          <div class="planner__slot" data-day="fri" data-slot="other"><span class="planner__slot-label">Other</span></div>
+      </div>
+
+      <div class="day-page reveal">
+        <div class="day-page__header">
+          <span class="day-page__day">Thursday</span>
+          <span class="day-page__date">June 11</span>
         </div>
-        <div class="planner__col">
-          <h4 class="planner__col-title">Sat<br><span class="planner__col-date">June 13</span></h4>
-          <div class="planner__slot" data-day="sat" data-slot="breakfast"><span class="planner__slot-label">Breakfast</span></div>
-          <div class="planner__slot" data-day="sat" data-slot="coffee"><span class="planner__slot-label">Coffee</span></div>
-          <div class="planner__slot" data-day="sat" data-slot="lunch"><span class="planner__slot-label">Lunch</span></div>
-          <div class="planner__slot" data-day="sat" data-slot="dinner"><span class="planner__slot-label">Dinner</span></div>
-          <div class="planner__slot" data-day="sat" data-slot="other"><span class="planner__slot-label">Other</span></div>
+        <div class="day-page__slots">
+          <div class="day-slot" data-day="thu" data-slot="breakfast">
+            <span class="day-slot__label">Breakfast</span>
+            <div class="day-slot__items" id="thu-breakfast-items"></div>
+            <button class="day-slot__add" onclick="openModal('thu', 'breakfast')">+</button>
+          </div>
+          <div class="day-slot" data-day="thu" data-slot="coffee">
+            <span class="day-slot__label">Coffee</span>
+            <div class="day-slot__items" id="thu-coffee-items"></div>
+            <button class="day-slot__add" onclick="openModal('thu', 'coffee')">+</button>
+          </div>
+          <div class="day-slot" data-day="thu" data-slot="lunch">
+            <span class="day-slot__label">Lunch</span>
+            <div class="day-slot__items" id="thu-lunch-items"></div>
+            <button class="day-slot__add" onclick="openModal('thu', 'lunch')">+</button>
+          </div>
+          <div class="day-slot" data-day="thu" data-slot="dinner">
+            <span class="day-slot__label">Dinner</span>
+            <div class="day-slot__items" id="thu-dinner-items"></div>
+            <button class="day-slot__add" onclick="openModal('thu', 'dinner')">+</button>
+          </div>
+          <div class="day-slot" data-day="thu" data-slot="other">
+            <span class="day-slot__label">Activities &amp; Other</span>
+            <div class="day-slot__items" id="thu-other-items"></div>
+            <button class="day-slot__add" onclick="openModal('thu', 'other')">+</button>
+          </div>
         </div>
+      </div>
+
+      <div class="day-page reveal">
+        <div class="day-page__header">
+          <span class="day-page__day">Friday</span>
+          <span class="day-page__date">June 12</span>
+        </div>
+        <div class="day-page__slots">
+          <div class="day-slot" data-day="fri" data-slot="breakfast">
+            <span class="day-slot__label">Breakfast</span>
+            <div class="day-slot__items" id="fri-breakfast-items"></div>
+            <button class="day-slot__add" onclick="openModal('fri', 'breakfast')">+</button>
+          </div>
+          <div class="day-slot" data-day="fri" data-slot="coffee">
+            <span class="day-slot__label">Coffee</span>
+            <div class="day-slot__items" id="fri-coffee-items"></div>
+            <button class="day-slot__add" onclick="openModal('fri', 'coffee')">+</button>
+          </div>
+          <div class="day-slot" data-day="fri" data-slot="lunch">
+            <span class="day-slot__label">Lunch</span>
+            <div class="day-slot__items" id="fri-lunch-items"></div>
+            <button class="day-slot__add" onclick="openModal('fri', 'lunch')">+</button>
+          </div>
+          <div class="day-slot" data-day="fri" data-slot="dinner">
+            <span class="day-slot__label">Dinner</span>
+            <div class="day-slot__items" id="fri-dinner-items"></div>
+            <button class="day-slot__add" onclick="openModal('fri', 'dinner')">+</button>
+          </div>
+          <div class="day-slot" data-day="fri" data-slot="other">
+            <span class="day-slot__label">Activities &amp; Other</span>
+            <div class="day-slot__items" id="fri-other-items"></div>
+            <button class="day-slot__add" onclick="openModal('fri', 'other')">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-page reveal">
+        <div class="day-page__header">
+          <span class="day-page__day">Saturday</span>
+          <span class="day-page__date">June 13</span>
+        </div>
+        <div class="day-page__slots">
+          <div class="day-slot" data-day="sat" data-slot="breakfast">
+            <span class="day-slot__label">Breakfast</span>
+            <div class="day-slot__items" id="sat-breakfast-items"></div>
+            <button class="day-slot__add" onclick="openModal('sat', 'breakfast')">+</button>
+          </div>
+          <div class="day-slot" data-day="sat" data-slot="coffee">
+            <span class="day-slot__label">Coffee</span>
+            <div class="day-slot__items" id="sat-coffee-items"></div>
+            <button class="day-slot__add" onclick="openModal('sat', 'coffee')">+</button>
+          </div>
+          <div class="day-slot" data-day="sat" data-slot="lunch">
+            <span class="day-slot__label">Lunch</span>
+            <div class="day-slot__items" id="sat-lunch-items"></div>
+            <button class="day-slot__add" onclick="openModal('sat', 'lunch')">+</button>
+          </div>
+          <div class="day-slot" data-day="sat" data-slot="dinner">
+            <span class="day-slot__label">Dinner</span>
+            <div class="day-slot__items" id="sat-dinner-items"></div>
+            <button class="day-slot__add" onclick="openModal('sat', 'dinner')">+</button>
+          </div>
+          <div class="day-slot" data-day="sat" data-slot="other">
+            <span class="day-slot__label">Activities &amp; Other</span>
+            <div class="day-slot__items" id="sat-other-items"></div>
+            <button class="day-slot__add" onclick="openModal('sat', 'other')">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for adding items -->
+    <div class="planner__modal" id="plannerModal">
+      <div class="planner__modal-overlay" onclick="closeModal()"></div>
+      <div class="planner__modal-content">
+        <div class="planner__modal-header">
+          <h3 class="planner__modal-title">Add to <span id="modalSlotLabel">Monday Dinner</span></h3>
+          <button class="planner__modal-close" onclick="closeModal()">&times;</button>
+        </div>
+        <div class="planner__modal-tabs">
+          <button class="modal-tab active" onclick="switchTab('restaurants')">Restaurants</button>
+          <button class="modal-tab" onclick="switchTab('activities')">Activities</button>
+          <button class="modal-tab" onclick="switchTab('coffee')">Coffee</button>
+        </div>
+        <input type="text" class="planner__modal-search" placeholder="Search..." id="modalSearch" oninput="filterModalItems()">
+        <div class="planner__modal-list" id="modalList"></div>
       </div>
     </div>
   </section>
@@ -2679,20 +2595,91 @@ h1, h2, h3, h4 {
 
     updateCoffeeHearts();
 
-    /* ── Planner: Drag & Drop ────────────────────── */
+    /* ── Planner: Passport Stamps ──────────────────── */
     var PLANNER_KEY = 'charlestonTrip2026Planner';
 
-    // Card registry: map data-id to display info
-    var plannerCards = {};
-    document.querySelectorAll('.planner__sidebar .drag-card').forEach(function(card) {
-      var id = card.dataset.id;
-      var name = card.querySelector('.drag-card__name').textContent;
-      var badgeEl = card.querySelector('.drag-card__badge');
-      var badge = badgeEl ? badgeEl.textContent : '';
-      var badgeClass = badgeEl ? badgeEl.className.replace('drag-card__badge ', '') : '';
-      var type = card.dataset.type;
-      plannerCards[id] = { name: name, badge: badge, badgeClass: badgeClass, type: type };
-    });
+    var PLANNER_ITEMS = [
+      // Restaurants
+      { id: 'wild-common', name: 'Wild Common', type: 'restaurant', meals: 'Dinner', kid: 'No', badge: 'Michelin Star', badgeClass: 'resto-badge--michelin' },
+      { id: 'verns', name: "Vern's", type: 'restaurant', meals: 'Dinner', kid: 'No', badge: 'Michelin Star', badgeClass: 'resto-badge--michelin' },
+      { id: 'malagon', name: 'Malag\u00f3n', type: 'restaurant', meals: 'Dinner', kid: 'Older', badge: 'Michelin Star', badgeClass: 'resto-badge--michelin' },
+      { id: 'rodney-scotts-bbq', name: "Rodney Scott's BBQ", type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: 'Bib Gourmand', badgeClass: 'resto-badge--bib' },
+      { id: 'lewis-barbecue', name: 'Lewis Barbecue', type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: 'Bib Gourmand', badgeClass: 'resto-badge--bib' },
+      { id: 'leons-oyster-shop', name: "Leon's Oyster Shop", type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: 'Bib Gourmand', badgeClass: 'resto-badge--bib' },
+      { id: 'chubby-fish', name: 'Chubby Fish', type: 'restaurant', meals: 'Dinner', kid: 'No', badge: 'NYT Top 50', badgeClass: 'resto-badge--nyt' },
+      { id: 'fig', name: 'FIG', type: 'restaurant', meals: 'Dinner', kid: 'Older', badge: 'Michelin Listed', badgeClass: 'resto-badge--michelin-listed' },
+      { id: 'husk', name: 'Husk', type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Older', badge: 'Michelin Listed', badgeClass: 'resto-badge--michelin-listed' },
+      { id: 'sorelle', name: 'Sorelle', type: 'restaurant', meals: 'Dinner', kid: 'Older', badge: 'Michelin Listed', badgeClass: 'resto-badge--michelin-listed' },
+      { id: 'lowland', name: 'Lowland', type: 'restaurant', meals: 'Dinner', kid: 'No', badge: 'Michelin Listed', badgeClass: 'resto-badge--michelin-listed' },
+      { id: 'xiao-bao-biscuit', name: 'Xiao Bao Biscuit', type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: 'Michelin Listed', badgeClass: 'resto-badge--michelin-listed' },
+      { id: 'obstinate-daughter', name: 'The Obstinate Daughter', type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: 'Michelin Listed', badgeClass: 'resto-badge--michelin-listed' },
+      { id: 'the-establishment', name: 'The Establishment', type: 'restaurant', meals: 'Dinner', kid: 'No', badge: 'Michelin Listed', badgeClass: 'resto-badge--michelin-listed' },
+      { id: 'zero-george', name: 'Zero George Restaurant', type: 'restaurant', meals: 'Dinner', kid: 'No', badge: 'Michelin Listed', badgeClass: 'resto-badge--michelin-listed' },
+      { id: 'merci', name: 'Merci', type: 'restaurant', meals: 'Dinner', kid: 'No', badge: 'James Beard', badgeClass: 'resto-badge--beard' },
+      { id: 'renzo', name: 'Renzo', type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: 'James Beard', badgeClass: 'resto-badge--beard' },
+      { id: 'palmira', name: 'Palmira', type: 'restaurant', meals: 'Dinner', kid: 'Older', badge: 'James Beard', badgeClass: 'resto-badge--beard' },
+      { id: 'bintu-atelier', name: 'Bintu Atelier', type: 'restaurant', meals: 'Dinner', kid: 'Older', badge: 'James Beard', badgeClass: 'resto-badge--beard' },
+      { id: 'fleet-landing', name: 'Fleet Landing', type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: "Haley's List", badgeClass: 'resto-badge--haleys' },
+      { id: 'hometeam-bbq', name: 'Hometeam BBQ', type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: "Haley's List", badgeClass: 'resto-badge--haleys' },
+      { id: 'le-farfalle', name: 'Le Farfalle', type: 'restaurant', meals: 'Dinner', kid: 'Older', badge: "Haley's List", badgeClass: 'resto-badge--haleys' },
+      { id: 'poogan-porch', name: "Poogan's Porch", type: 'restaurant', meals: 'Brunch/Dinner', kid: 'Yes', badge: 'TikTok', badgeClass: 'resto-badge--tiktok' },
+      { id: 'darling-oyster-bar', name: 'Darling Oyster Bar', type: 'restaurant', meals: 'Dinner', kid: 'Older', badge: 'TikTok', badgeClass: 'resto-badge--tiktok' },
+      { id: 'church-and-union', name: 'Church and Union', type: 'restaurant', meals: 'Dinner', kid: 'Older', badge: 'TikTok', badgeClass: 'resto-badge--tiktok' },
+      { id: 'callies', name: "Callie's Hot Little Biscuit", type: 'restaurant', meals: 'Breakfast', kid: 'Yes', badge: 'TikTok', badgeClass: 'resto-badge--tiktok' },
+      { id: 'millers', name: 'Millers All Day', type: 'restaurant', meals: 'Breakfast/Brunch', kid: 'Yes', badge: "Haley's List", badgeClass: 'resto-badge--haleys' },
+      { id: 'babas', name: 'Babas', type: 'restaurant', meals: 'Brunch/Lunch', kid: 'Yes', badge: "Haley's List", badgeClass: 'resto-badge--haleys' },
+      { id: 'sugar-bakeshop', name: 'Sugar Bakeshop', type: 'restaurant', meals: 'Dessert', kid: 'Yes', badge: 'TikTok', badgeClass: 'resto-badge--tiktok' },
+      { id: 'sullivans-fish-camp', name: "Sullivan's Fish Camp", type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: 'TikTok', badgeClass: 'resto-badge--tiktok' },
+      { id: 'rancho-lewis', name: 'Rancho Lewis', type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: "Haley's List", badgeClass: 'resto-badge--haleys' },
+      { id: 'juanitas', name: 'Juanitas', type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: "Haley's List", badgeClass: 'resto-badge--haleys' },
+      { id: 'the-matador', name: 'The Matador', type: 'restaurant', meals: 'Dinner', kid: 'Older', badge: "Haley's List", badgeClass: 'resto-badge--haleys' },
+      { id: 'goat-sheep-cow', name: 'Goat Sheep Cow', type: 'restaurant', meals: 'Lunch', kid: 'Yes', badge: "Haley's List", badgeClass: 'resto-badge--haleys' },
+      { id: 'the-peacock', name: 'The Peacock', type: 'restaurant', meals: 'Dinner', kid: 'No', badge: "Haley's List", badgeClass: 'resto-badge--haleys' },
+      { id: 'jack-of-cups', name: 'Jack of Cups', type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: 'TikTok', badgeClass: 'resto-badge--tiktok' },
+      { id: 'tutti-pizza', name: 'Tutti Pizza', type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: '', badgeClass: '' },
+      { id: 'hannibals', name: "Hannibal's Kitchen", type: 'restaurant', meals: 'Lunch', kid: 'Yes', badge: 'TikTok', badgeClass: 'resto-badge--tiktok' },
+      { id: 'grit-bakery', name: 'Grit Bakery', type: 'restaurant', meals: 'Breakfast', kid: 'Yes', badge: 'TikTok', badgeClass: 'resto-badge--tiktok' },
+      { id: 'the-daily', name: 'The Daily', type: 'restaurant', meals: 'Breakfast/Brunch', kid: 'Yes', badge: 'TikTok', badgeClass: 'resto-badge--tiktok' },
+      { id: 'cane-pazzo', name: 'Cane Pazzo', type: 'restaurant', meals: 'Dinner', kid: 'Yes', badge: '', badgeClass: '' },
+      { id: 'peace-pie', name: 'Peace Pie', type: 'restaurant', meals: 'Dessert', kid: 'Yes', badge: "Haley's List", badgeClass: 'resto-badge--haleys' },
+      { id: 'jenis', name: "Jeni's", type: 'restaurant', meals: 'Dessert', kid: 'Yes', badge: "Haley's List", badgeClass: 'resto-badge--haleys' },
+      { id: 'carmellas', name: "Carmella's", type: 'restaurant', meals: 'Dessert', kid: 'Yes', badge: "Haley's List", badgeClass: 'resto-badge--haleys' },
+      { id: 'kultura', name: 'Kultura', type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: '', badgeClass: '' },
+
+      // Activities
+      { id: 'kiawah-dolphin', name: 'Kiawah Dolphin Charter', type: 'activity', meta: '~3 hrs' },
+      { id: 'kiawah-kayak', name: 'Kiawah Family Kayaking', type: 'activity', meta: '~2 hrs' },
+      { id: 'oyster-farm', name: 'Charleston Oyster Farm Tour', type: 'activity', meta: '~2 hrs' },
+      { id: 'bulls-island', name: 'Bulls Island Ferry', type: 'activity', meta: '~4 hrs' },
+      { id: 'historic-walk', name: 'Historic District Walk', type: 'activity', meta: 'flexible' },
+      { id: 'king-street', name: 'King Street Shopping', type: 'activity', meta: 'flexible' },
+      { id: 'beach-pool', name: 'Beach / Pool Day', type: 'activity', meta: 'flexible' },
+      { id: 'sunset-cruise', name: 'Sunset Cruise', type: 'activity', meta: '~2 hrs' },
+
+      // Coffee
+      { id: 'harken', name: 'Harken Cafe', type: 'coffee', meta: '1 min walk' },
+      { id: 'rise', name: 'The Rise Coffee Bar', type: 'coffee', meta: '5 min walk' },
+      { id: 'bad-bunnies', name: 'Bad Bunnies Coffee', type: 'coffee', meta: '8 min walk' },
+      { id: 'second-state', name: 'Second State Coffee', type: 'coffee', meta: '5 min walk' },
+      { id: 'babas-coffee', name: 'Babas on Wentworth', type: 'coffee', meta: '4 min walk' },
+      { id: 'kudu', name: 'Kudu Coffee', type: 'coffee', meta: '10 min walk' },
+      { id: 'bitty-beaus', name: "Bitty & Beau's", type: 'coffee', meta: '3 min walk' },
+      { id: 'the-daily-coffee', name: 'The Daily', type: 'coffee', meta: '12 min walk' },
+    ];
+
+    var DAYS = [
+      { key: 'mon', label: 'Monday', date: 'June 8' },
+      { key: 'tue', label: 'Tuesday', date: 'June 9' },
+      { key: 'wed', label: 'Wednesday', date: 'June 10' },
+      { key: 'thu', label: 'Thursday', date: 'June 11' },
+      { key: 'fri', label: 'Friday', date: 'June 12' },
+      { key: 'sat', label: 'Saturday', date: 'June 13' },
+    ];
+    var SLOTS = ['breakfast', 'coffee', 'lunch', 'dinner', 'other'];
+
+    var currentModalDay = null;
+    var currentModalSlot = null;
+    var currentTab = 'restaurants';
 
     function getPlan() {
       try {
@@ -2706,206 +2693,125 @@ h1, h2, h3, h4 {
       localStorage.setItem(PLANNER_KEY, JSON.stringify(plan));
     }
 
-    function placeCard(daySlotKey, itemId, itemType) {
+    function openModal(day, slot) {
       var voter = document.getElementById('plannerVoter').value;
-      if (!voter) { alert('Pick your name first!'); return false; }
-      var plan = getPlan();
-
-      // Remove item from any existing slot
-      Object.keys(plan).forEach(function(key) {
-        if (plan[key] && plan[key].item === itemId) delete plan[key];
-      });
-
-      // Place new item
-      plan[daySlotKey] = { item: itemId, type: itemType, proposedBy: voter };
-      savePlan(plan);
-      renderBoard();
-      return true;
+      if (!voter) { alert('Pick your name first!'); return; }
+      currentModalDay = day;
+      currentModalSlot = slot;
+      var dayObj = DAYS.find(function(d) { return d.key === day; });
+      var slotLabel = slot.charAt(0).toUpperCase() + slot.slice(1);
+      document.getElementById('modalSlotLabel').textContent = dayObj.label + ' ' + slotLabel;
+      document.getElementById('modalSearch').value = '';
+      switchTab(currentTab);
+      document.getElementById('plannerModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
     }
 
-    function removeCard(daySlotKey) {
+    function closeModal() {
+      document.getElementById('plannerModal').classList.remove('open');
+      document.body.style.overflow = '';
+      currentModalDay = null;
+      currentModalSlot = null;
+    }
+
+    function switchTab(tab) {
+      currentTab = tab;
+      document.querySelectorAll('.modal-tab').forEach(function(t) {
+        t.classList.toggle('active', t.textContent.toLowerCase().includes(tab));
+      });
+      renderModalList();
+    }
+
+    function renderModalList() {
       var plan = getPlan();
-      delete plan[daySlotKey];
+      var search = (document.getElementById('modalSearch') ? document.getElementById('modalSearch').value : '').toLowerCase();
+      var list = document.getElementById('modalList');
+      var slotKey = currentModalDay + '-' + currentModalSlot;
+
+      // Get items already in this specific slot
+      var slotItems = plan[slotKey] || [];
+      var placedIds = slotItems.map(function(i) { return i.item; });
+
+      var filtered = PLANNER_ITEMS.filter(function(item) {
+        if (currentTab === 'restaurants' && item.type !== 'restaurant') return false;
+        if (currentTab === 'activities' && item.type !== 'activity') return false;
+        if (currentTab === 'coffee' && item.type !== 'coffee') return false;
+        if (search && item.name.toLowerCase().indexOf(search) === -1) return false;
+        return true;
+      });
+
+      list.innerHTML = filtered.map(function(item) {
+        var isPlaced = placedIds.indexOf(item.id) > -1;
+        var badgeHtml = item.badge ? '<span class="modal-item__badge ' + item.badgeClass + '">' + item.badge + '</span>' : '';
+        var metaText = item.type === 'restaurant'
+          ? (item.meals + (item.kid === 'Yes' ? ' \u00b7 Kid Friendly' : item.kid === 'Older' ? ' \u00b7 Older Kids' : ' \u00b7 Adults Only'))
+          : (item.meta || '');
+        return '<div class="modal-item ' + (isPlaced ? 'already-added' : '') + '" onclick="' + (isPlaced ? '' : "addItem('" + item.id + "', '" + item.type + "')") + '">'
+          + '<span class="modal-item__name">' + item.name + '</span>'
+          + '<div class="modal-item__badges">' + badgeHtml + '</div>'
+          + '<span class="modal-item__meta">' + metaText + '</span>'
+          + '</div>';
+      }).join('');
+    }
+
+    function filterModalItems() { renderModalList(); }
+
+    function addItem(itemId, itemType) {
+      var voter = document.getElementById('plannerVoter').value;
+      if (!voter || !currentModalDay || !currentModalSlot) return;
+      var plan = getPlan();
+      var slotKey = currentModalDay + '-' + currentModalSlot;
+      if (!plan[slotKey]) plan[slotKey] = [];
+
+      // Don't add duplicates to same slot
+      if (plan[slotKey].some(function(i) { return i.item === itemId; })) return;
+
+      plan[slotKey].push({ item: itemId, type: itemType, proposedBy: voter });
+      savePlan(plan);
+      renderBoard();
+      renderModalList();
+    }
+
+    function removeItem(day, slot, itemId) {
+      var plan = getPlan();
+      var slotKey = day + '-' + slot;
+      if (plan[slotKey]) {
+        plan[slotKey] = plan[slotKey].filter(function(i) { return i.item !== itemId; });
+        if (plan[slotKey].length === 0) delete plan[slotKey];
+      }
       savePlan(plan);
       renderBoard();
     }
 
     function renderBoard() {
       var plan = getPlan();
-
-      // Clear all slots
-      document.querySelectorAll('.planner__slot').forEach(function(slot) {
-        var label = slot.querySelector('.planner__slot-label');
-        var placed = slot.querySelector('.planner__placed-card');
-        if (placed) placed.remove();
-        slot.classList.remove('filled');
-        if (label) label.style.display = '';
-      });
-
-      // Reset sidebar cards
-      document.querySelectorAll('.planner__sidebar .drag-card').forEach(function(card) {
-        card.classList.remove('placed');
-      });
-
-      // Place cards from plan
-      var placedIds = {};
-      Object.keys(plan).forEach(function(key) {
-        var entry = plan[key];
-        if (!entry) return;
-        var parts = key.split('-');
-        var day = parts[0];
-        var slot = parts.slice(1).join('-');
-        var slotEl = document.querySelector('.planner__slot[data-day="' + day + '"][data-slot="' + slot + '"]');
-        if (!slotEl) return;
-
-        var info = plannerCards[entry.item];
-        if (!info) return;
-
-        placedIds[entry.item] = true;
-
-        var cardHtml = '<div class="planner__placed-card" data-id="' + entry.item + '">';
-        cardHtml += '<span class="drag-card__name">' + info.name + '</span>';
-        if (info.badge) {
-          cardHtml += '<span class="drag-card__badge ' + info.badgeClass + '">' + info.badge + '</span>';
-        }
-        cardHtml += '<span class="drag-card__proposed">proposed by ' + entry.proposedBy + '</span>';
-        cardHtml += '<button class="planner__remove" onclick="removeCard(\'' + key + '\')">&times;</button>';
-        cardHtml += '</div>';
-
-        slotEl.classList.add('filled');
-        var label = slotEl.querySelector('.planner__slot-label');
-        if (label) label.style.display = 'none';
-        slotEl.insertAdjacentHTML('beforeend', cardHtml);
-      });
-
-      // Grey out placed sidebar cards
-      document.querySelectorAll('.planner__sidebar .drag-card').forEach(function(card) {
-        if (placedIds[card.dataset.id]) {
-          card.classList.add('placed');
-        }
+      DAYS.forEach(function(day) {
+        SLOTS.forEach(function(slot) {
+          var container = document.getElementById(day.key + '-' + slot + '-items');
+          if (!container) return;
+          var slotKey = day.key + '-' + slot;
+          var items = plan[slotKey] || [];
+          container.innerHTML = items.map(function(entry) {
+            var itemData = PLANNER_ITEMS.find(function(i) { return i.id === entry.item; });
+            if (!itemData) return '';
+            var typeClass = '';
+            if (itemData.type === 'activity') typeClass = ' stamp--activity';
+            if (itemData.type === 'coffee') typeClass = ' stamp--coffee';
+            var badgeHtml = itemData.badge ? '<span class="stamp__badge ' + itemData.badgeClass + '">\u2605</span>' : '';
+            return '<div class="stamp' + typeClass + '" data-id="' + itemData.id + '">'
+              + '<span class="stamp__name">' + itemData.name + '</span>'
+              + badgeHtml
+              + '<span class="stamp__by">' + entry.proposedBy + '</span>'
+              + '<button class="stamp__remove" onclick="event.stopPropagation(); removeItem(\'' + day.key + "', '" + slot + "', '" + itemData.id + '\')">&times;</button>'
+              + '</div>';
+          }).join('');
+        });
       });
     }
 
-    // Desktop drag and drop
-    document.querySelectorAll('.planner__sidebar .drag-card').forEach(function(card) {
-      card.addEventListener('dragstart', function(e) {
-        e.dataTransfer.setData('text/plain', JSON.stringify({
-          id: card.dataset.id,
-          type: card.dataset.type
-        }));
-        e.dataTransfer.effectAllowed = 'move';
-      });
-    });
-
-    document.querySelectorAll('.planner__slot').forEach(function(slot) {
-      slot.addEventListener('dragover', function(e) {
-        e.preventDefault();
-        e.dataTransfer.dropEffect = 'move';
-        slot.classList.add('drag-over');
-      });
-
-      slot.addEventListener('dragleave', function(e) {
-        slot.classList.remove('drag-over');
-      });
-
-      slot.addEventListener('drop', function(e) {
-        e.preventDefault();
-        slot.classList.remove('drag-over');
-        try {
-          var data = JSON.parse(e.dataTransfer.getData('text/plain'));
-          var daySlotKey = slot.dataset.day + '-' + slot.dataset.slot;
-          placeCard(daySlotKey, data.id, data.type);
-        } catch (err) {}
-      });
-    });
-
-    // Mobile touch support
-    var touchDragData = null;
-    var touchGhost = null;
-
-    document.querySelectorAll('.planner__sidebar .drag-card').forEach(function(card) {
-      card.addEventListener('touchstart', function(e) {
-        if (card.classList.contains('placed')) return;
-        var touch = e.touches[0];
-        touchDragData = { id: card.dataset.id, type: card.dataset.type };
-
-        // Create floating ghost
-        touchGhost = document.createElement('div');
-        touchGhost.className = 'drag-ghost';
-        touchGhost.textContent = card.querySelector('.drag-card__name').textContent;
-        document.body.appendChild(touchGhost);
-        touchGhost.style.left = (touch.clientX - 40) + 'px';
-        touchGhost.style.top = (touch.clientY - 20) + 'px';
-      }, { passive: true });
-
-      card.addEventListener('touchmove', function(e) {
-        if (!touchGhost) return;
-        e.preventDefault();
-        var touch = e.touches[0];
-        touchGhost.style.left = (touch.clientX - 40) + 'px';
-        touchGhost.style.top = (touch.clientY - 20) + 'px';
-
-        // Highlight slot under finger
-        document.querySelectorAll('.planner__slot').forEach(function(s) { s.classList.remove('drag-over'); });
-        var el = document.elementFromPoint(touch.clientX, touch.clientY);
-        if (el) {
-          var slotEl = el.closest('.planner__slot');
-          if (slotEl) slotEl.classList.add('drag-over');
-        }
-      }, { passive: false });
-
-      card.addEventListener('touchend', function(e) {
-        if (!touchGhost || !touchDragData) {
-          touchGhost && touchGhost.remove();
-          touchGhost = null;
-          touchDragData = null;
-          return;
-        }
-
-        var touch = e.changedTouches[0];
-        var el = document.elementFromPoint(touch.clientX, touch.clientY);
-        if (el) {
-          var slotEl = el.closest('.planner__slot');
-          if (slotEl) {
-            var daySlotKey = slotEl.dataset.day + '-' + slotEl.dataset.slot;
-            placeCard(daySlotKey, touchDragData.id, touchDragData.type);
-          }
-        }
-
-        document.querySelectorAll('.planner__slot').forEach(function(s) { s.classList.remove('drag-over'); });
-        touchGhost.remove();
-        touchGhost = null;
-        touchDragData = null;
-      });
-    });
-
-    // Sidebar search filter
-    function filterSidebar() {
-      var term = document.getElementById('plannerSearch').value.toLowerCase();
-      document.querySelectorAll('.planner__sidebar .drag-card').forEach(function(card) {
-        var name = card.querySelector('.drag-card__name').textContent.toLowerCase();
-        card.style.display = (!term || name.indexOf(term) > -1) ? '' : 'none';
-      });
-    }
-
-    // Group toggle
-    function toggleGroup(titleEl) {
-      var items = titleEl.nextElementSibling;
-      var toggle = titleEl.querySelector('.planner__group-toggle');
-      if (items.classList.contains('collapsed')) {
-        items.classList.remove('collapsed');
-        items.style.maxHeight = items.scrollHeight + 'px';
-        toggle.innerHTML = '\u2212';
-      } else {
-        items.classList.add('collapsed');
-        items.style.maxHeight = '0';
-        toggle.innerHTML = '+';
-      }
-    }
-
-    // Initialize group heights
-    document.querySelectorAll('.planner__group-items').forEach(function(g) {
-      g.style.maxHeight = g.scrollHeight + 'px';
+    // Close modal on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
     });
 
     // Render saved state
