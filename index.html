@@ -491,29 +491,26 @@ h1, h2, h3, h4 {
   font-family: var(--font-body);
   font-size: 1.25rem;
   color: var(--charcoal);
-  opacity: 0.4;
-  line-height: 1;
+  opacity: 0.3;
 }
 
 .day-entry__detail {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.35s ease, padding 0.35s ease;
-  padding: 0 0 0 0;
+  transition: max-height 0.35s ease;
 }
 
-.day-entry__detail--open {
-  max-height: 500px;
-  padding-bottom: var(--space-lg);
+.day-entry--open .day-entry__detail {
+  max-height: 300px;
 }
 
 .day-entry__detail p {
+  padding: 0 0 var(--space-lg) 0;
   font-family: var(--font-body);
   font-size: 0.9375rem;
-  color: var(--charcoal);
-  opacity: 0.7;
   line-height: 1.75;
-  max-width: 640px;
+  color: var(--charcoal);
+  opacity: 0.75;
 }
 
 
@@ -696,66 +693,35 @@ h1, h2, h3, h4 {
   color: #e1306c;
 }
 
-/* ── Table Priority Ranking ───────────────────── */
-.priority-cell {
-  text-align: center;
+/* ── Table Thumbs Voting ─────────────────────── */
+.vote-cell {
+  min-width: 90px;
 }
 
-.table-priority {
-  display: inline-flex;
-  gap: 0.25rem;
+.table-vote {
+  display: flex;
+  gap: 4px;
 }
 
-.tp-dot {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  border: 1.5px solid var(--gray-light);
-  background: transparent;
-  font-family: var(--font-body);
-  font-size: 0.65rem;
-  color: var(--charcoal);
+.tv-btn {
+  font-size: 0.9rem;
   cursor: pointer;
-  transition: all 0.15s ease;
-  line-height: 18px;
-  text-align: center;
+  opacity: 0.3;
+  transition: opacity 0.15s, transform 0.15s;
+  padding: 2px;
+  border-radius: 4px;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
-.tp-dot:hover {
-  border-color: var(--accent-gold);
+.tv-btn:hover {
+  opacity: 0.7;
+  transform: scale(1.15);
 }
 
-.tp-dot.active {
-  background: var(--accent-gold);
-  border-color: var(--accent-gold);
-  color: var(--white);
-}
-
-.sort-priority-btn {
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  font-weight: 500;
-  padding: 0.35em 0.9em;
-  border: 1px solid var(--gray-light);
-  border-radius: 100px;
-  background: transparent;
-  color: var(--charcoal);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.sort-priority-btn:hover {
-  border-color: var(--accent-gold);
-  color: var(--accent-gold);
-}
-
-.sort-priority-btn--active {
-  background: var(--accent-gold);
-  border-color: var(--accent-gold);
-  color: var(--white);
+.tv-btn.active {
+  opacity: 1;
+  transform: scale(1.1);
 }
 
 /* ── Booking Badges ──────────────────────────── */
@@ -1198,369 +1164,6 @@ h1, h2, h3, h4 {
   transform: translateY(0);
 }
 
-/* ── Planner: Passport Stamps ────────────────── */
-.planner__sub {
-  font-family: var(--font-body);
-  font-size: 1.0625rem;
-  color: var(--charcoal);
-  opacity: 0.55;
-  text-align: center;
-  margin-top: calc(-1 * var(--space-lg));
-  margin-bottom: var(--space-2xl);
-}
-
-.planner__voter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-sm);
-  margin-bottom: var(--space-2xl);
-  font-family: var(--font-body);
-  font-size: 0.875rem;
-  color: var(--charcoal);
-  opacity: 0.7;
-}
-
-.planner__voter select {
-  font-family: var(--font-body);
-  font-size: 0.875rem;
-  padding: 0.3em 0.6em;
-  border: 1px solid var(--gray-light);
-  border-radius: 6px;
-  background: var(--white);
-  color: var(--charcoal);
-  cursor: pointer;
-}
-
-/* Day page cards */
-.day-page {
-  background: var(--white);
-  border: 1px solid var(--gray-light);
-  border-radius: 16px;
-  overflow: hidden;
-  margin-bottom: var(--space-lg);
-}
-
-.day-page__header {
-  background: var(--charcoal);
-  color: var(--cream);
-  padding: 1rem 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.day-page__day {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 700;
-}
-
-.day-page__date {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  opacity: 0.6;
-}
-
-.day-page__slots {
-  padding: 1rem 1.5rem;
-}
-
-.day-slot {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid var(--gray-light);
-}
-
-.day-slot:last-child {
-  border-bottom: none;
-}
-
-.day-slot__label {
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--charcoal);
-  opacity: 0.4;
-  min-width: 100px;
-  padding-top: 6px;
-  flex-shrink: 0;
-}
-
-.day-slot__items {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  flex: 1;
-}
-
-.day-slot__add {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  border: 1.5px dashed var(--gray-light);
-  background: transparent;
-  color: var(--charcoal);
-  opacity: 0.3;
-  font-size: 1rem;
-  cursor: pointer;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s;
-}
-
-.day-slot__add:hover {
-  opacity: 0.7;
-  border-color: var(--charleston-accent);
-  color: var(--charleston-accent);
-}
-
-/* Stamp chips */
-.stamp {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  background: var(--cream);
-  border: 1px solid var(--gray-light);
-  border-radius: 20px;
-  padding: 4px 10px 4px 12px;
-  font-size: 0.78rem;
-  font-family: var(--font-body);
-  transition: all 0.15s;
-  position: relative;
-}
-
-.stamp:hover {
-  border-color: var(--charleston-accent);
-}
-
-.stamp--activity {
-  border-left: 3px solid var(--charleston-accent);
-}
-
-.stamp--coffee {
-  border-left: 3px solid var(--accent-gold);
-}
-
-.stamp__name {
-  font-weight: 600;
-  color: var(--charcoal);
-  white-space: nowrap;
-}
-
-.stamp__badge {
-  font-size: 0.6rem;
-  padding: 1px 5px;
-  border-radius: 8px;
-  color: white;
-}
-
-.stamp__by {
-  font-size: 0.6rem;
-  color: var(--charleston-accent);
-  font-style: italic;
-}
-
-.stamp__remove {
-  background: none;
-  border: none;
-  color: var(--charcoal);
-  opacity: 0;
-  font-size: 0.9rem;
-  cursor: pointer;
-  padding: 0 2px;
-  transition: opacity 0.15s;
-}
-
-.stamp:hover .stamp__remove {
-  opacity: 0.5;
-}
-
-.stamp__remove:hover {
-  opacity: 1 !important;
-  color: #c0392b;
-}
-
-/* Modal */
-.planner__modal {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  display: none;
-  align-items: center;
-  justify-content: center;
-}
-
-.planner__modal.open {
-  display: flex;
-}
-
-.planner__modal-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(44, 36, 24, 0.5);
-  backdrop-filter: blur(4px);
-}
-
-.planner__modal-content {
-  position: relative;
-  background: var(--white);
-  border-radius: 16px;
-  max-width: 500px;
-  width: 90%;
-  max-height: 70vh;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-}
-
-.planner__modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.25rem 1.5rem;
-  border-bottom: 1px solid var(--gray-light);
-}
-
-.planner__modal-title {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 700;
-}
-
-.planner__modal-close {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: var(--charcoal);
-  opacity: 0.4;
-}
-
-.planner__modal-close:hover {
-  opacity: 0.8;
-}
-
-.planner__modal-tabs {
-  display: flex;
-  gap: 0;
-  border-bottom: 1px solid var(--gray-light);
-}
-
-.modal-tab {
-  flex: 1;
-  padding: 0.75rem;
-  background: none;
-  border: none;
-  border-bottom: 2px solid transparent;
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  font-weight: 500;
-  cursor: pointer;
-  color: var(--charcoal);
-  opacity: 0.5;
-  transition: all 0.2s;
-}
-
-.modal-tab.active {
-  opacity: 1;
-  border-bottom-color: var(--charleston-accent);
-  color: var(--charleston-accent);
-}
-
-.planner__modal-search {
-  margin: 1rem 1.5rem 0.5rem;
-  padding: 0.6rem 1rem;
-  border: 1px solid var(--gray-light);
-  border-radius: 8px;
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  outline: none;
-  color: var(--charcoal);
-}
-
-.planner__modal-search:focus {
-  border-color: var(--charleston-accent);
-}
-
-.planner__modal-list {
-  overflow-y: auto;
-  padding: 0.5rem 1.5rem 1.5rem;
-  flex: 1;
-}
-
-.modal-item {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px;
-  padding: 0.7rem 0;
-  border-bottom: 1px solid rgba(0,0,0,0.04);
-  cursor: pointer;
-  transition: background 0.15s;
-}
-
-.modal-item:hover {
-  background: var(--cream);
-}
-
-.modal-item:last-child {
-  border-bottom: none;
-}
-
-.modal-item__name {
-  font-weight: 600;
-  font-size: 0.9rem;
-  margin-right: auto;
-}
-
-.modal-item__badges {
-  display: flex;
-  gap: 3px;
-}
-
-.modal-item__badge {
-  font-size: 0.55rem;
-}
-
-.modal-item__meta {
-  width: 100%;
-  font-size: 0.75rem;
-  opacity: 0.45;
-}
-
-.modal-item.already-added {
-  opacity: 0.35;
-  cursor: default;
-}
-
-@media (max-width: 768px) {
-  .planner__voter select {
-    min-height: 44px;
-  }
-
-  .day-slot {
-    flex-wrap: wrap;
-  }
-
-  .day-slot__label {
-    min-width: 80px;
-    font-size: 0.65rem;
-  }
-
-  .day-page__header {
-    padding: 0.75rem 1rem;
-  }
-
-  .day-page__slots {
-    padding: 0.75rem 1rem;
-  }
-}
 
 /* ── Footer ──────────────────────────────────── */
 .site-footer {
@@ -1668,243 +1271,73 @@ h1, h2, h3, h4 {
     </div>
   </section>
 
-  <section class="planner section">
+  <section class="itinerary section">
     <h2 class="section__heading reveal">The Week</h2>
-    <p class="planner__sub reveal">Tap + to add restaurants, activities, and coffee to each day</p>
+    <p class="itinerary__subtitle reveal">Monday through Saturday &mdash; the family trip</p>
 
-    <div class="planner__voter reveal">
-      <label>Planning as:</label>
-      <select id="plannerVoter">
-        <option value="">Pick your name</option>
-        <option value="Jan">Jan</option>
-        <option value="Haley">Haley</option>
-        <option value="Michael">Michael</option>
-        <option value="Trey">Trey</option>
-        <option value="Katy">Katy</option>
-      </select>
-    </div>
-
-    <div class="planner__days">
-      <div class="day-page reveal">
-        <div class="day-page__header">
-          <span class="day-page__day">Monday</span>
-          <span class="day-page__date">June 8</span>
-        </div>
-        <div class="day-page__slots">
-          <div class="day-slot" data-day="mon" data-slot="breakfast">
-            <span class="day-slot__label">Breakfast</span>
-            <div class="day-slot__items" id="mon-breakfast-items"></div>
-            <button class="day-slot__add" onclick="openModal('mon', 'breakfast')">+</button>
-          </div>
-          <div class="day-slot" data-day="mon" data-slot="coffee">
-            <span class="day-slot__label">Coffee</span>
-            <div class="day-slot__items" id="mon-coffee-items"></div>
-            <button class="day-slot__add" onclick="openModal('mon', 'coffee')">+</button>
-          </div>
-          <div class="day-slot" data-day="mon" data-slot="lunch">
-            <span class="day-slot__label">Lunch</span>
-            <div class="day-slot__items" id="mon-lunch-items"></div>
-            <button class="day-slot__add" onclick="openModal('mon', 'lunch')">+</button>
-          </div>
-          <div class="day-slot" data-day="mon" data-slot="dinner">
-            <span class="day-slot__label">Dinner</span>
-            <div class="day-slot__items" id="mon-dinner-items"></div>
-            <button class="day-slot__add" onclick="openModal('mon', 'dinner')">+</button>
-          </div>
-          <div class="day-slot" data-day="mon" data-slot="other">
-            <span class="day-slot__label">Activities &amp; Other</span>
-            <div class="day-slot__items" id="mon-other-items"></div>
-            <button class="day-slot__add" onclick="openModal('mon', 'other')">+</button>
-          </div>
-        </div>
+    <div class="day-entry reveal" onclick="toggleDay(this)">
+      <div class="day-entry__header">
+        <span class="day-entry__number day-entry__number--teal">Monday June 8</span>
+        <span class="day-entry__title">&ldquo;Arrive &amp; Settle In&rdquo;</span>
+        <span class="day-entry__toggle">+</span>
       </div>
-
-      <div class="day-page reveal">
-        <div class="day-page__header">
-          <span class="day-page__day">Tuesday</span>
-          <span class="day-page__date">June 9</span>
-        </div>
-        <div class="day-page__slots">
-          <div class="day-slot" data-day="tue" data-slot="breakfast">
-            <span class="day-slot__label">Breakfast</span>
-            <div class="day-slot__items" id="tue-breakfast-items"></div>
-            <button class="day-slot__add" onclick="openModal('tue', 'breakfast')">+</button>
-          </div>
-          <div class="day-slot" data-day="tue" data-slot="coffee">
-            <span class="day-slot__label">Coffee</span>
-            <div class="day-slot__items" id="tue-coffee-items"></div>
-            <button class="day-slot__add" onclick="openModal('tue', 'coffee')">+</button>
-          </div>
-          <div class="day-slot" data-day="tue" data-slot="lunch">
-            <span class="day-slot__label">Lunch</span>
-            <div class="day-slot__items" id="tue-lunch-items"></div>
-            <button class="day-slot__add" onclick="openModal('tue', 'lunch')">+</button>
-          </div>
-          <div class="day-slot" data-day="tue" data-slot="dinner">
-            <span class="day-slot__label">Dinner</span>
-            <div class="day-slot__items" id="tue-dinner-items"></div>
-            <button class="day-slot__add" onclick="openModal('tue', 'dinner')">+</button>
-          </div>
-          <div class="day-slot" data-day="tue" data-slot="other">
-            <span class="day-slot__label">Activities &amp; Other</span>
-            <div class="day-slot__items" id="tue-other-items"></div>
-            <button class="day-slot__add" onclick="openModal('tue', 'other')">+</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="day-page reveal">
-        <div class="day-page__header">
-          <span class="day-page__day">Wednesday</span>
-          <span class="day-page__date">June 10</span>
-        </div>
-        <div class="day-page__slots">
-          <div class="day-slot" data-day="wed" data-slot="breakfast">
-            <span class="day-slot__label">Breakfast</span>
-            <div class="day-slot__items" id="wed-breakfast-items"></div>
-            <button class="day-slot__add" onclick="openModal('wed', 'breakfast')">+</button>
-          </div>
-          <div class="day-slot" data-day="wed" data-slot="coffee">
-            <span class="day-slot__label">Coffee</span>
-            <div class="day-slot__items" id="wed-coffee-items"></div>
-            <button class="day-slot__add" onclick="openModal('wed', 'coffee')">+</button>
-          </div>
-          <div class="day-slot" data-day="wed" data-slot="lunch">
-            <span class="day-slot__label">Lunch</span>
-            <div class="day-slot__items" id="wed-lunch-items"></div>
-            <button class="day-slot__add" onclick="openModal('wed', 'lunch')">+</button>
-          </div>
-          <div class="day-slot" data-day="wed" data-slot="dinner">
-            <span class="day-slot__label">Dinner</span>
-            <div class="day-slot__items" id="wed-dinner-items"></div>
-            <button class="day-slot__add" onclick="openModal('wed', 'dinner')">+</button>
-          </div>
-          <div class="day-slot" data-day="wed" data-slot="other">
-            <span class="day-slot__label">Activities &amp; Other</span>
-            <div class="day-slot__items" id="wed-other-items"></div>
-            <button class="day-slot__add" onclick="openModal('wed', 'other')">+</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="day-page reveal">
-        <div class="day-page__header">
-          <span class="day-page__day">Thursday</span>
-          <span class="day-page__date">June 11</span>
-        </div>
-        <div class="day-page__slots">
-          <div class="day-slot" data-day="thu" data-slot="breakfast">
-            <span class="day-slot__label">Breakfast</span>
-            <div class="day-slot__items" id="thu-breakfast-items"></div>
-            <button class="day-slot__add" onclick="openModal('thu', 'breakfast')">+</button>
-          </div>
-          <div class="day-slot" data-day="thu" data-slot="coffee">
-            <span class="day-slot__label">Coffee</span>
-            <div class="day-slot__items" id="thu-coffee-items"></div>
-            <button class="day-slot__add" onclick="openModal('thu', 'coffee')">+</button>
-          </div>
-          <div class="day-slot" data-day="thu" data-slot="lunch">
-            <span class="day-slot__label">Lunch</span>
-            <div class="day-slot__items" id="thu-lunch-items"></div>
-            <button class="day-slot__add" onclick="openModal('thu', 'lunch')">+</button>
-          </div>
-          <div class="day-slot" data-day="thu" data-slot="dinner">
-            <span class="day-slot__label">Dinner</span>
-            <div class="day-slot__items" id="thu-dinner-items"></div>
-            <button class="day-slot__add" onclick="openModal('thu', 'dinner')">+</button>
-          </div>
-          <div class="day-slot" data-day="thu" data-slot="other">
-            <span class="day-slot__label">Activities &amp; Other</span>
-            <div class="day-slot__items" id="thu-other-items"></div>
-            <button class="day-slot__add" onclick="openModal('thu', 'other')">+</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="day-page reveal">
-        <div class="day-page__header">
-          <span class="day-page__day">Friday</span>
-          <span class="day-page__date">June 12</span>
-        </div>
-        <div class="day-page__slots">
-          <div class="day-slot" data-day="fri" data-slot="breakfast">
-            <span class="day-slot__label">Breakfast</span>
-            <div class="day-slot__items" id="fri-breakfast-items"></div>
-            <button class="day-slot__add" onclick="openModal('fri', 'breakfast')">+</button>
-          </div>
-          <div class="day-slot" data-day="fri" data-slot="coffee">
-            <span class="day-slot__label">Coffee</span>
-            <div class="day-slot__items" id="fri-coffee-items"></div>
-            <button class="day-slot__add" onclick="openModal('fri', 'coffee')">+</button>
-          </div>
-          <div class="day-slot" data-day="fri" data-slot="lunch">
-            <span class="day-slot__label">Lunch</span>
-            <div class="day-slot__items" id="fri-lunch-items"></div>
-            <button class="day-slot__add" onclick="openModal('fri', 'lunch')">+</button>
-          </div>
-          <div class="day-slot" data-day="fri" data-slot="dinner">
-            <span class="day-slot__label">Dinner</span>
-            <div class="day-slot__items" id="fri-dinner-items"></div>
-            <button class="day-slot__add" onclick="openModal('fri', 'dinner')">+</button>
-          </div>
-          <div class="day-slot" data-day="fri" data-slot="other">
-            <span class="day-slot__label">Activities &amp; Other</span>
-            <div class="day-slot__items" id="fri-other-items"></div>
-            <button class="day-slot__add" onclick="openModal('fri', 'other')">+</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="day-page reveal">
-        <div class="day-page__header">
-          <span class="day-page__day">Saturday</span>
-          <span class="day-page__date">June 13</span>
-        </div>
-        <div class="day-page__slots">
-          <div class="day-slot" data-day="sat" data-slot="breakfast">
-            <span class="day-slot__label">Breakfast</span>
-            <div class="day-slot__items" id="sat-breakfast-items"></div>
-            <button class="day-slot__add" onclick="openModal('sat', 'breakfast')">+</button>
-          </div>
-          <div class="day-slot" data-day="sat" data-slot="coffee">
-            <span class="day-slot__label">Coffee</span>
-            <div class="day-slot__items" id="sat-coffee-items"></div>
-            <button class="day-slot__add" onclick="openModal('sat', 'coffee')">+</button>
-          </div>
-          <div class="day-slot" data-day="sat" data-slot="lunch">
-            <span class="day-slot__label">Lunch</span>
-            <div class="day-slot__items" id="sat-lunch-items"></div>
-            <button class="day-slot__add" onclick="openModal('sat', 'lunch')">+</button>
-          </div>
-          <div class="day-slot" data-day="sat" data-slot="dinner">
-            <span class="day-slot__label">Dinner</span>
-            <div class="day-slot__items" id="sat-dinner-items"></div>
-            <button class="day-slot__add" onclick="openModal('sat', 'dinner')">+</button>
-          </div>
-          <div class="day-slot" data-day="sat" data-slot="other">
-            <span class="day-slot__label">Activities &amp; Other</span>
-            <div class="day-slot__items" id="sat-other-items"></div>
-            <button class="day-slot__add" onclick="openModal('sat', 'other')">+</button>
-          </div>
-        </div>
+      <div class="day-entry__detail">
+        <p>Arrive in Charleston, check into Mills House. Keep the first night easy &mdash; walk the neighborhood, get oriented, casual dinner. Consider Leon&rsquo;s Oyster Shop or Poogan&rsquo;s Porch for an easy opener that works for everyone.</p>
       </div>
     </div>
 
-    <!-- Modal for adding items -->
-    <div class="planner__modal" id="plannerModal">
-      <div class="planner__modal-overlay" onclick="closeModal()"></div>
-      <div class="planner__modal-content">
-        <div class="planner__modal-header">
-          <h3 class="planner__modal-title">Add to <span id="modalSlotLabel">Monday Dinner</span></h3>
-          <button class="planner__modal-close" onclick="closeModal()">&times;</button>
-        </div>
-        <div class="planner__modal-tabs">
-          <button class="modal-tab active" onclick="switchTab('restaurants')">Restaurants</button>
-          <button class="modal-tab" onclick="switchTab('activities')">Activities</button>
-          <button class="modal-tab" onclick="switchTab('coffee')">Coffee</button>
-        </div>
-        <input type="text" class="planner__modal-search" placeholder="Search..." id="modalSearch" oninput="filterModalItems()">
-        <div class="planner__modal-list" id="modalList"></div>
+    <div class="day-entry reveal" onclick="toggleDay(this)">
+      <div class="day-entry__header">
+        <span class="day-entry__number day-entry__number--teal">Tuesday June 9</span>
+        <span class="day-entry__title">&ldquo;The Big Food &amp; City Day&rdquo;</span>
+        <span class="day-entry__toggle">+</span>
+      </div>
+      <div class="day-entry__detail">
+        <p>The main exploring day. Historic district, Rainbow Row, the Battery, waterfront. Lunch at one of the buzzier spots (Chubby Fish if you&rsquo;re willing to line up, or Xiao Bao Biscuit for something easier). Michelin dinner for the adults if Jan&rsquo;s up for babysitting, or a family-friendly spot like Rodney Scott&rsquo;s.</p>
+      </div>
+    </div>
+
+    <div class="day-entry reveal" onclick="toggleDay(this)">
+      <div class="day-entry__header">
+        <span class="day-entry__number day-entry__number--teal">Wednesday June 10</span>
+        <span class="day-entry__title">&ldquo;Kiawah Island Day Trip&rdquo;</span>
+        <span class="day-entry__toggle">+</span>
+      </div>
+      <div class="day-entry__detail">
+        <p>Day trip to Kiawah for beach, pools, and a dolphin charter or family kayaking. Book Kiawah&rsquo;s Dolphin Encounters as a single-party boat &mdash; their charter setup handles groups of 7 easily. Back to Charleston for dinner.</p>
+      </div>
+    </div>
+
+    <div class="day-entry reveal" onclick="toggleDay(this)">
+      <div class="day-entry__header">
+        <span class="day-entry__number day-entry__number--teal">Thursday June 11</span>
+        <span class="day-entry__title">&ldquo;Oyster Farm &amp; Water Day&rdquo;</span>
+        <span class="day-entry__toggle">+</span>
+      </div>
+      <div class="day-entry__detail">
+        <p>Charleston Oyster Farm tour in the morning (charlestonoysterfarm.com). Afternoon at the beach or pool. Evening: try one of the TikTok-viral spots &mdash; Fleet Landing for waterfront seafood or Darling Oyster Bar.</p>
+      </div>
+    </div>
+
+    <div class="day-entry reveal" onclick="toggleDay(this)">
+      <div class="day-entry__header">
+        <span class="day-entry__number day-entry__number--teal">Friday June 12</span>
+        <span class="day-entry__title">&ldquo;Bulls Island or Flex Day&rdquo;</span>
+        <span class="day-entry__toggle">+</span>
+      </div>
+      <div class="day-entry__detail">
+        <p>Option A: Bulls Island ferry &mdash; naturalist-led trip with dolphins, sea turtles, and birdlife. Jax and Rey will love this. Option B: Flex day &mdash; pool, shopping on King Street, or revisit a favorite spot. Last family dinner &mdash; make it a good one.</p>
+      </div>
+    </div>
+
+    <div class="day-entry reveal" onclick="toggleDay(this)">
+      <div class="day-entry__header">
+        <span class="day-entry__number day-entry__number--teal">Saturday June 13</span>
+        <span class="day-entry__title">&ldquo;Family Departs&rdquo;</span>
+        <span class="day-entry__toggle">+</span>
+      </div>
+      <div class="day-entry__detail">
+        <p>Family heads out. Safe travels everyone &mdash; what a week.</p>
       </div>
     </div>
   </section>
@@ -1915,7 +1348,7 @@ h1, h2, h3, h4 {
 
     <div class="voter-bar reveal">
       <label for="voterSelect">Voting as:</label>
-      <select id="voterSelect" onchange="updateVoteDisplay(); updateTablePriority()">
+      <select id="voterSelect" onchange="updateVoteDisplay(); updateTableVotes()">
         <option value="">Pick your name</option>
         <option value="Jan">Jan</option>
         <option value="Haley">Haley</option>
@@ -2135,7 +1568,6 @@ h1, h2, h3, h4 {
         <input type="checkbox" id="kidFriendlyToggle" onchange="filterTable()">
         Kid-Friendly Only
       </label>
-      <button class="sort-priority-btn" id="sortPriorityBtn" onclick="toggleTablePrioritySort()">Sort by Priority</button>
       <input type="text" class="filter-bar__search" id="tableSearch" placeholder="Search restaurants..." oninput="filterTable()">
     </div>
 
@@ -2143,7 +1575,7 @@ h1, h2, h3, h4 {
       <table class="master-table" id="masterTable">
         <thead>
           <tr>
-            <th>★</th>
+            <th>Vote</th>
             <th>Restaurant</th>
             <th>Best For</th>
             <th>Vibe</th>
@@ -2154,51 +1586,51 @@ h1, h2, h3, h4 {
           </tr>
         </thead>
         <tbody id="masterTableBody">
-          <tr data-meals="Dinner" data-kids="Fine Dining" data-res-days="60" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="wild-common"><td class="priority-cell"><div class="table-priority" data-res-id="wild-common"><span class="tp-dot" data-p="1" onclick="setTablePriority('wild-common', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('wild-common', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('wild-common', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('wild-common', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('wild-common', 5)">5</span></div></td><td>Wild Common</td><td>Dinner</td><td>Tasting menu, $95pp, inventive</td><td>Fine Dining</td><td>Required</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens Apr 9</span></td><td><div class="table-badges"><span class="table-badge resto-badge--michelin">Michelin Star</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Fine Dining" data-res-days="30" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="verns"><td class="priority-cell"><div class="table-priority" data-res-id="verns"><span class="tp-dot" data-p="1" onclick="setTablePriority('verns', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('verns', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('verns', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('verns', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('verns', 5)">5</span></div></td><td>Vern&rsquo;s</td><td>Dinner</td><td>Intimate candlelit, Lowcountry meets global</td><td>Fine Dining</td><td>Required</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 9</span></td><td><div class="table-badges"><span class="table-badge resto-badge--michelin">Michelin Star</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-days="30" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="malagon"><td class="priority-cell"><div class="table-priority" data-res-id="malagon"><span class="tp-dot" data-p="1" onclick="setTablePriority('malagon', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('malagon', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('malagon', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('malagon', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('malagon', 5)">5</span></div></td><td>Malag&oacute;n Mercado y Taperia</td><td>Dinner</td><td>Spanish market + taperia, small &amp; large plates</td><td>Better Without Kids</td><td>Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 9</span></td><td><div class="table-badges"><span class="table-badge resto-badge--michelin">Michelin Star</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="rodney-scotts-bbq"><td class="priority-cell"><div class="table-priority" data-res-id="rodney-scotts-bbq"><span class="tp-dot" data-p="1" onclick="setTablePriority('rodney-scotts-bbq', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('rodney-scotts-bbq', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('rodney-scotts-bbq', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('rodney-scotts-bbq', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('rodney-scotts-bbq', 5)">5</span></div></td><td>Rodney Scott&rsquo;s BBQ</td><td>Lunch, Dinner</td><td>Whole-hog legend, counter service</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--bib">Bib Gourmand</span><span class="table-badge resto-badge--beard">James Beard</span><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="lewis-barbecue"><td class="priority-cell"><div class="table-priority" data-res-id="lewis-barbecue"><span class="tp-dot" data-p="1" onclick="setTablePriority('lewis-barbecue', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('lewis-barbecue', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('lewis-barbecue', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('lewis-barbecue', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('lewis-barbecue', 5)">5</span></div></td><td>Lewis Barbecue</td><td>Lunch, Dinner</td><td>Texas-style BBQ, brisket king</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--bib">Bib Gourmand</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="leons-oyster-shop"><td class="priority-cell"><div class="table-priority" data-res-id="leons-oyster-shop"><span class="tp-dot" data-p="1" onclick="setTablePriority('leons-oyster-shop', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('leons-oyster-shop', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('leons-oyster-shop', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('leons-oyster-shop', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('leons-oyster-shop', 5)">5</span></div></td><td>Leon&rsquo;s Oyster Shop</td><td>Lunch, Dinner</td><td>Fried chicken + oysters, retro auto shop</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--bib">Bib Gourmand</span><span class="table-badge resto-badge--tiktok">TikTok</span><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-days="0" data-trip-date="" data-booking="" data-res-id="chubby-fish"><td class="priority-cell"><div class="table-priority" data-res-id="chubby-fish"><span class="tp-dot" data-p="1" onclick="setTablePriority('chubby-fish', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('chubby-fish', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('chubby-fish', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('chubby-fish', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('chubby-fish', 5)">5</span></div></td><td>Chubby Fish</td><td>Dinner</td><td>Daily-catch seafood, caviar sliders, no resos</td><td>Better Without Kids</td><td>None</td><td>Walk-in line at 5pm</td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span><span class="table-badge resto-badge--nyt">NYT Top 50</span><span class="table-badge resto-badge--beard">James Beard</span><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-days="60" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="fig"><td class="priority-cell"><div class="table-priority" data-res-id="fig"><span class="tp-dot" data-p="1" onclick="setTablePriority('fig', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('fig', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('fig', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('fig', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('fig', 5)">5</span></div></td><td>FIG</td><td>Dinner</td><td>20+ year flagship, seasonal American</td><td>Better Without Kids</td><td>Required</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens Apr 9</span></td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Better" data-res-days="30" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="husk"><td class="priority-cell"><div class="table-priority" data-res-id="husk"><span class="tp-dot" data-p="1" onclick="setTablePriority('husk', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('husk', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('husk', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('husk', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('husk', 5)">5</span></div></td><td>Husk</td><td>Lunch, Dinner</td><td>Sean Brock landmark, Southern ingredients</td><td>Better Without Kids</td><td>Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 9</span></td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-days="30" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="sorelle"><td class="priority-cell"><div class="table-priority" data-res-id="sorelle"><span class="tp-dot" data-p="1" onclick="setTablePriority('sorelle', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('sorelle', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('sorelle', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('sorelle', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('sorelle', 5)">5</span></div></td><td>Sorelle</td><td>Dinner</td><td>Italian, &ldquo;Pillows of Gold&rdquo; tortelloni</td><td>Better Without Kids</td><td>Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 9</span></td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-days="30" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="lowland"><td class="priority-cell"><div class="table-priority" data-res-id="lowland"><span class="tp-dot" data-p="1" onclick="setTablePriority('lowland', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('lowland', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('lowland', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('lowland', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('lowland', 5)">5</span></div></td><td>Lowland</td><td>Dinner</td><td>James Beard chef, contemporary</td><td>Better Without Kids</td><td>Required</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 9</span></td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="xiao-bao-biscuit"><td class="priority-cell"><div class="table-priority" data-res-id="xiao-bao-biscuit"><span class="tp-dot" data-p="1" onclick="setTablePriority('xiao-bao-biscuit', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('xiao-bao-biscuit', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('xiao-bao-biscuit', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('xiao-bao-biscuit', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('xiao-bao-biscuit', 5)">5</span></div></td><td>Xiao Bao Biscuit</td><td>Lunch, Dinner</td><td>Creative Asian fusion, casual beloved</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-days="14" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="the-establishment"><td class="priority-cell"><div class="table-priority" data-res-id="the-establishment"><span class="tp-dot" data-p="1" onclick="setTablePriority('the-establishment', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('the-establishment', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('the-establishment', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('the-establishment', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('the-establishment', 5)">5</span></div></td><td>The Establishment</td><td>Dinner</td><td>Contemporary American</td><td>Better Without Kids</td><td>Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 25</span></td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Better" data-res-days="14" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="obstinate-daughter"><td class="priority-cell"><div class="table-priority" data-res-id="obstinate-daughter"><span class="tp-dot" data-p="1" onclick="setTablePriority('obstinate-daughter', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('obstinate-daughter', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('obstinate-daughter', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('obstinate-daughter', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('obstinate-daughter', 5)">5</span></div></td><td>The Obstinate Daughter</td><td>Lunch, Dinner</td><td>Italian-American, Sullivan&rsquo;s Island beach</td><td>Better Without Kids</td><td>Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 25</span></td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-days="30" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="zero-george"><td class="priority-cell"><div class="table-priority" data-res-id="zero-george"><span class="tp-dot" data-p="1" onclick="setTablePriority('zero-george', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('zero-george', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('zero-george', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('zero-george', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('zero-george', 5)">5</span></div></td><td>Zero George Restaurant</td><td>Dinner</td><td>Hotel restaurant, contemporary</td><td>Better Without Kids</td><td>Required</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 9</span></td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Fine Dining" data-res-days="14" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="merci"><td class="priority-cell"><div class="table-priority" data-res-id="merci"><span class="tp-dot" data-p="1" onclick="setTablePriority('merci', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('merci', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('merci', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('merci', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('merci', 5)">5</span></div></td><td>Merci</td><td>Dinner</td><td>26 seats, European, beef Wellington for two</td><td>Fine Dining</td><td>Required</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 25</span></td><td><div class="table-badges"><span class="table-badge resto-badge--beard">James Beard</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-days="14" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="renzo"><td class="priority-cell"><div class="table-priority" data-res-id="renzo"><span class="tp-dot" data-p="1" onclick="setTablePriority('renzo', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('renzo', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('renzo', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('renzo', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('renzo', 5)">5</span></div></td><td>Renzo</td><td>Lunch, Dinner</td><td>Italian-leaning, &ldquo;Kevin McCallister Pizza&rdquo;</td><td>Yes</td><td>Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 25</span></td><td><div class="table-badges"><span class="table-badge resto-badge--beard">James Beard</span><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-days="14" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="palmira"><td class="priority-cell"><div class="table-priority" data-res-id="palmira"><span class="tp-dot" data-p="1" onclick="setTablePriority('palmira', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('palmira', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('palmira', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('palmira', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('palmira', 5)">5</span></div></td><td>Palmira</td><td>Dinner</td><td>Beef cheeks, emerging chef</td><td>Better Without Kids</td><td>Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 25</span></td><td><div class="table-badges"><span class="table-badge resto-badge--beard">James Beard</span><span class="table-badge resto-badge--nyt">NYT</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-days="30" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="bintu-atelier"><td class="priority-cell"><div class="table-priority" data-res-id="bintu-atelier"><span class="tp-dot" data-p="1" onclick="setTablePriority('bintu-atelier', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('bintu-atelier', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('bintu-atelier', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('bintu-atelier', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('bintu-atelier', 5)">5</span></div></td><td>Bintu Atelier</td><td>Dinner</td><td>Senegalese-inspired, Gullah influences</td><td>Better Without Kids</td><td>Required</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 9</span></td><td><div class="table-badges"><span class="table-badge resto-badge--beard">James Beard</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-days="14" data-trip-date="2026-06-08" data-booking="OpenTable" data-res-id="fleet-landing"><td class="priority-cell"><div class="table-priority" data-res-id="fleet-landing"><span class="tp-dot" data-p="1" onclick="setTablePriority('fleet-landing', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('fleet-landing', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('fleet-landing', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('fleet-landing', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('fleet-landing', 5)">5</span></div></td><td>Fleet Landing</td><td>Lunch, Dinner</td><td>Waterfront raw bar, harbor views</td><td>Yes</td><td>Recommended</td><td><span class="book-platform book-platform--opentable">OpenTable</span><br><span class="book-date">Opens May 25</span></td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="juanitas"><td class="priority-cell"><div class="table-priority" data-res-id="juanitas"><span class="tp-dot" data-p="1" onclick="setTablePriority('juanitas', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('juanitas', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('juanitas', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('juanitas', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('juanitas', 5)">5</span></div></td><td>Juanitas</td><td>Lunch, Dinner</td><td>Mexican, vibrant</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="hometeam-bbq"><td class="priority-cell"><div class="table-priority" data-res-id="hometeam-bbq"><span class="tp-dot" data-p="1" onclick="setTablePriority('hometeam-bbq', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('hometeam-bbq', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('hometeam-bbq', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('hometeam-bbq', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('hometeam-bbq', 5)">5</span></div></td><td>Hometeam BBQ</td><td>Lunch, Dinner</td><td>BBQ on the water, gameday brisket</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-days="30" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="le-farfalle"><td class="priority-cell"><div class="table-priority" data-res-id="le-farfalle"><span class="tp-dot" data-p="1" onclick="setTablePriority('le-farfalle', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('le-farfalle', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('le-farfalle', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('le-farfalle', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('le-farfalle', 5)">5</span></div></td><td>Le Farfalle</td><td>Dinner</td><td>Italian, handmade pasta</td><td>Better Without Kids</td><td>Required</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 9</span></td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="rancho-lewis"><td class="priority-cell"><div class="table-priority" data-res-id="rancho-lewis"><span class="tp-dot" data-p="1" onclick="setTablePriority('rancho-lewis', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('rancho-lewis', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('rancho-lewis', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('rancho-lewis', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('rancho-lewis', 5)">5</span></div></td><td>Rancho Lewis</td><td>Lunch, Dinner</td><td>Tex-Mex meets Lowcountry</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-days="14" data-trip-date="2026-06-08" data-booking="OpenTable" data-res-id="the-matador"><td class="priority-cell"><div class="table-priority" data-res-id="the-matador"><span class="tp-dot" data-p="1" onclick="setTablePriority('the-matador', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('the-matador', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('the-matador', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('the-matador', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('the-matador', 5)">5</span></div></td><td>The Matador</td><td>Dinner</td><td>Tequila bar + Mexican</td><td>Better Without Kids</td><td>Recommended</td><td><span class="book-platform book-platform--opentable">OpenTable</span><br><span class="book-date">Opens May 25</span></td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
-          <tr data-meals="Lunch" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="goat-sheep-cow"><td class="priority-cell"><div class="table-priority" data-res-id="goat-sheep-cow"><span class="tp-dot" data-p="1" onclick="setTablePriority('goat-sheep-cow', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('goat-sheep-cow', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('goat-sheep-cow', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('goat-sheep-cow', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('goat-sheep-cow', 5)">5</span></div></td><td>Goat Sheep Cow</td><td>Lunch</td><td>Cheese + charcuterie shop</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-days="14" data-trip-date="2026-06-08" data-booking="OpenTable" data-res-id="church-and-union"><td class="priority-cell"><div class="table-priority" data-res-id="church-and-union"><span class="tp-dot" data-p="1" onclick="setTablePriority('church-and-union', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('church-and-union', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('church-and-union', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('church-and-union', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('church-and-union', 5)">5</span></div></td><td>Church and Union</td><td>Dinner</td><td>Upscale American, King Street</td><td>Better Without Kids</td><td>Recommended</td><td><span class="book-platform book-platform--opentable">OpenTable</span><br><span class="book-date">Opens May 25</span></td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-days="14" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="the-peacock"><td class="priority-cell"><div class="table-priority" data-res-id="the-peacock"><span class="tp-dot" data-p="1" onclick="setTablePriority('the-peacock', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('the-peacock', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('the-peacock', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('the-peacock', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('the-peacock', 5)">5</span></div></td><td>The Peacock</td><td>Dinner</td><td>Cocktails + small plates</td><td>Better Without Kids</td><td>Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 25</span></td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-days="14" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="darling-oyster-bar"><td class="priority-cell"><div class="table-priority" data-res-id="darling-oyster-bar"><span class="tp-dot" data-p="1" onclick="setTablePriority('darling-oyster-bar', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('darling-oyster-bar', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('darling-oyster-bar', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('darling-oyster-bar', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('darling-oyster-bar', 5)">5</span></div></td><td>Darling Oyster Bar</td><td>Dinner</td><td>Gorgeous seafood, Upper King</td><td>Better Without Kids</td><td>Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 25</span></td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
-          <tr data-meals="Brunch,Lunch" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="babas"><td class="priority-cell"><div class="table-priority" data-res-id="babas"><span class="tp-dot" data-p="1" onclick="setTablePriority('babas', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('babas', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('babas', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('babas', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('babas', 5)">5</span></div></td><td>Babas</td><td>Brunch, Lunch</td><td>European all-day cafe</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
-          <tr data-meals="Brunch,Dinner" data-kids="Yes" data-res-days="14" data-trip-date="2026-06-08" data-booking="OpenTable" data-res-id="poogans-porch"><td class="priority-cell"><div class="table-priority" data-res-id="poogans-porch"><span class="tp-dot" data-p="1" onclick="setTablePriority('poogans-porch', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('poogans-porch', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('poogans-porch', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('poogans-porch', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('poogans-porch', 5)">5</span></div></td><td>Poogan&rsquo;s Porch</td><td>Brunch, Dinner</td><td>Classic Southern since 1976</td><td>Yes</td><td>Recommended</td><td><span class="book-platform book-platform--opentable">OpenTable</span><br><span class="book-date">Opens May 25</span></td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
-          <tr data-meals="Breakfast" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="callies-hot-little-biscuit"><td class="priority-cell"><div class="table-priority" data-res-id="callies-hot-little-biscuit"><span class="tp-dot" data-p="1" onclick="setTablePriority('callies-hot-little-biscuit', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('callies-hot-little-biscuit', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('callies-hot-little-biscuit', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('callies-hot-little-biscuit', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('callies-hot-little-biscuit', 5)">5</span></div></td><td>Callie&rsquo;s Hot Little Biscuit</td><td>Breakfast</td><td>The biscuit that launched a thousand TikToks</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
-          <tr data-meals="Breakfast,Brunch" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="millers-all-day"><td class="priority-cell"><div class="table-priority" data-res-id="millers-all-day"><span class="tp-dot" data-p="1" onclick="setTablePriority('millers-all-day', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('millers-all-day', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('millers-all-day', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('millers-all-day', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('millers-all-day', 5)">5</span></div></td><td>Millers All Day</td><td>Breakfast, Brunch</td><td>All-day breakfast, cozy</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-days="14" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="sullivans-fish-camp"><td class="priority-cell"><div class="table-priority" data-res-id="sullivans-fish-camp"><span class="tp-dot" data-p="1" onclick="setTablePriority('sullivans-fish-camp', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('sullivans-fish-camp', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('sullivans-fish-camp', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('sullivans-fish-camp', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('sullivans-fish-camp', 5)">5</span></div></td><td>Sullivan&rsquo;s Fish Camp</td><td>Lunch, Dinner</td><td>Elevated fish camp, Sullivan&rsquo;s Island</td><td>Yes</td><td>Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 25</span></td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
-          <tr data-meals="Dessert" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="sugar-bakeshop"><td class="priority-cell"><div class="table-priority" data-res-id="sugar-bakeshop"><span class="tp-dot" data-p="1" onclick="setTablePriority('sugar-bakeshop', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('sugar-bakeshop', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('sugar-bakeshop', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('sugar-bakeshop', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('sugar-bakeshop', 5)">5</span></div></td><td>Sugar Bakeshop</td><td>Dessert</td><td>20-year cupcake institution</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
-          <tr data-meals="Dessert" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="peace-pie"><td class="priority-cell"><div class="table-priority" data-res-id="peace-pie"><span class="tp-dot" data-p="1" onclick="setTablePriority('peace-pie', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('peace-pie', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('peace-pie', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('peace-pie', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('peace-pie', 5)">5</span></div></td><td>Peace Pie</td><td>Dessert</td><td>Handmade pies</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
-          <tr data-meals="Dessert" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="jenis"><td class="priority-cell"><div class="table-priority" data-res-id="jenis"><span class="tp-dot" data-p="1" onclick="setTablePriority('jenis', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('jenis', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('jenis', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('jenis', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('jenis', 5)">5</span></div></td><td>Jeni&rsquo;s</td><td>Dessert</td><td>Ice cream chain, great flavors</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
-          <tr data-meals="Dessert" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="carmellas"><td class="priority-cell"><div class="table-priority" data-res-id="carmellas"><span class="tp-dot" data-p="1" onclick="setTablePriority('carmellas', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('carmellas', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('carmellas', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('carmellas', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('carmellas', 5)">5</span></div></td><td>Carmella&rsquo;s</td><td>Dessert</td><td>Dessert bar + cafe</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
-          <tr data-meals="Lunch" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="hannibals-kitchen"><td class="priority-cell"><div class="table-priority" data-res-id="hannibals-kitchen"><span class="tp-dot" data-p="1" onclick="setTablePriority('hannibals-kitchen', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('hannibals-kitchen', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('hannibals-kitchen', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('hannibals-kitchen', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('hannibals-kitchen', 5)">5</span></div></td><td>Hannibal&rsquo;s Kitchen</td><td>Lunch</td><td>Soul food legend, crab rice</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="jack-of-cups"><td class="priority-cell"><div class="table-priority" data-res-id="jack-of-cups"><span class="tp-dot" data-p="1" onclick="setTablePriority('jack-of-cups', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('jack-of-cups', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('jack-of-cups', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('jack-of-cups', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('jack-of-cups', 5)">5</span></div></td><td>Jack of Cups</td><td>Lunch, Dinner</td><td>Red curry mac and cheese fusion</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="tutti-pizza"><td class="priority-cell"><div class="table-priority" data-res-id="tutti-pizza"><span class="tp-dot" data-p="1" onclick="setTablePriority('tutti-pizza', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('tutti-pizza', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('tutti-pizza', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('tutti-pizza', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('tutti-pizza', 5)">5</span></div></td><td>Tutti Pizza</td><td>Lunch, Dinner</td><td>Casual square pizza, neighborhood</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="kultura"><td class="priority-cell"><div class="table-priority" data-res-id="kultura"><span class="tp-dot" data-p="1" onclick="setTablePriority('kultura', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('kultura', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('kultura', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('kultura', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('kultura', 5)">5</span></div></td><td>Kultura</td><td>Lunch, Dinner</td><td>Filipino, one of few in Lowcountry</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"></div></td></tr>
-          <tr data-meals="Breakfast" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="grit-bakery"><td class="priority-cell"><div class="table-priority" data-res-id="grit-bakery"><span class="tp-dot" data-p="1" onclick="setTablePriority('grit-bakery', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('grit-bakery', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('grit-bakery', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('grit-bakery', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('grit-bakery', 5)">5</span></div></td><td>Grit Bakery</td><td>Breakfast</td><td>Croissants, blue corn sourdough</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Yes" data-res-days="14" data-trip-date="2026-06-08" data-booking="OpenTable" data-res-id="cane-pazzo"><td class="priority-cell"><div class="table-priority" data-res-id="cane-pazzo"><span class="tp-dot" data-p="1" onclick="setTablePriority('cane-pazzo', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('cane-pazzo', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('cane-pazzo', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('cane-pazzo', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('cane-pazzo', 5)">5</span></div></td><td>Cane Pazzo</td><td>Dinner</td><td>Italian family-style, &ldquo;mad dog&rdquo;</td><td>Yes</td><td>Recommended</td><td><span class="book-platform book-platform--opentable">OpenTable</span><br><span class="book-date">Opens May 25</span></td><td><div class="table-badges"></div></td></tr>
-          <tr data-meals="Breakfast,Brunch" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="the-daily"><td class="priority-cell"><div class="table-priority" data-res-id="the-daily"><span class="tp-dot" data-p="1" onclick="setTablePriority('the-daily', 1)">1</span><span class="tp-dot" data-p="2" onclick="setTablePriority('the-daily', 2)">2</span><span class="tp-dot" data-p="3" onclick="setTablePriority('the-daily', 3)">3</span><span class="tp-dot" data-p="4" onclick="setTablePriority('the-daily', 4)">4</span><span class="tp-dot" data-p="5" onclick="setTablePriority('the-daily', 5)">5</span></div></td><td>The Daily</td><td>Breakfast, Brunch</td><td>TikTok darling, avocado toast + espresso</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Fine Dining" data-res-days="60" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="wild-common"><td class="vote-cell"><div class="table-vote" data-res-id="wild-common"><span class="tv-btn tv-btn--up" onclick="setTableVote('wild-common', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('wild-common', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('wild-common', 'down')" title="Not interested">👎</span></div></td><td>Wild Common</td><td>Dinner</td><td>Tasting menu, $95pp, inventive</td><td>Fine Dining</td><td>Required</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens Apr 9</span></td><td><div class="table-badges"><span class="table-badge resto-badge--michelin">Michelin Star</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Fine Dining" data-res-days="30" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="verns"><td class="vote-cell"><div class="table-vote" data-res-id="verns"><span class="tv-btn tv-btn--up" onclick="setTableVote('verns', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('verns', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('verns', 'down')" title="Not interested">👎</span></div></td><td>Vern&rsquo;s</td><td>Dinner</td><td>Intimate candlelit, Lowcountry meets global</td><td>Fine Dining</td><td>Required</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 9</span></td><td><div class="table-badges"><span class="table-badge resto-badge--michelin">Michelin Star</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-days="30" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="malagon"><td class="vote-cell"><div class="table-vote" data-res-id="malagon"><span class="tv-btn tv-btn--up" onclick="setTableVote('malagon', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('malagon', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('malagon', 'down')" title="Not interested">👎</span></div></td><td>Malag&oacute;n Mercado y Taperia</td><td>Dinner</td><td>Spanish market + taperia, small &amp; large plates</td><td>Better Without Kids</td><td>Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 9</span></td><td><div class="table-badges"><span class="table-badge resto-badge--michelin">Michelin Star</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="rodney-scotts-bbq"><td class="vote-cell"><div class="table-vote" data-res-id="rodney-scotts-bbq"><span class="tv-btn tv-btn--up" onclick="setTableVote('rodney-scotts-bbq', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('rodney-scotts-bbq', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('rodney-scotts-bbq', 'down')" title="Not interested">👎</span></div></td><td>Rodney Scott&rsquo;s BBQ</td><td>Lunch, Dinner</td><td>Whole-hog legend, counter service</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--bib">Bib Gourmand</span><span class="table-badge resto-badge--beard">James Beard</span><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="lewis-barbecue"><td class="vote-cell"><div class="table-vote" data-res-id="lewis-barbecue"><span class="tv-btn tv-btn--up" onclick="setTableVote('lewis-barbecue', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('lewis-barbecue', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('lewis-barbecue', 'down')" title="Not interested">👎</span></div></td><td>Lewis Barbecue</td><td>Lunch, Dinner</td><td>Texas-style BBQ, brisket king</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--bib">Bib Gourmand</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="leons-oyster-shop"><td class="vote-cell"><div class="table-vote" data-res-id="leons-oyster-shop"><span class="tv-btn tv-btn--up" onclick="setTableVote('leons-oyster-shop', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('leons-oyster-shop', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('leons-oyster-shop', 'down')" title="Not interested">👎</span></div></td><td>Leon&rsquo;s Oyster Shop</td><td>Lunch, Dinner</td><td>Fried chicken + oysters, retro auto shop</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--bib">Bib Gourmand</span><span class="table-badge resto-badge--tiktok">TikTok</span><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-days="0" data-trip-date="" data-booking="" data-res-id="chubby-fish"><td class="vote-cell"><div class="table-vote" data-res-id="chubby-fish"><span class="tv-btn tv-btn--up" onclick="setTableVote('chubby-fish', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('chubby-fish', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('chubby-fish', 'down')" title="Not interested">👎</span></div></td><td>Chubby Fish</td><td>Dinner</td><td>Daily-catch seafood, caviar sliders, no resos</td><td>Better Without Kids</td><td>None</td><td>Walk-in line at 5pm</td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span><span class="table-badge resto-badge--nyt">NYT Top 50</span><span class="table-badge resto-badge--beard">James Beard</span><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-days="60" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="fig"><td class="vote-cell"><div class="table-vote" data-res-id="fig"><span class="tv-btn tv-btn--up" onclick="setTableVote('fig', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('fig', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('fig', 'down')" title="Not interested">👎</span></div></td><td>FIG</td><td>Dinner</td><td>20+ year flagship, seasonal American</td><td>Better Without Kids</td><td>Required</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens Apr 9</span></td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Better" data-res-days="30" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="husk"><td class="vote-cell"><div class="table-vote" data-res-id="husk"><span class="tv-btn tv-btn--up" onclick="setTableVote('husk', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('husk', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('husk', 'down')" title="Not interested">👎</span></div></td><td>Husk</td><td>Lunch, Dinner</td><td>Sean Brock landmark, Southern ingredients</td><td>Better Without Kids</td><td>Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 9</span></td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-days="30" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="sorelle"><td class="vote-cell"><div class="table-vote" data-res-id="sorelle"><span class="tv-btn tv-btn--up" onclick="setTableVote('sorelle', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('sorelle', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('sorelle', 'down')" title="Not interested">👎</span></div></td><td>Sorelle</td><td>Dinner</td><td>Italian, &ldquo;Pillows of Gold&rdquo; tortelloni</td><td>Better Without Kids</td><td>Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 9</span></td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-days="30" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="lowland"><td class="vote-cell"><div class="table-vote" data-res-id="lowland"><span class="tv-btn tv-btn--up" onclick="setTableVote('lowland', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('lowland', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('lowland', 'down')" title="Not interested">👎</span></div></td><td>Lowland</td><td>Dinner</td><td>James Beard chef, contemporary</td><td>Better Without Kids</td><td>Required</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 9</span></td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="xiao-bao-biscuit"><td class="vote-cell"><div class="table-vote" data-res-id="xiao-bao-biscuit"><span class="tv-btn tv-btn--up" onclick="setTableVote('xiao-bao-biscuit', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('xiao-bao-biscuit', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('xiao-bao-biscuit', 'down')" title="Not interested">👎</span></div></td><td>Xiao Bao Biscuit</td><td>Lunch, Dinner</td><td>Creative Asian fusion, casual beloved</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-days="14" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="the-establishment"><td class="vote-cell"><div class="table-vote" data-res-id="the-establishment"><span class="tv-btn tv-btn--up" onclick="setTableVote('the-establishment', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('the-establishment', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('the-establishment', 'down')" title="Not interested">👎</span></div></td><td>The Establishment</td><td>Dinner</td><td>Contemporary American</td><td>Better Without Kids</td><td>Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 25</span></td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Better" data-res-days="14" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="obstinate-daughter"><td class="vote-cell"><div class="table-vote" data-res-id="obstinate-daughter"><span class="tv-btn tv-btn--up" onclick="setTableVote('obstinate-daughter', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('obstinate-daughter', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('obstinate-daughter', 'down')" title="Not interested">👎</span></div></td><td>The Obstinate Daughter</td><td>Lunch, Dinner</td><td>Italian-American, Sullivan&rsquo;s Island beach</td><td>Better Without Kids</td><td>Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 25</span></td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-days="30" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="zero-george"><td class="vote-cell"><div class="table-vote" data-res-id="zero-george"><span class="tv-btn tv-btn--up" onclick="setTableVote('zero-george', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('zero-george', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('zero-george', 'down')" title="Not interested">👎</span></div></td><td>Zero George Restaurant</td><td>Dinner</td><td>Hotel restaurant, contemporary</td><td>Better Without Kids</td><td>Required</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 9</span></td><td><div class="table-badges"><span class="table-badge resto-badge--michelin-listed">Michelin Listed</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Fine Dining" data-res-days="14" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="merci"><td class="vote-cell"><div class="table-vote" data-res-id="merci"><span class="tv-btn tv-btn--up" onclick="setTableVote('merci', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('merci', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('merci', 'down')" title="Not interested">👎</span></div></td><td>Merci</td><td>Dinner</td><td>26 seats, European, beef Wellington for two</td><td>Fine Dining</td><td>Required</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 25</span></td><td><div class="table-badges"><span class="table-badge resto-badge--beard">James Beard</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-days="14" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="renzo"><td class="vote-cell"><div class="table-vote" data-res-id="renzo"><span class="tv-btn tv-btn--up" onclick="setTableVote('renzo', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('renzo', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('renzo', 'down')" title="Not interested">👎</span></div></td><td>Renzo</td><td>Lunch, Dinner</td><td>Italian-leaning, &ldquo;Kevin McCallister Pizza&rdquo;</td><td>Yes</td><td>Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 25</span></td><td><div class="table-badges"><span class="table-badge resto-badge--beard">James Beard</span><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-days="14" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="palmira"><td class="vote-cell"><div class="table-vote" data-res-id="palmira"><span class="tv-btn tv-btn--up" onclick="setTableVote('palmira', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('palmira', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('palmira', 'down')" title="Not interested">👎</span></div></td><td>Palmira</td><td>Dinner</td><td>Beef cheeks, emerging chef</td><td>Better Without Kids</td><td>Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 25</span></td><td><div class="table-badges"><span class="table-badge resto-badge--beard">James Beard</span><span class="table-badge resto-badge--nyt">NYT</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-days="30" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="bintu-atelier"><td class="vote-cell"><div class="table-vote" data-res-id="bintu-atelier"><span class="tv-btn tv-btn--up" onclick="setTableVote('bintu-atelier', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('bintu-atelier', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('bintu-atelier', 'down')" title="Not interested">👎</span></div></td><td>Bintu Atelier</td><td>Dinner</td><td>Senegalese-inspired, Gullah influences</td><td>Better Without Kids</td><td>Required</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 9</span></td><td><div class="table-badges"><span class="table-badge resto-badge--beard">James Beard</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-days="14" data-trip-date="2026-06-08" data-booking="OpenTable" data-res-id="fleet-landing"><td class="vote-cell"><div class="table-vote" data-res-id="fleet-landing"><span class="tv-btn tv-btn--up" onclick="setTableVote('fleet-landing', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('fleet-landing', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('fleet-landing', 'down')" title="Not interested">👎</span></div></td><td>Fleet Landing</td><td>Lunch, Dinner</td><td>Waterfront raw bar, harbor views</td><td>Yes</td><td>Recommended</td><td><span class="book-platform book-platform--opentable">OpenTable</span><br><span class="book-date">Opens May 25</span></td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="juanitas"><td class="vote-cell"><div class="table-vote" data-res-id="juanitas"><span class="tv-btn tv-btn--up" onclick="setTableVote('juanitas', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('juanitas', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('juanitas', 'down')" title="Not interested">👎</span></div></td><td>Juanitas</td><td>Lunch, Dinner</td><td>Mexican, vibrant</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="hometeam-bbq"><td class="vote-cell"><div class="table-vote" data-res-id="hometeam-bbq"><span class="tv-btn tv-btn--up" onclick="setTableVote('hometeam-bbq', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('hometeam-bbq', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('hometeam-bbq', 'down')" title="Not interested">👎</span></div></td><td>Hometeam BBQ</td><td>Lunch, Dinner</td><td>BBQ on the water, gameday brisket</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-days="30" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="le-farfalle"><td class="vote-cell"><div class="table-vote" data-res-id="le-farfalle"><span class="tv-btn tv-btn--up" onclick="setTableVote('le-farfalle', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('le-farfalle', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('le-farfalle', 'down')" title="Not interested">👎</span></div></td><td>Le Farfalle</td><td>Dinner</td><td>Italian, handmade pasta</td><td>Better Without Kids</td><td>Required</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 9</span></td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="rancho-lewis"><td class="vote-cell"><div class="table-vote" data-res-id="rancho-lewis"><span class="tv-btn tv-btn--up" onclick="setTableVote('rancho-lewis', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('rancho-lewis', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('rancho-lewis', 'down')" title="Not interested">👎</span></div></td><td>Rancho Lewis</td><td>Lunch, Dinner</td><td>Tex-Mex meets Lowcountry</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-days="14" data-trip-date="2026-06-08" data-booking="OpenTable" data-res-id="the-matador"><td class="vote-cell"><div class="table-vote" data-res-id="the-matador"><span class="tv-btn tv-btn--up" onclick="setTableVote('the-matador', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('the-matador', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('the-matador', 'down')" title="Not interested">👎</span></div></td><td>The Matador</td><td>Dinner</td><td>Tequila bar + Mexican</td><td>Better Without Kids</td><td>Recommended</td><td><span class="book-platform book-platform--opentable">OpenTable</span><br><span class="book-date">Opens May 25</span></td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Lunch" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="goat-sheep-cow"><td class="vote-cell"><div class="table-vote" data-res-id="goat-sheep-cow"><span class="tv-btn tv-btn--up" onclick="setTableVote('goat-sheep-cow', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('goat-sheep-cow', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('goat-sheep-cow', 'down')" title="Not interested">👎</span></div></td><td>Goat Sheep Cow</td><td>Lunch</td><td>Cheese + charcuterie shop</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-days="14" data-trip-date="2026-06-08" data-booking="OpenTable" data-res-id="church-and-union"><td class="vote-cell"><div class="table-vote" data-res-id="church-and-union"><span class="tv-btn tv-btn--up" onclick="setTableVote('church-and-union', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('church-and-union', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('church-and-union', 'down')" title="Not interested">👎</span></div></td><td>Church and Union</td><td>Dinner</td><td>Upscale American, King Street</td><td>Better Without Kids</td><td>Recommended</td><td><span class="book-platform book-platform--opentable">OpenTable</span><br><span class="book-date">Opens May 25</span></td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-days="14" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="the-peacock"><td class="vote-cell"><div class="table-vote" data-res-id="the-peacock"><span class="tv-btn tv-btn--up" onclick="setTableVote('the-peacock', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('the-peacock', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('the-peacock', 'down')" title="Not interested">👎</span></div></td><td>The Peacock</td><td>Dinner</td><td>Cocktails + small plates</td><td>Better Without Kids</td><td>Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 25</span></td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-days="14" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="darling-oyster-bar"><td class="vote-cell"><div class="table-vote" data-res-id="darling-oyster-bar"><span class="tv-btn tv-btn--up" onclick="setTableVote('darling-oyster-bar', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('darling-oyster-bar', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('darling-oyster-bar', 'down')" title="Not interested">👎</span></div></td><td>Darling Oyster Bar</td><td>Dinner</td><td>Gorgeous seafood, Upper King</td><td>Better Without Kids</td><td>Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 25</span></td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Brunch,Lunch" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="babas"><td class="vote-cell"><div class="table-vote" data-res-id="babas"><span class="tv-btn tv-btn--up" onclick="setTableVote('babas', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('babas', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('babas', 'down')" title="Not interested">👎</span></div></td><td>Babas</td><td>Brunch, Lunch</td><td>European all-day cafe</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Brunch,Dinner" data-kids="Yes" data-res-days="14" data-trip-date="2026-06-08" data-booking="OpenTable" data-res-id="poogans-porch"><td class="vote-cell"><div class="table-vote" data-res-id="poogans-porch"><span class="tv-btn tv-btn--up" onclick="setTableVote('poogans-porch', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('poogans-porch', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('poogans-porch', 'down')" title="Not interested">👎</span></div></td><td>Poogan&rsquo;s Porch</td><td>Brunch, Dinner</td><td>Classic Southern since 1976</td><td>Yes</td><td>Recommended</td><td><span class="book-platform book-platform--opentable">OpenTable</span><br><span class="book-date">Opens May 25</span></td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Breakfast" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="callies-hot-little-biscuit"><td class="vote-cell"><div class="table-vote" data-res-id="callies-hot-little-biscuit"><span class="tv-btn tv-btn--up" onclick="setTableVote('callies-hot-little-biscuit', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('callies-hot-little-biscuit', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('callies-hot-little-biscuit', 'down')" title="Not interested">👎</span></div></td><td>Callie&rsquo;s Hot Little Biscuit</td><td>Breakfast</td><td>The biscuit that launched a thousand TikToks</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Breakfast,Brunch" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="millers-all-day"><td class="vote-cell"><div class="table-vote" data-res-id="millers-all-day"><span class="tv-btn tv-btn--up" onclick="setTableVote('millers-all-day', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('millers-all-day', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('millers-all-day', 'down')" title="Not interested">👎</span></div></td><td>Millers All Day</td><td>Breakfast, Brunch</td><td>All-day breakfast, cozy</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-days="14" data-trip-date="2026-06-08" data-booking="Resy" data-res-id="sullivans-fish-camp"><td class="vote-cell"><div class="table-vote" data-res-id="sullivans-fish-camp"><span class="tv-btn tv-btn--up" onclick="setTableVote('sullivans-fish-camp', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('sullivans-fish-camp', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('sullivans-fish-camp', 'down')" title="Not interested">👎</span></div></td><td>Sullivan&rsquo;s Fish Camp</td><td>Lunch, Dinner</td><td>Elevated fish camp, Sullivan&rsquo;s Island</td><td>Yes</td><td>Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="book-date">Opens May 25</span></td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
+          <tr data-meals="Dessert" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="sugar-bakeshop"><td class="vote-cell"><div class="table-vote" data-res-id="sugar-bakeshop"><span class="tv-btn tv-btn--up" onclick="setTableVote('sugar-bakeshop', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('sugar-bakeshop', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('sugar-bakeshop', 'down')" title="Not interested">👎</span></div></td><td>Sugar Bakeshop</td><td>Dessert</td><td>20-year cupcake institution</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
+          <tr data-meals="Dessert" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="peace-pie"><td class="vote-cell"><div class="table-vote" data-res-id="peace-pie"><span class="tv-btn tv-btn--up" onclick="setTableVote('peace-pie', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('peace-pie', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('peace-pie', 'down')" title="Not interested">👎</span></div></td><td>Peace Pie</td><td>Dessert</td><td>Handmade pies</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Dessert" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="jenis"><td class="vote-cell"><div class="table-vote" data-res-id="jenis"><span class="tv-btn tv-btn--up" onclick="setTableVote('jenis', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('jenis', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('jenis', 'down')" title="Not interested">👎</span></div></td><td>Jeni&rsquo;s</td><td>Dessert</td><td>Ice cream chain, great flavors</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Dessert" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="carmellas"><td class="vote-cell"><div class="table-vote" data-res-id="carmellas"><span class="tv-btn tv-btn--up" onclick="setTableVote('carmellas', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('carmellas', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('carmellas', 'down')" title="Not interested">👎</span></div></td><td>Carmella&rsquo;s</td><td>Dessert</td><td>Dessert bar + cafe</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--haleys">Haley&rsquo;s List</span></div></td></tr>
+          <tr data-meals="Lunch" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="hannibals-kitchen"><td class="vote-cell"><div class="table-vote" data-res-id="hannibals-kitchen"><span class="tv-btn tv-btn--up" onclick="setTableVote('hannibals-kitchen', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('hannibals-kitchen', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('hannibals-kitchen', 'down')" title="Not interested">👎</span></div></td><td>Hannibal&rsquo;s Kitchen</td><td>Lunch</td><td>Soul food legend, crab rice</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="jack-of-cups"><td class="vote-cell"><div class="table-vote" data-res-id="jack-of-cups"><span class="tv-btn tv-btn--up" onclick="setTableVote('jack-of-cups', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('jack-of-cups', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('jack-of-cups', 'down')" title="Not interested">👎</span></div></td><td>Jack of Cups</td><td>Lunch, Dinner</td><td>Red curry mac and cheese fusion</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="tutti-pizza"><td class="vote-cell"><div class="table-vote" data-res-id="tutti-pizza"><span class="tv-btn tv-btn--up" onclick="setTableVote('tutti-pizza', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('tutti-pizza', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('tutti-pizza', 'down')" title="Not interested">👎</span></div></td><td>Tutti Pizza</td><td>Lunch, Dinner</td><td>Casual square pizza, neighborhood</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="kultura"><td class="vote-cell"><div class="table-vote" data-res-id="kultura"><span class="tv-btn tv-btn--up" onclick="setTableVote('kultura', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('kultura', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('kultura', 'down')" title="Not interested">👎</span></div></td><td>Kultura</td><td>Lunch, Dinner</td><td>Filipino, one of few in Lowcountry</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"></div></td></tr>
+          <tr data-meals="Breakfast" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="grit-bakery"><td class="vote-cell"><div class="table-vote" data-res-id="grit-bakery"><span class="tv-btn tv-btn--up" onclick="setTableVote('grit-bakery', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('grit-bakery', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('grit-bakery', 'down')" title="Not interested">👎</span></div></td><td>Grit Bakery</td><td>Breakfast</td><td>Croissants, blue corn sourdough</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Yes" data-res-days="14" data-trip-date="2026-06-08" data-booking="OpenTable" data-res-id="cane-pazzo"><td class="vote-cell"><div class="table-vote" data-res-id="cane-pazzo"><span class="tv-btn tv-btn--up" onclick="setTableVote('cane-pazzo', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('cane-pazzo', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('cane-pazzo', 'down')" title="Not interested">👎</span></div></td><td>Cane Pazzo</td><td>Dinner</td><td>Italian family-style, &ldquo;mad dog&rdquo;</td><td>Yes</td><td>Recommended</td><td><span class="book-platform book-platform--opentable">OpenTable</span><br><span class="book-date">Opens May 25</span></td><td><div class="table-badges"></div></td></tr>
+          <tr data-meals="Breakfast,Brunch" data-kids="Yes" data-res-days="0" data-trip-date="" data-booking="" data-res-id="the-daily"><td class="vote-cell"><div class="table-vote" data-res-id="the-daily"><span class="tv-btn tv-btn--up" onclick="setTableVote('the-daily', 'up')" title="Want to go">👍</span><span class="tv-btn tv-btn--neutral" onclick="setTableVote('the-daily', 'neutral')" title="Neutral">😐</span><span class="tv-btn tv-btn--down" onclick="setTableVote('the-daily', 'down')" title="Not interested">👎</span></div></td><td>The Daily</td><td>Breakfast, Brunch</td><td>TikTok darling, avocado toast + espresso</td><td>Yes</td><td>Walk-in</td><td>Walk-in</td><td><div class="table-badges"><span class="table-badge resto-badge--tiktok">TikTok</span></div></td></tr>
         </tbody>
       </table>
     </div>
@@ -2361,12 +1793,10 @@ h1, h2, h3, h4 {
   </footer>
 
   <script>
-    function toggleDay(entry) {
-      const detail = entry.querySelector('.day-entry__detail');
-      const toggle = entry.querySelector('.day-entry__toggle');
-      const isOpen = detail.classList.contains('day-entry__detail--open');
-      detail.classList.toggle('day-entry__detail--open');
-      toggle.textContent = isOpen ? '+' : '\u2212';
+    function toggleDay(el) {
+      el.classList.toggle('day-entry--open');
+      var toggle = el.querySelector('.day-entry__toggle');
+      toggle.textContent = el.classList.contains('day-entry--open') ? '\u2212' : '+';
     }
 
     /* ── Restaurant Voting ───────────────────────── */
@@ -2399,81 +1829,43 @@ h1, h2, h3, h4 {
       updateVoteDisplay();
     }
 
-    /* ── Table Priority Ranking ────────────────── */
-    var PRIORITY_KEY = 'charlestonTrip2026Priority';
-    var tablePrioritySortActive = false;
+    /* ── Table Thumbs Voting ────────────────────── */
+    var TABLE_VOTE_KEY = 'charlestonTrip2026TableVotes';
 
-    function getPriorities() {
-      try {
-        return JSON.parse(localStorage.getItem(PRIORITY_KEY)) || {};
-      } catch (e) {
-        return {};
-      }
+    function getTableVotes() {
+      return JSON.parse(localStorage.getItem(TABLE_VOTE_KEY) || '{}');
     }
 
-    function savePriorities(data) {
-      localStorage.setItem(PRIORITY_KEY, JSON.stringify(data));
+    function saveTableVotes(votes) {
+      localStorage.setItem(TABLE_VOTE_KEY, JSON.stringify(votes));
     }
 
-    function setTablePriority(resId, level) {
+    function setTableVote(resId, vote) {
       var voter = document.getElementById('voterSelect').value;
       if (!voter) { alert('Pick your name first!'); return; }
-      var priorities = getPriorities();
-      if (!priorities[resId]) priorities[resId] = {};
-      if (priorities[resId][voter] === level) {
-        delete priorities[resId][voter];
+      var votes = getTableVotes();
+      if (!votes[resId]) votes[resId] = {};
+      if (votes[resId][voter] === vote) {
+        delete votes[resId][voter];
       } else {
-        priorities[resId][voter] = level;
+        votes[resId][voter] = vote;
       }
-      savePriorities(priorities);
-      updateTablePriority();
-      if (tablePrioritySortActive) sortTableByPriority();
+      saveTableVotes(votes);
+      updateTableVotes();
     }
 
-    function updateTablePriority() {
-      var priorities = getPriorities();
+    function updateTableVotes() {
+      var votes = getTableVotes();
       var voter = document.getElementById('voterSelect').value;
-      document.querySelectorAll('.table-priority').forEach(function(wrapper) {
-        var resId = wrapper.dataset.resId;
-        var resPriorities = priorities[resId] || {};
-        var voterPriority = voter ? (resPriorities[voter] || 0) : 0;
-        wrapper.querySelectorAll('.tp-dot').forEach(function(dot) {
-          var dotLevel = parseInt(dot.dataset.p, 10);
-          if (dotLevel <= voterPriority) {
-            dot.classList.add('active');
-          } else {
-            dot.classList.remove('active');
-          }
+      document.querySelectorAll('.table-vote').forEach(function(el) {
+        var resId = el.getAttribute('data-res-id');
+        var resVotes = votes[resId] || {};
+        var myVote = voter ? resVotes[voter] : null;
+        el.querySelectorAll('.tv-btn').forEach(function(btn) {
+          var btnVote = btn.classList.contains('tv-btn--up') ? 'up' : btn.classList.contains('tv-btn--down') ? 'down' : 'neutral';
+          btn.classList.toggle('active', myVote === btnVote);
         });
       });
-    }
-
-    function sortTableByPriority() {
-      var tbody = document.getElementById('masterTableBody');
-      if (!tbody) return;
-      var voter = document.getElementById('voterSelect').value;
-      var priorities = getPriorities();
-      var rows = Array.from(tbody.querySelectorAll('tr'));
-      rows.sort(function(a, b) {
-        var idA = a.dataset.resId || '';
-        var idB = b.dataset.resId || '';
-        var pA = voter && priorities[idA] ? (priorities[idA][voter] || 0) : 0;
-        var pB = voter && priorities[idB] ? (priorities[idB][voter] || 0) : 0;
-        if (pB !== pA) return pB - pA;
-        return 0;
-      });
-      rows.forEach(function(row) { tbody.appendChild(row); });
-    }
-
-    function toggleTablePrioritySort() {
-      var btn = document.getElementById('sortPriorityBtn');
-      tablePrioritySortActive = !tablePrioritySortActive;
-      if (tablePrioritySortActive) {
-        btn.classList.add('sort-priority-btn--active');
-        sortTableByPriority();
-      } else {
-        btn.classList.remove('sort-priority-btn--active');
-      }
     }
 
     function updateVoteDisplay() {
@@ -2498,7 +1890,7 @@ h1, h2, h3, h4 {
     }
 
     updateVoteDisplay();
-    updateTablePriority();
+    updateTableVotes();
 
     /* ── Master Table Filtering ──────────────────── */
     var activeMealFilter = 'All';
@@ -2594,228 +1986,6 @@ h1, h2, h3, h4 {
     }
 
     updateCoffeeHearts();
-
-    /* ── Planner: Passport Stamps ──────────────────── */
-    var PLANNER_KEY = 'charlestonTrip2026Planner';
-
-    var PLANNER_ITEMS = [
-      // Restaurants
-      { id: 'wild-common', name: 'Wild Common', type: 'restaurant', meals: 'Dinner', kid: 'Fine Dining', badge: 'Michelin Star', badgeClass: 'resto-badge--michelin' },
-      { id: 'verns', name: "Vern's", type: 'restaurant', meals: 'Dinner', kid: 'Fine Dining', badge: 'Michelin Star', badgeClass: 'resto-badge--michelin' },
-      { id: 'malagon', name: 'Malag\u00f3n', type: 'restaurant', meals: 'Dinner', kid: 'Better', badge: 'Michelin Star', badgeClass: 'resto-badge--michelin' },
-      { id: 'rodney-scotts-bbq', name: "Rodney Scott's BBQ", type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: 'Bib Gourmand', badgeClass: 'resto-badge--bib' },
-      { id: 'lewis-barbecue', name: 'Lewis Barbecue', type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: 'Bib Gourmand', badgeClass: 'resto-badge--bib' },
-      { id: 'leons-oyster-shop', name: "Leon's Oyster Shop", type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: 'Bib Gourmand', badgeClass: 'resto-badge--bib' },
-      { id: 'chubby-fish', name: 'Chubby Fish', type: 'restaurant', meals: 'Dinner', kid: 'Better', badge: 'NYT Top 50', badgeClass: 'resto-badge--nyt' },
-      { id: 'fig', name: 'FIG', type: 'restaurant', meals: 'Dinner', kid: 'Better', badge: 'Michelin Listed', badgeClass: 'resto-badge--michelin-listed' },
-      { id: 'husk', name: 'Husk', type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Better', badge: 'Michelin Listed', badgeClass: 'resto-badge--michelin-listed' },
-      { id: 'sorelle', name: 'Sorelle', type: 'restaurant', meals: 'Dinner', kid: 'Better', badge: 'Michelin Listed', badgeClass: 'resto-badge--michelin-listed' },
-      { id: 'lowland', name: 'Lowland', type: 'restaurant', meals: 'Dinner', kid: 'Better', badge: 'Michelin Listed', badgeClass: 'resto-badge--michelin-listed' },
-      { id: 'xiao-bao-biscuit', name: 'Xiao Bao Biscuit', type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: 'Michelin Listed', badgeClass: 'resto-badge--michelin-listed' },
-      { id: 'obstinate-daughter', name: 'The Obstinate Daughter', type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Better', badge: 'Michelin Listed', badgeClass: 'resto-badge--michelin-listed' },
-      { id: 'the-establishment', name: 'The Establishment', type: 'restaurant', meals: 'Dinner', kid: 'Better', badge: 'Michelin Listed', badgeClass: 'resto-badge--michelin-listed' },
-      { id: 'zero-george', name: 'Zero George Restaurant', type: 'restaurant', meals: 'Dinner', kid: 'Better', badge: 'Michelin Listed', badgeClass: 'resto-badge--michelin-listed' },
-      { id: 'merci', name: 'Merci', type: 'restaurant', meals: 'Dinner', kid: 'Fine Dining', badge: 'James Beard', badgeClass: 'resto-badge--beard' },
-      { id: 'renzo', name: 'Renzo', type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: 'James Beard', badgeClass: 'resto-badge--beard' },
-      { id: 'palmira', name: 'Palmira', type: 'restaurant', meals: 'Dinner', kid: 'Better', badge: 'James Beard', badgeClass: 'resto-badge--beard' },
-      { id: 'bintu-atelier', name: 'Bintu Atelier', type: 'restaurant', meals: 'Dinner', kid: 'Better', badge: 'James Beard', badgeClass: 'resto-badge--beard' },
-      { id: 'fleet-landing', name: 'Fleet Landing', type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: "Haley's List", badgeClass: 'resto-badge--haleys' },
-      { id: 'hometeam-bbq', name: 'Hometeam BBQ', type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: "Haley's List", badgeClass: 'resto-badge--haleys' },
-      { id: 'le-farfalle', name: 'Le Farfalle', type: 'restaurant', meals: 'Dinner', kid: 'Better', badge: "Haley's List", badgeClass: 'resto-badge--haleys' },
-      { id: 'poogan-porch', name: "Poogan's Porch", type: 'restaurant', meals: 'Brunch/Dinner', kid: 'Yes', badge: 'TikTok', badgeClass: 'resto-badge--tiktok' },
-      { id: 'darling-oyster-bar', name: 'Darling Oyster Bar', type: 'restaurant', meals: 'Dinner', kid: 'Better', badge: 'TikTok', badgeClass: 'resto-badge--tiktok' },
-      { id: 'church-and-union', name: 'Church and Union', type: 'restaurant', meals: 'Dinner', kid: 'Better', badge: 'TikTok', badgeClass: 'resto-badge--tiktok' },
-      { id: 'callies', name: "Callie's Hot Little Biscuit", type: 'restaurant', meals: 'Breakfast', kid: 'Yes', badge: 'TikTok', badgeClass: 'resto-badge--tiktok' },
-      { id: 'millers', name: 'Millers All Day', type: 'restaurant', meals: 'Breakfast/Brunch', kid: 'Yes', badge: "Haley's List", badgeClass: 'resto-badge--haleys' },
-      { id: 'babas', name: 'Babas', type: 'restaurant', meals: 'Brunch/Lunch', kid: 'Yes', badge: "Haley's List", badgeClass: 'resto-badge--haleys' },
-      { id: 'sugar-bakeshop', name: 'Sugar Bakeshop', type: 'restaurant', meals: 'Dessert', kid: 'Yes', badge: 'TikTok', badgeClass: 'resto-badge--tiktok' },
-      { id: 'sullivans-fish-camp', name: "Sullivan's Fish Camp", type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: 'TikTok', badgeClass: 'resto-badge--tiktok' },
-      { id: 'rancho-lewis', name: 'Rancho Lewis', type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: "Haley's List", badgeClass: 'resto-badge--haleys' },
-      { id: 'juanitas', name: 'Juanitas', type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: "Haley's List", badgeClass: 'resto-badge--haleys' },
-      { id: 'the-matador', name: 'The Matador', type: 'restaurant', meals: 'Dinner', kid: 'Better', badge: "Haley's List", badgeClass: 'resto-badge--haleys' },
-      { id: 'goat-sheep-cow', name: 'Goat Sheep Cow', type: 'restaurant', meals: 'Lunch', kid: 'Yes', badge: "Haley's List", badgeClass: 'resto-badge--haleys' },
-      { id: 'the-peacock', name: 'The Peacock', type: 'restaurant', meals: 'Dinner', kid: 'Better', badge: "Haley's List", badgeClass: 'resto-badge--haleys' },
-      { id: 'jack-of-cups', name: 'Jack of Cups', type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: 'TikTok', badgeClass: 'resto-badge--tiktok' },
-      { id: 'tutti-pizza', name: 'Tutti Pizza', type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: '', badgeClass: '' },
-      { id: 'hannibals', name: "Hannibal's Kitchen", type: 'restaurant', meals: 'Lunch', kid: 'Yes', badge: 'TikTok', badgeClass: 'resto-badge--tiktok' },
-      { id: 'grit-bakery', name: 'Grit Bakery', type: 'restaurant', meals: 'Breakfast', kid: 'Yes', badge: 'TikTok', badgeClass: 'resto-badge--tiktok' },
-      { id: 'the-daily', name: 'The Daily', type: 'restaurant', meals: 'Breakfast/Brunch', kid: 'Yes', badge: 'TikTok', badgeClass: 'resto-badge--tiktok' },
-      { id: 'cane-pazzo', name: 'Cane Pazzo', type: 'restaurant', meals: 'Dinner', kid: 'Yes', badge: '', badgeClass: '' },
-      { id: 'peace-pie', name: 'Peace Pie', type: 'restaurant', meals: 'Dessert', kid: 'Yes', badge: "Haley's List", badgeClass: 'resto-badge--haleys' },
-      { id: 'jenis', name: "Jeni's", type: 'restaurant', meals: 'Dessert', kid: 'Yes', badge: "Haley's List", badgeClass: 'resto-badge--haleys' },
-      { id: 'carmellas', name: "Carmella's", type: 'restaurant', meals: 'Dessert', kid: 'Yes', badge: "Haley's List", badgeClass: 'resto-badge--haleys' },
-      { id: 'kultura', name: 'Kultura', type: 'restaurant', meals: 'Lunch/Dinner', kid: 'Yes', badge: '', badgeClass: '' },
-
-      // Activities
-      { id: 'kiawah-dolphin', name: 'Kiawah Dolphin Charter', type: 'activity', meta: '~3 hrs' },
-      { id: 'kiawah-kayak', name: 'Kiawah Family Kayaking', type: 'activity', meta: '~2 hrs' },
-      { id: 'oyster-farm', name: 'Charleston Oyster Farm Tour', type: 'activity', meta: '~2 hrs' },
-      { id: 'bulls-island', name: 'Bulls Island Ferry', type: 'activity', meta: '~4 hrs' },
-      { id: 'historic-walk', name: 'Historic District Walk', type: 'activity', meta: 'flexible' },
-      { id: 'king-street', name: 'King Street Shopping', type: 'activity', meta: 'flexible' },
-      { id: 'beach-pool', name: 'Beach / Pool Day', type: 'activity', meta: 'flexible' },
-      { id: 'sunset-cruise', name: 'Sunset Cruise', type: 'activity', meta: '~2 hrs' },
-
-      // Coffee
-      { id: 'harken', name: 'Harken Cafe', type: 'coffee', meta: '1 min walk' },
-      { id: 'rise', name: 'The Rise Coffee Bar', type: 'coffee', meta: '5 min walk' },
-      { id: 'bad-bunnies', name: 'Bad Bunnies Coffee', type: 'coffee', meta: '8 min walk' },
-      { id: 'second-state', name: 'Second State Coffee', type: 'coffee', meta: '5 min walk' },
-      { id: 'babas-coffee', name: 'Babas on Wentworth', type: 'coffee', meta: '4 min walk' },
-      { id: 'kudu', name: 'Kudu Coffee', type: 'coffee', meta: '10 min walk' },
-      { id: 'bitty-beaus', name: "Bitty & Beau's", type: 'coffee', meta: '3 min walk' },
-      { id: 'the-daily-coffee', name: 'The Daily', type: 'coffee', meta: '12 min walk' },
-    ];
-
-    var DAYS = [
-      { key: 'mon', label: 'Monday', date: 'June 8' },
-      { key: 'tue', label: 'Tuesday', date: 'June 9' },
-      { key: 'wed', label: 'Wednesday', date: 'June 10' },
-      { key: 'thu', label: 'Thursday', date: 'June 11' },
-      { key: 'fri', label: 'Friday', date: 'June 12' },
-      { key: 'sat', label: 'Saturday', date: 'June 13' },
-    ];
-    var SLOTS = ['breakfast', 'coffee', 'lunch', 'dinner', 'other'];
-
-    var currentModalDay = null;
-    var currentModalSlot = null;
-    var currentTab = 'restaurants';
-
-    function getPlan() {
-      try {
-        return JSON.parse(localStorage.getItem(PLANNER_KEY) || '{}');
-      } catch (e) {
-        return {};
-      }
-    }
-
-    function savePlan(plan) {
-      localStorage.setItem(PLANNER_KEY, JSON.stringify(plan));
-    }
-
-    function openModal(day, slot) {
-      var voter = document.getElementById('plannerVoter').value;
-      if (!voter) { alert('Pick your name first!'); return; }
-      currentModalDay = day;
-      currentModalSlot = slot;
-      var dayObj = DAYS.find(function(d) { return d.key === day; });
-      var slotLabel = slot.charAt(0).toUpperCase() + slot.slice(1);
-      document.getElementById('modalSlotLabel').textContent = dayObj.label + ' ' + slotLabel;
-      document.getElementById('modalSearch').value = '';
-      switchTab(currentTab);
-      document.getElementById('plannerModal').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-      document.getElementById('plannerModal').classList.remove('open');
-      document.body.style.overflow = '';
-      currentModalDay = null;
-      currentModalSlot = null;
-    }
-
-    function switchTab(tab) {
-      currentTab = tab;
-      document.querySelectorAll('.modal-tab').forEach(function(t) {
-        t.classList.toggle('active', t.textContent.toLowerCase().includes(tab));
-      });
-      renderModalList();
-    }
-
-    function renderModalList() {
-      var plan = getPlan();
-      var search = (document.getElementById('modalSearch') ? document.getElementById('modalSearch').value : '').toLowerCase();
-      var list = document.getElementById('modalList');
-      var slotKey = currentModalDay + '-' + currentModalSlot;
-
-      // Get items already in this specific slot
-      var slotItems = plan[slotKey] || [];
-      var placedIds = slotItems.map(function(i) { return i.item; });
-
-      var filtered = PLANNER_ITEMS.filter(function(item) {
-        if (currentTab === 'restaurants' && item.type !== 'restaurant') return false;
-        if (currentTab === 'activities' && item.type !== 'activity') return false;
-        if (currentTab === 'coffee' && item.type !== 'coffee') return false;
-        if (search && item.name.toLowerCase().indexOf(search) === -1) return false;
-        return true;
-      });
-
-      list.innerHTML = filtered.map(function(item) {
-        var isPlaced = placedIds.indexOf(item.id) > -1;
-        var badgeHtml = item.badge ? '<span class="modal-item__badge ' + item.badgeClass + '">' + item.badge + '</span>' : '';
-        var metaText = item.type === 'restaurant'
-          ? (item.meals + (item.kid === 'Yes' ? ' \u00b7 Kid Friendly' : item.kid === 'Fine Dining' ? ' \u00b7 Fine Dining' : item.kid === 'Better' ? ' \u00b7 Better Without Kids' : ''))
-          : (item.meta || '');
-        return '<div class="modal-item ' + (isPlaced ? 'already-added' : '') + '" onclick="' + (isPlaced ? '' : "addItem('" + item.id + "', '" + item.type + "')") + '">'
-          + '<span class="modal-item__name">' + item.name + '</span>'
-          + '<div class="modal-item__badges">' + badgeHtml + '</div>'
-          + '<span class="modal-item__meta">' + metaText + '</span>'
-          + '</div>';
-      }).join('');
-    }
-
-    function filterModalItems() { renderModalList(); }
-
-    function addItem(itemId, itemType) {
-      var voter = document.getElementById('plannerVoter').value;
-      if (!voter || !currentModalDay || !currentModalSlot) return;
-      var plan = getPlan();
-      var slotKey = currentModalDay + '-' + currentModalSlot;
-      if (!plan[slotKey]) plan[slotKey] = [];
-
-      // Don't add duplicates to same slot
-      if (plan[slotKey].some(function(i) { return i.item === itemId; })) return;
-
-      plan[slotKey].push({ item: itemId, type: itemType, proposedBy: voter });
-      savePlan(plan);
-      renderBoard();
-      renderModalList();
-    }
-
-    function removeItem(day, slot, itemId) {
-      var plan = getPlan();
-      var slotKey = day + '-' + slot;
-      if (plan[slotKey]) {
-        plan[slotKey] = plan[slotKey].filter(function(i) { return i.item !== itemId; });
-        if (plan[slotKey].length === 0) delete plan[slotKey];
-      }
-      savePlan(plan);
-      renderBoard();
-    }
-
-    function renderBoard() {
-      var plan = getPlan();
-      DAYS.forEach(function(day) {
-        SLOTS.forEach(function(slot) {
-          var container = document.getElementById(day.key + '-' + slot + '-items');
-          if (!container) return;
-          var slotKey = day.key + '-' + slot;
-          var items = plan[slotKey] || [];
-          container.innerHTML = items.map(function(entry) {
-            var itemData = PLANNER_ITEMS.find(function(i) { return i.id === entry.item; });
-            if (!itemData) return '';
-            var typeClass = '';
-            if (itemData.type === 'activity') typeClass = ' stamp--activity';
-            if (itemData.type === 'coffee') typeClass = ' stamp--coffee';
-            var badgeHtml = itemData.badge ? '<span class="stamp__badge ' + itemData.badgeClass + '">\u2605</span>' : '';
-            return '<div class="stamp' + typeClass + '" data-id="' + itemData.id + '">'
-              + '<span class="stamp__name">' + itemData.name + '</span>'
-              + badgeHtml
-              + '<span class="stamp__by">' + entry.proposedBy + '</span>'
-              + '<button class="stamp__remove" onclick="event.stopPropagation(); removeItem(\'' + day.key + "', '" + slot + "', '" + itemData.id + '\')">&times;</button>'
-              + '</div>';
-          }).join('');
-        });
-      });
-    }
-
-    // Close modal on escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closeModal();
-    });
-
-    // Render saved state
-    renderBoard();
 
     /* ── Scroll Reveal ─────────────────────────────── */
     document.querySelectorAll('.reveal').forEach(el => {
