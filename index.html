@@ -356,108 +356,222 @@ tailwind.config = {
   </div>
 </section>
 
-<!-- ═══════════════════════ DAY-BY-DAY ITINERARY ═══════════════════════ -->
+<!-- ═══════════════════════ THE WEEK — CONCIERGE CARD ═══════════════════════ -->
 <section class="bg-surface-container-low py-24 md:py-32">
-  <div class="max-w-4xl mx-auto px-6">
+  <div class="max-w-5xl mx-auto px-6">
     <h2 class="font-headline text-5xl md:text-6xl text-on-surface tracking-tight text-center mb-4 reveal">The Week</h2>
-    <p class="font-body text-on-surface-variant text-lg text-center mb-16 reveal">Monday through Saturday &mdash; the family trip</p>
+    <p class="font-body text-on-surface-variant text-lg text-center mb-16 reveal">Your concierge card &mdash; meals, activities, and open slots</p>
 
-    <div class="space-y-3">
-      <!-- Day 1 -->
-      <article class="reveal rounded-xl overflow-hidden transition-all duration-300 cursor-pointer bg-surface-container-lowest whisper-shadow" onclick="toggleDay(this)">
-        <div class="p-6 md:p-8 flex items-center justify-between gap-4">
-          <div class="flex flex-col md:flex-row md:items-baseline md:gap-6">
-            <span class="font-headline font-bold text-xl text-primary">Monday June 8</span>
-            <span class="font-body font-semibold text-on-surface-variant italic">&ldquo;Arrive &amp; Settle In&rdquo;</span>
-          </div>
-          <span class="material-symbols-outlined text-outline day-toggle-icon">expand_more</span>
-        </div>
-        <div class="day-detail">
-          <div class="px-6 md:px-8 pb-6 md:pb-8">
-            <p class="text-on-surface-variant leading-relaxed">Arrive in Charleston, check into Mills House. Keep the first night easy &mdash; walk the neighborhood, get oriented, casual dinner. Consider Leon&rsquo;s Oyster Shop or Poogan&rsquo;s Porch for an easy opener that works for everyone.</p>
-          </div>
-        </div>
-      </article>
+    <!-- Concierge Card -->
+    <div class="bg-surface-container-lowest rounded-2xl whisper-shadow overflow-hidden reveal">
 
-      <!-- Day 2 -->
-      <article class="reveal rounded-xl overflow-hidden transition-all duration-300 cursor-pointer bg-surface-container-lowest whisper-shadow" onclick="toggleDay(this)">
-        <div class="p-6 md:p-8 flex items-center justify-between gap-4">
-          <div class="flex flex-col md:flex-row md:items-baseline md:gap-6">
-            <span class="font-headline font-bold text-xl text-primary">Tuesday June 9</span>
-            <span class="font-body font-semibold text-on-surface-variant italic">&ldquo;The Big Food &amp; City Day&rdquo;</span>
-          </div>
-          <span class="material-symbols-outlined text-outline day-toggle-icon">expand_more</span>
+      <!-- Table Header -->
+      <div class="hidden md:grid grid-cols-[140px_1fr_1fr_1fr] bg-surface-container">
+        <div class="p-4"></div>
+        <div class="p-4 text-center">
+          <span class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant/50">Breakfast</span>
         </div>
-        <div class="day-detail">
-          <div class="px-6 md:px-8 pb-6 md:pb-8">
-            <p class="text-on-surface-variant leading-relaxed">The main exploring day. Historic district, Rainbow Row, the Battery, waterfront. Lunch at one of the buzzier spots (Chubby Fish if you&rsquo;re willing to line up, or Xiao Bao Biscuit for something easier). Michelin dinner for the adults if Jan&rsquo;s up for babysitting, or a family-friendly spot like Rodney Scott&rsquo;s.</p>
-          </div>
+        <div class="p-4 text-center">
+          <span class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant/50">Lunch</span>
         </div>
-      </article>
+        <div class="p-4 text-center">
+          <span class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant/50">Dinner</span>
+        </div>
+      </div>
 
-      <!-- Day 3 -->
-      <article class="reveal rounded-xl overflow-hidden transition-all duration-300 cursor-pointer bg-surface-container-lowest whisper-shadow" onclick="toggleDay(this)">
-        <div class="p-6 md:p-8 flex items-center justify-between gap-4">
-          <div class="flex flex-col md:flex-row md:items-baseline md:gap-6">
-            <span class="font-headline font-bold text-xl text-primary">Wednesday June 10</span>
-            <span class="font-body font-semibold text-on-surface-variant italic">&ldquo;Kiawah Island Day Trip&rdquo;</span>
-          </div>
-          <span class="material-symbols-outlined text-outline day-toggle-icon">expand_more</span>
+      <!-- Monday -->
+      <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr] border-t border-outline-variant/[0.08]">
+        <div class="p-4 md:p-5 md:border-r border-outline-variant/[0.08]">
+          <span class="font-headline font-bold text-primary text-sm">Mon</span>
+          <span class="font-body text-on-surface-variant/40 text-xs block">June 8</span>
+          <span class="font-body text-on-surface-variant/30 text-[10px] italic mt-1 block">Arrive &amp; Settle In</span>
         </div>
-        <div class="day-detail">
-          <div class="px-6 md:px-8 pb-6 md:pb-8">
-            <p class="text-on-surface-variant leading-relaxed">Day trip to Kiawah for beach, pools, and a dolphin charter or family kayaking. Book Kiawah&rsquo;s Dolphin Encounters as a single-party boat &mdash; their charter setup handles groups of 7 easily. Back to Charleston for dinner.</p>
+        <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
+          <span class="text-on-surface-variant/20 text-xs italic">arriving</span>
+        </div>
+        <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
+          <div class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full">
+            <span class="font-headline italic text-sm text-on-surface">Callie&rsquo;s Hot Little Biscuit</span>
+            <span class="text-[8px] font-bold uppercase tracking-wider bg-[#ff0050] text-white px-1.5 py-0.5 rounded-sm">TikTok</span>
           </div>
         </div>
-      </article>
+        <div class="px-4 py-3 md:p-5 flex items-center justify-center">
+          <div class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full">
+            <span class="font-headline italic text-sm text-on-surface">Leon&rsquo;s Oyster Shop</span>
+            <span class="text-[8px] font-bold uppercase tracking-wider bg-primary-container text-white px-1.5 py-0.5 rounded-sm">Bib</span>
+          </div>
+        </div>
+      </div>
 
-      <!-- Day 4 -->
-      <article class="reveal rounded-xl overflow-hidden transition-all duration-300 cursor-pointer bg-surface-container-lowest whisper-shadow" onclick="toggleDay(this)">
-        <div class="p-6 md:p-8 flex items-center justify-between gap-4">
-          <div class="flex flex-col md:flex-row md:items-baseline md:gap-6">
-            <span class="font-headline font-bold text-xl text-primary">Thursday June 11</span>
-            <span class="font-body font-semibold text-on-surface-variant italic">&ldquo;Oyster Farm &amp; Water Day&rdquo;</span>
-          </div>
-          <span class="material-symbols-outlined text-outline day-toggle-icon">expand_more</span>
+      <!-- Tuesday -->
+      <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr] border-t border-outline-variant/[0.08] bg-surface/50">
+        <div class="p-4 md:p-5 md:border-r border-outline-variant/[0.08]">
+          <span class="font-headline font-bold text-primary text-sm">Tue</span>
+          <span class="font-body text-on-surface-variant/40 text-xs block">June 9</span>
+          <span class="font-body text-on-surface-variant/30 text-[10px] italic mt-1 block">The Big Food Day</span>
         </div>
-        <div class="day-detail">
-          <div class="px-6 md:px-8 pb-6 md:pb-8">
-            <p class="text-on-surface-variant leading-relaxed">Charleston Oyster Farm tour in the morning (charlestonoysterfarm.com). Afternoon at the beach or pool. Evening: try one of the TikTok-viral spots &mdash; Fleet Landing for waterfront seafood or Darling Oyster Bar.</p>
+        <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
+          <span class="text-on-surface-variant/20 text-xs italic">&mdash;</span>
+        </div>
+        <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
+          <div class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full">
+            <span class="font-headline italic text-sm text-on-surface">Lewis Barbecue</span>
+            <span class="text-[8px] font-bold uppercase tracking-wider bg-primary-container text-white px-1.5 py-0.5 rounded-sm">Bib</span>
           </div>
         </div>
-      </article>
+        <div class="px-4 py-3 md:p-5 flex items-center justify-center">
+          <div class="inline-flex flex-col items-center gap-1">
+            <div class="inline-flex items-center gap-2 bg-secondary-container/30 px-4 py-2 rounded-full border border-secondary/20">
+              <span class="font-headline italic text-sm text-on-surface">Wild Common</span>
+              <span class="text-[8px] font-bold uppercase tracking-wider bg-secondary-container text-on-surface px-1.5 py-0.5 rounded-sm">&#9733; Michelin</span>
+            </div>
+            <span class="text-[9px] text-secondary font-medium">4 adults only &middot; Resy &middot; Book May 9</span>
+          </div>
+        </div>
+      </div>
 
-      <!-- Day 5 -->
-      <article class="reveal rounded-xl overflow-hidden transition-all duration-300 cursor-pointer bg-surface-container-lowest whisper-shadow" onclick="toggleDay(this)">
-        <div class="p-6 md:p-8 flex items-center justify-between gap-4">
-          <div class="flex flex-col md:flex-row md:items-baseline md:gap-6">
-            <span class="font-headline font-bold text-xl text-primary">Friday June 12</span>
-            <span class="font-body font-semibold text-on-surface-variant italic">&ldquo;Bulls Island or Flex Day&rdquo;</span>
-          </div>
-          <span class="material-symbols-outlined text-outline day-toggle-icon">expand_more</span>
+      <!-- Wednesday -->
+      <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr] border-t border-outline-variant/[0.08]">
+        <div class="p-4 md:p-5 md:border-r border-outline-variant/[0.08]">
+          <span class="font-headline font-bold text-primary text-sm">Wed</span>
+          <span class="font-body text-on-surface-variant/40 text-xs block">June 10</span>
+          <span class="font-body text-on-surface-variant/30 text-[10px] italic mt-1 block">Kiawah Day Trip</span>
         </div>
-        <div class="day-detail">
-          <div class="px-6 md:px-8 pb-6 md:pb-8">
-            <p class="text-on-surface-variant leading-relaxed">Option A: Bulls Island ferry &mdash; naturalist-led trip with dolphins, sea turtles, and birdlife. Jax and Rey will love this. Option B: Flex day &mdash; pool, shopping on King Street, or revisit a favorite spot. Last family dinner &mdash; make it a good one.</p>
+        <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
+          <div class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full">
+            <span class="font-headline italic text-sm text-on-surface">Grit Bakery</span>
+            <span class="text-[8px] font-bold uppercase tracking-wider bg-[#ff0050] text-white px-1.5 py-0.5 rounded-sm">TikTok</span>
           </div>
         </div>
-      </article>
+        <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
+          <span class="text-on-surface-variant/20 text-xs italic">at Kiawah</span>
+        </div>
+        <div class="px-4 py-3 md:p-5 flex items-center justify-center">
+          <div class="inline-flex flex-col items-center gap-1">
+            <span class="border border-dashed border-outline-variant/30 text-on-surface-variant/25 text-xs italic px-4 py-2 rounded-full">play it by ear</span>
+            <span class="text-[9px] text-on-surface-variant/30">Rodney Scott&rsquo;s &middot; Poogan&rsquo;s &middot; Hometeam</span>
+          </div>
+        </div>
+      </div>
 
-      <!-- Day 6 -->
-      <article class="reveal rounded-xl overflow-hidden transition-all duration-300 cursor-pointer bg-surface-container-lowest whisper-shadow" onclick="toggleDay(this)">
-        <div class="p-6 md:p-8 flex items-center justify-between gap-4">
-          <div class="flex flex-col md:flex-row md:items-baseline md:gap-6">
-            <span class="font-headline font-bold text-xl text-primary">Saturday June 13</span>
-            <span class="font-body font-semibold text-on-surface-variant italic">&ldquo;Family Departs&rdquo;</span>
-          </div>
-          <span class="material-symbols-outlined text-outline day-toggle-icon">expand_more</span>
+      <!-- Thursday -->
+      <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr] border-t border-outline-variant/[0.08] bg-surface/50">
+        <div class="p-4 md:p-5 md:border-r border-outline-variant/[0.08]">
+          <span class="font-headline font-bold text-primary text-sm">Thu</span>
+          <span class="font-body text-on-surface-variant/40 text-xs block">June 11</span>
+          <span class="font-body text-on-surface-variant/30 text-[10px] italic mt-1 block">Oyster Farm Day</span>
         </div>
-        <div class="day-detail">
-          <div class="px-6 md:px-8 pb-6 md:pb-8">
-            <p class="text-on-surface-variant leading-relaxed">Family heads out. Safe travels everyone &mdash; what a week.</p>
+        <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
+          <span class="text-on-surface-variant/20 text-xs italic">&mdash;</span>
+        </div>
+        <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
+          <div class="inline-flex flex-col items-center gap-1">
+            <div class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full">
+              <span class="font-headline italic text-sm text-on-surface">Bowens Island</span>
+            </div>
+            <span class="text-[9px] text-on-surface-variant/40">next to oyster farm</span>
           </div>
         </div>
-      </article>
+        <div class="px-4 py-3 md:p-5 flex items-center justify-center">
+          <div class="inline-flex flex-col items-center gap-1">
+            <div class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full">
+              <span class="font-headline italic text-sm text-on-surface">Chubby Fish</span>
+              <span class="text-[8px] font-bold uppercase tracking-wider bg-on-surface text-surface px-1.5 py-0.5 rounded-sm">NYT 50</span>
+            </div>
+            <span class="text-[9px] text-on-surface-variant/40">no reservations &middot; line at 5pm</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Friday -->
+      <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr] border-t border-outline-variant/[0.08]">
+        <div class="p-4 md:p-5 md:border-r border-outline-variant/[0.08]">
+          <span class="font-headline font-bold text-primary text-sm">Fri</span>
+          <span class="font-body text-on-surface-variant/40 text-xs block">June 12</span>
+          <span class="font-body text-on-surface-variant/30 text-[10px] italic mt-1 block">Flex Day</span>
+        </div>
+        <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
+          <div class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full">
+            <span class="font-headline italic text-sm text-on-surface">Poogan&rsquo;s Porch</span>
+            <span class="text-[8px] font-bold uppercase tracking-wider bg-[#f5c6d0] text-on-surface px-1.5 py-0.5 rounded-sm">Haley&rsquo;s</span>
+          </div>
+        </div>
+        <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
+          <div class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full">
+            <span class="font-headline italic text-sm text-on-surface">Xiao Bao Biscuit</span>
+            <span class="text-[8px] font-bold uppercase tracking-wider bg-primary/80 text-white px-1.5 py-0.5 rounded-sm">Michelin</span>
+          </div>
+        </div>
+        <div class="px-4 py-3 md:p-5 flex items-center justify-center">
+          <div class="inline-flex flex-col items-center gap-1">
+            <span class="border border-dashed border-outline-variant/30 text-on-surface-variant/25 text-xs italic px-4 py-2 rounded-full">play it by ear</span>
+            <span class="text-[9px] text-on-surface-variant/30">Sorelle &middot; Husk &middot; Renzo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Saturday -->
+      <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr] border-t border-outline-variant/[0.08] bg-surface/50 rounded-b-2xl">
+        <div class="p-4 md:p-5 md:border-r border-outline-variant/[0.08]">
+          <span class="font-headline font-bold text-primary text-sm">Sat</span>
+          <span class="font-body text-on-surface-variant/40 text-xs block">June 13</span>
+          <span class="font-body text-on-surface-variant/30 text-[10px] italic mt-1 block">Departure</span>
+        </div>
+        <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
+          <div class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full">
+            <span class="font-headline italic text-sm text-on-surface">Millers All Day</span>
+            <span class="text-[8px] font-bold uppercase tracking-wider bg-[#f5c6d0] text-on-surface px-1.5 py-0.5 rounded-sm">Haley&rsquo;s</span>
+          </div>
+        </div>
+        <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
+          <span class="text-on-surface-variant/20 text-xs italic">departing</span>
+        </div>
+        <div class="px-4 py-3 md:p-5 flex items-center justify-center">
+          <span class="text-on-surface-variant/20 text-xs italic">&mdash;</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Activities -->
+    <div class="mt-8 reveal">
+      <h3 class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant/40 mb-4">Activities This Week</h3>
+      <div class="flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-1.5 bg-surface-container-lowest px-3 py-1.5 rounded-full text-xs font-body whisper-shadow">
+          <span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Kiawah Dolphin Charter <span class="text-on-surface-variant/40">&middot; Wed</span>
+        </span>
+        <span class="inline-flex items-center gap-1.5 bg-surface-container-lowest px-3 py-1.5 rounded-full text-xs font-body whisper-shadow">
+          <span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Charleston Oyster Farm <span class="text-on-surface-variant/40">&middot; Thu AM</span>
+        </span>
+        <span class="inline-flex items-center gap-1.5 bg-surface-container-lowest px-3 py-1.5 rounded-full text-xs font-body whisper-shadow">
+          <span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Bulls Island Ferry <span class="text-on-surface-variant/40">&middot; Fri (option)</span>
+        </span>
+        <span class="inline-flex items-center gap-1.5 bg-surface-container-lowest px-3 py-1.5 rounded-full text-xs font-body whisper-shadow">
+          <span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Historic District Walk <span class="text-on-surface-variant/40">&middot; Tue</span>
+        </span>
+        <span class="inline-flex items-center gap-1.5 bg-surface-container-lowest px-3 py-1.5 rounded-full text-xs font-body whisper-shadow">
+          <span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Beach / Pool <span class="text-on-surface-variant/40">&middot; flexible</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Booking Reminders -->
+    <div class="mt-8 bg-surface-container-lowest rounded-xl p-6 whisper-shadow reveal">
+      <h3 class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-secondary mb-4">Reservation Reminders</h3>
+      <div class="space-y-2 font-body text-sm text-on-surface-variant">
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-secondary !text-base">calendar_today</span>
+          <span><strong class="text-on-surface">Wild Common</strong> &mdash; Resy, opens <strong class="text-secondary">May 9</strong> (60 days out)</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-primary !text-base">schedule</span>
+          <span><strong class="text-on-surface">Chubby Fish</strong> &mdash; No reservation. Line up at <strong>5pm Thursday</strong></span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-on-surface-variant/40 !text-base">info</span>
+          <span><strong class="text-on-surface">Oyster Farm</strong> &mdash; Call (843) 696-3879 to book for 7 people</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
