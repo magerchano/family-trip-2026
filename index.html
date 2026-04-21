@@ -366,8 +366,11 @@ tailwind.config = {
     <div class="bg-surface-container-lowest rounded-2xl whisper-shadow overflow-hidden reveal">
 
       <!-- Table Header -->
-      <div class="hidden md:grid grid-cols-[140px_1fr_1fr_1fr] bg-surface-container">
+      <div class="hidden md:grid grid-cols-[140px_1fr_1fr_1fr_1fr] bg-surface-container">
         <div class="p-4"></div>
+        <div class="p-4 text-center">
+          <span class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant/50">Coffee</span>
+        </div>
         <div class="p-4 text-center">
           <span class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant/50">Breakfast</span>
         </div>
@@ -380,12 +383,20 @@ tailwind.config = {
       </div>
 
       <!-- Monday -->
-      <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr] border-t border-outline-variant/[0.08]">
+      <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr_1fr] border-t border-outline-variant/[0.08]">
         <div class="p-4 md:p-5 md:border-r border-outline-variant/[0.08]">
           <span class="font-headline font-bold text-primary text-sm">Mon</span>
           <span class="font-body text-on-surface-variant/40 text-xs block">June 8</span>
           <span class="font-body text-on-surface-variant/30 text-[10px] italic mt-1 block">Arrive &amp; Settle In</span>
-          <span class="font-body text-secondary/70 text-[9px] mt-2 block">&#9788; The Rise &middot; The Daily</span>
+        </div>
+        <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
+          <div class="inline-flex flex-col items-center gap-1 text-center">
+            <div class="inline-flex items-center gap-2 bg-secondary/10 px-4 py-2 rounded-full">
+              <span class="font-headline italic text-sm text-on-surface">The Rise</span>
+              <span class="text-on-surface-variant/30 text-[10px]">or</span>
+              <span class="font-headline italic text-sm text-on-surface">The Daily</span>
+            </div>
+          </div>
         </div>
         <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
           <span class="text-on-surface-variant/20 text-xs italic">arriving</span>
@@ -405,12 +416,20 @@ tailwind.config = {
       </div>
 
       <!-- Tuesday -->
-      <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr] border-t border-outline-variant/[0.08] bg-surface/50">
+      <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr_1fr] border-t border-outline-variant/[0.08] bg-surface/50">
         <div class="p-4 md:p-5 md:border-r border-outline-variant/[0.08]">
           <span class="font-headline font-bold text-primary text-sm">Tue</span>
           <span class="font-body text-on-surface-variant/40 text-xs block">June 9</span>
           <span class="font-body text-on-surface-variant/30 text-[10px] italic mt-1 block">Brews-day Tuesday</span>
-          <span class="font-body text-secondary/70 text-[9px] mt-2 block">&#9788; Kudu &middot; Second State</span>
+        </div>
+        <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
+          <div class="inline-flex flex-col items-center gap-1 text-center">
+            <div class="inline-flex items-center gap-2 bg-secondary/10 px-4 py-2 rounded-full">
+              <span class="font-headline italic text-sm text-on-surface">Kudu</span>
+              <span class="text-on-surface-variant/30 text-[10px]">or</span>
+              <span class="font-headline italic text-sm text-on-surface">Second State</span>
+            </div>
+          </div>
         </div>
         <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
           <span class="text-on-surface-variant/30 text-xs italic">hotel / on your own</span>
@@ -433,12 +452,20 @@ tailwind.config = {
       </div>
 
       <!-- Wednesday -->
-      <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr] border-t border-outline-variant/[0.08]">
+      <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr_1fr] border-t border-outline-variant/[0.08]">
         <div class="p-4 md:p-5 md:border-r border-outline-variant/[0.08]">
           <span class="font-headline font-bold text-primary text-sm">Wed</span>
           <span class="font-body text-on-surface-variant/40 text-xs block">June 10</span>
           <span class="font-body text-on-surface-variant/30 text-[10px] italic mt-1 block">Kiawah Day Trip</span>
-          <span class="font-body text-secondary/70 text-[9px] mt-2 block">&#9788; Babas &middot; Harken</span>
+        </div>
+        <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
+          <div class="inline-flex flex-col items-center gap-1 text-center">
+            <div class="inline-flex items-center gap-2 bg-secondary/10 px-4 py-2 rounded-full">
+              <span class="font-headline italic text-sm text-on-surface">Babas</span>
+              <span class="text-on-surface-variant/30 text-[10px]">or</span>
+              <span class="font-headline italic text-sm text-on-surface">Harken</span>
+            </div>
+          </div>
         </div>
         <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
           <div class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full">
@@ -461,12 +488,20 @@ tailwind.config = {
       </div>
 
       <!-- Thursday -->
-      <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr] border-t border-outline-variant/[0.08] bg-surface/50">
+      <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr_1fr] border-t border-outline-variant/[0.08] bg-surface/50">
         <div class="p-4 md:p-5 md:border-r border-outline-variant/[0.08]">
           <span class="font-headline font-bold text-primary text-sm">Thu</span>
           <span class="font-body text-on-surface-variant/40 text-xs block">June 11</span>
           <span class="font-body text-on-surface-variant/30 text-[10px] italic mt-1 block">Oyster Farm Day</span>
-          <span class="font-body text-secondary/70 text-[9px] mt-2 block">&#9788; Second State &middot; Bitty &amp; Beau</span>
+        </div>
+        <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
+          <div class="inline-flex flex-col items-center gap-1 text-center">
+            <div class="inline-flex items-center gap-2 bg-secondary/10 px-4 py-2 rounded-full">
+              <span class="font-headline italic text-sm text-on-surface">Second State</span>
+              <span class="text-on-surface-variant/30 text-[10px]">or</span>
+              <span class="font-headline italic text-sm text-on-surface">Bitty &amp; Beau</span>
+            </div>
+          </div>
         </div>
         <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
           <span class="text-on-surface-variant/20 text-xs italic">&mdash;</span>
@@ -491,12 +526,20 @@ tailwind.config = {
       </div>
 
       <!-- Friday -->
-      <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr] border-t border-outline-variant/[0.08]">
+      <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr_1fr] border-t border-outline-variant/[0.08]">
         <div class="p-4 md:p-5 md:border-r border-outline-variant/[0.08]">
           <span class="font-headline font-bold text-primary text-sm">Fri</span>
           <span class="font-body text-on-surface-variant/40 text-xs block">June 12</span>
           <span class="font-body text-on-surface-variant/30 text-[10px] italic mt-1 block">Flex Day</span>
-          <span class="font-body text-secondary/70 text-[9px] mt-2 block">&#9788; Bad Bunnies &middot; The Daily</span>
+        </div>
+        <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
+          <div class="inline-flex flex-col items-center gap-1 text-center">
+            <div class="inline-flex items-center gap-2 bg-secondary/10 px-4 py-2 rounded-full">
+              <span class="font-headline italic text-sm text-on-surface">Bad Bunnies</span>
+              <span class="text-on-surface-variant/30 text-[10px]">or</span>
+              <span class="font-headline italic text-sm text-on-surface">The Daily</span>
+            </div>
+          </div>
         </div>
         <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
           <div class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full">
@@ -522,12 +565,20 @@ tailwind.config = {
       </div>
 
       <!-- Saturday -->
-      <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr] border-t border-outline-variant/[0.08] bg-surface/50 rounded-b-2xl">
+      <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr_1fr] border-t border-outline-variant/[0.08] bg-surface/50 rounded-b-2xl">
         <div class="p-4 md:p-5 md:border-r border-outline-variant/[0.08]">
           <span class="font-headline font-bold text-primary text-sm">Sat</span>
           <span class="font-body text-on-surface-variant/40 text-xs block">June 13</span>
           <span class="font-body text-on-surface-variant/30 text-[10px] italic mt-1 block">Departure</span>
-          <span class="font-body text-secondary/70 text-[9px] mt-2 block">&#9788; Babas &middot; Bitty &amp; Beau</span>
+        </div>
+        <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
+          <div class="inline-flex flex-col items-center gap-1 text-center">
+            <div class="inline-flex items-center gap-2 bg-secondary/10 px-4 py-2 rounded-full">
+              <span class="font-headline italic text-sm text-on-surface">Babas</span>
+              <span class="text-on-surface-variant/30 text-[10px]">or</span>
+              <span class="font-headline italic text-sm text-on-surface">Bitty &amp; Beau</span>
+            </div>
+          </div>
         </div>
         <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
           <div class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full">
