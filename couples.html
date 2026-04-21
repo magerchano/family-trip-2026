@@ -198,45 +198,157 @@ tailwind.config = {
     </div>
   </section>
 
-  <!-- ── The Weekend ───────────────────────────── -->
-  <section class="max-w-3xl mx-auto px-6 pb-24">
-    <h2 class="font-serif-display text-3xl md:text-4xl text-primary text-center mb-12 reveal">The Weekend</h2>
-
-    <div class="reveal border-t border-outline-variant/15" onclick="toggleDay(this)">
-      <div class="flex items-baseline gap-4 py-6 cursor-pointer select-none group">
-        <span class="font-serif-display text-lg font-bold text-primary-container whitespace-nowrap">Saturday Evening</span>
-        <span class="font-semibold text-on-surface flex-1">&ldquo;The Upgrade&rdquo;</span>
-        <span class="material-symbols-outlined text-on-surface/30 group-hover:text-on-surface/50 transition-colors day-toggle">add</span>
+  <!-- ── Vern's Booking Priority ───────────────── -->
+  <section class="max-w-3xl mx-auto px-6 pb-16">
+    <div class="bg-gradient-to-br from-primary/5 to-primary-container/10 rounded-2xl p-8 md:p-10 border border-primary-container/20 whisper-shadow reveal">
+      <div class="flex items-start gap-4 mb-4">
+        <span class="material-symbols-outlined text-primary !text-2xl" style="font-variation-settings: 'FILL' 1;">priority_high</span>
+        <div class="flex-1">
+          <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-2">The One Reservation That Matters</p>
+          <h3 class="font-serif-display text-2xl md:text-3xl font-bold text-on-surface">Vern&rsquo;s &middot; Saturday June 13</h3>
+        </div>
       </div>
-      <div class="day-detail">
-        <div>
-          <p class="text-on-surface-variant leading-[1.8] pb-6 max-w-xl">Family heads out. Check into The Spectator. Let the butler take care of you. Dinner at <strong class="text-on-surface">Vern&rsquo;s</strong> &mdash; Michelin 1-star, intimate candlelit, the date-night restaurant. Book on Resy &mdash; opens <strong class="text-on-surface">May 14</strong> (30 days out). This is the night.</p>
+      <p class="text-on-surface-variant leading-relaxed mb-6 max-w-xl">Michelin 1-star. 30-day booking window. Resy drops at <strong class="text-on-surface">midnight Thursday May 14</strong>. Be on the app, logged in, card saved. Target 7:30&ndash;8:30pm, party of 2.</p>
+      <div class="flex flex-wrap items-center gap-3">
+        <div class="inline-flex items-center gap-2 bg-surface-container-lowest rounded-full px-4 py-2">
+          <span class="material-symbols-outlined text-primary !text-base">calendar_today</span>
+          <span class="font-body text-sm"><strong id="vernsCountdown" class="text-primary">--</strong> <span class="text-on-surface-variant">until booking opens</span></span>
+        </div>
+        <a href="https://resy.com/cities/charleston-sc/venues/verns" target="_blank" class="inline-flex items-center gap-2 btn-gold text-white rounded-full px-5 py-2 text-xs font-bold uppercase tracking-[0.12em] hover:scale-[1.02] transition-transform">
+          <span class="material-symbols-outlined !text-sm">open_in_new</span>
+          Resy page
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── The Weekend (Concierge Card) ──────────── -->
+  <section class="max-w-5xl mx-auto px-6 pb-24">
+    <h2 class="font-serif-display text-4xl md:text-5xl text-primary text-center mb-3 reveal">The Weekend</h2>
+    <p class="text-center text-on-surface-variant/60 text-sm mb-12 reveal">Concierge card &mdash; meals, coffee, spa, and open slots</p>
+
+    <div class="bg-surface-container-lowest rounded-2xl overflow-hidden whisper-shadow reveal">
+      <!-- Column Headers -->
+      <div class="hidden md:grid md:grid-cols-[140px_1fr_1fr_1fr] bg-surface-container-low">
+        <div class="p-4"></div>
+        <div class="p-4 text-center"><span class="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant/50">Morning</span></div>
+        <div class="p-4 text-center"><span class="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant/50">Midday</span></div>
+        <div class="p-4 text-center"><span class="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant/50">Evening</span></div>
+      </div>
+
+      <!-- Saturday -->
+      <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr] border-t border-outline-variant/[0.08]">
+        <div class="p-4 md:p-5 md:border-r border-outline-variant/[0.08]">
+          <span class="font-serif-display font-bold text-primary text-sm">Sat</span>
+          <span class="font-body text-on-surface-variant/40 text-xs block">June 13</span>
+          <span class="font-body text-on-surface-variant/30 text-[10px] italic mt-1 block">The Upgrade</span>
+        </div>
+        <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
+          <span class="text-on-surface-variant/30 text-xs italic">with family</span>
+        </div>
+        <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
+          <div class="inline-flex flex-col items-center gap-1 text-center">
+            <span class="text-on-surface-variant/50 text-xs">family departs</span>
+            <span class="text-[9px] text-on-surface-variant/40">check into Spectator</span>
+          </div>
+        </div>
+        <div class="px-4 py-3 md:p-5 flex items-center justify-center">
+          <div class="inline-flex flex-col items-center gap-1">
+            <div class="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-primary-container/20 px-4 py-2 rounded-full border border-primary-container/30">
+              <span class="material-symbols-outlined text-primary !text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="font-serif-display italic text-sm text-on-surface font-semibold">Vern&rsquo;s</span>
+              <span class="text-[8px] font-bold uppercase tracking-wider bg-gradient-to-r from-primary to-primary-container text-white px-1.5 py-0.5 rounded-sm">&#9733; Michelin</span>
+            </div>
+            <span class="text-[9px] text-primary font-medium">Resy &middot; Book midnight May 14</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sunday -->
+      <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr] border-t border-outline-variant/[0.08] bg-surface/50">
+        <div class="p-4 md:p-5 md:border-r border-outline-variant/[0.08]">
+          <span class="font-serif-display font-bold text-primary text-sm">Sun</span>
+          <span class="font-body text-on-surface-variant/40 text-xs block">June 14</span>
+          <span class="font-body text-on-surface-variant/30 text-[10px] italic mt-1 block">Slow Day</span>
+        </div>
+        <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
+          <div class="inline-flex flex-col items-center gap-1 text-center">
+            <div class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full">
+              <span class="font-serif-display italic text-sm text-on-surface">The Rise</span>
+              <span class="text-on-surface-variant/30 text-[10px]">or</span>
+              <span class="font-serif-display italic text-sm text-on-surface">Kudu</span>
+            </div>
+            <span class="text-[9px] text-on-surface-variant/50">sleep in + coffee</span>
+          </div>
+        </div>
+        <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
+          <div class="inline-flex flex-col items-center gap-1 text-center">
+            <div class="inline-flex items-center gap-2 bg-secondary/10 px-4 py-2 rounded-full">
+              <span class="material-symbols-outlined text-secondary !text-sm">spa</span>
+              <span class="font-serif-display italic text-sm text-on-surface">Couples Spa</span>
+            </div>
+            <span class="text-[9px] text-secondary font-medium">Woodhouse (rec) &middot; see below</span>
+          </div>
+        </div>
+        <div class="px-4 py-3 md:p-5 flex items-center justify-center">
+          <div class="inline-flex flex-col items-center gap-1">
+            <div class="inline-flex items-center gap-2 bg-gradient-to-r from-primary/5 to-primary-container/10 px-4 py-2 rounded-full border border-primary-container/20">
+              <span class="font-serif-display italic text-sm text-on-surface font-semibold">Merci</span>
+              <span class="text-[8px] font-bold uppercase tracking-wider bg-primary-container/20 text-primary px-1.5 py-0.5 rounded-sm">Haley&rsquo;s</span>
+            </div>
+            <span class="text-[9px] text-on-surface-variant/50">alt: FIG &middot; 26 seats, JBF semi</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Monday -->
+      <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr] border-t border-outline-variant/[0.08]">
+        <div class="p-4 md:p-5 md:border-r border-outline-variant/[0.08]">
+          <span class="font-serif-display font-bold text-primary text-sm">Mon</span>
+          <span class="font-body text-on-surface-variant/40 text-xs block">June 15</span>
+          <span class="font-body text-on-surface-variant/30 text-[10px] italic mt-1 block">Depart</span>
+        </div>
+        <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
+          <div class="inline-flex flex-col items-center gap-1 text-center">
+            <div class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full">
+              <span class="font-serif-display italic text-sm text-on-surface">Bad Bunnies</span>
+              <span class="text-on-surface-variant/30 text-[10px]">or</span>
+              <span class="font-serif-display italic text-sm text-on-surface">Harken</span>
+            </div>
+            <span class="text-[9px] text-on-surface-variant/50">one last coffee</span>
+          </div>
+        </div>
+        <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
+          <div class="inline-flex flex-col items-center gap-1 text-center">
+            <span class="border border-dashed border-outline-variant/30 text-on-surface-variant/40 text-xs italic px-4 py-2 rounded-full">one last walk</span>
+            <span class="text-[9px] text-on-surface-variant/40">check out &middot; head to airport</span>
+          </div>
+        </div>
+        <div class="px-4 py-3 md:p-5 flex items-center justify-center">
+          <span class="text-on-surface-variant/30 text-xs italic">&mdash;</span>
         </div>
       </div>
     </div>
 
-    <div class="reveal border-t border-outline-variant/15" onclick="toggleDay(this)">
-      <div class="flex items-baseline gap-4 py-6 cursor-pointer select-none group">
-        <span class="font-serif-display text-lg font-bold text-primary-container whitespace-nowrap">Sunday June 14</span>
-        <span class="font-semibold text-on-surface flex-1">&ldquo;Slow Day&rdquo;</span>
-        <span class="material-symbols-outlined text-on-surface/30 group-hover:text-on-surface/50 transition-colors day-toggle">add</span>
-      </div>
-      <div class="day-detail">
-        <div>
-          <p class="text-on-surface-variant leading-[1.8] pb-6 max-w-xl">Sleep in. Morning coffee at <strong class="text-on-surface">The Rise Coffee Bar</strong> (5 min walk, garden patio) or <strong class="text-on-surface">Kudu</strong> (10 min, secret garden courtyard). Late morning: <strong class="text-on-surface">couples spa</strong> at The Dewberry or Woodhouse (see below). Brunch. Explore. Dinner wherever sounds right &mdash; maybe <strong class="text-on-surface">Merci</strong> (26 seats, James Beard semifinalist) or <strong class="text-on-surface">FIG</strong>.</p>
+    <!-- Reservation Reminders -->
+    <div class="mt-8 bg-surface-container-lowest rounded-xl p-6 whisper-shadow reveal">
+      <h3 class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-4">Reservation Reminders</h3>
+      <div class="space-y-2 font-body text-sm text-on-surface-variant">
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-primary !text-base" style="font-variation-settings: 'FILL' 1;">priority_high</span>
+          <span><strong class="text-on-surface">Vern&rsquo;s</strong> &mdash; Resy, opens <strong class="text-primary">midnight Thu May 14</strong> (<span id="vernsCountdownInline">--</span>). <em>Critical.</em></span>
         </div>
-      </div>
-    </div>
-
-    <div class="reveal border-t border-outline-variant/15 border-b border-b-outline-variant/15" onclick="toggleDay(this)">
-      <div class="flex items-baseline gap-4 py-6 cursor-pointer select-none group">
-        <span class="font-serif-display text-lg font-bold text-primary-container whitespace-nowrap">Monday June 15</span>
-        <span class="font-semibold text-on-surface flex-1">&ldquo;Depart&rdquo;</span>
-        <span class="material-symbols-outlined text-on-surface/30 group-hover:text-on-surface/50 transition-colors day-toggle">add</span>
-      </div>
-      <div class="day-detail">
-        <div>
-          <p class="text-on-surface-variant leading-[1.8] pb-6 max-w-xl">One last coffee &mdash; <strong class="text-on-surface">Bad Bunnies</strong> (8 min walk, perfect 5.0 Yelp, house-made everything, order the brown sugar iced coffee) or <strong class="text-on-surface">Harken Cafe</strong> (1 min from hotel, biscuit sandwich + cortado). One last walk. Check out. Head to the airport.</p>
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-primary-container !text-base">calendar_today</span>
+          <span><strong class="text-on-surface">Merci</strong> &mdash; 26 seats, book ASAP on OpenTable once we lock Vern&rsquo;s</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-secondary !text-base">spa</span>
+          <span><strong class="text-on-surface">Woodhouse Spa</strong> &mdash; let the Spectator butler book couples retreat</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-on-surface-variant/40 !text-base">room_service</span>
+          <span><strong class="text-on-surface">Spectator butler</strong> &mdash; call (843) 724-4326 ahead to line up coffee orders + spa</span>
         </div>
       </div>
     </div>
@@ -415,6 +527,30 @@ function toggleConsidered() {
   detail.classList.toggle('open');
   toggle.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
 }
+
+function updateVernsCountdown() {
+  var target = new Date('2026-05-14T00:00:00-04:00').getTime();
+  var now = Date.now();
+  var diff = target - now;
+  var label;
+  if (diff <= 0) {
+    label = 'OPEN NOW';
+  } else {
+    var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    if (days > 0) {
+      label = 'T&minus;' + days + 'd ' + hours + 'h';
+    } else {
+      label = 'T&minus;' + hours + 'h';
+    }
+  }
+  var main = document.getElementById('vernsCountdown');
+  var inline = document.getElementById('vernsCountdownInline');
+  if (main) main.innerHTML = label;
+  if (inline) inline.innerHTML = label;
+}
+updateVernsCountdown();
+setInterval(updateVernsCountdown, 60000);
 </script>
 </body>
 </html>
