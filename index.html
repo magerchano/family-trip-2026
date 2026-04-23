@@ -622,25 +622,89 @@ tailwind.config = {
     </div>
 
     <!-- Booking Reminders -->
-    <div class="mt-8 bg-surface-container-lowest rounded-xl p-6 whisper-shadow reveal">
-      <h3 class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-secondary mb-4">Reservation Reminders</h3>
-      <div class="space-y-2 font-body text-sm text-on-surface-variant">
-        <div class="flex items-center gap-3">
-          <span class="material-symbols-outlined text-secondary !text-base">calendar_today</span>
-          <span><strong class="text-on-surface">Wild Common</strong> &mdash; Resy, opens <strong class="text-secondary">May 9</strong> (60 days out)</span>
+    <div class="mt-8 bg-surface-container-lowest rounded-xl p-6 md:p-8 whisper-shadow reveal">
+      <div class="flex items-baseline justify-between flex-wrap gap-2 mb-6">
+        <h3 class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-secondary">Reservation Schedule</h3>
+        <span class="font-body text-[10px] text-on-surface-variant/50 uppercase tracking-[0.15em]">Set alarms on your phone</span>
+      </div>
+
+      <!-- Timed drops -->
+      <div class="mb-6">
+        <h4 class="font-body text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant/60 mb-3">&#9200; Timed Resy / OpenTable drops</h4>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm font-body">
+            <thead>
+              <tr class="text-[10px] uppercase tracking-[0.1em] text-on-surface-variant/40">
+                <th class="text-left font-medium pb-2 pr-3">When</th>
+                <th class="text-left font-medium pb-2 pr-3">Reservation</th>
+                <th class="text-left font-medium pb-2">Details</th>
+              </tr>
+            </thead>
+            <tbody class="text-on-surface-variant">
+              <tr class="border-t border-outline-variant/[0.08]">
+                <td class="py-3 pr-3 whitespace-nowrap"><strong class="text-on-surface">Sat May 10</strong><br><span class="text-xs text-on-surface-variant/50">12:00 AM ET</span></td>
+                <td class="py-3 pr-3"><strong class="text-on-surface">Wild Common</strong> <span class="text-xs text-on-surface-variant/50">&middot; Tue 6/9 dinner</span></td>
+                <td class="py-3 text-xs">Resy, 30-day window. 4 adults, target 7:30&ndash;9pm</td>
+              </tr>
+              <tr class="border-t border-outline-variant/[0.08]">
+                <td class="py-3 pr-3 whitespace-nowrap"><strong class="text-on-surface">Wed May 13</strong><br><span class="text-xs text-on-surface-variant/50">12:00 AM ET</span></td>
+                <td class="py-3 pr-3"><strong class="text-on-surface">Poogan&rsquo;s Porch</strong> <span class="text-xs text-on-surface-variant/50">&middot; Fri 6/12 brunch</span></td>
+                <td class="py-3 text-xs">OpenTable, 30-day window. Party of 7</td>
+              </tr>
+              <tr class="border-t border-outline-variant/[0.08] bg-secondary/5">
+                <td class="py-3 pr-3 whitespace-nowrap">
+                  <span class="inline-flex items-center gap-1">
+                    <span class="material-symbols-outlined text-error !text-sm" style="font-variation-settings: 'FILL' 1;">priority_high</span>
+                    <strong class="text-error">Thu May 14</strong>
+                  </span>
+                  <br><span class="text-xs text-error/70">12:00 AM ET &middot; CRITICAL</span>
+                </td>
+                <td class="py-3 pr-3"><strong class="text-on-surface">Vern&rsquo;s</strong> <span class="text-xs text-on-surface-variant/50">&middot; Sat 6/13 couples</span></td>
+                <td class="py-3 text-xs">Resy, 30-day drop. Party of 2, target 7:30&ndash;8:30pm. App open, logged in, card saved at 11:58.</td>
+              </tr>
+              <tr class="border-t border-outline-variant/[0.08]">
+                <td class="py-3 pr-3 whitespace-nowrap"><strong class="text-on-surface">Fri May 15</strong><br><span class="text-xs text-on-surface-variant/50">12:00 PM ET</span></td>
+                <td class="py-3 pr-3"><strong class="text-on-surface">FIG</strong> <span class="text-xs text-on-surface-variant/50">&middot; Fri 6/12 dinner</span></td>
+                <td class="py-3 text-xs">Resy, <strong>28-day noon drop</strong>. Caps at 6 on Resy &mdash; for party of 7 call the restaurant.</td>
+              </tr>
+              <tr class="border-t border-outline-variant/[0.08]">
+                <td class="py-3 pr-3 whitespace-nowrap"><strong class="text-on-surface">Fri May 15</strong><br><span class="text-xs text-on-surface-variant/50">after Vern&rsquo;s lands</span></td>
+                <td class="py-3 pr-3"><strong class="text-on-surface">Merci</strong> <span class="text-xs text-on-surface-variant/50">&middot; Sun 6/14 couples</span></td>
+                <td class="py-3 text-xs">OpenTable. 26 seats &mdash; book ASAP once Vern&rsquo;s confirms. Party of 2.</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="flex items-center gap-3">
-          <span class="material-symbols-outlined text-primary !text-base">schedule</span>
-          <span><strong class="text-on-surface">Chubby Fish</strong> &mdash; No reservation. Line up at <strong>5pm Thursday</strong></span>
+      </div>
+
+      <!-- Calls to make -->
+      <div class="mb-6 pt-4 border-t border-outline-variant/[0.08]">
+        <h4 class="font-body text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant/60 mb-3">&#128222; Calls to make this week</h4>
+        <div class="space-y-2 font-body text-sm text-on-surface-variant">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary !text-base">phone</span>
+            <span><strong class="text-on-surface">Charleston Oyster Farm</strong> &mdash; <a href="tel:8436963879" class="text-primary underline-offset-2 hover:underline">(843) 696-3879</a> &middot; Thu 6/11 AM tour for 7</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary !text-base">phone</span>
+            <span><strong class="text-on-surface">Spectator Hotel</strong> &mdash; <a href="tel:8437244326" class="text-primary underline-offset-2 hover:underline">(843) 724-4326</a> &middot; confirm in-room spa, pre-line Woodhouse + coffee with butler</span>
+          </div>
         </div>
-        <div class="flex items-center gap-3">
-          <span class="material-symbols-outlined text-primary !text-base">check_circle</span>
-          <span><strong class="text-on-surface">Oyster Farm</strong> &mdash; Family agreed &middot; Thu AM &middot; (843) 696-3879</span>
-        </div>
-        <div class="flex items-center gap-3">
-          <span class="material-symbols-outlined text-secondary !text-base">calendar_today</span>
-          <span><strong class="text-on-surface">FIG</strong> &mdash; OpenTable, books 30 days out &middot; target Fri June 12, party of 7</span>
-        </div>
+      </div>
+
+      <!-- No-reservation notes -->
+      <div class="pt-4 border-t border-outline-variant/[0.08]">
+        <h4 class="font-body text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant/60 mb-3">&#9989; No reservation needed</h4>
+        <p class="font-body text-xs text-on-surface-variant leading-relaxed">
+          <strong class="text-on-surface">Chubby Fish</strong> &mdash; no reservations; line at 5pm Thursday &middot;
+          <strong class="text-on-surface">Callie&rsquo;s</strong>, <strong class="text-on-surface">Leon&rsquo;s Oyster Shop</strong>, <strong class="text-on-surface">Grit Bakery</strong>, <strong class="text-on-surface">Lewis BBQ</strong>, <strong class="text-on-surface">Bowens Island</strong>, <strong class="text-on-surface">Xiao Bao Biscuit</strong>, <strong class="text-on-surface">Millers All Day</strong> &mdash; walk-in.
+        </p>
+      </div>
+
+      <!-- Safety note -->
+      <div class="mt-5 pt-4 border-t border-outline-variant/[0.08] flex items-start gap-2">
+        <span class="material-symbols-outlined text-on-surface-variant/40 !text-sm mt-0.5">info</span>
+        <p class="font-body text-[11px] text-on-surface-variant/60 leading-relaxed">All drops land before the May 18&ndash;26 Asia trip &mdash; booking in person is fine. Set the alarms <em>today</em>, not day-of.</p>
       </div>
     </div>
   </div>
