@@ -204,15 +204,15 @@ tailwind.config = {
       <div class="flex items-start gap-4 mb-4">
         <span class="material-symbols-outlined text-primary !text-2xl" style="font-variation-settings: 'FILL' 1;">priority_high</span>
         <div class="flex-1">
-          <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-2">The One Reservation That Matters</p>
+          <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-2">The One Reservation That Matters &middot; Locked In</p>
           <h3 class="font-serif-display text-2xl md:text-3xl font-bold text-on-surface">Vern&rsquo;s &middot; Saturday June 13</h3>
         </div>
       </div>
-      <p class="text-on-surface-variant leading-relaxed mb-6 max-w-xl">Michelin 1-star. 30-day booking window. Resy drops at <strong class="text-on-surface">midnight Thursday May 14</strong>. Be on the app, logged in, card saved. Target 7:30&ndash;8:30pm, party of 2.</p>
+      <p class="text-on-surface-variant leading-relaxed mb-6 max-w-xl">Michelin 1-star. <strong class="text-on-surface">Confirmed &mdash; 5:00pm, party of 2.</strong> Intimate and candlelit, the first dinner of just-the-two-of-you weekend after the family heads out.</p>
       <div class="flex flex-wrap items-center gap-3">
         <div class="inline-flex items-center gap-2 bg-surface-container-lowest rounded-full px-4 py-2">
-          <span class="material-symbols-outlined text-primary !text-base">calendar_today</span>
-          <span class="font-body text-sm"><strong id="vernsCountdown" class="text-primary">--</strong> <span class="text-on-surface-variant">until booking opens</span></span>
+          <span class="material-symbols-outlined text-primary !text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+          <span class="font-body text-sm"><strong class="text-primary">Booked</strong> <span class="text-on-surface-variant">&middot; Sat June 13, 5:00pm &middot; 2 guests</span></span>
         </div>
         <a href="https://resy.com/cities/charleston-sc/venues/verns" target="_blank" class="inline-flex items-center gap-2 btn-gold text-white rounded-full px-5 py-2 text-xs font-bold uppercase tracking-[0.12em] hover:scale-[1.02] transition-transform">
           <span class="material-symbols-outlined !text-sm">open_in_new</span>
@@ -259,7 +259,7 @@ tailwind.config = {
               <span class="font-serif-display italic text-sm text-on-surface font-semibold">Vern&rsquo;s</span>
               <span class="text-[8px] font-bold uppercase tracking-wider bg-gradient-to-r from-primary to-primary-container text-white px-1.5 py-0.5 rounded-sm">&#9733; Michelin</span>
             </div>
-            <span class="text-[9px] text-primary font-medium">Resy &middot; Book midnight May 14</span>
+            <span class="text-[9px] text-primary font-medium">Confirmed &middot; 5:00pm &middot; party of 2</span>
           </div>
         </div>
       </div>
@@ -292,11 +292,12 @@ tailwind.config = {
         </div>
         <div class="px-4 py-3 md:p-5 flex items-center justify-center">
           <div class="inline-flex flex-col items-center gap-1">
-            <div class="inline-flex items-center gap-2 bg-gradient-to-r from-primary/5 to-primary-container/10 px-4 py-2 rounded-full border border-primary-container/20">
-              <span class="font-serif-display italic text-sm text-on-surface font-semibold">Merci</span>
-              <span class="text-[8px] font-bold uppercase tracking-wider bg-primary-container/20 text-primary px-1.5 py-0.5 rounded-sm">Haley&rsquo;s</span>
+            <div class="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-primary-container/20 px-4 py-2 rounded-full border border-primary-container/30">
+              <span class="material-symbols-outlined text-primary !text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="font-serif-display italic text-sm text-on-surface font-semibold">Wild Common</span>
+              <span class="text-[8px] font-bold uppercase tracking-wider bg-gradient-to-r from-primary to-primary-container text-white px-1.5 py-0.5 rounded-sm">&#9733; Michelin</span>
             </div>
-            <span class="text-[9px] text-on-surface-variant/50">alt: Chez Nous &middot; 26 seats, JBF semi (FIG with family Fri)</span>
+            <span class="text-[9px] text-primary font-medium">Confirmed &middot; 6:00pm &middot; chef&rsquo;s counter, party of 2</span>
           </div>
         </div>
       </div>
@@ -333,8 +334,8 @@ tailwind.config = {
     <!-- Reservation Reminders -->
     <div class="mt-8 bg-surface-container-lowest rounded-xl p-6 md:p-8 whisper-shadow reveal">
       <div class="flex items-baseline justify-between flex-wrap gap-2 mb-6">
-        <h3 class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-primary">Reservation Schedule</h3>
-        <span class="font-body text-[10px] text-on-surface-variant/50 uppercase tracking-[0.15em]">Set alarms on your phone</span>
+        <h3 class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-primary">Reservations &middot; Confirmed</h3>
+        <span class="font-body text-[10px] text-on-surface-variant/50 uppercase tracking-[0.15em]">Both dinners locked</span>
       </div>
 
       <table class="w-full text-sm font-body">
@@ -349,18 +350,24 @@ tailwind.config = {
           <tr class="border-t border-outline-variant/[0.08] bg-primary/[0.04]">
             <td class="py-3 pr-3 whitespace-nowrap">
               <span class="inline-flex items-center gap-1">
-                <span class="material-symbols-outlined text-primary !text-sm" style="font-variation-settings: 'FILL' 1;">priority_high</span>
-                <strong class="text-primary">Thu May 14</strong>
+                <span class="material-symbols-outlined text-primary !text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                <strong class="text-primary">Sat 6/13</strong>
               </span>
-              <br><span class="text-xs text-primary/70">12:00 AM ET &middot; <span id="vernsCountdownInline">--</span></span>
+              <br><span class="text-xs text-primary/70">5:00 PM</span>
             </td>
-            <td class="py-3 pr-3"><strong class="text-on-surface">Vern&rsquo;s</strong> <span class="text-xs text-on-surface-variant/50">&middot; Sat 6/13 dinner</span></td>
-            <td class="py-3 text-xs">Michelin &middot; 30-day Resy drop. Party of 2, target 7:30&ndash;8:30pm. App open, logged in, card saved at 11:58.</td>
+            <td class="py-3 pr-3"><strong class="text-on-surface">Vern&rsquo;s</strong> <span class="text-xs text-on-surface-variant/50">&middot; dinner</span></td>
+            <td class="py-3 text-xs">Michelin 1-star. <strong class="text-on-surface">Confirmed</strong> &middot; party of 2 &middot; intimate, candlelit.</td>
           </tr>
           <tr class="border-t border-outline-variant/[0.08]">
-            <td class="py-3 pr-3 whitespace-nowrap"><strong class="text-on-surface">Fri May 15</strong><br><span class="text-xs text-on-surface-variant/50">morning after</span></td>
-            <td class="py-3 pr-3"><strong class="text-on-surface">Merci</strong> <span class="text-xs text-on-surface-variant/50">&middot; Sun 6/14 dinner</span></td>
-            <td class="py-3 text-xs">OpenTable. 26 seats &mdash; book ASAP once Vern&rsquo;s confirms. Party of 2.</td>
+            <td class="py-3 pr-3 whitespace-nowrap">
+              <span class="inline-flex items-center gap-1">
+                <span class="material-symbols-outlined text-primary !text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                <strong class="text-primary">Sun 6/14</strong>
+              </span>
+              <br><span class="text-xs text-primary/70">6:00 PM</span>
+            </td>
+            <td class="py-3 pr-3"><strong class="text-on-surface">Wild Common</strong> <span class="text-xs text-on-surface-variant/50">&middot; dinner</span></td>
+            <td class="py-3 text-xs">Michelin 1-star. <strong class="text-on-surface">Confirmed</strong> &middot; chef&rsquo;s counter, party of 2 &middot; $95pp tasting.</td>
           </tr>
         </tbody>
       </table>
@@ -380,8 +387,8 @@ tailwind.config = {
       </div>
 
       <div class="mt-5 pt-4 border-t border-outline-variant/[0.08] flex items-start gap-2">
-        <span class="material-symbols-outlined text-on-surface-variant/40 !text-sm mt-0.5">info</span>
-        <p class="font-body text-[11px] text-on-surface-variant/60 leading-relaxed">Vern&rsquo;s drops the night before your Asia trip departs (May 18). Alarm set day-of will be too late &mdash; set it now.</p>
+        <span class="material-symbols-outlined text-primary/50 !text-sm mt-0.5" style="font-variation-settings: 'FILL' 1;">verified</span>
+        <p class="font-body text-[11px] text-on-surface-variant/60 leading-relaxed">Both Michelin dinners are booked &mdash; Vern&rsquo;s Sat 6/13 5:00pm and Wild Common Sun 6/14 6:00pm, party of 2. Nothing left to chase; just the spa to confirm with the Spectator butler.</p>
       </div>
     </div>
   </section>
@@ -461,13 +468,16 @@ tailwind.config = {
             <span class="inline-block text-[10px] font-bold uppercase tracking-[0.12em] bg-primary-container/20 text-primary px-3 py-1 rounded-full">Booked</span>
           </div>
           <h4 class="font-serif-display text-xl font-bold mb-2">Vern&rsquo;s</h4>
-          <p class="text-on-surface-variant text-sm leading-relaxed">Intimate, candlelit. Book on Resy, opens May 14.</p>
+          <p class="text-on-surface-variant text-sm leading-relaxed">Intimate, candlelit. <strong class="text-on-surface">Sat June 13, 5:00pm</strong> &middot; party of 2.</p>
         </div>
 
         <div class="bg-surface-container-lowest rounded-2xl p-8 whisper-shadow hover:-translate-y-1 transition-transform duration-300">
-          <span class="inline-block text-[10px] font-bold uppercase tracking-[0.12em] bg-gradient-to-r from-primary to-primary-container text-white px-3 py-1 rounded-full mb-4">Michelin Star</span>
+          <div class="flex items-center gap-2 mb-4 flex-wrap">
+            <span class="inline-block text-[10px] font-bold uppercase tracking-[0.12em] bg-gradient-to-r from-primary to-primary-container text-white px-3 py-1 rounded-full">Michelin Star</span>
+            <span class="inline-block text-[10px] font-bold uppercase tracking-[0.12em] bg-primary-container/20 text-primary px-3 py-1 rounded-full">Booked</span>
+          </div>
           <h4 class="font-serif-display text-xl font-bold mb-2">Wild Common</h4>
-          <p class="text-on-surface-variant text-sm leading-relaxed">Tasting menu, $95pp. The most ambitious meal in Charleston.</p>
+          <p class="text-on-surface-variant text-sm leading-relaxed">Tasting menu, $95pp. The most ambitious meal in Charleston. <strong class="text-on-surface">Sun June 14, 6:00pm</strong> &middot; chef&rsquo;s counter, party of 2.</p>
         </div>
 
         <div class="bg-surface-container-lowest rounded-2xl p-8 whisper-shadow hover:-translate-y-1 transition-transform duration-300">
@@ -560,29 +570,6 @@ function toggleConsidered() {
   toggle.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
 }
 
-function updateVernsCountdown() {
-  var target = new Date('2026-05-14T00:00:00-04:00').getTime();
-  var now = Date.now();
-  var diff = target - now;
-  var label;
-  if (diff <= 0) {
-    label = 'OPEN NOW';
-  } else {
-    var days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    if (days > 0) {
-      label = 'T&minus;' + days + 'd ' + hours + 'h';
-    } else {
-      label = 'T&minus;' + hours + 'h';
-    }
-  }
-  var main = document.getElementById('vernsCountdown');
-  var inline = document.getElementById('vernsCountdownInline');
-  if (main) main.innerHTML = label;
-  if (inline) inline.innerHTML = label;
-}
-updateVernsCountdown();
-setInterval(updateVernsCountdown, 60000);
 </script>
 </body>
 </html>
