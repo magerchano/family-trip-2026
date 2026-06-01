@@ -221,7 +221,7 @@ tailwind.config = {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     padding: 1em 1em;
-    color: var(--outline);
+    color: var(--on-surface-variant);
     text-align: left;
     white-space: nowrap;
     background: var(--surface-container-high);
@@ -238,11 +238,21 @@ tailwind.config = {
     color: var(--on-surface);
     vertical-align: middle;
   }
-  .master-table td:nth-child(2) {
+  .master-table td:nth-child(1) {
     font-family: 'Noto Serif', serif;
     font-weight: 700;
     white-space: nowrap;
   }
+
+  /* Persistent link affordance for itinerary chips (works on touch) */
+  .chip-link {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    text-decoration-color: rgba(0, 96, 110, 0.45);
+    transition: text-decoration-color 0.15s ease;
+  }
+  .chip-link:hover { text-decoration-color: var(--primary); }
 
   /* Responsive */
   @media (max-width: 768px) {
@@ -260,6 +270,52 @@ tailwind.config = {
       height: 180px;
       min-height: 180px;
     }
+
+    /* Full List: collapse the wide table into stacked cards */
+    #masterTableWrap { box-shadow: none; border-radius: 0; overflow: visible; }
+    .master-table { min-width: 0; display: block; }
+    .master-table thead { display: none; }
+    .master-table tbody { display: block; }
+    .master-table tbody tr {
+      display: block;
+      background: var(--surface-container-lowest) !important;
+      border-radius: 0.85rem;
+      padding: 0.9rem 1.1rem;
+      margin-bottom: 0.85rem;
+      box-shadow: 0 4px 18px -10px rgba(29, 28, 22, 0.18);
+    }
+    .master-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1.25rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--outline-variant);
+      text-align: right;
+      white-space: normal;
+    }
+    .master-table td:last-child { border-bottom: 0; padding-bottom: 0; }
+    .master-table td::before {
+      content: attr(data-label);
+      font-family: 'Noto Serif', serif;
+      font-weight: 700;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--on-surface-variant);
+      text-align: left;
+      flex: 0 0 auto;
+    }
+    .master-table td:first-child {
+      display: block;
+      text-align: left;
+      white-space: normal;
+      font-size: 1.1rem;
+      padding-bottom: 0.55rem;
+      margin-bottom: 0.35rem;
+      border-bottom: 2px solid rgba(0, 96, 110, 0.18);
+    }
+    .master-table td:first-child::before { content: none; }
   }
   @media (max-width: 600px) {
     .coffee-flex { flex-direction: column; }
@@ -347,16 +403,16 @@ tailwind.config = {
       <div class="hidden md:grid grid-cols-[140px_1fr_1fr_1fr_1fr] bg-surface-container">
         <div class="p-4"></div>
         <div class="p-4 text-center">
-          <span class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant/50">Coffee</span>
+          <span class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant/65">Coffee</span>
         </div>
         <div class="p-4 text-center">
-          <span class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant/50">Breakfast</span>
+          <span class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant/65">Breakfast</span>
         </div>
         <div class="p-4 text-center">
-          <span class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant/50">Lunch</span>
+          <span class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant/65">Lunch</span>
         </div>
         <div class="p-4 text-center">
-          <span class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant/50">Dinner</span>
+          <span class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant/65">Dinner</span>
         </div>
       </div>
 
@@ -364,23 +420,23 @@ tailwind.config = {
       <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr_1fr] border-t border-outline-variant/[0.08]">
         <div class="p-4 md:p-5 md:border-r border-outline-variant/[0.08]">
           <span class="font-headline font-bold text-primary text-sm">Mon</span>
-          <span class="font-body text-on-surface-variant/40 text-xs block">June 8</span>
-          <span class="font-body text-on-surface-variant/30 text-[10px] italic mt-1 block">Arrive &amp; Settle In</span>
+          <span class="font-body text-on-surface-variant/60 text-xs block">June 8</span>
+          <span class="font-body text-on-surface-variant/55 text-[10px] italic mt-1 block">Arrive &amp; Settle In</span>
         </div>
         <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
-          <span class="text-on-surface-variant/20 text-xs italic">arrive 12pm</span>
+          <span class="text-on-surface-variant/50 text-xs italic">arrive 12pm</span>
         </div>
         <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
-          <span class="text-on-surface-variant/20 text-xs italic">arriving</span>
+          <span class="text-on-surface-variant/50 text-xs italic">arriving</span>
         </div>
         <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
           <div class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full">
-            <span class="font-headline italic text-sm text-on-surface"><a href="https://millersallday.com/" target="_blank" rel="noopener" class="hover:underline underline-offset-2 decoration-1">Miller&rsquo;s All Day</a></span>
+            <span class="font-headline italic text-sm text-on-surface"><a href="https://millersallday.com/" target="_blank" rel="noopener" class="chip-link">Miller&rsquo;s All Day</a></span>
           </div>
         </div>
         <div class="px-4 py-3 md:p-5 flex items-center justify-center">
           <div class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full">
-            <span class="font-headline italic text-sm text-on-surface"><a href="https://leonsoystershop.com/" target="_blank" rel="noopener" class="hover:underline underline-offset-2 decoration-1">Leon&rsquo;s Oyster Shop</a></span>
+            <span class="font-headline italic text-sm text-on-surface"><a href="https://leonsoystershop.com/" target="_blank" rel="noopener" class="chip-link">Leon&rsquo;s Oyster Shop</a></span>
             <span class="text-[8px] font-bold uppercase tracking-wider bg-primary-container text-white px-1.5 py-0.5 rounded-sm">Bib</span>
           </div>
         </div>
@@ -390,31 +446,31 @@ tailwind.config = {
       <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr_1fr] border-t border-outline-variant/[0.08] bg-surface/50">
         <div class="p-4 md:p-5 md:border-r border-outline-variant/[0.08]">
           <span class="font-headline font-bold text-primary text-sm">Tue</span>
-          <span class="font-body text-on-surface-variant/40 text-xs block">June 9</span>
-          <span class="font-body text-on-surface-variant/30 text-[10px] italic mt-1 block">Brews-day Tuesday</span>
+          <span class="font-body text-on-surface-variant/60 text-xs block">June 9</span>
+          <span class="font-body text-on-surface-variant/55 text-[10px] italic mt-1 block">Brews-day Tuesday</span>
         </div>
         <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
           <div class="inline-flex flex-col items-center gap-1 text-center">
             <div class="inline-flex items-center gap-2 bg-secondary/10 px-4 py-2 rounded-full">
               <span class="font-headline italic text-sm text-on-surface">Kudu</span>
-              <span class="text-on-surface-variant/30 text-[10px]">or</span>
-              <span class="font-headline italic text-sm text-on-surface"><a href="https://secondstatecoffee.com/" target="_blank" rel="noopener" class="hover:underline underline-offset-2 decoration-1">Second State</a></span>
+              <span class="text-on-surface-variant/55 text-[10px]">or</span>
+              <span class="font-headline italic text-sm text-on-surface"><a href="https://secondstatecoffee.com/" target="_blank" rel="noopener" class="chip-link">Second State</a></span>
             </div>
           </div>
         </div>
         <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
           <div class="inline-flex flex-col items-center gap-1 text-center">
             <div class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full">
-              <span class="font-headline italic text-sm text-on-surface"><a href="https://calliesbiscuits.com/pages/hlb-city-market" target="_blank" rel="noopener" class="hover:underline underline-offset-2 decoration-1">Callie&rsquo;s Hot Little Biscuit</a></span>
+              <span class="font-headline italic text-sm text-on-surface"><a href="https://calliesbiscuits.com/pages/hlb-city-market" target="_blank" rel="noopener" class="chip-link">Callie&rsquo;s Hot Little Biscuit</a></span>
               <span class="text-[8px] font-bold uppercase tracking-wider bg-[#ff0050] text-white px-1.5 py-0.5 rounded-sm">TikTok</span>
             </div>
-            <span class="text-[9px] text-on-surface-variant/40">City Market location</span>
+            <span class="text-[9px] text-on-surface-variant/60">City Market location</span>
           </div>
         </div>
         <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
           <div class="inline-flex flex-col items-center gap-1">
-            <span class="border border-dashed border-outline-variant/30 text-on-surface-variant/40 text-xs italic px-4 py-2 rounded-full">Brews-day tour &middot; TBD</span>
-            <span class="text-[9px] text-on-surface-variant/40">adults beer + nibbles tour (Haley&rsquo;s idea)</span>
+            <span class="border border-dashed border-outline-variant/30 text-on-surface-variant/60 text-xs italic px-4 py-2 rounded-full">Brews-day tour &middot; TBD</span>
+            <span class="text-[9px] text-on-surface-variant/60">adults beer + nibbles tour (Haley&rsquo;s idea)</span>
           </div>
         </div>
         <div class="px-4 py-3 md:p-5 flex items-center justify-center">
@@ -422,16 +478,16 @@ tailwind.config = {
             <div class="inline-flex flex-col items-center gap-1">
               <div class="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full border border-primary-container/30">
                 <span class="material-symbols-outlined text-primary !text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                <span class="font-headline italic text-sm text-on-surface"><a href="https://eatatfig.com/" target="_blank" rel="noopener" class="hover:underline underline-offset-2 decoration-1">FIG</a></span>
+                <span class="font-headline italic text-sm text-on-surface"><a href="https://eatatfig.com/" target="_blank" rel="noopener" class="chip-link">FIG</a></span>
                 <span class="text-[8px] font-bold uppercase tracking-wider bg-primary-container text-white px-1.5 py-0.5 rounded-sm">JBF</span>
               </div>
               <span class="text-[9px] text-primary font-medium">Confirmed &middot; 5:00pm &middot; 4 adults</span>
             </div>
             <div class="inline-flex flex-col items-center gap-1">
               <div class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full">
-                <span class="font-headline italic text-sm text-on-surface"><a href="https://hotelemeline.com/frannie-and-the-fox" target="_blank" rel="noopener" class="hover:underline underline-offset-2 decoration-1">Frannie &amp; The Fox</a></span>
+                <span class="font-headline italic text-sm text-on-surface"><a href="https://hotelemeline.com/frannie-and-the-fox" target="_blank" rel="noopener" class="chip-link">Frannie &amp; The Fox</a></span>
               </div>
-              <span class="text-[9px] text-on-surface-variant/50">Nana + kids &middot; near the hotel</span>
+              <span class="text-[9px] text-on-surface-variant/65">Nana + kids &middot; near the hotel</span>
             </div>
           </div>
         </div>
@@ -441,15 +497,15 @@ tailwind.config = {
       <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr_1fr] border-t border-outline-variant/[0.08]">
         <div class="p-4 md:p-5 md:border-r border-outline-variant/[0.08]">
           <span class="font-headline font-bold text-primary text-sm">Wed</span>
-          <span class="font-body text-on-surface-variant/40 text-xs block">June 10</span>
-          <span class="font-body text-on-surface-variant/30 text-[10px] italic mt-1 block">Aquarium + Sunset Sail</span>
+          <span class="font-body text-on-surface-variant/60 text-xs block">June 10</span>
+          <span class="font-body text-on-surface-variant/55 text-[10px] italic mt-1 block">Aquarium + Sunset Sail</span>
         </div>
         <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
           <div class="inline-flex flex-col items-center gap-1 text-center">
             <div class="inline-flex items-center gap-2 bg-secondary/10 px-4 py-2 rounded-full">
-              <span class="font-headline italic text-sm text-on-surface"><a href="https://babascharleston.com/" target="_blank" rel="noopener" class="hover:underline underline-offset-2 decoration-1">Babas</a></span>
-              <span class="text-on-surface-variant/30 text-[10px]">or</span>
-              <span class="font-headline italic text-sm text-on-surface"><a href="https://www.harkencafe.com/" target="_blank" rel="noopener" class="hover:underline underline-offset-2 decoration-1">Harken</a></span>
+              <span class="font-headline italic text-sm text-on-surface"><a href="https://babascharleston.com/" target="_blank" rel="noopener" class="chip-link">Babas</a></span>
+              <span class="text-on-surface-variant/55 text-[10px]">or</span>
+              <span class="font-headline italic text-sm text-on-surface"><a href="https://www.harkencafe.com/" target="_blank" rel="noopener" class="chip-link">Harken</a></span>
             </div>
           </div>
         </div>
@@ -457,7 +513,7 @@ tailwind.config = {
           <div class="inline-flex flex-col items-center gap-1 text-center">
             <div class="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full border border-primary-container/30">
               <span class="material-symbols-outlined text-primary !text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-              <span class="font-headline italic text-sm text-on-surface"><a href="https://www.poogansporch.com/" target="_blank" rel="noopener" class="hover:underline underline-offset-2 decoration-1">Poogan&rsquo;s Porch</a></span>
+              <span class="font-headline italic text-sm text-on-surface"><a href="https://www.poogansporch.com/" target="_blank" rel="noopener" class="chip-link">Poogan&rsquo;s Porch</a></span>
             </div>
             <span class="text-[9px] text-primary font-medium">Confirmed &middot; 9:00am &middot; party of 7</span>
           </div>
@@ -466,17 +522,17 @@ tailwind.config = {
           <div class="inline-flex flex-col items-center gap-2">
             <div class="inline-flex flex-col items-center gap-1">
               <div class="inline-flex items-center gap-2 bg-secondary/10 px-4 py-2 rounded-full border border-secondary/20">
-                <span class="font-headline italic text-sm text-on-surface"><a href="https://www.xiaobaobiscuit.com/" target="_blank" rel="noopener" class="hover:underline underline-offset-2 decoration-1">Xiao Bao Biscuit</a></span>
+                <span class="font-headline italic text-sm text-on-surface"><a href="https://www.xiaobaobiscuit.com/" target="_blank" rel="noopener" class="chip-link">Xiao Bao Biscuit</a></span>
                 <span class="text-[8px] font-bold uppercase tracking-wider bg-primary/80 text-white px-1.5 py-0.5 rounded-sm">Michelin</span>
               </div>
               <span class="text-[9px] text-secondary font-medium">Haley + Michael</span>
             </div>
             <div class="inline-flex flex-col items-center gap-1">
               <div class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full">
-                <span class="material-symbols-outlined text-on-surface-variant/50 !text-sm">aquarium</span>
-                <span class="font-headline italic text-sm text-on-surface"><a href="https://scaquarium.org/" target="_blank" rel="noopener" class="hover:underline underline-offset-2 decoration-1">SC Aquarium</a></span>
+                <span class="material-symbols-outlined text-on-surface-variant/65 !text-sm">aquarium</span>
+                <span class="font-headline italic text-sm text-on-surface"><a href="https://scaquarium.org/" target="_blank" rel="noopener" class="chip-link">SC Aquarium</a></span>
               </div>
-              <span class="text-[9px] text-on-surface-variant/40">Nana + kids</span>
+              <span class="text-[9px] text-on-surface-variant/60">Nana + kids</span>
             </div>
           </div>
         </div>
@@ -484,10 +540,10 @@ tailwind.config = {
           <div class="inline-flex flex-col items-center gap-2">
             <div class="inline-flex flex-col items-center gap-1">
               <div class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full">
-                <span class="font-headline italic text-sm text-on-surface"><a href="https://www.chubbyfishcharleston.com/" target="_blank" rel="noopener" class="hover:underline underline-offset-2 decoration-1">Chubby Fish</a></span>
+                <span class="font-headline italic text-sm text-on-surface"><a href="https://www.chubbyfishcharleston.com/" target="_blank" rel="noopener" class="chip-link">Chubby Fish</a></span>
                 <span class="text-[8px] font-bold uppercase tracking-wider bg-on-surface text-surface px-1.5 py-0.5 rounded-sm">NYT 50</span>
               </div>
-              <span class="text-[9px] text-on-surface-variant/40">early bite before the sail &middot; line at 5pm</span>
+              <span class="text-[9px] text-on-surface-variant/60">early bite before the sail &middot; line at 5pm</span>
             </div>
             <div class="inline-flex flex-col items-center gap-1">
               <div class="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full border border-primary-container/30">
@@ -504,33 +560,33 @@ tailwind.config = {
       <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr_1fr] border-t border-outline-variant/[0.08] bg-surface/50">
         <div class="p-4 md:p-5 md:border-r border-outline-variant/[0.08]">
           <span class="font-headline font-bold text-primary text-sm">Thu</span>
-          <span class="font-body text-on-surface-variant/40 text-xs block">June 11</span>
-          <span class="font-body text-on-surface-variant/30 text-[10px] italic mt-1 block">Oyster Farm Day</span>
+          <span class="font-body text-on-surface-variant/60 text-xs block">June 11</span>
+          <span class="font-body text-on-surface-variant/55 text-[10px] italic mt-1 block">Oyster Farm Day</span>
         </div>
         <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
           <div class="inline-flex flex-col items-center gap-1 text-center">
             <div class="inline-flex items-center gap-2 bg-secondary/10 px-4 py-2 rounded-full">
-              <span class="font-headline italic text-sm text-on-surface"><a href="https://secondstatecoffee.com/" target="_blank" rel="noopener" class="hover:underline underline-offset-2 decoration-1">Second State</a></span>
-              <span class="text-on-surface-variant/30 text-[10px]">or</span>
-              <span class="font-headline italic text-sm text-on-surface"><a href="https://www.bittyandbeauscoffee.com/location/charleston/" target="_blank" rel="noopener" class="hover:underline underline-offset-2 decoration-1">Bitty &amp; Beau</a></span>
+              <span class="font-headline italic text-sm text-on-surface"><a href="https://secondstatecoffee.com/" target="_blank" rel="noopener" class="chip-link">Second State</a></span>
+              <span class="text-on-surface-variant/55 text-[10px]">or</span>
+              <span class="font-headline italic text-sm text-on-surface"><a href="https://www.bittyandbeauscoffee.com/location/charleston/" target="_blank" rel="noopener" class="chip-link">Bitty &amp; Beau</a></span>
             </div>
           </div>
         </div>
         <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
-          <span class="text-on-surface-variant/20 text-xs italic">&mdash;</span>
+          <span class="text-on-surface-variant/50 text-xs italic">&mdash;</span>
         </div>
         <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
           <div class="inline-flex flex-col items-center gap-1">
             <div class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full">
-              <span class="font-headline italic text-sm text-on-surface"><a href="https://bowensisland.com/" target="_blank" rel="noopener" class="hover:underline underline-offset-2 decoration-1">Bowens Island</a></span>
+              <span class="font-headline italic text-sm text-on-surface"><a href="https://bowensisland.com/" target="_blank" rel="noopener" class="chip-link">Bowens Island</a></span>
             </div>
-            <span class="text-[9px] text-on-surface-variant/40">next to oyster farm</span>
+            <span class="text-[9px] text-on-surface-variant/60">next to oyster farm</span>
           </div>
         </div>
         <div class="px-4 py-3 md:p-5 flex items-center justify-center">
           <div class="inline-flex flex-col items-center gap-1">
-            <span class="border border-dashed border-outline-variant/30 text-on-surface-variant/40 text-xs italic px-4 py-2 rounded-full">play it by ear</span>
-            <span class="text-[9px] text-on-surface-variant/30">Rodney Scott&rsquo;s &middot; Hometeam &middot; Bowens Island</span>
+            <span class="border border-dashed border-outline-variant/30 text-on-surface-variant/60 text-xs italic px-4 py-2 rounded-full">play it by ear</span>
+            <span class="text-[9px] text-on-surface-variant/55">Rodney Scott&rsquo;s &middot; Hometeam &middot; Bowens Island</span>
           </div>
         </div>
       </div>
@@ -539,27 +595,27 @@ tailwind.config = {
       <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr_1fr] border-t border-outline-variant/[0.08]">
         <div class="p-4 md:p-5 md:border-r border-outline-variant/[0.08]">
           <span class="font-headline font-bold text-primary text-sm">Fri</span>
-          <span class="font-body text-on-surface-variant/40 text-xs block">June 12</span>
-          <span class="font-body text-on-surface-variant/30 text-[10px] italic mt-1 block">Flex Day</span>
+          <span class="font-body text-on-surface-variant/60 text-xs block">June 12</span>
+          <span class="font-body text-on-surface-variant/55 text-[10px] italic mt-1 block">Flex Day</span>
         </div>
         <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
           <div class="inline-flex flex-col items-center gap-1 text-center">
             <div class="inline-flex items-center gap-2 bg-secondary/10 px-4 py-2 rounded-full">
-              <span class="font-headline italic text-sm text-on-surface"><a href="https://www.badbunniescoffee.com/" target="_blank" rel="noopener" class="hover:underline underline-offset-2 decoration-1">Bad Bunnies</a></span>
-              <span class="text-on-surface-variant/30 text-[10px]">or</span>
-              <span class="font-headline italic text-sm text-on-surface"><a href="https://www.shopthedaily.com/" target="_blank" rel="noopener" class="hover:underline underline-offset-2 decoration-1">The Daily</a></span>
+              <span class="font-headline italic text-sm text-on-surface"><a href="https://www.badbunniescoffee.com/" target="_blank" rel="noopener" class="chip-link">Bad Bunnies</a></span>
+              <span class="text-on-surface-variant/55 text-[10px]">or</span>
+              <span class="font-headline italic text-sm text-on-surface"><a href="https://www.shopthedaily.com/" target="_blank" rel="noopener" class="chip-link">The Daily</a></span>
             </div>
           </div>
         </div>
         <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
           <div class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full">
-            <span class="font-headline italic text-sm text-on-surface"><a href="https://www.gritbakery.com/" target="_blank" rel="noopener" class="hover:underline underline-offset-2 decoration-1">Grit Bakery</a></span>
+            <span class="font-headline italic text-sm text-on-surface"><a href="https://www.gritbakery.com/" target="_blank" rel="noopener" class="chip-link">Grit Bakery</a></span>
             <span class="text-[8px] font-bold uppercase tracking-wider bg-[#ff0050] text-white px-1.5 py-0.5 rounded-sm">TikTok</span>
           </div>
         </div>
         <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
           <div class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full">
-            <span class="font-headline italic text-sm text-on-surface"><a href="https://www.lewisbarbecue.com/" target="_blank" rel="noopener" class="hover:underline underline-offset-2 decoration-1">Lewis Barbecue</a></span>
+            <span class="font-headline italic text-sm text-on-surface"><a href="https://www.lewisbarbecue.com/" target="_blank" rel="noopener" class="chip-link">Lewis Barbecue</a></span>
             <span class="text-[8px] font-bold uppercase tracking-wider bg-primary-container text-white px-1.5 py-0.5 rounded-sm">Bib</span>
           </div>
         </div>
@@ -567,7 +623,7 @@ tailwind.config = {
           <div class="inline-flex flex-col items-center gap-1">
             <div class="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full border border-primary-container/30">
               <span class="material-symbols-outlined text-primary !text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-              <span class="font-headline italic text-sm text-on-surface"><a href="https://www.jackrabbitfilly.com/" target="_blank" rel="noopener" class="hover:underline underline-offset-2 decoration-1">Jackrabbit Filly</a></span>
+              <span class="font-headline italic text-sm text-on-surface"><a href="https://www.jackrabbitfilly.com/" target="_blank" rel="noopener" class="chip-link">Jackrabbit Filly</a></span>
             </div>
             <span class="text-[9px] text-primary font-medium">Confirmed &middot; 5:30pm &middot; party of 7</span>
           </div>
@@ -578,29 +634,29 @@ tailwind.config = {
       <div class="md:grid md:grid-cols-[140px_1fr_1fr_1fr_1fr] border-t border-outline-variant/[0.08] bg-surface/50 rounded-b-2xl">
         <div class="p-4 md:p-5 md:border-r border-outline-variant/[0.08]">
           <span class="font-headline font-bold text-primary text-sm">Sat</span>
-          <span class="font-body text-on-surface-variant/40 text-xs block">June 13</span>
-          <span class="font-body text-on-surface-variant/30 text-[10px] italic mt-1 block">Departure</span>
+          <span class="font-body text-on-surface-variant/60 text-xs block">June 13</span>
+          <span class="font-body text-on-surface-variant/55 text-[10px] italic mt-1 block">Departure</span>
         </div>
         <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
           <div class="inline-flex flex-col items-center gap-1 text-center">
             <div class="inline-flex items-center gap-2 bg-secondary/10 px-4 py-2 rounded-full">
-              <span class="font-headline italic text-sm text-on-surface"><a href="https://babascharleston.com/" target="_blank" rel="noopener" class="hover:underline underline-offset-2 decoration-1">Babas</a></span>
-              <span class="text-on-surface-variant/30 text-[10px]">or</span>
-              <span class="font-headline italic text-sm text-on-surface"><a href="https://www.bittyandbeauscoffee.com/location/charleston/" target="_blank" rel="noopener" class="hover:underline underline-offset-2 decoration-1">Bitty &amp; Beau</a></span>
+              <span class="font-headline italic text-sm text-on-surface"><a href="https://babascharleston.com/" target="_blank" rel="noopener" class="chip-link">Babas</a></span>
+              <span class="text-on-surface-variant/55 text-[10px]">or</span>
+              <span class="font-headline italic text-sm text-on-surface"><a href="https://www.bittyandbeauscoffee.com/location/charleston/" target="_blank" rel="noopener" class="chip-link">Bitty &amp; Beau</a></span>
             </div>
           </div>
         </div>
         <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
           <div class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full">
-            <span class="font-headline italic text-sm text-on-surface"><a href="https://millersallday.com/" target="_blank" rel="noopener" class="hover:underline underline-offset-2 decoration-1">Miller&rsquo;s All Day</a></span>
+            <span class="font-headline italic text-sm text-on-surface"><a href="https://millersallday.com/" target="_blank" rel="noopener" class="chip-link">Miller&rsquo;s All Day</a></span>
             <span class="text-[8px] font-bold uppercase tracking-wider bg-[#f5c6d0] text-on-surface px-1.5 py-0.5 rounded-sm">Haley&rsquo;s</span>
           </div>
         </div>
         <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
-          <span class="text-on-surface-variant/20 text-xs italic">departing</span>
+          <span class="text-on-surface-variant/50 text-xs italic">departing</span>
         </div>
         <div class="px-4 py-3 md:p-5 flex items-center justify-center">
-          <span class="text-on-surface-variant/20 text-xs italic">&mdash;</span>
+          <span class="text-on-surface-variant/50 text-xs italic">&mdash;</span>
         </div>
       </div>
 
@@ -608,25 +664,25 @@ tailwind.config = {
 
     <!-- Activities -->
     <div class="mt-8 reveal">
-      <h3 class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant/40 mb-4">Activities This Week</h3>
+      <h3 class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant/60 mb-4">Activities This Week</h3>
       <div class="flex flex-wrap gap-2">
         <span class="inline-flex items-center gap-1.5 bg-surface-container-lowest px-3 py-1.5 rounded-full text-xs font-body whisper-shadow">
-          <span class="material-symbols-outlined text-primary !text-sm leading-none">check_circle</span> Sunset Catamaran <span class="text-on-surface-variant/40">&middot; Wed 7pm &middot; BYOB</span>
+          <span class="material-symbols-outlined text-primary !text-sm leading-none">check_circle</span> Sunset Catamaran <span class="text-on-surface-variant/60">&middot; Wed 7pm &middot; BYOB</span>
         </span>
         <span class="inline-flex items-center gap-1.5 bg-surface-container-lowest px-3 py-1.5 rounded-full text-xs font-body whisper-shadow">
-          <span class="material-symbols-outlined text-primary !text-sm leading-none">check_circle</span> Charleston Oyster Farm <span class="text-on-surface-variant/40">&middot; Thu AM &middot; confirmed</span>
+          <span class="material-symbols-outlined text-primary !text-sm leading-none">check_circle</span> Charleston Oyster Farm <span class="text-on-surface-variant/60">&middot; Thu AM &middot; confirmed</span>
         </span>
         <span class="inline-flex items-center gap-1.5 bg-surface-container-lowest px-3 py-1.5 rounded-full text-xs font-body whisper-shadow">
-          <span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Bulls Island Ferry <span class="text-on-surface-variant/40">&middot; Fri (option)</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Bulls Island Ferry <span class="text-on-surface-variant/60">&middot; Fri (option)</span>
         </span>
         <span class="inline-flex items-center gap-1.5 bg-surface-container-lowest px-3 py-1.5 rounded-full text-xs font-body whisper-shadow">
-          <span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Historic District Walk <span class="text-on-surface-variant/40">&middot; Tue</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Historic District Walk <span class="text-on-surface-variant/60">&middot; Tue</span>
         </span>
         <span class="inline-flex items-center gap-1.5 bg-surface-container-lowest px-3 py-1.5 rounded-full text-xs font-body whisper-shadow">
-          <span class="w-1.5 h-1.5 rounded-full bg-primary"></span> SC Aquarium <span class="text-on-surface-variant/40">&middot; option (Trey + kids)</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-primary"></span> SC Aquarium <span class="text-on-surface-variant/60">&middot; option (Trey + kids)</span>
         </span>
         <span class="inline-flex items-center gap-1.5 bg-surface-container-lowest px-3 py-1.5 rounded-full text-xs font-body whisper-shadow">
-          <span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Beach / Pool <span class="text-on-surface-variant/40">&middot; flexible</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Beach / Pool <span class="text-on-surface-variant/60">&middot; flexible</span>
         </span>
       </div>
     </div>
@@ -635,16 +691,16 @@ tailwind.config = {
     <div class="mt-8 bg-surface-container-lowest rounded-xl p-6 md:p-8 whisper-shadow reveal">
       <div class="flex items-baseline justify-between flex-wrap gap-2 mb-6">
         <h3 class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-secondary">Reservation Schedule</h3>
-        <span class="font-body text-[10px] text-on-surface-variant/50 uppercase tracking-[0.15em]">9 days out &middot; where things stand</span>
+        <span class="font-body text-[10px] text-on-surface-variant/65 uppercase tracking-[0.15em]">9 days out &middot; where things stand</span>
       </div>
 
       <!-- Reservations -->
       <div class="mb-6">
-        <h4 class="font-body text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant/60 mb-3">&#127869;&#65039; Reservations</h4>
+        <h4 class="font-body text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant/70 mb-3">&#127869;&#65039; Reservations</h4>
         <div class="overflow-x-auto">
           <table class="w-full text-sm font-body">
             <thead>
-              <tr class="text-[10px] uppercase tracking-[0.1em] text-on-surface-variant/40">
+              <tr class="text-[10px] uppercase tracking-[0.1em] text-on-surface-variant/60">
                 <th class="text-left font-medium pb-2 pr-3">When</th>
                 <th class="text-left font-medium pb-2 pr-3">Reservation</th>
                 <th class="text-left font-medium pb-2">Details</th>
@@ -659,15 +715,15 @@ tailwind.config = {
                   </span>
                   <br><span class="text-xs text-primary/70">5:00 PM</span>
                 </td>
-                <td class="py-3 pr-3"><strong class="text-on-surface">FIG</strong> <span class="text-xs text-on-surface-variant/50">&middot; dinner</span></td>
+                <td class="py-3 pr-3"><strong class="text-on-surface">FIG</strong> <span class="text-xs text-on-surface-variant/65">&middot; dinner</span></td>
                 <td class="py-3 text-xs"><strong class="text-on-surface">Confirmed</strong> &middot; 4 adults &middot; Michelin-listed. Nana + the kids dine separately.</td>
               </tr>
               <tr class="border-t border-outline-variant/[0.08]">
                 <td class="py-3 pr-3 whitespace-nowrap">
                   <strong class="text-on-surface">Tue 6/9</strong>
-                  <br><span class="text-xs text-on-surface-variant/50">book the table</span>
+                  <br><span class="text-xs text-on-surface-variant/65">book the table</span>
                 </td>
-                <td class="py-3 pr-3"><strong class="text-on-surface">Frannie &amp; The Fox</strong> <span class="text-xs text-on-surface-variant/50">&middot; Nana + kids</span></td>
+                <td class="py-3 pr-3"><strong class="text-on-surface">Frannie &amp; The Fox</strong> <span class="text-xs text-on-surface-variant/65">&middot; Nana + kids</span></td>
                 <td class="py-3 text-xs">Near the hotel, while the 4 adults are at FIG. Reserve a table for Nana + the kids.</td>
               </tr>
               <tr class="border-t border-outline-variant/[0.08] bg-primary/[0.04]">
@@ -678,7 +734,7 @@ tailwind.config = {
                   </span>
                   <br><span class="text-xs text-primary/70">9:00 AM</span>
                 </td>
-                <td class="py-3 pr-3"><strong class="text-on-surface">Poogan&rsquo;s Porch</strong> <span class="text-xs text-on-surface-variant/50">&middot; breakfast</span></td>
+                <td class="py-3 pr-3"><strong class="text-on-surface">Poogan&rsquo;s Porch</strong> <span class="text-xs text-on-surface-variant/65">&middot; breakfast</span></td>
                 <td class="py-3 text-xs"><strong class="text-on-surface">Confirmed</strong> &middot; party of 7 &middot; OpenTable.</td>
               </tr>
               <tr class="border-t border-outline-variant/[0.08] bg-primary/[0.04]">
@@ -689,7 +745,7 @@ tailwind.config = {
                   </span>
                   <br><span class="text-xs text-primary/70">5:30 PM</span>
                 </td>
-                <td class="py-3 pr-3"><strong class="text-on-surface">Jackrabbit Filly</strong> <span class="text-xs text-on-surface-variant/50">&middot; dinner</span></td>
+                <td class="py-3 pr-3"><strong class="text-on-surface">Jackrabbit Filly</strong> <span class="text-xs text-on-surface-variant/65">&middot; dinner</span></td>
                 <td class="py-3 text-xs"><strong class="text-on-surface">Confirmed</strong> &middot; party of 7 &middot; Park Circle.</td>
               </tr>
             </tbody>
@@ -699,7 +755,7 @@ tailwind.config = {
 
       <!-- Calls to make -->
       <div class="mb-6 pt-4 border-t border-outline-variant/[0.08]">
-        <h4 class="font-body text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant/60 mb-3">&#128222; Calls to make this week</h4>
+        <h4 class="font-body text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant/70 mb-3">&#128222; Calls to make this week</h4>
         <div class="space-y-2 font-body text-sm text-on-surface-variant">
           <div class="flex items-center gap-3">
             <span class="material-symbols-outlined text-primary !text-base">phone</span>
@@ -710,7 +766,7 @@ tailwind.config = {
 
       <!-- No-reservation notes -->
       <div class="pt-4 border-t border-outline-variant/[0.08]">
-        <h4 class="font-body text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant/60 mb-3">&#9989; No reservation needed</h4>
+        <h4 class="font-body text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant/70 mb-3">&#9989; No reservation needed</h4>
         <p class="font-body text-xs text-on-surface-variant leading-relaxed">
           <strong class="text-on-surface">Chubby Fish</strong> &mdash; no reservations; line at 5pm Wednesday &middot;
           <strong class="text-on-surface">Callie&rsquo;s</strong>, <strong class="text-on-surface">Leon&rsquo;s Oyster Shop</strong>, <strong class="text-on-surface">Grit Bakery</strong>, <strong class="text-on-surface">Lewis BBQ</strong>, <strong class="text-on-surface">Bowens Island</strong>, <strong class="text-on-surface">Xiao Bao Biscuit</strong>, <strong class="text-on-surface">Miller&rsquo;s All Day</strong> &mdash; walk-in.
@@ -719,8 +775,8 @@ tailwind.config = {
 
       <!-- Safety note -->
       <div class="mt-5 pt-4 border-t border-outline-variant/[0.08] flex items-start gap-2">
-        <span class="material-symbols-outlined text-on-surface-variant/40 !text-sm mt-0.5">info</span>
-        <p class="font-body text-[11px] text-on-surface-variant/60 leading-relaxed">Last table to lock &mdash; <strong class="text-on-surface">Frannie &amp; The Fox</strong> for Nana + the kids on <strong class="text-on-surface">Tue 6/9</strong> (near the hotel, while the adults are at FIG). Every other meal is booked, walk-in, or play-it-by-ear.</p>
+        <span class="material-symbols-outlined text-on-surface-variant/60 !text-sm mt-0.5">info</span>
+        <p class="font-body text-[11px] text-on-surface-variant/70 leading-relaxed">Last table to lock &mdash; <strong class="text-on-surface">Frannie &amp; The Fox</strong> for Nana + the kids on <strong class="text-on-surface">Tue 6/9</strong> (near the hotel, while the adults are at FIG). Every other meal is booked, walk-in, or play-it-by-ear.</p>
       </div>
     </div>
   </div>
@@ -959,7 +1015,7 @@ tailwind.config = {
     </div>
 
     <!-- Table -->
-    <div class="overflow-x-auto rounded-xl whisper-shadow-lg reveal">
+    <div id="masterTableWrap" class="overflow-x-auto rounded-xl whisper-shadow-lg reveal">
       <table class="master-table" id="masterTable">
         <thead>
           <tr>
@@ -973,51 +1029,51 @@ tailwind.config = {
           </tr>
         </thead>
         <tbody id="masterTableBody">
-          <tr data-meals="Dinner" data-kids="Fine Dining" data-res-id="wild-common"><td>Wild Common</td><td>Dinner</td><td class="text-sm italic">Tasting menu, $95pp, inventive</td><td class="text-xs">Fine Dining</td><td class="text-xs font-semibold text-error uppercase">Required</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens Apr 9</span></td><td><div class="flex justify-center gap-1"><span class="badge-michelin text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Star</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Fine Dining" data-res-id="verns"><td>Vern&rsquo;s</td><td>Dinner</td><td class="text-sm italic">Intimate candlelit, Lowcountry meets global</td><td class="text-xs">Fine Dining</td><td class="text-xs font-semibold text-error uppercase">Required</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 9</span></td><td><div class="flex justify-center gap-1"><span class="badge-michelin text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Star</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-id="malagon"><td>Malag&oacute;n Mercado y Taperia</td><td>Dinner</td><td class="text-sm italic">Spanish market + taperia, small &amp; large plates</td><td class="text-xs">Better Without Kids</td><td class="text-xs font-semibold text-secondary uppercase">Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 9</span></td><td><div class="flex justify-center gap-1"><span class="badge-michelin text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Star</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="rodney-scotts-bbq"><td>Rodney Scott&rsquo;s BBQ</td><td>Lunch, Dinner</td><td class="text-sm italic">Whole-hog legend, counter service</td><td class="text-xs text-primary font-medium">Kid Friendly</td><td class="text-xs text-outline uppercase">Walk-in</td><td>Walk-in</td><td><div class="flex justify-center gap-1 flex-wrap"><span class="badge-bib text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Bib Gourmand</span><span class="badge-beard text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">James Beard</span><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="lewis-barbecue"><td>Lewis Barbecue</td><td>Lunch, Dinner</td><td class="text-sm italic">Texas-style BBQ, brisket king</td><td class="text-xs text-primary font-medium">Kid Friendly</td><td class="text-xs text-outline uppercase">Walk-in</td><td>Walk-in</td><td><div class="flex justify-center gap-1"><span class="badge-bib text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Bib Gourmand</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="leons-oyster-shop"><td>Leon&rsquo;s Oyster Shop</td><td>Lunch, Dinner</td><td class="text-sm italic">Fried chicken + oysters, retro auto shop</td><td class="text-xs text-primary font-medium">Kid Friendly</td><td class="text-xs text-outline uppercase">Walk-in</td><td>Walk-in</td><td><div class="flex justify-center gap-1 flex-wrap"><span class="badge-bib text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Bib Gourmand</span><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-id="chubby-fish"><td>Chubby Fish</td><td>Dinner</td><td class="text-sm italic">Daily-catch seafood, caviar sliders, no resos</td><td class="text-xs">Better Without Kids</td><td class="text-xs text-outline uppercase">None</td><td>Walk-in line at 5pm</td><td><div class="flex justify-center gap-1 flex-wrap"><span class="badge-michelin-listed text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Listed</span><span class="badge-nyt text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">NYT Top 50</span><span class="badge-beard text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">James Beard</span><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-id="fig"><td>FIG</td><td>Dinner</td><td class="text-sm italic">20+ year flagship, seasonal American</td><td class="text-xs">Better Without Kids</td><td class="text-xs font-semibold text-error uppercase">Required</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens Apr 9</span></td><td><div class="flex justify-center gap-1"><span class="badge-michelin-listed text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Listed</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Better" data-res-id="husk"><td>Husk</td><td>Lunch, Dinner</td><td class="text-sm italic">Sean Brock landmark, Southern ingredients</td><td class="text-xs">Better Without Kids</td><td class="text-xs font-semibold text-secondary uppercase">Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 9</span></td><td><div class="flex justify-center gap-1"><span class="badge-michelin-listed text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Listed</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-id="sorelle"><td>Sorelle</td><td>Dinner</td><td class="text-sm italic">Italian, &ldquo;Pillows of Gold&rdquo; tortelloni</td><td class="text-xs">Better Without Kids</td><td class="text-xs font-semibold text-secondary uppercase">Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 9</span></td><td><div class="flex justify-center gap-1"><span class="badge-michelin-listed text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Listed</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-id="lowland"><td>Lowland</td><td>Dinner</td><td class="text-sm italic">James Beard chef, contemporary</td><td class="text-xs">Better Without Kids</td><td class="text-xs font-semibold text-error uppercase">Required</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 9</span></td><td><div class="flex justify-center gap-1"><span class="badge-michelin-listed text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Listed</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="xiao-bao-biscuit"><td>Xiao Bao Biscuit</td><td>Lunch, Dinner</td><td class="text-sm italic">Creative Asian fusion, casual beloved</td><td class="text-xs text-primary font-medium">Kid Friendly</td><td class="text-xs text-outline uppercase">Walk-in</td><td>Walk-in</td><td><div class="flex justify-center gap-1 flex-wrap"><span class="badge-michelin-listed text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Listed</span><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-id="the-establishment"><td>The Establishment</td><td>Dinner</td><td class="text-sm italic">Contemporary American</td><td class="text-xs">Better Without Kids</td><td class="text-xs font-semibold text-secondary uppercase">Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 25</span></td><td><div class="flex justify-center gap-1"><span class="badge-michelin-listed text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Listed</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Better" data-res-id="obstinate-daughter"><td>The Obstinate Daughter</td><td>Lunch, Dinner</td><td class="text-sm italic">Italian-American, Sullivan&rsquo;s Island beach</td><td class="text-xs">Better Without Kids</td><td class="text-xs font-semibold text-secondary uppercase">Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 25</span></td><td><div class="flex justify-center gap-1 flex-wrap"><span class="badge-michelin-listed text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Listed</span><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-id="zero-george"><td>Zero George Restaurant</td><td>Dinner</td><td class="text-sm italic">Hotel restaurant, contemporary</td><td class="text-xs">Better Without Kids</td><td class="text-xs font-semibold text-error uppercase">Required</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 9</span></td><td><div class="flex justify-center gap-1"><span class="badge-michelin-listed text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Listed</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Fine Dining" data-res-id="merci"><td>Merci</td><td>Dinner</td><td class="text-sm italic">26 seats, European, beef Wellington for two</td><td class="text-xs">Fine Dining</td><td class="text-xs font-semibold text-error uppercase">Required</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 25</span></td><td><div class="flex justify-center gap-1"><span class="badge-beard text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">James Beard</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="renzo"><td>Renzo</td><td>Lunch, Dinner</td><td class="text-sm italic">Italian-leaning, &ldquo;Kevin McCallister Pizza&rdquo;</td><td class="text-xs text-primary font-medium">Kid Friendly</td><td class="text-xs font-semibold text-secondary uppercase">Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 25</span></td><td><div class="flex justify-center gap-1 flex-wrap"><span class="badge-beard text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">James Beard</span><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-id="palmira"><td>Palmira</td><td>Dinner</td><td class="text-sm italic">Beef cheeks, emerging chef</td><td class="text-xs">Better Without Kids</td><td class="text-xs font-semibold text-secondary uppercase">Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 25</span></td><td><div class="flex justify-center gap-1 flex-wrap"><span class="badge-beard text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">James Beard</span><span class="badge-nyt text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">NYT</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-id="bintu-atelier"><td>Bintu Atelier</td><td>Dinner</td><td class="text-sm italic">Senegalese-inspired, Gullah influences</td><td class="text-xs">Better Without Kids</td><td class="text-xs font-semibold text-error uppercase">Required</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 9</span></td><td><div class="flex justify-center gap-1"><span class="badge-beard text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">James Beard</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="fleet-landing"><td>Fleet Landing</td><td>Lunch, Dinner</td><td class="text-sm italic">Waterfront raw bar, harbor views</td><td class="text-xs text-primary font-medium">Kid Friendly</td><td class="text-xs font-semibold text-secondary uppercase">Recommended</td><td><span class="book-platform book-platform--opentable">OpenTable</span><br><span class="text-[10px] text-on-surface-variant">Opens May 25</span></td><td><div class="flex justify-center gap-1 flex-wrap"><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="juanitas"><td>Juanitas</td><td>Lunch, Dinner</td><td class="text-sm italic">Mexican, vibrant</td><td class="text-xs text-primary font-medium">Kid Friendly</td><td class="text-xs text-outline uppercase">Walk-in</td><td>Walk-in</td><td><div class="flex justify-center gap-1"><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="hometeam-bbq"><td>Hometeam BBQ</td><td>Lunch, Dinner</td><td class="text-sm italic">BBQ on the water, gameday brisket</td><td class="text-xs text-primary font-medium">Kid Friendly</td><td class="text-xs text-outline uppercase">Walk-in</td><td>Walk-in</td><td><div class="flex justify-center gap-1"><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-id="le-farfalle"><td>Le Farfalle</td><td>Dinner</td><td class="text-sm italic">Italian, handmade pasta</td><td class="text-xs">Better Without Kids</td><td class="text-xs font-semibold text-error uppercase">Required</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 9</span></td><td><div class="flex justify-center gap-1"><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="rancho-lewis"><td>Rancho Lewis</td><td>Lunch, Dinner</td><td class="text-sm italic">Tex-Mex meets Lowcountry</td><td class="text-xs text-primary font-medium">Kid Friendly</td><td class="text-xs text-outline uppercase">Walk-in</td><td>Walk-in</td><td><div class="flex justify-center gap-1 flex-wrap"><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-id="the-matador"><td>The Matador</td><td>Dinner</td><td class="text-sm italic">Tequila bar + Mexican</td><td class="text-xs">Better Without Kids</td><td class="text-xs font-semibold text-secondary uppercase">Recommended</td><td><span class="book-platform book-platform--opentable">OpenTable</span><br><span class="text-[10px] text-on-surface-variant">Opens May 25</span></td><td><div class="flex justify-center gap-1"><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
-          <tr data-meals="Lunch" data-kids="Yes" data-res-id="goat-sheep-cow"><td>Goat Sheep Cow</td><td>Lunch</td><td class="text-sm italic">Cheese + charcuterie shop</td><td class="text-xs text-primary font-medium">Kid Friendly</td><td class="text-xs text-outline uppercase">Walk-in</td><td>Walk-in</td><td><div class="flex justify-center gap-1"><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-id="church-and-union"><td>Church and Union</td><td>Dinner</td><td class="text-sm italic">Upscale American, King Street</td><td class="text-xs">Better Without Kids</td><td class="text-xs font-semibold text-secondary uppercase">Recommended</td><td><span class="book-platform book-platform--opentable">OpenTable</span><br><span class="text-[10px] text-on-surface-variant">Opens May 25</span></td><td><div class="flex justify-center gap-1 flex-wrap"><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-id="the-peacock"><td>The Peacock</td><td>Dinner</td><td class="text-sm italic">Cocktails + small plates</td><td class="text-xs">Better Without Kids</td><td class="text-xs font-semibold text-secondary uppercase">Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 25</span></td><td><div class="flex justify-center gap-1"><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Better" data-res-id="darling-oyster-bar"><td>Darling Oyster Bar</td><td>Dinner</td><td class="text-sm italic">Gorgeous seafood, Upper King</td><td class="text-xs">Better Without Kids</td><td class="text-xs font-semibold text-secondary uppercase">Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 25</span></td><td><div class="flex justify-center gap-1 flex-wrap"><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
-          <tr data-meals="Brunch,Lunch" data-kids="Yes" data-res-id="babas"><td>Babas</td><td>Brunch, Lunch</td><td class="text-sm italic">European all-day cafe</td><td class="text-xs text-primary font-medium">Kid Friendly</td><td class="text-xs text-outline uppercase">Walk-in</td><td>Walk-in</td><td><div class="flex justify-center gap-1"><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
-          <tr data-meals="Brunch,Dinner" data-kids="Yes" data-res-id="poogans-porch"><td>Poogan&rsquo;s Porch</td><td>Brunch, Dinner</td><td class="text-sm italic">Classic Southern since 1976</td><td class="text-xs text-primary font-medium">Kid Friendly</td><td class="text-xs font-semibold text-secondary uppercase">Recommended</td><td><span class="book-platform book-platform--opentable">OpenTable</span><br><span class="text-[10px] text-on-surface-variant">Opens May 25</span></td><td><div class="flex justify-center gap-1 flex-wrap"><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
-          <tr data-meals="Breakfast" data-kids="Yes" data-res-id="callies-hot-little-biscuit"><td>Callie&rsquo;s Hot Little Biscuit</td><td>Breakfast</td><td class="text-sm italic">The biscuit that launched a thousand TikToks</td><td class="text-xs text-primary font-medium">Kid Friendly</td><td class="text-xs text-outline uppercase">Walk-in</td><td>Walk-in</td><td><div class="flex justify-center gap-1 flex-wrap"><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
-          <tr data-meals="Breakfast,Brunch" data-kids="Yes" data-res-id="millers-all-day"><td>Miller&rsquo;s All Day</td><td>Breakfast, Brunch</td><td class="text-sm italic">All-day breakfast, cozy</td><td class="text-xs text-primary font-medium">Kid Friendly</td><td class="text-xs text-outline uppercase">Walk-in</td><td>Walk-in</td><td><div class="flex justify-center gap-1"><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="sullivans-fish-camp"><td>Sullivan&rsquo;s Fish Camp</td><td>Lunch, Dinner</td><td class="text-sm italic">Elevated fish camp, Sullivan&rsquo;s Island</td><td class="text-xs text-primary font-medium">Kid Friendly</td><td class="text-xs font-semibold text-secondary uppercase">Recommended</td><td><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 25</span></td><td><div class="flex justify-center gap-1"><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span></div></td></tr>
-          <tr data-meals="Dessert" data-kids="Yes" data-res-id="sugar-bakeshop"><td>Sugar Bakeshop</td><td>Dessert</td><td class="text-sm italic">20-year cupcake institution</td><td class="text-xs text-primary font-medium">Kid Friendly</td><td class="text-xs text-outline uppercase">Walk-in</td><td>Walk-in</td><td><div class="flex justify-center gap-1"><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span></div></td></tr>
-          <tr data-meals="Dessert" data-kids="Yes" data-res-id="peace-pie"><td>Peace Pie</td><td>Dessert</td><td class="text-sm italic">Handmade pies</td><td class="text-xs text-primary font-medium">Kid Friendly</td><td class="text-xs text-outline uppercase">Walk-in</td><td>Walk-in</td><td><div class="flex justify-center gap-1"><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
-          <tr data-meals="Dessert" data-kids="Yes" data-res-id="jenis"><td>Jeni&rsquo;s</td><td>Dessert</td><td class="text-sm italic">Ice cream chain, great flavors</td><td class="text-xs text-primary font-medium">Kid Friendly</td><td class="text-xs text-outline uppercase">Walk-in</td><td>Walk-in</td><td><div class="flex justify-center gap-1"><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
-          <tr data-meals="Dessert" data-kids="Yes" data-res-id="carmellas"><td>Carmella&rsquo;s</td><td>Dessert</td><td class="text-sm italic">Dessert bar + cafe</td><td class="text-xs text-primary font-medium">Kid Friendly</td><td class="text-xs text-outline uppercase">Walk-in</td><td>Walk-in</td><td><div class="flex justify-center gap-1"><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
-          <tr data-meals="Lunch" data-kids="Yes" data-res-id="hannibals-kitchen"><td>Hannibal&rsquo;s Kitchen</td><td>Lunch</td><td class="text-sm italic">Soul food legend, crab rice</td><td class="text-xs text-primary font-medium">Kid Friendly</td><td class="text-xs text-outline uppercase">Walk-in</td><td>Walk-in</td><td><div class="flex justify-center gap-1"><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="jack-of-cups"><td>Jack of Cups</td><td>Lunch, Dinner</td><td class="text-sm italic">Red curry mac and cheese fusion</td><td class="text-xs text-primary font-medium">Kid Friendly</td><td class="text-xs text-outline uppercase">Walk-in</td><td>Walk-in</td><td><div class="flex justify-center gap-1"><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="tutti-pizza"><td>Tutti Pizza</td><td>Lunch, Dinner</td><td class="text-sm italic">Casual square pizza, neighborhood</td><td class="text-xs text-primary font-medium">Kid Friendly</td><td class="text-xs text-outline uppercase">Walk-in</td><td>Walk-in</td><td></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="kultura"><td>Kultura</td><td>Lunch, Dinner</td><td class="text-sm italic">Filipino, one of few in Lowcountry</td><td class="text-xs text-primary font-medium">Kid Friendly</td><td class="text-xs text-outline uppercase">Walk-in</td><td>Walk-in</td><td></td></tr>
-          <tr data-meals="Breakfast" data-kids="Yes" data-res-id="grit-bakery"><td>Grit Bakery</td><td>Breakfast</td><td class="text-sm italic">Croissants, blue corn sourdough</td><td class="text-xs text-primary font-medium">Kid Friendly</td><td class="text-xs text-outline uppercase">Walk-in</td><td>Walk-in</td><td><div class="flex justify-center gap-1"><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span></div></td></tr>
-          <tr data-meals="Dinner" data-kids="Yes" data-res-id="cane-pazzo"><td>Cane Pazzo</td><td>Dinner</td><td class="text-sm italic">Italian family-style, &ldquo;mad dog&rdquo;</td><td class="text-xs text-primary font-medium">Kid Friendly</td><td class="text-xs font-semibold text-secondary uppercase">Recommended</td><td><span class="book-platform book-platform--opentable">OpenTable</span><br><span class="text-[10px] text-on-surface-variant">Opens May 25</span></td><td></td></tr>
-          <tr data-meals="Breakfast,Brunch" data-kids="Yes" data-res-id="the-daily"><td>The Daily</td><td>Breakfast, Brunch</td><td class="text-sm italic">TikTok darling, avocado toast + espresso</td><td class="text-xs text-primary font-medium">Kid Friendly</td><td class="text-xs text-outline uppercase">Walk-in</td><td>Walk-in</td><td><div class="flex justify-center gap-1"><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Fine Dining" data-res-id="wild-common"><td>Wild Common</td><td data-label="Best For">Dinner</td><td data-label="Vibe" class="text-sm italic">Tasting menu, $95pp, inventive</td><td data-label="Kids" class="text-xs">Fine Dining</td><td data-label="Reservations" class="text-xs font-semibold text-error uppercase">Required</td><td data-label="Book By"><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens Apr 9</span></td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-michelin text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Star</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Fine Dining" data-res-id="verns"><td>Vern&rsquo;s</td><td data-label="Best For">Dinner</td><td data-label="Vibe" class="text-sm italic">Intimate candlelit, Lowcountry meets global</td><td data-label="Kids" class="text-xs">Fine Dining</td><td data-label="Reservations" class="text-xs font-semibold text-error uppercase">Required</td><td data-label="Book By"><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 9</span></td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-michelin text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Star</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-id="malagon"><td>Malag&oacute;n Mercado y Taperia</td><td data-label="Best For">Dinner</td><td data-label="Vibe" class="text-sm italic">Spanish market + taperia, small &amp; large plates</td><td data-label="Kids" class="text-xs">Better Without Kids</td><td data-label="Reservations" class="text-xs font-semibold text-secondary uppercase">Recommended</td><td data-label="Book By"><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 9</span></td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-michelin text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Star</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="rodney-scotts-bbq"><td>Rodney Scott&rsquo;s BBQ</td><td data-label="Best For">Lunch, Dinner</td><td data-label="Vibe" class="text-sm italic">Whole-hog legend, counter service</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs text-outline uppercase">Walk-in</td><td data-label="Book By">Walk-in</td><td data-label="Buzz"><div class="flex justify-center gap-1 flex-wrap"><span class="badge-bib text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Bib Gourmand</span><span class="badge-beard text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">James Beard</span><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="lewis-barbecue"><td>Lewis Barbecue</td><td data-label="Best For">Lunch, Dinner</td><td data-label="Vibe" class="text-sm italic">Texas-style BBQ, brisket king</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs text-outline uppercase">Walk-in</td><td data-label="Book By">Walk-in</td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-bib text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Bib Gourmand</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="leons-oyster-shop"><td>Leon&rsquo;s Oyster Shop</td><td data-label="Best For">Lunch, Dinner</td><td data-label="Vibe" class="text-sm italic">Fried chicken + oysters, retro auto shop</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs text-outline uppercase">Walk-in</td><td data-label="Book By">Walk-in</td><td data-label="Buzz"><div class="flex justify-center gap-1 flex-wrap"><span class="badge-bib text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Bib Gourmand</span><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-id="chubby-fish"><td>Chubby Fish</td><td data-label="Best For">Dinner</td><td data-label="Vibe" class="text-sm italic">Daily-catch seafood, caviar sliders, no resos</td><td data-label="Kids" class="text-xs">Better Without Kids</td><td data-label="Reservations" class="text-xs text-outline uppercase">None</td><td data-label="Book By">Walk-in line at 5pm</td><td data-label="Buzz"><div class="flex justify-center gap-1 flex-wrap"><span class="badge-michelin-listed text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Listed</span><span class="badge-nyt text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">NYT Top 50</span><span class="badge-beard text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">James Beard</span><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-id="fig"><td>FIG</td><td data-label="Best For">Dinner</td><td data-label="Vibe" class="text-sm italic">20+ year flagship, seasonal American</td><td data-label="Kids" class="text-xs">Better Without Kids</td><td data-label="Reservations" class="text-xs font-semibold text-error uppercase">Required</td><td data-label="Book By"><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens Apr 9</span></td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-michelin-listed text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Listed</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Better" data-res-id="husk"><td>Husk</td><td data-label="Best For">Lunch, Dinner</td><td data-label="Vibe" class="text-sm italic">Sean Brock landmark, Southern ingredients</td><td data-label="Kids" class="text-xs">Better Without Kids</td><td data-label="Reservations" class="text-xs font-semibold text-secondary uppercase">Recommended</td><td data-label="Book By"><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 9</span></td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-michelin-listed text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Listed</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-id="sorelle"><td>Sorelle</td><td data-label="Best For">Dinner</td><td data-label="Vibe" class="text-sm italic">Italian, &ldquo;Pillows of Gold&rdquo; tortelloni</td><td data-label="Kids" class="text-xs">Better Without Kids</td><td data-label="Reservations" class="text-xs font-semibold text-secondary uppercase">Recommended</td><td data-label="Book By"><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 9</span></td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-michelin-listed text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Listed</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-id="lowland"><td>Lowland</td><td data-label="Best For">Dinner</td><td data-label="Vibe" class="text-sm italic">James Beard chef, contemporary</td><td data-label="Kids" class="text-xs">Better Without Kids</td><td data-label="Reservations" class="text-xs font-semibold text-error uppercase">Required</td><td data-label="Book By"><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 9</span></td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-michelin-listed text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Listed</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="xiao-bao-biscuit"><td>Xiao Bao Biscuit</td><td data-label="Best For">Lunch, Dinner</td><td data-label="Vibe" class="text-sm italic">Creative Asian fusion, casual beloved</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs text-outline uppercase">Walk-in</td><td data-label="Book By">Walk-in</td><td data-label="Buzz"><div class="flex justify-center gap-1 flex-wrap"><span class="badge-michelin-listed text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Listed</span><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-id="the-establishment"><td>The Establishment</td><td data-label="Best For">Dinner</td><td data-label="Vibe" class="text-sm italic">Contemporary American</td><td data-label="Kids" class="text-xs">Better Without Kids</td><td data-label="Reservations" class="text-xs font-semibold text-secondary uppercase">Recommended</td><td data-label="Book By"><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 25</span></td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-michelin-listed text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Listed</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Better" data-res-id="obstinate-daughter"><td>The Obstinate Daughter</td><td data-label="Best For">Lunch, Dinner</td><td data-label="Vibe" class="text-sm italic">Italian-American, Sullivan&rsquo;s Island beach</td><td data-label="Kids" class="text-xs">Better Without Kids</td><td data-label="Reservations" class="text-xs font-semibold text-secondary uppercase">Recommended</td><td data-label="Book By"><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 25</span></td><td data-label="Buzz"><div class="flex justify-center gap-1 flex-wrap"><span class="badge-michelin-listed text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Listed</span><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-id="zero-george"><td>Zero George Restaurant</td><td data-label="Best For">Dinner</td><td data-label="Vibe" class="text-sm italic">Hotel restaurant, contemporary</td><td data-label="Kids" class="text-xs">Better Without Kids</td><td data-label="Reservations" class="text-xs font-semibold text-error uppercase">Required</td><td data-label="Book By"><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 9</span></td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-michelin-listed text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Listed</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Fine Dining" data-res-id="merci"><td>Merci</td><td data-label="Best For">Dinner</td><td data-label="Vibe" class="text-sm italic">26 seats, European, beef Wellington for two</td><td data-label="Kids" class="text-xs">Fine Dining</td><td data-label="Reservations" class="text-xs font-semibold text-error uppercase">Required</td><td data-label="Book By"><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 25</span></td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-beard text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">James Beard</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="renzo"><td>Renzo</td><td data-label="Best For">Lunch, Dinner</td><td data-label="Vibe" class="text-sm italic">Italian-leaning, &ldquo;Kevin McCallister Pizza&rdquo;</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs font-semibold text-secondary uppercase">Recommended</td><td data-label="Book By"><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 25</span></td><td data-label="Buzz"><div class="flex justify-center gap-1 flex-wrap"><span class="badge-beard text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">James Beard</span><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-id="palmira"><td>Palmira</td><td data-label="Best For">Dinner</td><td data-label="Vibe" class="text-sm italic">Beef cheeks, emerging chef</td><td data-label="Kids" class="text-xs">Better Without Kids</td><td data-label="Reservations" class="text-xs font-semibold text-secondary uppercase">Recommended</td><td data-label="Book By"><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 25</span></td><td data-label="Buzz"><div class="flex justify-center gap-1 flex-wrap"><span class="badge-beard text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">James Beard</span><span class="badge-nyt text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">NYT</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-id="bintu-atelier"><td>Bintu Atelier</td><td data-label="Best For">Dinner</td><td data-label="Vibe" class="text-sm italic">Senegalese-inspired, Gullah influences</td><td data-label="Kids" class="text-xs">Better Without Kids</td><td data-label="Reservations" class="text-xs font-semibold text-error uppercase">Required</td><td data-label="Book By"><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 9</span></td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-beard text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">James Beard</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="fleet-landing"><td>Fleet Landing</td><td data-label="Best For">Lunch, Dinner</td><td data-label="Vibe" class="text-sm italic">Waterfront raw bar, harbor views</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs font-semibold text-secondary uppercase">Recommended</td><td data-label="Book By"><span class="book-platform book-platform--opentable">OpenTable</span><br><span class="text-[10px] text-on-surface-variant">Opens May 25</span></td><td data-label="Buzz"><div class="flex justify-center gap-1 flex-wrap"><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="juanitas"><td>Juanitas</td><td data-label="Best For">Lunch, Dinner</td><td data-label="Vibe" class="text-sm italic">Mexican, vibrant</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs text-outline uppercase">Walk-in</td><td data-label="Book By">Walk-in</td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="hometeam-bbq"><td>Hometeam BBQ</td><td data-label="Best For">Lunch, Dinner</td><td data-label="Vibe" class="text-sm italic">BBQ on the water, gameday brisket</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs text-outline uppercase">Walk-in</td><td data-label="Book By">Walk-in</td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-id="le-farfalle"><td>Le Farfalle</td><td data-label="Best For">Dinner</td><td data-label="Vibe" class="text-sm italic">Italian, handmade pasta</td><td data-label="Kids" class="text-xs">Better Without Kids</td><td data-label="Reservations" class="text-xs font-semibold text-error uppercase">Required</td><td data-label="Book By"><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 9</span></td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="rancho-lewis"><td>Rancho Lewis</td><td data-label="Best For">Lunch, Dinner</td><td data-label="Vibe" class="text-sm italic">Tex-Mex meets Lowcountry</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs text-outline uppercase">Walk-in</td><td data-label="Book By">Walk-in</td><td data-label="Buzz"><div class="flex justify-center gap-1 flex-wrap"><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-id="the-matador"><td>The Matador</td><td data-label="Best For">Dinner</td><td data-label="Vibe" class="text-sm italic">Tequila bar + Mexican</td><td data-label="Kids" class="text-xs">Better Without Kids</td><td data-label="Reservations" class="text-xs font-semibold text-secondary uppercase">Recommended</td><td data-label="Book By"><span class="book-platform book-platform--opentable">OpenTable</span><br><span class="text-[10px] text-on-surface-variant">Opens May 25</span></td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
+          <tr data-meals="Lunch" data-kids="Yes" data-res-id="goat-sheep-cow"><td>Goat Sheep Cow</td><td data-label="Best For">Lunch</td><td data-label="Vibe" class="text-sm italic">Cheese + charcuterie shop</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs text-outline uppercase">Walk-in</td><td data-label="Book By">Walk-in</td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-id="church-and-union"><td>Church and Union</td><td data-label="Best For">Dinner</td><td data-label="Vibe" class="text-sm italic">Upscale American, King Street</td><td data-label="Kids" class="text-xs">Better Without Kids</td><td data-label="Reservations" class="text-xs font-semibold text-secondary uppercase">Recommended</td><td data-label="Book By"><span class="book-platform book-platform--opentable">OpenTable</span><br><span class="text-[10px] text-on-surface-variant">Opens May 25</span></td><td data-label="Buzz"><div class="flex justify-center gap-1 flex-wrap"><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-id="the-peacock"><td>The Peacock</td><td data-label="Best For">Dinner</td><td data-label="Vibe" class="text-sm italic">Cocktails + small plates</td><td data-label="Kids" class="text-xs">Better Without Kids</td><td data-label="Reservations" class="text-xs font-semibold text-secondary uppercase">Recommended</td><td data-label="Book By"><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 25</span></td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Better" data-res-id="darling-oyster-bar"><td>Darling Oyster Bar</td><td data-label="Best For">Dinner</td><td data-label="Vibe" class="text-sm italic">Gorgeous seafood, Upper King</td><td data-label="Kids" class="text-xs">Better Without Kids</td><td data-label="Reservations" class="text-xs font-semibold text-secondary uppercase">Recommended</td><td data-label="Book By"><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 25</span></td><td data-label="Buzz"><div class="flex justify-center gap-1 flex-wrap"><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
+          <tr data-meals="Brunch,Lunch" data-kids="Yes" data-res-id="babas"><td>Babas</td><td data-label="Best For">Brunch, Lunch</td><td data-label="Vibe" class="text-sm italic">European all-day cafe</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs text-outline uppercase">Walk-in</td><td data-label="Book By">Walk-in</td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
+          <tr data-meals="Brunch,Dinner" data-kids="Yes" data-res-id="poogans-porch"><td>Poogan&rsquo;s Porch</td><td data-label="Best For">Brunch, Dinner</td><td data-label="Vibe" class="text-sm italic">Classic Southern since 1976</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs font-semibold text-secondary uppercase">Recommended</td><td data-label="Book By"><span class="book-platform book-platform--opentable">OpenTable</span><br><span class="text-[10px] text-on-surface-variant">Opens May 25</span></td><td data-label="Buzz"><div class="flex justify-center gap-1 flex-wrap"><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
+          <tr data-meals="Breakfast" data-kids="Yes" data-res-id="callies-hot-little-biscuit"><td>Callie&rsquo;s Hot Little Biscuit</td><td data-label="Best For">Breakfast</td><td data-label="Vibe" class="text-sm italic">The biscuit that launched a thousand TikToks</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs text-outline uppercase">Walk-in</td><td data-label="Book By">Walk-in</td><td data-label="Buzz"><div class="flex justify-center gap-1 flex-wrap"><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
+          <tr data-meals="Breakfast,Brunch" data-kids="Yes" data-res-id="millers-all-day"><td>Miller&rsquo;s All Day</td><td data-label="Best For">Breakfast, Brunch</td><td data-label="Vibe" class="text-sm italic">All-day breakfast, cozy</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs text-outline uppercase">Walk-in</td><td data-label="Book By">Walk-in</td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="sullivans-fish-camp"><td>Sullivan&rsquo;s Fish Camp</td><td data-label="Best For">Lunch, Dinner</td><td data-label="Vibe" class="text-sm italic">Elevated fish camp, Sullivan&rsquo;s Island</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs font-semibold text-secondary uppercase">Recommended</td><td data-label="Book By"><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 25</span></td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span></div></td></tr>
+          <tr data-meals="Dessert" data-kids="Yes" data-res-id="sugar-bakeshop"><td>Sugar Bakeshop</td><td data-label="Best For">Dessert</td><td data-label="Vibe" class="text-sm italic">20-year cupcake institution</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs text-outline uppercase">Walk-in</td><td data-label="Book By">Walk-in</td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span></div></td></tr>
+          <tr data-meals="Dessert" data-kids="Yes" data-res-id="peace-pie"><td>Peace Pie</td><td data-label="Best For">Dessert</td><td data-label="Vibe" class="text-sm italic">Handmade pies</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs text-outline uppercase">Walk-in</td><td data-label="Book By">Walk-in</td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
+          <tr data-meals="Dessert" data-kids="Yes" data-res-id="jenis"><td>Jeni&rsquo;s</td><td data-label="Best For">Dessert</td><td data-label="Vibe" class="text-sm italic">Ice cream chain, great flavors</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs text-outline uppercase">Walk-in</td><td data-label="Book By">Walk-in</td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
+          <tr data-meals="Dessert" data-kids="Yes" data-res-id="carmellas"><td>Carmella&rsquo;s</td><td data-label="Best For">Dessert</td><td data-label="Vibe" class="text-sm italic">Dessert bar + cafe</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs text-outline uppercase">Walk-in</td><td data-label="Book By">Walk-in</td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
+          <tr data-meals="Lunch" data-kids="Yes" data-res-id="hannibals-kitchen"><td>Hannibal&rsquo;s Kitchen</td><td data-label="Best For">Lunch</td><td data-label="Vibe" class="text-sm italic">Soul food legend, crab rice</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs text-outline uppercase">Walk-in</td><td data-label="Book By">Walk-in</td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="jack-of-cups"><td>Jack of Cups</td><td data-label="Best For">Lunch, Dinner</td><td data-label="Vibe" class="text-sm italic">Red curry mac and cheese fusion</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs text-outline uppercase">Walk-in</td><td data-label="Book By">Walk-in</td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="tutti-pizza"><td>Tutti Pizza</td><td data-label="Best For">Lunch, Dinner</td><td data-label="Vibe" class="text-sm italic">Casual square pizza, neighborhood</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs text-outline uppercase">Walk-in</td><td data-label="Book By">Walk-in</td><td data-label="Buzz"></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="kultura"><td>Kultura</td><td data-label="Best For">Lunch, Dinner</td><td data-label="Vibe" class="text-sm italic">Filipino, one of few in Lowcountry</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs text-outline uppercase">Walk-in</td><td data-label="Book By">Walk-in</td><td data-label="Buzz"></td></tr>
+          <tr data-meals="Breakfast" data-kids="Yes" data-res-id="grit-bakery"><td>Grit Bakery</td><td data-label="Best For">Breakfast</td><td data-label="Vibe" class="text-sm italic">Croissants, blue corn sourdough</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs text-outline uppercase">Walk-in</td><td data-label="Book By">Walk-in</td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span></div></td></tr>
+          <tr data-meals="Dinner" data-kids="Yes" data-res-id="cane-pazzo"><td>Cane Pazzo</td><td data-label="Best For">Dinner</td><td data-label="Vibe" class="text-sm italic">Italian family-style, &ldquo;mad dog&rdquo;</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs font-semibold text-secondary uppercase">Recommended</td><td data-label="Book By"><span class="book-platform book-platform--opentable">OpenTable</span><br><span class="text-[10px] text-on-surface-variant">Opens May 25</span></td><td data-label="Buzz"></td></tr>
+          <tr data-meals="Breakfast,Brunch" data-kids="Yes" data-res-id="the-daily"><td>The Daily</td><td data-label="Best For">Breakfast, Brunch</td><td data-label="Vibe" class="text-sm italic">TikTok darling, avocado toast + espresso</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs text-outline uppercase">Walk-in</td><td data-label="Book By">Walk-in</td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span></div></td></tr>
         </tbody>
       </table>
     </div>
@@ -1190,8 +1246,8 @@ tailwind.config = {
 
 <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
 <footer class="text-center py-16 bg-surface-container">
-  <p class="font-body text-sm text-on-surface-variant/50">Made with love and strong opinions about dolphins.</p>
-  <a href="couples.html" class="text-on-surface-variant/20 text-xs hover:text-on-surface-variant/40 transition-colors">...</a>
+  <p class="font-body text-sm text-on-surface-variant/65">Made with love and strong opinions about dolphins.</p>
+  <a href="couples.html" class="text-on-surface-variant/50 text-xs hover:text-on-surface-variant/60 transition-colors">...</a>
 </footer>
 
 <!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
@@ -1273,7 +1329,7 @@ tailwind.config = {
       var tbody = document.getElementById('masterTableBody');
       var tr = document.createElement('tr');
       tr.id = 'noResultsRow';
-      tr.innerHTML = '<td colspan="8" class="text-center py-12 text-on-surface-variant/50 italic">No restaurants match your filters</td>';
+      tr.innerHTML = '<td colspan="8" class="text-center py-12 text-on-surface-variant/65 italic">No restaurants match your filters</td>';
       tbody.appendChild(tr);
     }
   }
