@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Coffee Index &mdash; Charleston June 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        "background": "#fef9f0",
+        "surface": "#fef9f0",
+        "surface-container": "#f2ede4",
+        "surface-container-low": "#f8f3ea",
+        "surface-container-lowest": "#ffffff",
+        "surface-container-high": "#ece8df",
+        "on-surface": "#1d1c16",
+        "on-surface-variant": "#3e484b",
+        "primary": "#00606e",
+        "primary-container": "#1a7a8a",
+        "secondary": "#7c5800",
+        "secondary-container": "#fec65b",
+        "outline": "#6f797b",
+        "outline-variant": "#bec8cb",
+        "error": "#ba1a1a",
+        "on-primary": "#ffffff",
+        "on-primary-container": "#dff9ff",
+      },
+      fontFamily: {
+        "headline": ["Noto Serif", "serif"],
+        "body": ["Plus Jakarta Sans", "sans-serif"],
+      },
+    },
+  },
+}
+</script>
+<style>
+  :root {
+    --background: #fef9f0;
+    --surface: #fef9f0;
+    --surface-container: #f2ede4;
+    --surface-container-low: #f8f3ea;
+    --surface-container-lowest: #ffffff;
+    --surface-container-high: #ece8df;
+    --on-surface: #1d1c16;
+    --on-surface-variant: #3e484b;
+    --primary: #00606e;
+    --primary-container: #1a7a8a;
+    --secondary: #7c5800;
+    --secondary-container: #fec65b;
+    --outline-variant: #bec8cb;
+    --error: #ba1a1a;
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--background);
+    color: var(--on-surface);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .whisper-shadow { box-shadow: 0 6px 36px rgba(29, 28, 22, 0.05); }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* Persistent link affordance */
+  .chip-link {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    text-decoration-color: rgba(0, 96, 110, 0.45);
+    transition: text-decoration-color 0.15s ease;
+  }
+  .chip-link:hover { text-decoration-color: var(--primary); }
+
+  /* Ranking entry */
+  .rank-badge {
+    font-family: 'Noto Serif', serif;
+    font-weight: 700;
+    font-size: 1.75rem;
+    line-height: 1;
+    width: 3.25rem;
+    height: 3.25rem;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background: var(--surface-container-high);
+    color: var(--on-surface-variant);
+  }
+  .rank-badge.gold {
+    background: var(--secondary-container);
+    color: #1d1c16;
+    box-shadow: 0 6px 20px -6px rgba(254, 198, 91, 0.7);
+  }
+  .score-pill {
+    font-family: 'Noto Serif', serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--primary);
+    white-space: nowrap;
+  }
+  .score-pill span { font-size: 0.7rem; color: var(--on-surface-variant); font-weight: 400; }
+
+  /* Fact grid */
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem 1.5rem;
+    margin-top: 1rem;
+  }
+  @media (min-width: 768px) { .facts { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .facts > div {
+    border-top: 1px solid var(--outline-variant);
+    padding-top: 0.4rem;
+  }
+  .facts dt {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    color: var(--on-surface-variant);
+  }
+  .facts dd { font-size: 0.85rem; color: var(--on-surface); margin-top: 0.1rem; }
+
+  /* Scorecard table (collapses to cards on mobile) */
+  .score-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 720px;
+  }
+  .score-table thead th {
+    font-family: 'Noto Serif', serif;
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.9em 0.75em;
+    color: var(--on-surface-variant);
+    background: var(--surface-container-high);
+    text-align: center;
+    white-space: nowrap;
+  }
+  .score-table thead th:first-child,
+  .score-table thead th:nth-child(2) { text-align: left; }
+  .score-table tbody tr:nth-child(even) { background: var(--surface); }
+  .score-table tbody tr:nth-child(odd) { background: var(--surface-container-low); }
+  .score-table td {
+    font-size: 0.875rem;
+    padding: 0.7em 0.75em;
+    text-align: center;
+    color: var(--on-surface);
+    vertical-align: middle;
+  }
+  .score-table td:nth-child(2) {
+    font-family: 'Noto Serif', serif;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .score-table td:last-child {
+    font-family: 'Noto Serif', serif;
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  /* Hours grid: highlight closed cells */
+  .hours-table { width: 100%; border-collapse: collapse; min-width: 640px; }
+  .hours-table th {
+    font-family: 'Noto Serif', serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.7em 0.5em;
+    color: var(--on-surface-variant);
+    background: var(--surface-container-high);
+    text-align: center;
+  }
+  .hours-table th:first-child { text-align: left; }
+  .hours-table td {
+    font-size: 0.78rem;
+    padding: 0.6em 0.5em;
+    text-align: center;
+    border-bottom: 1px solid var(--outline-variant);
+    white-space: nowrap;
+  }
+  .hours-table td:first-child {
+    font-family: 'Noto Serif', serif;
+    font-weight: 700;
+    text-align: left;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+  .hours-table .closed { color: var(--error); font-weight: 700; }
+
+  @media (max-width: 768px) {
+    .table-wrap { box-shadow: none; border-radius: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════ HEADER ═══════════════════════ -->
+<header class="bg-surface-container border-b border-outline-variant/40">
+  <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
+    <a href="index.html" class="inline-flex items-center gap-1.5 text-sm font-body text-on-surface-variant hover:text-primary transition-colors">
+      <span class="material-symbols-outlined !text-base">arrow_back</span> The Itinerary
+    </a>
+    <span class="font-body tracking-[0.25em] uppercase text-[10px] text-on-surface-variant/65">Charleston &middot; June 2026</span>
+  </div>
+</header>
+
+<section class="bg-surface-container pt-12 pb-16 md:pt-16 md:pb-20 text-center">
+  <div class="max-w-3xl mx-auto px-6">
+    <p class="font-body tracking-[0.3em] uppercase text-xs text-secondary mb-4">Ranked &amp; Walked</p>
+    <h1 class="font-headline text-5xl md:text-7xl text-on-surface tracking-tight mb-5">The Coffee Index</h1>
+    <p class="font-body text-on-surface-variant text-lg leading-relaxed">Seven downtown coffee shops, scored on what actually matters to us: who roasts the beans, whether the decaf is done right, a real pour-over and a proper double espresso, the bakery case, staying independent, and how far we have to go before caffeine. Hours verified June 2026.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════ THE RANKING ═══════════════════════ -->
+<section class="py-16 md:py-24">
+  <div class="max-w-4xl mx-auto px-6 space-y-6">
+
+    <!-- 1 Second State -->
+    <article class="reveal bg-surface-container-lowest rounded-2xl whisper-shadow overflow-hidden">
+      <div class="flex items-start gap-4 md:gap-6 p-6 md:p-8">
+        <div class="rank-badge gold">01</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-baseline justify-between gap-3 flex-wrap">
+            <h3 class="font-headline text-2xl md:text-3xl"><a href="https://secondstatecoffee.com/" target="_blank" rel="noopener" class="chip-link">Second State Coffee</a></h3>
+            <span class="score-pill">35<span>&thinsp;/&thinsp;39</span></span>
+          </div>
+          <p class="font-headline italic text-secondary text-sm mt-1">The coffee-nerd&rsquo;s pick</p>
+          <p class="font-body text-on-surface-variant leading-relaxed mt-3">The only shop here that <strong>roasts its own beans</strong> (on a Loring S15), and it shows: a rotating wall of single origins across washed, natural, anaerobic and sugar-cane processes, both light and dark blends, and the best decaf in the field. Pour-over bar for you, Synesso espresso for Haley&rsquo;s iced doubles. It wins on the two things you weighted heaviest.</p>
+          <dl class="facts">
+            <div><dt>Roaster</dt><dd>Self (Loring S15)</dd></div>
+            <div><dt>Decaf</dt><dd>Single-origin, sugar-cane process</dd></div>
+            <div><dt>Brew</dt><dd>Pour-over + Synesso</dd></div>
+            <div><dt>Food</dt><dd>Scones, brioche egg sandwich</dd></div>
+            <div><dt>Walk</dt><dd>~10 min from Mills House</dd></div>
+            <div><dt>Order</dt><dd>Lavender latte</dd></div>
+          </dl>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2 The Rise -->
+    <article class="reveal bg-surface-container-lowest rounded-2xl whisper-shadow overflow-hidden">
+      <div class="flex items-start gap-4 md:gap-6 p-6 md:p-8">
+        <div class="rank-badge">02</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-baseline justify-between gap-3 flex-wrap">
+            <h3 class="font-headline text-2xl md:text-3xl"><a href="https://therestorationhotel.com/the-rise-coffee-shop-in-charleston/" target="_blank" rel="noopener" class="chip-link">The Rise Coffee Bar</a></h3>
+            <span class="score-pill">29<span>&thinsp;/&thinsp;39</span></span>
+          </div>
+          <p class="font-headline italic text-secondary text-sm mt-1">Swiss Water decaf, garden patio</p>
+          <p class="font-body text-on-surface-variant leading-relaxed mt-3">Inside The Restoration Hotel, pouring local Foresight Coffee. Their house decaf (&ldquo;Nightcap&rdquo;) is a genuine <strong>Swiss Water</strong> process, which is exactly your bar. Pour-over on the menu, breakfast sandwiches made in-house each morning (gone by 9am), and a garden courtyard that&rsquo;s the nicest place to sit on this list. Open 7am to 5pm every day.</p>
+          <dl class="facts">
+            <div><dt>Roaster</dt><dd>Foresight (Charleston)</dd></div>
+            <div><dt>Decaf</dt><dd>Swiss Water (&ldquo;Nightcap&rdquo;)</dd></div>
+            <div><dt>Brew</dt><dd>Pour-over + espresso</dd></div>
+            <div><dt>Food</dt><dd>In-house egg sandwich, scones</dd></div>
+            <div><dt>Walk</dt><dd>~8 min from Mills House</dd></div>
+            <div><dt>Order</dt><dd>Rosemary Rise latte</dd></div>
+          </dl>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3 (tie) Harken -->
+    <article class="reveal bg-surface-container-lowest rounded-2xl whisper-shadow overflow-hidden">
+      <div class="flex items-start gap-4 md:gap-6 p-6 md:p-8">
+        <div class="rank-badge">T3</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-baseline justify-between gap-3 flex-wrap">
+            <h3 class="font-headline text-2xl md:text-3xl"><a href="https://www.harkencafe.com/" target="_blank" rel="noopener" class="chip-link">Harken Cafe</a></h3>
+            <span class="score-pill">28<span>&thinsp;/&thinsp;39</span></span>
+          </div>
+          <p class="font-headline italic text-secondary text-sm mt-1">Best food, and 2 minutes away</p>
+          <p class="font-body text-on-surface-variant leading-relaxed mt-3">The closest shop to the hotel and the strongest <strong>bakery</strong> in the field: everything baked on-site, a cheddar-chive scone people drive for, and an egg-souffl&eacute; sandwich on a house ricotta biscuit. Pours excellent Methodical beans (light roast available). The one open question is decaf, which we couldn&rsquo;t confirm online; one phone call could move Harken to #2.</p>
+          <dl class="facts">
+            <div><dt>Roaster</dt><dd>Methodical (Greenville)</dd></div>
+            <div><dt>Decaf</dt><dd class="text-secondary">Confirm by phone</dd></div>
+            <div><dt>Brew</dt><dd>La Marzocco espresso</dd></div>
+            <div><dt>Food</dt><dd>On-site bakery, biscuit sandwich</dd></div>
+            <div><dt>Walk</dt><dd>~2 min from Mills House</dd></div>
+            <div><dt>Order</dt><dd>Butter Me Up + iced americano</dd></div>
+          </dl>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3 (tie) Kudu -->
+    <article class="reveal bg-surface-container-lowest rounded-2xl whisper-shadow overflow-hidden">
+      <div class="flex items-start gap-4 md:gap-6 p-6 md:p-8">
+        <div class="rank-badge">T3</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-baseline justify-between gap-3 flex-wrap">
+            <h3 class="font-headline text-2xl md:text-3xl"><a href="https://www.kuducharleston.com/" target="_blank" rel="noopener" class="chip-link">Kudu Coffee &amp; Craft Beer</a></h3>
+            <span class="score-pill">28<span>&thinsp;/&thinsp;39</span></span>
+          </div>
+          <p class="font-headline italic text-secondary text-sm mt-1">The OG, with a fountain courtyard</p>
+          <p class="font-body text-on-surface-variant leading-relaxed mt-3">Charleston&rsquo;s original (2005), single-location and proudly independent, pouring local Springbok on a La Marzocco FB80 with pour-over available. The shaded courtyard with a running fountain is the move, and it turns into coffee-and-a-beer by afternoon. Springbok&rsquo;s decaf is Swiss Water but only made on request, and the food is the weak spot (brought-in pastries, no real breakfast sandwich).</p>
+          <dl class="facts">
+            <div><dt>Roaster</dt><dd>Springbok (Charleston)</dd></div>
+            <div><dt>Decaf</dt><dd>Swiss Water, on request</dd></div>
+            <div><dt>Brew</dt><dd>Pour-over + La Marzocco</dd></div>
+            <div><dt>Food</dt><dd>Brought-in pastries, scone</dd></div>
+            <div><dt>Walk</dt><dd>~16 min from Mills House</dd></div>
+            <div><dt>Order</dt><dd>Pour-over in the courtyard</dd></div>
+          </dl>
+        </div>
+      </div>
+    </article>
+
+    <!-- 5 Bad Bunnies -->
+    <article class="reveal bg-surface-container-lowest rounded-2xl whisper-shadow overflow-hidden">
+      <div class="flex items-start gap-4 md:gap-6 p-6 md:p-8">
+        <div class="rank-badge">05</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-baseline justify-between gap-3 flex-wrap">
+            <h3 class="font-headline text-2xl md:text-3xl"><a href="https://www.badbunniescoffee.com/" target="_blank" rel="noopener" class="chip-link">Bad Bunnies Coffee</a></h3>
+            <span class="score-pill">27<span>&thinsp;/&thinsp;39</span></span>
+          </div>
+          <p class="font-headline italic text-secondary text-sm mt-1">Purest indie, but it&rsquo;s a hike</p>
+          <p class="font-body text-on-surface-variant leading-relaxed mt-3">A tiny artist-owned shop whose owners have flatly refused to franchise. It pours <strong>Second State</strong> beans (so light roast and Swiss Water decaf, secondhand), runs a pour-over bar, and the matcha-honey latte has a cult following. The catch is distance: it&rsquo;s up on Spring Street, a real ~29-minute walk or a quick 6-minute ride. House-made syrups, but pastries are brought in.</p>
+          <dl class="facts">
+            <div><dt>Roaster</dt><dd>Second State beans</dd></div>
+            <div><dt>Decaf</dt><dd>Swiss Water (via Second State)</dd></div>
+            <div><dt>Brew</dt><dd>Pour-over + espresso</dd></div>
+            <div><dt>Food</dt><dd>Brought-in pastries, lemon scone</dd></div>
+            <div><dt>Walk</dt><dd>~29 min, or ~6 min drive</dd></div>
+            <div><dt>Order</dt><dd>Matcha-honey iced latte</dd></div>
+          </dl>
+        </div>
+      </div>
+    </article>
+
+    <!-- 6 Babas -->
+    <article class="reveal bg-surface-container-lowest rounded-2xl whisper-shadow overflow-hidden">
+      <div class="flex items-start gap-4 md:gap-6 p-6 md:p-8">
+        <div class="rank-badge">06</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-baseline justify-between gap-3 flex-wrap">
+            <h3 class="font-headline text-2xl md:text-3xl"><a href="https://babascharleston.com/" target="_blank" rel="noopener" class="chip-link">Babas on Wentworth</a></h3>
+            <span class="score-pill">22<span>&thinsp;/&thinsp;39</span></span>
+          </div>
+          <p class="font-headline italic text-secondary text-sm mt-1">Best pastry case, weaker on the coffee specifics</p>
+          <p class="font-body text-on-surface-variant leading-relaxed mt-3">A gorgeous European all-day cafe that pours Counter Culture and bakes its own pastries in-house (the banana bread is the standout). Lovely, but it ranks lower on your exact wants: no scone, no pour-over confirmed, decaf unverified, and it&rsquo;s <span class="text-error font-medium">closed Mondays</span>, which clips both 6/8 and 6/15.</p>
+          <dl class="facts">
+            <div><dt>Roaster</dt><dd>Counter Culture</dd></div>
+            <div><dt>Decaf</dt><dd class="text-secondary">Confirm by phone</dd></div>
+            <div><dt>Brew</dt><dd>Espresso-forward</dd></div>
+            <div><dt>Food</dt><dd>House French pastry, banana bread</dd></div>
+            <div><dt>Walk</dt><dd>~10 min from Mills House</dd></div>
+            <div><dt>Order</dt><dd>Peanut mocha</dd></div>
+          </dl>
+        </div>
+      </div>
+    </article>
+
+    <!-- 7 The Daily -->
+    <article class="reveal bg-surface-container-lowest rounded-2xl whisper-shadow overflow-hidden">
+      <div class="flex items-start gap-4 md:gap-6 p-6 md:p-8">
+        <div class="rank-badge">07</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-baseline justify-between gap-3 flex-wrap">
+            <h3 class="font-headline text-2xl md:text-3xl"><a href="https://www.shopthedaily.com/" target="_blank" rel="noopener" class="chip-link">The Daily</a></h3>
+            <span class="score-pill">20<span>&thinsp;/&thinsp;39</span></span>
+          </div>
+          <p class="font-headline italic text-secondary text-sm mt-1">Trendiest, but misses both your must-haves</p>
+          <p class="font-body text-on-surface-variant leading-relaxed mt-3">The viral bodega-cafe, pouring top-tier Onyx espresso with house sourdough and a pistachio-rose morning bun worth the hype. But for the two of you it lands last: <strong>no pour-over</strong> (batch drip only) and <strong>no decaf coffee program</strong> (decaf is tea-only on the menu), plus it&rsquo;s a ~29-minute walk up King. Great spot, wrong fit.</p>
+          <dl class="facts">
+            <div><dt>Roaster</dt><dd>Onyx Coffee Lab</dd></div>
+            <div><dt>Decaf</dt><dd class="text-error">Not on the coffee menu</dd></div>
+            <div><dt>Brew</dt><dd>Batch drip, no pour-over</dd></div>
+            <div><dt>Food</dt><dd>House sourdough, morning bun</dd></div>
+            <div><dt>Walk</dt><dd>~29 min, or ~6 min drive</dd></div>
+            <div><dt>Order</dt><dd>Upside Down Latte</dd></div>
+          </dl>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════ SCORECARD ═══════════════════════ -->
+<section class="py-16 md:py-20 bg-surface-container-low">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="font-headline text-4xl md:text-5xl text-center mb-3 reveal">The Scorecard</h2>
+    <p class="font-body text-on-surface-variant text-center max-w-xl mx-auto mb-10 reveal">Raw 0&ndash;3 per dimension; the weight (&times;) reflects how much it matters to us. Total is the weighted sum out of 39.</p>
+    <div class="table-wrap bg-surface-container-lowest rounded-xl whisper-shadow overflow-x-auto reveal">
+      <table class="score-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Shop</th>
+            <th>Coffee &amp; roast &times;3</th>
+            <th>Decaf &times;3</th>
+            <th>Food &times;2</th>
+            <th>Brew fit &times;2</th>
+            <th>Indie &times;2</th>
+            <th>Conv &times;1</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Second State</td><td>3</td><td>3</td><td>2</td><td>3</td><td>2</td><td>3</td><td>35</td></tr>
+          <tr><td>2</td><td>The Rise</td><td>2</td><td>2</td><td>2</td><td>3</td><td>2</td><td>3</td><td>29</td></tr>
+          <tr><td>T3</td><td>Harken</td><td>2</td><td>1</td><td>3</td><td>2</td><td>3</td><td>3</td><td>28</td></tr>
+          <tr><td>T3</td><td>Kudu</td><td>2</td><td>2</td><td>1</td><td>3</td><td>3</td><td>2</td><td>28</td></tr>
+          <tr><td>5</td><td>Bad Bunnies</td><td>2</td><td>2</td><td>1</td><td>3</td><td>3</td><td>1</td><td>27</td></tr>
+          <tr><td>6</td><td>Babas</td><td>2</td><td>1</td><td>2</td><td>2</td><td>2</td><td>1</td><td>22</td></tr>
+          <tr><td>7</td><td>The Daily</td><td>2</td><td>1</td><td>2</td><td>1</td><td>2</td><td>1</td><td>20</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="font-body text-xs text-on-surface-variant/65 text-center mt-4 reveal">Tip: scroll the table sideways on a phone.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════ HOURS ═══════════════════════ -->
+<section class="py-16 md:py-20">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="font-headline text-4xl md:text-5xl text-center mb-3 reveal">Hours at a Glance</h2>
+    <p class="font-body text-on-surface-variant text-center max-w-xl mx-auto mb-10 reveal">For lining coffee up with each morning. Verified June 2026 against two sources each. Everyone opens by 7&ndash;7:30am.</p>
+    <div class="table-wrap bg-surface-container-lowest rounded-xl whisper-shadow overflow-x-auto reveal">
+      <table class="hours-table">
+        <thead>
+          <tr><th>Shop</th><th>Mon</th><th>Tue&ndash;Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Second State</td><td>7a&ndash;5p</td><td>7a&ndash;5p</td><td>7a&ndash;5p</td><td>8a&ndash;5p</td><td>8a&ndash;5p</td></tr>
+          <tr><td>The Rise</td><td>7a&ndash;5p</td><td>7a&ndash;5p</td><td>7a&ndash;5p</td><td>7a&ndash;5p</td><td>7a&ndash;5p</td></tr>
+          <tr><td>Harken</td><td>7a&ndash;3p</td><td>7a&ndash;3p</td><td>7a&ndash;3p</td><td>8a&ndash;3p</td><td>8a&ndash;1p</td></tr>
+          <tr><td>Kudu</td><td>7a&ndash;8p</td><td>7a&ndash;8p</td><td>7a&ndash;8p</td><td>7a&ndash;8p</td><td>7a&ndash;8p</td></tr>
+          <tr><td>Bad Bunnies</td><td>7:30a&ndash;2p</td><td>7:30a&ndash;2p</td><td>7:30a&ndash;2p</td><td>8a&ndash;2p</td><td class="closed">Closed</td></tr>
+          <tr><td>Babas</td><td class="closed">Closed</td><td>7a&ndash;8p</td><td>7a&ndash;10p</td><td>7a&ndash;10p</td><td>7a&ndash;6p</td></tr>
+          <tr><td>The Daily</td><td>7a&ndash;3p</td><td>7a&ndash;3p</td><td>7a&ndash;3p</td><td>7a&ndash;3p</td><td>7a&ndash;3p</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ METHOD ═══════════════════════ -->
+<section class="py-16 md:py-20 bg-surface-container-low">
+  <div class="max-w-3xl mx-auto px-6 reveal">
+    <h2 class="font-headline text-4xl md:text-5xl text-center mb-10">How It&rsquo;s Scored</h2>
+    <div class="grid md:grid-cols-2 gap-x-10 gap-y-5 font-body text-on-surface-variant">
+      <p><strong class="text-on-surface">Coffee &amp; roast (&times;3)</strong> &mdash; roasts in-house or pours a top roaster; light and dark both available; single origins and processing variety.</p>
+      <p><strong class="text-on-surface">Decaf (&times;3)</strong> &mdash; weighted as high as coffee, because we drink more decaf than caf. Swiss Water or specialty decaf, and reliably available.</p>
+      <p><strong class="text-on-surface">Food &amp; bakery (&times;2)</strong> &mdash; baked on-site, a good scone, a house-made breakfast sandwich.</p>
+      <p><strong class="text-on-surface">Brew fit (&times;2)</strong> &mdash; a real pour-over and a proper double espresso for iced.</p>
+      <p><strong class="text-on-surface">Independence (&times;2)</strong> &mdash; single indie shop over a local group over a chain.</p>
+      <p><strong class="text-on-surface">Convenience (&times;1)</strong> &mdash; walk from the hotel, opens early, open the days we&rsquo;re here.</p>
+    </div>
+    <div class="mt-10 pt-6 border-t border-outline-variant/40 font-body text-sm text-on-surface-variant/80 space-y-2">
+      <p><span class="material-symbols-outlined text-secondary !text-base" style="font-variation-settings: 'FILL' 1;">call</span> <strong>Three to confirm by phone:</strong> Harken&rsquo;s decaf (843-718-3626; a yes likely makes it #2), Babas&rsquo; decaf + pour-over (843-284-6260), and whether The Daily pours any decaf coffee (843-619-0151).</p>
+      <p class="text-on-surface-variant/60">Distances are pedestrian-routing estimates from The Mills House. Hours and details verified June 2026; small shops occasionally adjust for holidays, so a same-week check never hurts.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer class="text-center py-16 bg-surface-container">
+  <a href="index.html" class="inline-flex items-center gap-1.5 font-body text-sm text-on-surface-variant hover:text-primary transition-colors mb-3">
+    <span class="material-symbols-outlined !text-base">arrow_back</span> Back to the itinerary
+  </a>
+  <p class="font-body text-sm text-on-surface-variant/65">Made with love and strong opinions about decaf.</p>
+</footer>
+
+<script>
+  document.querySelectorAll('.reveal').forEach(function(el) {
+    new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }).observe(el);
+  });
+</script>
+</body>
+</html>
