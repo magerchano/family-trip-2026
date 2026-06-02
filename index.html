@@ -466,9 +466,12 @@ tailwind.config = {
           </div>
         </div>
         <div class="px-4 py-3 md:p-5 md:border-r border-outline-variant/[0.08] flex items-center justify-center">
-          <div class="inline-flex flex-col items-center gap-1">
-            <span class="border border-dashed border-outline-variant/30 text-on-surface-variant/60 text-xs italic px-4 py-2 rounded-full">Brews-day tour &middot; TBD</span>
-            <span class="text-[9px] text-on-surface-variant/60">adults beer + nibbles tour (Haley&rsquo;s idea)</span>
+          <div class="inline-flex flex-col items-center gap-1 text-center">
+            <a href="#brews-day" class="inline-flex items-center gap-2 bg-secondary/10 px-4 py-2 rounded-full border border-secondary/20 hover:bg-secondary/20 transition-colors">
+              <span class="material-symbols-outlined text-secondary !text-sm" style="font-variation-settings: 'FILL' 1;">sports_bar</span>
+              <span class="font-headline italic text-sm text-on-surface">Brews-day Tuesday</span>
+            </a>
+            <span class="text-[9px] text-on-surface-variant/60">Griffon &rarr; Beer Works &rarr; Henry&rsquo;s</span>
           </div>
         </div>
         <div class="px-4 py-3 md:p-5 flex items-center justify-center">
@@ -531,7 +534,7 @@ tailwind.config = {
                 <span class="material-symbols-outlined text-on-surface-variant/65 !text-sm">aquarium</span>
                 <span class="font-headline italic text-sm text-on-surface"><a href="https://scaquarium.org/" target="_blank" rel="noopener" class="chip-link">SC Aquarium</a></span>
               </div>
-              <span class="text-[9px] text-on-surface-variant/60">Nana + kids</span>
+              <span class="text-[9px] text-on-surface-variant/60">Trey, Katy, Nana + kids</span>
             </div>
           </div>
         </div>
@@ -669,10 +672,10 @@ tailwind.config = {
           <span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Bulls Island Ferry <span class="text-on-surface-variant/60">&middot; Fri (option)</span>
         </span>
         <span class="inline-flex items-center gap-1.5 bg-surface-container-lowest px-3 py-1.5 rounded-full text-xs font-body whisper-shadow">
-          <span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Historic District Walk <span class="text-on-surface-variant/60">&middot; Tue</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Brews-day Tuesday <span class="text-on-surface-variant/60">&middot; adults beer + nibbles tour</span>
         </span>
         <span class="inline-flex items-center gap-1.5 bg-surface-container-lowest px-3 py-1.5 rounded-full text-xs font-body whisper-shadow">
-          <span class="w-1.5 h-1.5 rounded-full bg-primary"></span> SC Aquarium <span class="text-on-surface-variant/60">&middot; option (Trey + kids)</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-primary"></span> SC Aquarium <span class="text-on-surface-variant/60">&middot; Wed &middot; Trey, Katy, Nana + kids</span>
         </span>
         <span class="inline-flex items-center gap-1.5 bg-surface-container-lowest px-3 py-1.5 rounded-full text-xs font-body whisper-shadow">
           <span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Beach / Pool <span class="text-on-surface-variant/60">&middot; flexible</span>
@@ -757,6 +760,10 @@ tailwind.config = {
             <span class="material-symbols-outlined text-primary !text-base">phone</span>
             <span><strong class="text-on-surface">Charleston Oyster Farm</strong> &mdash; <a href="tel:8436963879" class="text-primary underline-offset-2 hover:underline">(843) 696-3879</a> &middot; Thu 6/11 AM tour for 7</span>
           </div>
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary !text-base">phone</span>
+            <span><strong class="text-on-surface">Leon&rsquo;s Oyster Shop</strong> &mdash; <a href="tel:8435316500" class="text-primary underline-offset-2 hover:underline">(843) 531-6500</a> or Resy &middot; Mon dinner, party of 7 (Resy for 6+, aiming ~5pm)</span>
+          </div>
         </div>
       </div>
 
@@ -765,14 +772,14 @@ tailwind.config = {
         <h4 class="font-body text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant/70 mb-3">&#9989; No reservation needed</h4>
         <p class="font-body text-xs text-on-surface-variant leading-relaxed">
           <strong class="text-on-surface">Chubby Fish</strong> &mdash; no reservations; line at 5pm Thursday &middot;
-          <strong class="text-on-surface">Callie&rsquo;s</strong>, <strong class="text-on-surface">Leon&rsquo;s Oyster Shop</strong>, <strong class="text-on-surface">Grit Bakery</strong>, <strong class="text-on-surface">Lewis BBQ</strong>, <strong class="text-on-surface">Bowens Island</strong>, <strong class="text-on-surface">Xiao Bao Biscuit</strong>, <strong class="text-on-surface">Miller&rsquo;s All Day</strong> &mdash; walk-in.
+          <strong class="text-on-surface">Callie&rsquo;s</strong>, <strong class="text-on-surface">Grit Bakery</strong>, <strong class="text-on-surface">Lewis BBQ</strong>, <strong class="text-on-surface">Bowens Island</strong>, <strong class="text-on-surface">Xiao Bao Biscuit</strong>, <strong class="text-on-surface">Miller&rsquo;s All Day</strong> &mdash; walk-in.
         </p>
       </div>
 
       <!-- Safety note -->
       <div class="mt-5 pt-4 border-t border-outline-variant/[0.08] flex items-start gap-2">
         <span class="material-symbols-outlined text-primary/60 !text-sm mt-0.5" style="font-variation-settings: 'FILL' 1;">task_alt</span>
-        <p class="font-body text-[11px] text-on-surface-variant/70 leading-relaxed">Every reservation is booked &mdash; <strong class="text-on-surface">FIG</strong> + <strong class="text-on-surface">Frannie &amp; The Fox</strong> (Tue), <strong class="text-on-surface">Poogan&rsquo;s</strong> (Wed), <strong class="text-on-surface">Jackrabbit Filly</strong> (Fri), plus the Wednesday catamaran. Everything else is walk-in or play-it-by-ear.</p>
+        <p class="font-body text-[11px] text-on-surface-variant/70 leading-relaxed">Dinners are set except <strong class="text-on-surface">Leon&rsquo;s</strong> (Mon), a Resy for parties of 6+ we&rsquo;re locking in for ~5pm. Confirmed: <strong class="text-on-surface">FIG</strong> + <strong class="text-on-surface">Frannie &amp; The Fox</strong> (Tue), <strong class="text-on-surface">Poogan&rsquo;s</strong> (Wed), <strong class="text-on-surface">Jackrabbit Filly</strong> (Fri), plus the Wednesday catamaran. Everything else is walk-in or play-it-by-ear.</p>
       </div>
     </div>
   </div>
@@ -1030,7 +1037,7 @@ tailwind.config = {
           <tr data-meals="Dinner" data-kids="Better" data-res-id="malagon"><td>Malag&oacute;n Mercado y Taperia</td><td data-label="Best For">Dinner</td><td data-label="Vibe" class="text-sm italic">Spanish market + taperia, small &amp; large plates</td><td data-label="Kids" class="text-xs">Better Without Kids</td><td data-label="Reservations" class="text-xs font-semibold text-secondary uppercase">Recommended</td><td data-label="Book By"><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 9</span></td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-michelin text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Star</span></div></td></tr>
           <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="rodney-scotts-bbq"><td>Rodney Scott&rsquo;s BBQ</td><td data-label="Best For">Lunch, Dinner</td><td data-label="Vibe" class="text-sm italic">Whole-hog legend, counter service</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs text-outline uppercase">Walk-in</td><td data-label="Book By">Walk-in</td><td data-label="Buzz"><div class="flex justify-center gap-1 flex-wrap"><span class="badge-bib text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Bib Gourmand</span><span class="badge-beard text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">James Beard</span><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span></div></td></tr>
           <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="lewis-barbecue"><td>Lewis Barbecue</td><td data-label="Best For">Lunch, Dinner</td><td data-label="Vibe" class="text-sm italic">Texas-style BBQ, brisket king</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs text-outline uppercase">Walk-in</td><td data-label="Book By">Walk-in</td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-bib text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Bib Gourmand</span></div></td></tr>
-          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="leons-oyster-shop"><td>Leon&rsquo;s Oyster Shop</td><td data-label="Best For">Lunch, Dinner</td><td data-label="Vibe" class="text-sm italic">Fried chicken + oysters, retro auto shop</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs text-outline uppercase">Walk-in</td><td data-label="Book By">Walk-in</td><td data-label="Buzz"><div class="flex justify-center gap-1 flex-wrap"><span class="badge-bib text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Bib Gourmand</span><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
+          <tr data-meals="Lunch,Dinner" data-kids="Yes" data-res-id="leons-oyster-shop"><td>Leon&rsquo;s Oyster Shop</td><td data-label="Best For">Lunch, Dinner</td><td data-label="Vibe" class="text-sm italic">Fried chicken + oysters, retro auto shop</td><td data-label="Kids" class="text-xs text-primary font-medium">Kid Friendly</td><td data-label="Reservations" class="text-xs text-outline uppercase">Walk-in &middot; Resy 6+</td><td data-label="Book By">Book ahead</td><td data-label="Buzz"><div class="flex justify-center gap-1 flex-wrap"><span class="badge-bib text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Bib Gourmand</span><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span><span class="badge-haleys text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Haley&rsquo;s</span></div></td></tr>
           <tr data-meals="Dinner" data-kids="Better" data-res-id="chubby-fish"><td>Chubby Fish</td><td data-label="Best For">Dinner</td><td data-label="Vibe" class="text-sm italic">Daily-catch seafood, caviar sliders, no resos</td><td data-label="Kids" class="text-xs">Better Without Kids</td><td data-label="Reservations" class="text-xs text-outline uppercase">None</td><td data-label="Book By">Walk-in line at 5pm</td><td data-label="Buzz"><div class="flex justify-center gap-1 flex-wrap"><span class="badge-michelin-listed text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Listed</span><span class="badge-nyt text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">NYT Top 50</span><span class="badge-beard text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">James Beard</span><span class="badge-tiktok text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">TikTok</span></div></td></tr>
           <tr data-meals="Dinner" data-kids="Better" data-res-id="fig"><td>FIG</td><td data-label="Best For">Dinner</td><td data-label="Vibe" class="text-sm italic">20+ year flagship, seasonal American</td><td data-label="Kids" class="text-xs">Better Without Kids</td><td data-label="Reservations" class="text-xs font-semibold text-error uppercase">Required</td><td data-label="Book By"><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens Apr 9</span></td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-michelin-listed text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Listed</span></div></td></tr>
           <tr data-meals="Lunch,Dinner" data-kids="Better" data-res-id="husk"><td>Husk</td><td data-label="Best For">Lunch, Dinner</td><td data-label="Vibe" class="text-sm italic">Sean Brock landmark, Southern ingredients</td><td data-label="Kids" class="text-xs">Better Without Kids</td><td data-label="Reservations" class="text-xs font-semibold text-secondary uppercase">Recommended</td><td data-label="Book By"><span class="book-platform book-platform--resy">Resy</span><br><span class="text-[10px] text-on-surface-variant">Opens May 9</span></td><td data-label="Buzz"><div class="flex justify-center gap-1"><span class="badge-michelin-listed text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold">Michelin Listed</span></div></td></tr>
@@ -1219,6 +1226,88 @@ tailwind.config = {
       </article>
 
     </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ BREWS-DAY TUESDAY ═══════════════════════ -->
+<section id="brews-day" class="py-20 md:py-28 bg-surface-container-low">
+  <div class="max-w-4xl mx-auto px-6">
+    <p class="font-body tracking-[0.3em] uppercase text-xs text-secondary text-center mb-4 reveal">Tuesday afternoon &middot; the four adults</p>
+    <h2 class="font-headline text-5xl md:text-6xl text-on-surface tracking-tight text-center mb-4 reveal">Brews-day Tuesday</h2>
+    <p class="font-body text-on-surface-variant text-lg text-center max-w-xl mx-auto mb-12 reveal">A three-stop beer and nibbles crawl while Nana and the kids do their own thing, timed to land you at FIG by 5pm. Every stop verified open Tuesday.</p>
+
+    <!-- The Walk (primary) -->
+    <div class="bg-surface-container-lowest rounded-2xl whisper-shadow p-6 md:p-9 mb-6 reveal">
+      <div class="flex items-baseline justify-between flex-wrap gap-2 mb-7">
+        <h3 class="font-headline text-2xl md:text-3xl text-on-surface">The Walk</h3>
+        <span class="font-body text-[10px] uppercase tracking-[0.15em] text-primary font-bold">The plan &middot; all on foot</span>
+      </div>
+      <ol class="space-y-6">
+        <li class="flex gap-4">
+          <span class="font-headline text-secondary text-sm font-bold whitespace-nowrap pt-1 w-12 flex-shrink-0">1:15</span>
+          <div class="border-l border-outline-variant/30 pl-4">
+            <h4 class="font-headline text-lg text-on-surface mb-0.5"><a href="https://www.griffoncharleston.com/" target="_blank" rel="noopener" class="chip-link">The Griffon</a> <span class="font-body text-xs text-on-surface-variant/60">18 Vendue Range</span></h4>
+            <p class="font-body text-sm text-on-surface-variant">The real craft anchor: 15+ rotating taps including rare locals, plus fish &amp; chips. Three minutes from the hotel.</p>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="font-headline text-secondary text-sm font-bold whitespace-nowrap pt-1 w-12 flex-shrink-0">2:20</span>
+          <div class="border-l border-outline-variant/30 pl-4">
+            <h4 class="font-headline text-lg text-on-surface mb-0.5"><a href="https://charlestonbeerworks.com/" target="_blank" rel="noopener" class="chip-link">Charleston Beer Works</a> <span class="font-body text-xs text-on-surface-variant/60">480 King St</span></h4>
+            <p class="font-body text-sm text-on-surface-variant">The deep dive: 48 taps plus scratch bar food. A ten-minute stroll up King.</p>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="font-headline text-secondary text-sm font-bold whitespace-nowrap pt-1 w-12 flex-shrink-0">3:50</span>
+          <div class="border-l border-outline-variant/30 pl-4">
+            <h4 class="font-headline text-lg text-on-surface mb-0.5"><a href="https://henrysonthemarket.com/" target="_blank" rel="noopener" class="chip-link">Henry&rsquo;s rooftop</a> <span class="font-body text-xs text-on-surface-variant/60">54 N Market St</span></h4>
+            <p class="font-body text-sm text-on-surface-variant">Wind down on the rooftop with City Market views and Lowcountry nibbles. Three minutes from FIG.</p>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="font-headline text-primary text-sm font-bold whitespace-nowrap pt-1 w-12 flex-shrink-0">4:50</span>
+          <div class="border-l border-primary/30 pl-4">
+            <h4 class="font-headline text-lg text-on-surface mb-0.5">Stroll to FIG</h4>
+            <p class="font-body text-sm text-on-surface-variant">232 Meeting St, in time for the 5:00 reservation. Done, no stress.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="font-body text-xs text-on-surface-variant/65 mt-7 pt-4 border-t border-outline-variant/30">About 0.9 miles of walking all afternoon, no cars, and the hard 5pm pin has a three-minute final stroll.</p>
+    </div>
+
+    <!-- Plan B (backup) -->
+    <div class="bg-surface-container rounded-2xl ghost-border p-6 md:p-9 reveal">
+      <div class="flex items-baseline justify-between flex-wrap gap-2 mb-4">
+        <h3 class="font-headline text-2xl md:text-3xl text-on-surface">Plan B &mdash; The Breweries</h3>
+        <span class="font-body text-[10px] uppercase tracking-[0.15em] text-on-surface-variant/60 font-bold">Backup &middot; rideshare</span>
+      </div>
+      <p class="font-body text-sm text-on-surface-variant mb-6">If the crew wants actual breweries and doesn&rsquo;t mind cars up and back. The best beer of the whole search, but it&rsquo;s a ten to fifteen minute ride to FIG, so order the car by 4:25.</p>
+      <ol class="space-y-5">
+        <li class="flex gap-4">
+          <span class="font-headline text-on-surface-variant/70 text-sm font-bold whitespace-nowrap pt-0.5 w-12 flex-shrink-0">2:00</span>
+          <div>
+            <h4 class="font-headline text-base text-on-surface mb-0.5"><a href="https://www.munklebrewing.com/" target="_blank" rel="noopener" class="chip-link">Munkle Brewing</a> <span class="font-body text-xs text-on-surface-variant/60">1513 Meeting St Rd</span></h4>
+            <p class="font-body text-sm text-on-surface-variant">Belgian-style taproom (opens 2pm). Snacks, or bring your own food.</p>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="font-headline text-on-surface-variant/70 text-sm font-bold whitespace-nowrap pt-0.5 w-12 flex-shrink-0">3:00</span>
+          <div>
+            <h4 class="font-headline text-base text-on-surface mb-0.5"><a href="https://edmundsoast.com/location/brewing-co/" target="_blank" rel="noopener" class="chip-link">Edmund&rsquo;s Oast Brewing</a> <span class="font-body text-xs text-on-surface-variant/60">1505 King St Ext</span></h4>
+            <p class="font-body text-sm text-on-surface-variant">The standout: best beer plus a full kitchen for nibbles. Four-minute walk from Munkle.</p>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="font-headline text-primary text-sm font-bold whitespace-nowrap pt-0.5 w-12 flex-shrink-0">4:25</span>
+          <div>
+            <h4 class="font-headline text-base text-on-surface mb-0.5">Rideshare to FIG</h4>
+            <p class="font-body text-sm text-on-surface-variant">Roughly 10 to 15 minutes down Meeting St; pad for evening traffic.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="font-body text-xs text-on-surface-variant/55 mt-6 pt-4 border-t border-outline-variant/30">Want a true three-stop? Add <a href="https://www.tradesmanbrewing.com/" target="_blank" rel="noopener" class="chip-link">Tradesman</a> (1647 King St Ext) at ~1:15 first. Skip-list: Fatty&rsquo;s and Cooper River are out (Cooper River is closed Tuesdays).</p>
+    </div>
+
   </div>
 </section>
 
