@@ -145,6 +145,29 @@ class MontrealTripHandler(http.server.SimpleHTTPRequestHandler):
                 return self.send_json({"success": True})
             return self.send_json({"error": "Invalid PIN"}, 403)
 
+        elif self.path == "/api/admin/toggle_sold_out":
+            pin = str(payload.get("pin", ""))
+            stored_pin = str(os.environ.get("ADMIN_PIN", state.get("admin_pin", "2026")))
+            if pin != stored_pin:
+                return self.send_json({"error": "Invalid PIN"}, 403)
+            
+            item_id = payload.get("item_id")
+            if not item_id:
+                return self.send_json({"error": "Missing item_id"}, 400)
+            
+            if "sold_out" not in state:
+                state["sold_out"] = []
+            
+            if item_id in state["sold_out"]:
+                state["sold_out"].remove(item_id)
+            else:
+                state["sold_out"].append(item_id)
+                
+            save_state(state)
+            safe_state = dict(state)
+            safe_state.pop("admin_pin", None)
+            return self.send_json(safe_state)
+
         return self.send_json({"error": "Endpoint not found"}, 404)
 
     def log_message(self, format, *args):

@@ -223,6 +223,57 @@ tailwind.config = {
     gap: 3px;
   }
 
+  /* Sold Out / Fully Booked Diagonal Overlay & Ribbon */
+  .card-sold-out {
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  .card-sold-out > div:first-child {
+    opacity: 0.72;
+    filter: grayscale(25%);
+  }
+  .sold-out-ribbon {
+    position: absolute;
+    top: 26px;
+    right: -42px;
+    transform: rotate(45deg);
+    background: #e63946;
+    color: #ffffff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    padding: 6px 45px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.35), 0 0 0 2px #1e293b;
+    z-index: 40;
+    pointer-events: none;
+    border-top: 1.5px solid rgba(255,255,255,0.4);
+    border-bottom: 1.5px solid rgba(255,255,255,0.4);
+    text-align: center;
+    white-space: nowrap;
+  }
+  .sold-out-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-18deg);
+    border: 4px dashed #dc2626;
+    color: #dc2626;
+    background: rgba(255, 255, 255, 0.92);
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 8px 24px;
+    border-radius: 12px;
+    box-shadow: 4px 4px 0px #1e293b;
+    z-index: 40;
+    pointer-events: none;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+  }
+
   /* Pulse for Live Sync */
   @keyframes livePulse {
     0%, 100% { opacity: 1; transform: scale(1); }
@@ -1345,8 +1396,21 @@ tailwind.config = {
 
     <!-- Schedule Editor (Unlocked) -->
     <div id="adminEditStep" class="hidden space-y-6">
-      <p class="text-xs text-emerald-900 bg-emerald-100 border-2 border-on-surface p-3 rounded-xl font-bold">🔓 Admin unlocked. Edit schedule slots and click Save to push live changes to all family devices.</p>
-      <div id="adminScheduleFields" class="space-y-4"></div>
+      <p class="text-xs text-emerald-900 bg-emerald-100 border-2 border-on-surface p-3 rounded-xl font-bold">🔓 Admin unlocked. Edit schedule slots or stamp sold out venues to push live changes to all family devices.</p>
+      
+      <!-- Schedule Slots -->
+      <div>
+        <h4 class="font-pop font-extrabold text-sm text-on-surface mb-2">📅 5-Day Master Itinerary Slots</h4>
+        <div id="adminScheduleFields" class="space-y-4"></div>
+      </div>
+
+      <!-- Sold Out / Fully Booked Management -->
+      <div class="pt-4 border-t-2 border-outline-variant">
+        <h4 class="font-pop font-extrabold text-sm text-pop-red mb-1">🏷️ Mark Venues as Sold Out / Fully Booked</h4>
+        <p class="text-xs text-on-surface-variant mb-3">Click any venue to toggle the red diagonal <strong>COMPLET &middot; SOLD OUT</strong> watermark overlay live across the site.</p>
+        <div id="adminSoldOutList" class="grid grid-cols-1 sm:grid-cols-2 gap-2"></div>
+      </div>
+
       <div class="flex justify-end gap-2 pt-4">
         <button onclick="closeAdminModal()" class="px-4 py-2 text-xs font-pop font-bold text-on-surface-variant hover:bg-surface-container rounded-xl pop-btn">Close</button>
         <button onclick="saveAdminSchedule()" class="px-5 py-2 text-xs font-pop font-extrabold bg-pop-red text-white rounded-xl pop-btn">Publish Schedule Changes</button>
@@ -1708,6 +1772,7 @@ function renderAll() {
   renderGuideGrid();
   renderMapCardDeck();
   applyTrazVisibility();
+  applySoldOutOverlays();
 }
 
 /* ── MEMBER SELECTION ── */
@@ -2338,6 +2403,29 @@ function applyTrazVisibility() {
   });
 }
 
+/* ── SOLD OUT / FULLY BOOKED OVERLAYS ── */
+function applySoldOutOverlays() {
+  const soldOutList = appState.sold_out || [];
+  document.querySelectorAll('[data-item]').forEach(card => {
+    const id = card.dataset.item;
+    const isSoldOut = soldOutList.includes(id) || card.hasAttribute('data-sold-out');
+    
+    if (isSoldOut) {
+      card.classList.add('card-sold-out');
+      if (!card.querySelector('.sold-out-ribbon')) {
+        const ribbon = document.createElement('div');
+        ribbon.className = 'sold-out-ribbon';
+        ribbon.innerHTML = 'COMPLET &middot; SOLD OUT';
+        card.appendChild(ribbon);
+      }
+    } else {
+      card.classList.remove('card-sold-out');
+      const ribbon = card.querySelector('.sold-out-ribbon');
+      if (ribbon) ribbon.remove();
+    }
+  });
+}
+
 /* ── ADMIN MODAL & SCHEDULE EDITING ── */
 function openAdminModal() {
   document.getElementById('adminModal').classList.remove('hidden');
@@ -2403,6 +2491,59 @@ function renderAdminScheduleFields() {
       </div>
     </div>
   `).join('');
+
+  renderAdminSoldOutToggles();
+}
+
+const ALL_VENUE_IDS = [
+  { id: "roselys-fairmont", name: "Rosélys (Fairmont Queen E)" },
+  { id: "auberge-saint-gabriel", name: "Auberge Saint-Gabriel" },
+  { id: "gibbys", name: "Gibbys" },
+  { id: "maison-boulud", name: "Maison Boulud (Ritz)" },
+  { id: "maggie-oakes", name: "Maggie Oakes" },
+  { id: "brasserie-701", name: "Brasserie 701" },
+  { id: "schwartzs", name: "Schwartz's Deli" },
+  { id: "le-serpent", name: "Le Serpent" },
+  { id: "monarque", name: "Monarque" },
+  { id: "au-pied-de-cochon", name: "Au Pied de Cochon" },
+  { id: "damas", name: "Damas" },
+  { id: "lexpress", name: "L'Express" }
+];
+
+function renderAdminSoldOutToggles() {
+  const container = document.getElementById('adminSoldOutList');
+  if (!container) return;
+  const soldOutList = appState.sold_out || [];
+
+  container.innerHTML = ALL_VENUE_IDS.map(v => {
+    const isSold = soldOutList.includes(v.id);
+    return `
+      <div class="flex items-center justify-between p-2.5 bg-white rounded-xl border-2 border-on-surface text-xs shadow-[2px_2px_0px_#1e293b]">
+        <span class="font-bold text-on-surface truncate pr-2">${v.name}</span>
+        <button type="button" onclick="toggleSoldOutVenue('${v.id}')" class="px-2.5 py-1 rounded-full text-[11px] font-pop font-extrabold pop-btn whitespace-nowrap ${isSold ? 'bg-red-600 text-white' : 'bg-surface-container text-on-surface-variant hover:bg-red-50'}">
+          ${isSold ? '❌ SOLD OUT' : '✅ Available'}
+        </button>
+      </div>
+    `;
+  }).join('');
+}
+
+async function toggleSoldOutVenue(itemId) {
+  const pin = document.getElementById('adminPinInput').value;
+  try {
+    const res = await fetch('/api/admin/toggle_sold_out', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pin, item_id: itemId })
+    });
+    if (res.ok) {
+      appState = await res.json();
+      renderAdminSoldOutToggles();
+      applySoldOutOverlays();
+    }
+  } catch (err) {
+    console.error("Toggle sold out error:", err);
+  }
 }
 
 async function saveAdminSchedule() {
