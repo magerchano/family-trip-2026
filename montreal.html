@@ -1276,45 +1276,45 @@ const MAP_DESTINATIONS = [
   { id: "jean-talon", name: "Jean-Talon Market", category: "attraction", lat: 45.5361, lng: -73.6150, walk: "12 min metro", desc: "Vibrant open-air market in Little Italy.", icon: "🍎", color: "#219ebc", badge: "Market" }
 ];
 
-/* ── GUIDE CATALOG DATA (Alan & Travis recommendations) ── */
+/* ── GUIDE CATALOG DATA (Alan & Travis recommendations with Yelp & Google Reviews) ── */
 const GUIDE_CATALOG = {
   breakfast: [
-    { id: "eggspectation", name: "Eggspectation", addr: "1313 De Maisonneuve Ouest", tag: "Alan's Pick", desc: "Popular for all egg dishes, Benedicts, and brunch classics in downtown.", fort: "Fuel-up zone for +100 shields before exploring downtown." },
-    { id: "cafeteria", name: "Cafeteria", addr: "3581 St Laurent Blvd", tag: "Alan's Pick · On The Main", desc: "Nightclub by night, great breakfast & lunch food by day. Highly recommended by Alan.", fort: "Stealth landing spot right on our home street." },
-    { id: "chez-cora", name: "Chez Cora", addr: "3465 Park Ave", tag: "Alan's Pick", desc: "Classic Quebec institution. Incredible fruit mountains, crepes, and fresh fruit smoothies.", fort: "Health boost station. Massive fruit mountains." },
-    { id: "place-milton", name: "Place Milton", addr: "505 Milton St", tag: "Alan's Pick · Cash Only", desc: "Tiny, really good, cheap breakfast spot near McGill with a charming back patio.", fort: "Secret loot chest spot near McGill campus." },
-    { id: "fairmount-bagel", name: "Fairmount Bagel", addr: "74 Fairmount Ouest", tag: "Mile End Legend", desc: "Wood-fired since 1919. Hot sesame bagels straight from the wood oven 24/7.", fort: "Legendary consumable. Grab a hot bag at midnight." },
-    { id: "st-viateur-bagel", name: "St-Viateur Bagel", addr: "263 St-Viateur Ouest", tag: "The Rival Legend", desc: "The iconic rival to Fairmount. Hand-rolled, honey-water boiled, wood-fired perfection.", fort: "Mythic drop point. The sesame bagel showdown." }
+    { id: "eggspectation", name: "Eggspectation", addr: "1313 De Maisonneuve Ouest", tag: "Alan's Pick", yelpRating: "4.0", yelpReviews: "480+", googleRating: "4.3", googleReviews: "2,800+", desc: "Popular for all egg dishes, Benedicts, and brunch classics in downtown.", fort: "Fuel-up zone for +100 shields before exploring downtown." },
+    { id: "cafeteria", name: "Cafeteria", addr: "3581 St Laurent Blvd", tag: "Alan's Pick · On The Main", yelpRating: "4.0", yelpReviews: "120+", googleRating: "4.3", googleReviews: "450+", desc: "Nightclub by night, great breakfast & lunch food by day. Highly recommended by Alan.", fort: "Stealth landing spot right on our home street." },
+    { id: "chez-cora", name: "Chez Cora", addr: "3465 Park Ave", tag: "Alan's Pick", yelpRating: "4.0", yelpReviews: "310+", googleRating: "4.4", googleReviews: "1,900+", desc: "Classic Quebec institution. Incredible fruit mountains, crepes, and fresh fruit smoothies.", fort: "Health boost station. Massive fruit mountains." },
+    { id: "place-milton", name: "Place Milton", addr: "505 Milton St", tag: "Alan's Pick · Cash Only", yelpRating: "4.5", yelpReviews: "190+", googleRating: "4.5", googleReviews: "780+", desc: "Tiny, really good, cheap breakfast spot near McGill with a charming back patio.", fort: "Secret loot chest spot near McGill campus." },
+    { id: "fairmount-bagel", name: "Fairmount Bagel", addr: "74 Fairmount Ouest", tag: "Mile End Legend", yelpRating: "4.5", yelpReviews: "1,150+", googleRating: "4.6", googleReviews: "6,200+", desc: "Wood-fired since 1919. Hot sesame bagels straight from the wood oven 24/7.", fort: "Legendary consumable. Grab a hot bag at midnight." },
+    { id: "st-viateur-bagel", name: "St-Viateur Bagel", addr: "263 St-Viateur Ouest", tag: "The Rival Legend", yelpRating: "4.6", yelpReviews: "1,280+", googleRating: "4.7", googleReviews: "5,800+", desc: "The iconic rival to Fairmount. Hand-rolled, honey-water boiled, wood-fired perfection.", fort: "Mythic drop point. The sesame bagel showdown." }
   ],
   lunch: [
-    { id: "la-banquise", name: "La Banquise", addr: "994 Rachel E", tag: "24/7 Poutine Temple", desc: "30+ varieties of poutine around the clock. Walkable to Parc La Fontaine. Alan & Travis top pick!", fort: "24/7 Supply drop. Squeaky cheese curds on demand." },
-    { id: "frite-alors", name: "Frite Alors!", addr: "Multiple Locations", tag: "Belgian Style Fries", desc: "Belgian-style double-fried frites with authentic dipping sauces and burgers.", fort: "Belgian frites shield recharge." },
-    { id: "lola-rosa", name: "Lola Rosa", addr: "545 Milton St", tag: "100% Vegetarian Favorite", desc: "Beloved even by meat-lovers. Table drawers filled with notes from past travelers.", fort: "Secret notes in the table drawers. Veronica-approved outpost." },
-    { id: "mange-dans-mon-hood", name: "Mange Dans Mon Hood", addr: "Jean-Talon Market", tag: "Smash Burgers", desc: "Viral smash burgers, crispy chicken, and nostalgic sides near Little Italy.", fort: "High-tier smash burger loot drop." }
+    { id: "la-banquise", name: "La Banquise", addr: "994 Rachel E", tag: "24/7 Poutine Temple", yelpRating: "4.3", yelpReviews: "2,400+", googleRating: "4.5", googleReviews: "22,000+", desc: "30+ varieties of poutine around the clock. Walkable to Parc La Fontaine. Alan & Travis top pick!", fort: "24/7 Supply drop. Squeaky cheese curds on demand." },
+    { id: "frite-alors", name: "Frite Alors!", addr: "Multiple Locations", tag: "Belgian Style Fries", yelpRating: "4.0", yelpReviews: "350+", googleRating: "4.3", googleReviews: "1,600+", desc: "Belgian-style double-fried frites with authentic dipping sauces and burgers.", fort: "Belgian frites shield recharge." },
+    { id: "lola-rosa", name: "Lola Rosa", addr: "545 Milton St", tag: "100% Vegetarian Favorite", yelpRating: "4.6", yelpReviews: "450+", googleRating: "4.7", googleReviews: "2,100+", desc: "Beloved even by meat-lovers. Table drawers filled with notes from past travelers.", fort: "Secret notes in the table drawers. Veronica-approved outpost." },
+    { id: "mange-dans-mon-hood", name: "Mange Dans Mon Hood", addr: "Jean-Talon Market", tag: "Smash Burgers", yelpRating: "4.5", yelpReviews: "80+", googleRating: "4.7", googleReviews: "620+", desc: "Viral smash burgers, crispy chicken, and nostalgic sides near Little Italy.", fort: "High-tier smash burger loot drop." }
   ],
   pastries: [
-    { id: "rockaberry", name: "Rockaberry", addr: "4275 St Denis St", tag: "Alan's Pie Pick", desc: "Legendary pie and pastry spot with unique architecture. Massive fruit & cream pies.", fort: "Victory pie station. Giant slices of heaven." },
-    { id: "juliette-chocolat", name: "Juliette & Chocolat", addr: "3600 St Laurent Blvd", tag: "Alan's Chocolate Pick", desc: "Right on The Main. Decadent chocolate drinks, fondues, brownies, and hot drinks.", fort: "Liquid shield potion refinery on The Main." },
-    { id: "bernie-beigne", name: "Bernie Beigne", addr: "23 Bernard Ouest", tag: "Mile End Donuts", desc: "Retro hand-cut doughnuts made fresh all day. Apple fritters and classic glazes.", fort: "Speed boost treats. Apple fritters the size of your head." },
-    { id: "drogheria-fine", name: "Drogheria Fine", addr: "68 Fairmount Ouest", tag: "Gnocchi in a Box ($5)", desc: "Simple walk-up window serving fresh hot gnocchi in house tomato sauce for five bucks.", fort: "$5 quick power-up box. Best walk-up in Mile End." }
+    { id: "rockaberry", name: "Rockaberry", addr: "4275 St Denis St", tag: "Alan's Pie Pick", yelpRating: "4.2", yelpReviews: "410+", googleRating: "4.4", googleReviews: "2,300+", desc: "Legendary pie and pastry spot with unique architecture. Massive fruit & cream pies.", fort: "Victory pie station. Giant slices of heaven." },
+    { id: "juliette-chocolat", name: "Juliette & Chocolat", addr: "3600 St Laurent Blvd", tag: "Alan's Chocolate Pick", yelpRating: "4.3", yelpReviews: "620+", googleRating: "4.4", googleReviews: "3,100+", desc: "Right on The Main. Decadent chocolate drinks, fondues, brownies, and hot drinks.", fort: "Liquid shield potion refinery on The Main." },
+    { id: "bernie-beigne", name: "Bernie Beigne", addr: "23 Bernard Ouest", tag: "Mile End Donuts", yelpRating: "4.7", yelpReviews: "310+", googleRating: "4.8", googleReviews: "1,200+", desc: "Retro hand-cut doughnuts made fresh all day. Apple fritters and classic glazes.", fort: "Speed boost treats. Apple fritters the size of your head." },
+    { id: "drogheria-fine", name: "Drogheria Fine", addr: "68 Fairmount Ouest", tag: "Gnocchi in a Box ($5)", yelpRating: "4.6", yelpReviews: "290+", googleRating: "4.7", googleReviews: "1,850+", desc: "Simple walk-up window serving fresh hot gnocchi in house tomato sauce for five bucks.", fort: "$5 quick power-up box. Best walk-up in Mile End." }
   ],
   bars: [
-    { id: "bar-bifteck", name: "Bar Bifteck", addr: "3702 St Laurent Blvd", tag: "Same Block As House!", desc: "Famous, lively, crowded at night, cheap local beer and free popcorn. Right across from us.", fort: "Squad spawn room! Free popcorn and cheap local pints." },
-    { id: "brutopia", name: "Brutopia", addr: "1219 Crescent St", tag: "Alan's Brewery Pick", desc: "Brews their own craft beers, multi-floor layout, live musicians. Crescent Street anchor.", fort: "Live battle stage on Crescent Street." },
-    { id: "benelux", name: "Benelux Brasserie", addr: "245 Sherbrooke Ouest", tag: "Alan's Pick", desc: "Great craft brewery in an old 1960s bank. Excellent IPAs and outdoor summer patio.", fort: "Brewery built in a 1960s bank vault." },
-    { id: "la-distillerie", name: "La Distillerie", addr: "300 Rue Ontario", tag: "Alan's Cocktail Pick", desc: "Serves signature creative cocktails in massive mason jars. Fun, vibrant atmosphere.", fort: "Mega shield jars. Giant creative cocktail potions." },
-    { id: "st-sulpice", name: "St. Sulpice", addr: "1680 St Denis St", tag: "Alan's Patio Pick", desc: "Massive multi-level terrace with a courtyard fountain. Great pitchers of sangria.", fort: "Massive terrace sniper perch with courtyard fountain." },
-    { id: "lamere-a-boire", name: "L'amère à boire", addr: "2049 St Denis St", tag: "Alan's Pick", desc: "Artisanal European-style brewery with authentic German and Czech-style lagers.", fort: "Authentic German & Czech lagers on tap." },
-    { id: "le-lab", name: "Le Lab Cocktails", addr: "1351 Rachel Est", tag: "Alan's Fire Show Pick", desc: "Famous for flair bartending and high-end flaming cocktail shows around 11pm/midnight!", fort: "Pyrotechnic fire show drop around midnight!" }
+    { id: "bar-bifteck", name: "Bar Bifteck", addr: "3702 St Laurent Blvd", tag: "Same Block As House!", yelpRating: "4.0", yelpReviews: "180+", googleRating: "4.4", googleReviews: "1,100+", desc: "Famous, lively, crowded at night, cheap local beer and free popcorn. Right across from us.", fort: "Squad spawn room! Free popcorn and cheap local pints." },
+    { id: "brutopia", name: "Brutopia", addr: "1219 Crescent St", tag: "Alan's Brewery Pick", yelpRating: "4.0", yelpReviews: "320+", googleRating: "4.3", googleReviews: "1,950+", desc: "Brews their own craft beers, multi-floor layout, live musicians. Crescent Street anchor.", fort: "Live battle stage on Crescent Street." },
+    { id: "benelux", name: "Benelux Brasserie", addr: "245 Sherbrooke Ouest", tag: "Alan's Pick", yelpRating: "4.3", yelpReviews: "240+", googleRating: "4.5", googleReviews: "1,400+", desc: "Great craft brewery in an old 1960s bank. Excellent IPAs and outdoor summer patio.", fort: "Brewery built in a 1960s bank vault." },
+    { id: "la-distillerie", name: "La Distillerie", addr: "300 Rue Ontario", tag: "Alan's Cocktail Pick", yelpRating: "4.5", yelpReviews: "490+", googleRating: "4.6", googleReviews: "2,600+", desc: "Serves signature creative cocktails in massive mason jars. Fun, vibrant atmosphere.", fort: "Mega shield jars. Giant creative cocktail potions." },
+    { id: "st-sulpice", name: "St. Sulpice", addr: "1680 St Denis St", tag: "Alan's Patio Pick", yelpRating: "3.8", yelpReviews: "310+", googleRating: "4.1", googleReviews: "2,800+", desc: "Massive multi-level terrace with a courtyard fountain. Great pitchers of sangria.", fort: "Massive terrace sniper perch with courtyard fountain." },
+    { id: "lamere-a-boire", name: "L'amère à boire", addr: "2049 St Denis St", tag: "Alan's Pick", yelpRating: "4.2", yelpReviews: "210+", googleRating: "4.5", googleReviews: "1,200+", desc: "Artisanal European-style brewery with authentic German and Czech-style lagers.", fort: "Authentic German & Czech lagers on tap." },
+    { id: "le-lab", name: "Le Lab Cocktails", addr: "1351 Rachel Est", tag: "Alan's Fire Show Pick", yelpRating: "4.4", yelpReviews: "340+", googleRating: "4.5", googleReviews: "1,500+", desc: "Famous for flair bartending and high-end flaming cocktail shows around 11pm/midnight!", fort: "Pyrotechnic fire show drop around midnight!" }
   ],
   attractions: [
-    { id: "mount-royal", name: "Mount Royal Observatory", addr: "Kondiaronk Belvedere", tag: "Alan's #1 View", desc: "The defining panoramic viewpoint over Montreal. Gorgeous autumn walk through the park.", fort: "The ultimate high ground. View of the entire island." },
-    { id: "biodome", name: "Biodome & Olympic Park", addr: "4777 Pierre-de Coubertin", tag: "Alan's Pick · Kids Love", desc: "Explore 5 American ecosystems under one roof (penguins, rainforest, lynx). Get the combo pass!", fort: "Biome raid: Penguins, rainforest, and lynx all in one dome." },
-    { id: "old-montreal", name: "Old Montreal & Notre-Dame", addr: "Rue Saint-Paul", tag: "Historic District", desc: "Cobblestone streets, horse carriages, Old Port promenade, and the breathtaking basilica.", fort: "Ancient cobblestone fortress zone." },
-    { id: "mcgill", name: "McGill University Campus", addr: "845 Sherbrooke Ouest", tag: "Alan's Pick", desc: "Stunning historic campus right in the heart of downtown at the foot of Mount Royal.", fort: "Historic academy grounds." },
-    { id: "museum-fine-arts", name: "Montreal Museum of Fine Arts", addr: "1380 Sherbrooke Ouest", tag: "Alan's Pick", desc: "World-class pavilions, cutting-edge exhibits, and historic Quebec art.", fort: "Rare cultural artifact gallery." },
-    { id: "underground-city", name: "Underground City (RÉSO)", addr: "Downtown Montreal", tag: "Alan's Pick", desc: "33km of subterranean tunnels connecting shopping malls, metro stations, and plazas.", fort: "33km underground tunnels maze." },
-    { id: "jean-talon-market", name: "Jean-Talon Market", addr: "7070 Henri-Julien", tag: "Little Italy Market", desc: "One of North America's largest open-air markets. Maple butter, local cheeses, pastries.", fort: "Bountiful market loot: Maple butter & cheeses." }
+    { id: "mount-royal", name: "Mount Royal Observatory", addr: "Kondiaronk Belvedere", tag: "Alan's #1 View", yelpRating: "4.7", yelpReviews: "680+", googleRating: "4.8", googleReviews: "14,000+", desc: "The defining panoramic viewpoint over Montreal. Gorgeous autumn walk through the park.", fort: "The ultimate high ground. View of the entire island." },
+    { id: "biodome", name: "Biodome & Olympic Park", addr: "4777 Pierre-de Coubertin", tag: "Alan's Pick · Kids Love", yelpRating: "4.3", yelpReviews: "450+", googleRating: "4.6", googleReviews: "19,000+", desc: "Explore 5 American ecosystems under one roof (penguins, rainforest, lynx). Get the combo pass!", fort: "Biome raid: Penguins, rainforest, and lynx all in one dome." },
+    { id: "old-montreal", name: "Old Montreal & Notre-Dame", addr: "Rue Saint-Paul", tag: "Historic District", yelpRating: "4.7", yelpReviews: "1,400+", googleRating: "4.8", googleReviews: "28,000+", desc: "Cobblestone streets, horse carriages, Old Port promenade, and the breathtaking basilica.", fort: "Ancient cobblestone fortress zone." },
+    { id: "mcgill", name: "McGill University Campus", addr: "845 Sherbrooke Ouest", tag: "Alan's Pick", yelpRating: "4.5", yelpReviews: "120+", googleRating: "4.7", googleReviews: "3,200+", desc: "Stunning historic campus right in the heart of downtown at the foot of Mount Royal.", fort: "Historic academy grounds." },
+    { id: "museum-fine-arts", name: "Montreal Museum of Fine Arts", addr: "1380 Sherbrooke Ouest", tag: "Alan's Pick", yelpRating: "4.7", yelpReviews: "510+", googleRating: "4.7", googleReviews: "8,900+", desc: "World-class pavilions, cutting-edge exhibits, and historic Quebec art.", fort: "Rare cultural artifact gallery." },
+    { id: "underground-city", name: "Underground City (RÉSO)", addr: "Downtown Montreal", tag: "Alan's Pick", yelpRating: "3.8", yelpReviews: "280+", googleRating: "4.4", googleReviews: "5,600+", desc: "33km of subterranean tunnels connecting shopping malls, metro stations, and plazas.", fort: "33km underground tunnels maze." },
+    { id: "jean-talon-market", name: "Jean-Talon Market", addr: "7070 Henri-Julien", tag: "Little Italy Market", yelpRating: "4.5", yelpReviews: "1,100+", googleRating: "4.6", googleReviews: "15,000+", desc: "One of North America's largest open-air markets. Maple butter, local cheeses, pastries.", fort: "Bountiful market loot: Maple butter & cheeses." }
   ]
 };
 
@@ -1928,6 +1928,21 @@ function renderGuideGrid() {
               ${item.tag}
             </span>
           </div>
+
+          <!-- Yelp & Google Side-by-Side Ratings -->
+          <div class="flex items-center gap-2 mb-2.5 flex-wrap">
+            <span class="review-badge-yelp">
+              <span class="font-black text-[#d32323]">Yelp</span>
+              <span>${item.yelpRating} ★</span>
+              <span class="text-[10px] text-red-700 font-normal">(${item.yelpReviews})</span>
+            </span>
+            <span class="review-badge-google">
+              <span class="font-black text-[#4285F4]">G</span>
+              <span>${item.googleRating} ★</span>
+              <span class="text-[10px] text-blue-700 font-normal">(${item.googleReviews})</span>
+            </span>
+          </div>
+
           <p class="text-xs text-on-surface-variant font-bold mb-2">${item.addr}</p>
           <p class="text-xs text-on-surface-variant leading-relaxed mb-3">${item.desc}</p>
           <div class="traz-note traz-bubble p-2.5 flex items-center gap-2 mb-3">
