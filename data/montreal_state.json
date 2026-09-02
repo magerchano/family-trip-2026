@@ -1,0 +1,144 @@
+{
+  "family_members": [
+    { "id": "michael", "name": "Michael", "tag": "Host & Coordinator" },
+    { "id": "haley", "name": "Haley", "tag": "Chief Coffee & Pastry Officer" },
+    { "id": "dani-travis", "name": "Dani & Travis", "tag": "Air Canada Flight Crew · PIT" },
+    { "id": "greg-cat", "name": "Greg & Cat", "tag": "CT Road Trip Crew (w/ Owen & Izzy)" },
+    { "id": "michele", "name": "Michele (Mom)", "tag": "CT Road Trip Co-Pilot" },
+    { "id": "andrew-liz", "name": "Andrew & Liz", "tag": "Coordinates Pending ???" }
+  ],
+  "arrivals": {
+    "michael": {
+      "date": "Thu Oct 8",
+      "time": "4:15 PM",
+      "flight": "Delta DL4816 (DTW → YUL)",
+      "notes": "Lands 4:15 PM. Quick customs & Uber to 3831 St-Laurent to unlock basecamp. Return flight: DL5367 on Mon Oct 12 @ 5:10 PM.",
+      "type": "flight",
+      "seat": "",
+      "confirmation": "DL4816"
+    },
+    "haley": {
+      "date": "Thu Oct 8",
+      "time": "4:10 PM",
+      "flight": "United UA3715 (EWR → YUL)",
+      "notes": "Departs Newark 2:34 PM, lands YUL 4:10 PM (Seat 20C). Will meet Michael at airport for shared Uber! Return with Michael Mon Oct 12 @ 5:10 PM.",
+      "type": "flight",
+      "seat": "20C",
+      "confirmation": "UA3715"
+    },
+    "dani-travis": {
+      "date": "Thu Oct 8",
+      "time": "4:59 PM",
+      "flight": "Air Canada AC8588 (PIT → YUL)",
+      "notes": "Departs Pittsburgh 3:35 PM, lands YUL 4:59 PM (Conf: BATGHL). Return: Mon Oct 12 AC8927 departing YUL 4:10 PM via Toronto YYZ.",
+      "type": "flight",
+      "seat": "",
+      "confirmation": "BATGHL"
+    },
+    "greg-cat": {
+      "date": "Thu Oct 8",
+      "time": "~5:00–5:30 PM",
+      "flight": "Driving Up from South Windsor, CT (I-91 N)",
+      "notes": "Road trip convoy carrying Greg, Cat, Izzy (10), Owen (12), and Michele (Mom). ~5.5 hr drive + border crossing.",
+      "type": "drive",
+      "seat": "Minivan Squad",
+      "confirmation": "Road Trip"
+    },
+    "michele": {
+      "date": "Thu Oct 8",
+      "time": "~5:00–5:30 PM",
+      "flight": "Riding in CT Road Trip Convoy",
+      "notes": "Riding in comfort with Greg, Cat, Owen, and Izzy from South Windsor. Ready for rooftop wine and Schwartz's.",
+      "type": "drive",
+      "seat": "VIP Passenger",
+      "confirmation": "Road Trip"
+    },
+    "andrew-liz": {
+      "date": "Thu Oct 8",
+      "time": "TBD / Pending",
+      "flight": "Flight / Route coordinates pending ???",
+      "notes": "Awaiting flight confirmation from Andrew & Liz! Traz is actively scanning radar.",
+      "type": "unknown",
+      "seat": "",
+      "confirmation": "PENDING"
+    }
+  },
+  "schedule": [
+    {
+      "day": "Jeu 8",
+      "date": "Thu Oct 8",
+      "theme": "Arrivals & The Main",
+      "coffee": "Café In Gamba (Parc)",
+      "breakfast": "Travel Morning",
+      "lunch": "Touchdowns & Road Trip Arrival",
+      "dinner": "Schwartz's Smoked Meat Feasts",
+      "dinner_status": "confirmed",
+      "dinner_note": "No reservations needed. Grab towering briskets, pickles, and cherry sodas across the street to our two rooftop garden patios."
+    },
+    {
+      "day": "Ven 9",
+      "date": "Fri Oct 9",
+      "theme": "Plateau Roots & Old Mtl",
+      "coffee": "Dispatch Coffee (St-Laurent)",
+      "breakfast": "Fairmount / St-Viateur Bagels",
+      "lunch": "Mile End Stroll & Jean-Talon Market",
+      "dinner": "Le Serpent (Old Montreal)",
+      "dinner_status": "target",
+      "dinner_note": "Marquee Old Montreal dinner inside Darling Foundry. Booking window opens 30 days prior. Note: Closed Sundays."
+    },
+    {
+      "day": "Sam 10",
+      "date": "Sat Oct 10",
+      "theme": "Mount Royal & Splurge",
+      "coffee": "Café Névé (Rachel)",
+      "breakfast": "Eggspectation / Chez Cora",
+      "lunch": "Mount Royal Observatory Walk",
+      "dinner": "Au Pied de Cochon OR Monarque",
+      "dinner_status": "voting",
+      "dinner_note": "Vote active: Walkable Québécois feast at Au Pied de Cochon (9 min walk) vs. Monarque French Brasserie private room for 22."
+    },
+    {
+      "day": "Dim 11",
+      "date": "Sun Oct 11",
+      "theme": "Biodome & Classic Bistro",
+      "coffee": "Pikolo Espresso Bar",
+      "breakfast": "Café Replika (Simit Bagels)",
+      "lunch": "Montreal Biodome (5 Ecosystems)",
+      "dinner": "Damas OR L'Express",
+      "dinner_status": "voting",
+      "dinner_note": "Vote active: Top 5 Syrian culinary tasting at Damas vs. Parisian steak frites & late-night bistro at L'Express (8 min walk)."
+    },
+    {
+      "day": "Lun 12",
+      "date": "Mon Oct 12",
+      "theme": "Thanksgiving & Farewell",
+      "coffee": "Café Olimpico (Mile End)",
+      "breakfast": "Bagel Run & Packing",
+      "lunch": "La Banquise Poutine & Parc La Fontaine",
+      "dinner": "YUL Airport Flights & Drive Home",
+      "dinner_status": "confirmed",
+      "dinner_note": "Canadian Thanksgiving holiday. Dani & Travis fly 4:10 PM, Michael & Haley fly 5:10 PM. CT crew drives south."
+    }
+  ],
+  "votes": {
+    "schwartzs": { "up": ["michael", "haley", "dani-travis", "greg-cat"], "down": [] },
+    "le-serpent": { "up": ["michael", "haley", "dani-travis"], "down": [] },
+    "monarque": { "up": ["michael"], "down": [] },
+    "au-pied-de-cochon": { "up": ["michael", "greg-cat", "dani-travis"], "down": [] },
+    "damas": { "up": ["michael", "haley"], "down": [] },
+    "lexpress": { "up": ["michael", "haley", "dani-travis"], "down": [] },
+    "la-banquise": { "up": ["michael", "dani-travis", "greg-cat"], "down": [] },
+    "fairmount-bagel": { "up": ["michael", "haley"], "down": [] },
+    "st-viateur-bagel": { "up": ["michael", "dani-travis"], "down": [] },
+    "mount-royal": { "up": ["michael", "haley", "greg-cat"], "down": [] },
+    "biodome": { "up": ["michael", "greg-cat"], "down": [] }
+  },
+  "coffee_prefs": {
+    "in-gamba": 2,
+    "neve": 2,
+    "pikolo": 1,
+    "dispatch": 1,
+    "olimpico": 2,
+    "replika": 1
+  }
+}

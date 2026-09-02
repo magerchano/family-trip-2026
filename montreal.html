@@ -1,0 +1,2077 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Montréal 2026 &mdash; Pop! Family Concierge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Google Fonts: Bricolage Grotesque (Pop Headline) + Plus Jakarta Sans / Inter + Caveat -->
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Caveat:wght@600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<!-- Leaflet Maps CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        "background": "#f8f9fa",
+        "surface": "#f8f9fa",
+        "surface-container": "#f1f3f5",
+        "surface-container-low": "#f4f6f8",
+        "surface-container-lowest": "#ffffff",
+        "surface-container-high": "#e9ecef",
+        "on-surface": "#1e293b",
+        "on-surface-variant": "#475569",
+        "pop-red": "#e63946",       /* Vibrant Maple Crimson */
+        "pop-yellow": "#ffb703",    /* Warm Golden Mustard */
+        "pop-blue": "#219ebc",      /* Electric St-Laurent Teal/Blue */
+        "pop-dark": "#023047",      /* Deep Navy Accent */
+        "pop-green": "#2a9d8f",     /* Fresh Mint Green */
+        "pop-purple": "#7b2cbf",    /* Traz Gamer Purple */
+        "primary": "#e63946",
+        "primary-container": "#d90429",
+        "secondary": "#ffb703",
+        "tertiary": "#219ebc",
+        "outline-variant": "#e2e8f0",
+      },
+      fontFamily: {
+        "pop": ["Bricolage Grotesque", "sans-serif"],
+        "body": ["Plus Jakarta Sans", "Inter", "sans-serif"],
+        "serif": ["Noto Serif", "serif"],
+        "hand": ["Caveat", "cursive"],
+      },
+    },
+  },
+}
+</script>
+<style>
+  :root {
+    --pop-red: #e63946;
+    --pop-yellow: #ffb703;
+    --pop-blue: #219ebc;
+    --pop-dark: #023047;
+    --pop-green: #2a9d8f;
+    --pop-bg: #f8f9fa;
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--pop-bg);
+    color: #1e293b;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Pop! Shadows & Card Borders */
+  .pop-card {
+    background: #ffffff;
+    border: 2.5px solid #1e293b;
+    border-radius: 1.25rem;
+    box-shadow: 4px 5px 0px #1e293b;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .pop-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 7px 0px #1e293b;
+  }
+
+  .pop-btn {
+    border: 2px solid #1e293b;
+    box-shadow: 2px 3px 0px #1e293b;
+    transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .pop-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0px #1e293b;
+  }
+
+  .pop-pill {
+    border: 2px solid #1e293b;
+    box-shadow: 2px 2px 0px #1e293b;
+    transition: all 0.18s ease;
+  }
+  .pop-pill:hover {
+    transform: translateY(-1px);
+    box-shadow: 3px 3px 0px #1e293b;
+  }
+  .pop-pill.active {
+    background: #e63946;
+    color: #ffffff;
+    border-color: #1e293b;
+    box-shadow: 3px 3px 0px #1e293b;
+  }
+
+  /* Member Selector Pills */
+  .member-pill {
+    border: 2px solid #1e293b;
+    box-shadow: 2px 2px 0px #1e293b;
+    transition: all 0.15s ease;
+  }
+  .member-pill.active {
+    background: #ffb703;
+    color: #023047;
+    border-color: #1e293b;
+    box-shadow: 3px 3px 0px #1e293b;
+    transform: translateY(-1px);
+    font-weight: 800;
+  }
+
+  /* Pop Map Stylings */
+  .pop-map-container {
+    border: 3px solid #1e293b;
+    border-radius: 1.5rem;
+    box-shadow: 6px 7px 0px #1e293b;
+    overflow: hidden;
+    background: #ffffff;
+  }
+
+  .map-frame {
+    height: 480px;
+    width: 100%;
+    z-index: 10;
+  }
+  .coffee-map-frame {
+    height: 440px;
+    width: 100%;
+    z-index: 10;
+  }
+
+  /* Pop! Custom Map Marker Pin */
+  .pop-map-pin {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: 9999px;
+    border: 2px solid #1e293b;
+    box-shadow: 2px 3px 0px #1e293b;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: center bottom;
+  }
+  .pop-map-pin:hover {
+    transform: scale(1.15) translateY(-3px);
+    box-shadow: 4px 6px 0px #1e293b;
+    z-index: 999 !important;
+  }
+  .pin-basecamp-pop {
+    background: #ffb703;
+    color: #023047;
+    animation: popBeaconPulse 2s infinite;
+  }
+  @keyframes popBeaconPulse {
+    0% { transform: scale(1); box-shadow: 2px 3px 0px #1e293b, 0 0 0 0 rgba(255, 183, 3, 0.7); }
+    50% { transform: scale(1.06); box-shadow: 3px 4px 0px #1e293b, 0 0 0 12px rgba(255, 183, 3, 0); }
+    100% { transform: scale(1); box-shadow: 2px 3px 0px #1e293b, 0 0 0 0 rgba(255, 183, 3, 0); }
+  }
+
+  /* Heart Toggle Button */
+  .coffee-heart-btn {
+    cursor: pointer;
+    font-size: 1.35rem;
+    user-select: none;
+    transition: transform 0.15s ease;
+    display: inline-block;
+  }
+  .coffee-heart-btn:hover {
+    transform: scale(1.25);
+  }
+
+  /* Traz Commentary Bubble */
+  .traz-bubble {
+    background: #f3e8ff;
+    border: 2px solid #581c87;
+    border-radius: 1rem;
+    box-shadow: 3px 3px 0px #581c87;
+    transition: all 0.2s ease;
+  }
+
+  /* Review Badges */
+  .review-badge-google {
+    background: #eff6ff;
+    color: #1e40af;
+    border: 1.5px solid #bfdbfe;
+    font-weight: 700;
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+  }
+  .review-badge-yelp {
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1.5px solid #fecaca;
+    font-weight: 700;
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+  }
+
+  /* Pulse for Live Sync */
+  @keyframes livePulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.85); }
+  }
+  .live-dot {
+    animation: livePulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+</style>
+</head>
+<body class="bg-background text-on-surface">
+
+<!-- ═══════════════════════ TOP IDENTITY & LIVE SYNC BAR ═══════════════════════ -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b-2 border-on-surface shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 py-2.5 flex flex-col md:flex-row items-center justify-between gap-3">
+    
+    <!-- Left: Brand + Live Sync -->
+    <div class="flex items-center gap-2.5">
+      <div class="bg-pop-red text-white font-pop font-extrabold text-sm px-3 py-1 rounded-xl tracking-tight flex items-center gap-1.5 border-2 border-on-surface shadow-[2px_2px_0px_#1e293b]">
+        <span>🍁</span> Pop! Montréal
+      </div>
+      <span class="inline-flex items-center gap-1.5 bg-emerald-100 text-emerald-900 border-2 border-on-surface text-[11px] font-pop font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-[2px_2px_0px_#1e293b]">
+        <span class="w-2 h-2 rounded-full bg-emerald-600 live-dot"></span> Live Sync
+      </span>
+      <div class="text-xs font-body text-on-surface-variant hidden sm:flex items-center gap-1">
+        <span>Active User:</span>
+        <span id="activeMemberLabel" class="font-pop font-extrabold text-pop-red">Michael</span>
+      </div>
+    </div>
+
+    <!-- Center: Family Selector Pills -->
+    <div class="flex items-center gap-1.5 overflow-x-auto max-w-full pb-1 md:pb-0 scrollbar-none" id="memberSelector">
+      <!-- Populated via JS -->
+    </div>
+
+    <!-- Right: Quick Tools -->
+    <div class="flex items-center gap-2">
+      <button onclick="toggleTrazMode()" id="trazToggleBtn" class="flex items-center gap-1.5 text-xs font-pop font-extrabold px-3.5 py-1.5 rounded-full border-2 border-on-surface text-purple-950 bg-purple-200 hover:bg-purple-300 pop-btn shadow-[2px_2px_0px_#1e293b]">
+        <img src="assets/traz_victory.jpg" alt="Traz" class="w-5 h-5 rounded-full object-cover border border-on-surface" />
+        <span>Traz Mode: <strong id="trazStatusText">ON</strong></span>
+      </button>
+      <button onclick="openAdminModal()" class="p-1.5 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-surface-container transition-colors" title="Admin Schedule Controls">
+        <span class="material-symbols-outlined !text-lg">tune</span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- ═══════════════════════ TRAVIS "TRAZ" BANNER ═══════════════════════ -->
+<div id="trazBanner" class="bg-gradient-to-r from-purple-800 via-indigo-700 to-purple-900 text-white py-3 px-4 border-b-2 border-on-surface shadow-inner">
+  <div class="max-w-6xl mx-auto flex items-center justify-between flex-wrap gap-3">
+    <div class="flex items-center gap-3">
+      <img src="assets/traz_victory.jpg" alt="Traz" class="w-10 h-10 rounded-full object-cover border-2 border-white shadow-[2px_2px_0px_#000]" />
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="bg-yellow-400 text-black font-extrabold text-[10px] uppercase px-2 py-0.5 rounded tracking-widest font-pop border border-black">TnB21 Tactical Brief</span>
+          <span class="font-pop font-extrabold text-sm text-yellow-200">TRAZ MODE ACTIVATED &mdash; Eat. Explore. Victory.</span>
+        </div>
+        <p class="text-xs text-white/90 font-medium">Traz has custom stickers and tactical notes across flights, dinners, coffee, and sights.</p>
+      </div>
+    </div>
+    <button onclick="toggleTrazMode()" class="text-xs text-purple-200 hover:text-white font-pop font-bold underline">Turn Off</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════ HERO SECTION: POP! CARTOON HERO ═══════════════════════ -->
+<section class="py-8 md:py-12 px-4 max-w-6xl mx-auto">
+  
+  <!-- Hero Pop Frame -->
+  <div class="pop-card p-4 md:p-6 mb-6 bg-gradient-to-b from-amber-50/60 to-white overflow-hidden">
+    
+    <div class="text-center max-w-3xl mx-auto mb-5">
+      <div class="inline-flex items-center gap-2 bg-pop-yellow text-pop-dark border-2 border-on-surface font-pop font-extrabold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-3 shadow-[2px_2px_0px_#1e293b]">
+        <span>🎉</span> Canadian Thanksgiving Long Weekend &middot; Oct 8&ndash;12, 2026
+      </div>
+      <h1 class="font-pop font-extrabold text-4xl md:text-6xl text-on-surface tracking-tight leading-none mb-2">
+        Pop! Montréal 2026
+      </h1>
+      <p class="font-body text-base md:text-lg text-on-surface-variant font-medium">
+        The master plan for 11 of us at <strong>3831 Boulevard Saint-Laurent</strong> in The Plateau.
+      </p>
+    </div>
+
+    <!-- The Generated Pop! Cartoon Hero Illustration -->
+    <div class="relative rounded-2xl overflow-hidden border-3 border-on-surface shadow-[4px_5px_0px_#1e293b] mb-6">
+      <img src="assets/hero_pop.jpg" alt="3831 Boulevard Saint-Laurent Pop Cartoon Illustration" class="w-full h-auto object-cover max-h-[520px] block" />
+      
+      <!-- Floating Pop Badge Overlays -->
+      <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-md border-2 border-on-surface px-3 py-1.5 rounded-xl shadow-[3px_3px_0px_#1e293b] flex items-center gap-2">
+        <span class="text-base">🏡</span>
+        <div>
+          <span class="font-pop font-extrabold text-xs text-on-surface block leading-tight">3831 St-Laurent</span>
+          <span class="text-[10px] text-pop-red font-bold font-pop uppercase">2 Rooftop Terraces</span>
+        </div>
+      </div>
+
+      <div class="absolute top-3 right-3 bg-white/95 backdrop-blur-md border-2 border-on-surface px-3 py-1.5 rounded-xl shadow-[3px_3px_0px_#1e293b] flex items-center gap-2">
+        <span class="text-base">🥩</span>
+        <div>
+          <span class="font-pop font-extrabold text-xs text-on-surface block leading-tight">Schwartz's Deli</span>
+          <span class="text-[10px] text-emerald-700 font-bold font-pop uppercase">Across the Street</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Traz Basecamp Take (Traz Mode) -->
+    <div class="traz-note mb-5 traz-bubble p-3.5 flex items-center gap-3">
+      <img src="assets/traz_victory.jpg" alt="Traz" class="w-12 h-12 rounded-full object-cover border-2 border-purple-950 flex-shrink-0" />
+      <div>
+        <span class="font-pop font-extrabold text-xs text-purple-950 uppercase tracking-wider block">Traz Tactical Drop Note</span>
+        <p class="text-xs text-purple-900 font-medium leading-relaxed">
+          "Squad basecamp secured at 3831 St-Laurent. Two rooftop garden terraces for maximum high-ground advantage. Schwartz's Deli is literally 30 seconds away for instant shield refills."
+        </p>
+      </div>
+    </div>
+
+    <!-- 4 Key Anchor Cards (Pop! Tokens) -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3.5">
+      
+      <div class="bg-amber-50 border-2 border-on-surface rounded-xl p-3.5 shadow-[3px_3px_0px_#1e293b]">
+        <div class="flex items-center gap-1.5 mb-1">
+          <span class="text-sm">🏡</span>
+          <span class="text-[10px] font-pop font-extrabold uppercase tracking-wider text-pop-dark">Basecamp</span>
+        </div>
+        <span class="font-pop font-bold text-sm text-on-surface block leading-tight">3831 St-Laurent</span>
+        <span class="text-[11px] text-on-surface-variant font-medium">The Plateau (The Main)</span>
+      </div>
+
+      <div class="bg-rose-50 border-2 border-on-surface rounded-xl p-3.5 shadow-[3px_3px_0px_#1e293b]">
+        <div class="flex items-center gap-1.5 mb-1">
+          <span class="text-sm">👥</span>
+          <span class="text-[10px] font-pop font-extrabold uppercase tracking-wider text-pop-red">The Crew</span>
+        </div>
+        <span class="font-pop font-bold text-sm text-on-surface block leading-tight">11 Guests</span>
+        <span class="text-[11px] text-on-surface-variant font-medium">9 Adults + 2 Kids</span>
+      </div>
+
+      <div class="bg-cyan-50 border-2 border-on-surface rounded-xl p-3.5 shadow-[3px_3px_0px_#1e293b]">
+        <div class="flex items-center gap-1.5 mb-1">
+          <span class="text-sm">✈️</span>
+          <span class="text-[10px] font-pop font-extrabold uppercase tracking-wider text-pop-blue">Touchdowns</span>
+        </div>
+        <span class="font-pop font-bold text-sm text-on-surface block leading-tight">Thu 4:10&ndash;4:59 PM</span>
+        <span class="text-[11px] text-on-surface-variant font-medium">3 Flights + CT Road Trip</span>
+      </div>
+
+      <div class="bg-emerald-50 border-2 border-on-surface rounded-xl p-3.5 shadow-[3px_3px_0px_#1e293b]">
+        <div class="flex items-center gap-1.5 mb-1">
+          <span class="text-sm">🦃</span>
+          <span class="text-[10px] font-pop font-extrabold uppercase tracking-wider text-emerald-800">Holiday</span>
+        </div>
+        <span class="font-pop font-bold text-sm text-on-surface block leading-tight">Thanksgiving</span>
+        <span class="text-[11px] text-on-surface-variant font-medium">Mon Oct 12 Holiday</span>
+      </div>
+
+    </div>
+
+    <!-- Quick Jump Buttons -->
+    <div class="flex flex-wrap justify-center gap-2.5 mt-6">
+      <a href="#arrivals" class="bg-white text-on-surface font-pop font-extrabold text-xs px-4 py-2 rounded-full pop-btn">✈️ Arrivals Board</a>
+      <a href="#the-plan" class="bg-pop-red text-white font-pop font-extrabold text-xs px-4 py-2 rounded-full pop-btn">📅 Concierge Schedule</a>
+      <a href="#city-map" class="bg-pop-yellow text-pop-dark font-pop font-extrabold text-xs px-4 py-2 rounded-full pop-btn">🗺️ Pop! City Map</a>
+      <a href="#coffee-section" class="bg-pop-blue text-white font-pop font-extrabold text-xs px-4 py-2 rounded-full pop-btn">☕️ 30-Min Coffee Walk</a>
+      <a href="#marquee-dinners" class="bg-emerald-600 text-white font-pop font-extrabold text-xs px-4 py-2 rounded-full pop-btn">🍽️ Group Dinners for 11</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════ SECTION 1: L'ARRIVÉE — ARRIVALS BOARD ═══════════════════════ -->
+<section id="arrivals" class="py-10 md:py-14 max-w-6xl mx-auto px-4 scroll-mt-14">
+  <div class="text-center max-w-2xl mx-auto mb-8">
+    <div class="inline-flex items-center gap-1.5 bg-pop-yellow text-pop-dark border-2 border-on-surface text-xs font-pop font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full mb-2 shadow-[2px_2px_0px_#1e293b]">
+      <span>✈️</span> Thursday Oct 8 &middot; Landing &amp; Convergence
+    </div>
+    <h2 class="font-pop font-extrabold text-4xl md:text-5xl text-on-surface tracking-tight mb-2">L'Arrivée &mdash; Arrivals Board</h2>
+    <p class="font-body text-on-surface-variant text-base">Keep everyone updated on flights, driving convoys, and touchdown times on The Main.</p>
+  </div>
+
+  <!-- Interactive Arrivals Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-8" id="arrivalsGrid">
+    <!-- Populated by JS with live state & custom Traz stickers -->
+  </div>
+
+  <!-- Arrival Timeline Flow -->
+  <div class="pop-card p-5 md:p-6 bg-amber-50/50">
+    <div class="flex items-center justify-between flex-wrap gap-2 mb-3">
+      <h3 class="font-pop font-extrabold text-lg text-on-surface flex items-center gap-2">
+        <span class="material-symbols-outlined text-pop-red">schedule</span> Thursday Master Landing Timeline
+      </h3>
+      <div class="traz-note flex items-center gap-2 bg-purple-100 border border-purple-900 px-3 py-1 rounded-full text-xs font-pop font-bold text-purple-950">
+        <img src="assets/traz_flight.jpg" alt="Traz" class="w-5 h-5 rounded-full object-cover" />
+        <span>Traz: "Flight Crew lands YUL. Road trip rolls in from CT. Convergence at 3831 St-Laurent!"</span>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3 text-xs font-body">
+      
+      <div class="bg-white p-3.5 rounded-xl border-2 border-on-surface shadow-[2px_2px_0px_#1e293b]">
+        <span class="font-pop font-extrabold text-pop-yellow text-sm block mb-0.5">4:00 PM</span>
+        <span class="font-bold text-on-surface block">Airbnb Unlocks</span>
+        <span class="text-on-surface-variant">Smart lock opens 3831 St-Laurent. Patios ready.</span>
+      </div>
+
+      <div class="bg-white p-3.5 rounded-xl border-2 border-on-surface shadow-[2px_2px_0px_#1e293b]">
+        <span class="font-pop font-extrabold text-cyan-600 text-sm block mb-0.5">4:10 &middot; 4:15 PM</span>
+        <span class="font-bold text-on-surface block">Haley &amp; Michael Land</span>
+        <span class="text-on-surface-variant">UA3715 (EWR 4:10) &amp; DL4816 (DTW 4:15). Meetup at YUL.</span>
+      </div>
+
+      <div class="bg-white p-3.5 rounded-xl border-2 border-on-surface shadow-[2px_2px_0px_#1e293b]">
+        <span class="font-pop font-extrabold text-pop-red text-sm block mb-0.5">4:59 PM</span>
+        <span class="font-bold text-on-surface block">Dani &amp; Travis Touchdown</span>
+        <span class="text-on-surface-variant">Air Canada AC8588 from PIT lands at YUL. Uber to house.</span>
+      </div>
+
+      <div class="bg-white p-3.5 rounded-xl border-2 border-on-surface shadow-[2px_2px_0px_#1e293b]">
+        <span class="font-pop font-extrabold text-pop-blue text-sm block mb-0.5">~5:15&ndash;5:45 PM</span>
+        <span class="font-bold text-on-surface block">CT Convoy Arrives</span>
+        <span class="text-on-surface-variant">Greg, Cat, Owen, Izzy &amp; Michele pull up from South Windsor.</span>
+      </div>
+
+      <div class="bg-white p-3.5 rounded-xl border-2 border-on-surface shadow-[2px_2px_0px_#1e293b]">
+        <span class="font-pop font-extrabold text-emerald-600 text-sm block mb-0.5">7:00 PM &rarr; Late</span>
+        <span class="font-bold text-on-surface block">Schwartz's Feast</span>
+        <span class="text-on-surface-variant">Smoked meat feast on our two rooftop terraces!</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SECTION 2: LE PLAN (CONCIERGE SCHEDULE) ═══════════════════════ -->
+<section id="the-plan" class="py-12 md:py-16 bg-surface-container-low scroll-mt-14">
+  <div class="max-w-6xl mx-auto px-4">
+    
+    <div class="text-center max-w-2xl mx-auto mb-8">
+      <div class="inline-flex items-center gap-1.5 bg-pop-red text-white border-2 border-on-surface text-xs font-pop font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full mb-2 shadow-[2px_2px_0px_#1e293b]">
+        <span>📅</span> 5-Day Master Itinerary
+      </div>
+      <h2 class="font-pop font-extrabold text-4xl md:text-5xl text-on-surface tracking-tight mb-2">Le Plan &mdash; The Live Week</h2>
+      <p class="font-body text-on-surface-variant text-base">The itinerary evolves live as group votes and flight times roll in. Confirmed reservations are pinned in green.</p>
+    </div>
+
+    <!-- The Schedule Table -->
+    <div class="pop-card overflow-hidden">
+      
+      <!-- Table Header (Desktop) -->
+      <div class="hidden lg:grid grid-cols-[130px_1fr_1fr_1fr_1.3fr] bg-amber-50 border-b-2 border-on-surface font-pop font-extrabold text-xs uppercase tracking-wider text-on-surface p-4">
+        <div>Day &middot; Date</div>
+        <div>Morning Coffee</div>
+        <div>Breakfast / Brunch</div>
+        <div>Lunch &middot; Activity</div>
+        <div>Dinner &middot; Night</div>
+      </div>
+
+      <!-- Schedule Rows Container -->
+      <div id="scheduleContainer" class="divide-y-2 divide-outline-variant">
+        <!-- Populated via JS -->
+      </div>
+
+    </div>
+
+    <div class="flex items-center justify-between flex-wrap gap-4 mt-6 text-xs text-on-surface-variant font-body px-2">
+      <div class="flex items-center gap-4 flex-wrap">
+        <span class="flex items-center gap-1.5 font-bold"><span class="w-3 h-3 rounded-full bg-emerald-600 border border-on-surface"></span> Confirmed &amp; Pinned</span>
+        <span class="flex items-center gap-1.5 font-bold"><span class="w-3 h-3 rounded-full bg-pop-yellow border border-on-surface"></span> Group Vote Active</span>
+        <span class="flex items-center gap-1.5 font-bold"><span class="w-3 h-3 rounded-full bg-pop-red border border-on-surface"></span> Target Table</span>
+      </div>
+      <p class="italic text-on-surface-variant">Michael updates confirmed reservations as booking windows open.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════ SECTION 3: LA CARTE (FULL POP! MAP EXPERIENCE) ═══════════════════════ -->
+<section id="city-map" class="py-12 md:py-16 max-w-6xl mx-auto px-4 scroll-mt-14">
+  
+  <div class="text-center max-w-2xl mx-auto mb-8">
+    <div class="inline-flex items-center gap-1.5 bg-pop-blue text-white border-2 border-on-surface text-xs font-pop font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full mb-2 shadow-[2px_2px_0px_#1e293b]">
+      <span>🗺️</span> Pop! City Radar
+    </div>
+    <h2 class="font-pop font-extrabold text-4xl md:text-5xl text-on-surface tracking-tight mb-2">La Carte &mdash; The Plateau &amp; Beyond</h2>
+    <p class="font-body text-on-surface-variant text-base">Explore all destinations relative to <strong>3831 St-Laurent</strong>. Click pins or destination cards to fly directly to them!</p>
+  </div>
+
+  <!-- Pop Map Filter Toolbar -->
+  <div class="flex items-center justify-center gap-2 pb-3 mb-5 overflow-x-auto scrollbar-none" id="mapFilters">
+    <button onclick="filterMapMarkers('all')" class="pop-pill active text-xs font-pop font-extrabold px-4 py-1.5 rounded-full bg-white" data-mapfilter="all">📍 All Destinations</button>
+    <button onclick="filterMapMarkers('dinner')" class="pop-pill text-xs font-pop font-extrabold px-4 py-1.5 rounded-full bg-white text-on-surface-variant" data-mapfilter="dinner">🍽️ Group Dinners</button>
+    <button onclick="filterMapMarkers('casual')" class="pop-pill text-xs font-pop font-extrabold px-4 py-1.5 rounded-full bg-white text-on-surface-variant" data-mapfilter="casual">🍟 Poutine &amp; Casual</button>
+    <button onclick="filterMapMarkers('attraction')" class="pop-pill text-xs font-pop font-extrabold px-4 py-1.5 rounded-full bg-white text-on-surface-variant" data-mapfilter="attraction">🍁 Iconic Sights</button>
+  </div>
+
+  <!-- Pop! Side-by-Side Interactive Map & Destination Deck -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+    
+    <!-- Map Canvas (8 cols on desktop) -->
+    <div class="lg:col-span-8 pop-map-container p-2.5">
+      <div class="flex items-center justify-between px-3 py-2 border-b-2 border-on-surface mb-2 font-pop text-xs font-bold bg-amber-50 rounded-lg">
+        <span class="flex items-center gap-1 text-pop-dark"><span class="w-2.5 h-2.5 rounded-full bg-pop-yellow border border-on-surface"></span> <strong>Basecamp:</strong> 3831 St-Laurent (The Main)</span>
+        <span class="text-on-surface-variant">Click marker to inspect</span>
+      </div>
+      <div id="masterMap" class="map-frame rounded-xl overflow-hidden"></div>
+    </div>
+
+    <!-- Interactive Destination Quick Cards (4 cols on desktop) -->
+    <div class="lg:col-span-4 flex flex-col gap-3 max-h-[540px] overflow-y-auto pr-1" id="mapCardDeck">
+      <!-- Populated via JS with interactive click-to-fly cards -->
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════ SECTION 4: LE CAFÉ & LA PÂTISSERIE (EXPANDED 30-MIN WALK RADIUS) ═══════════════════════ -->
+<section id="coffee-section" class="py-12 md:py-16 bg-surface-container-low scroll-mt-14">
+  <div class="max-w-6xl mx-auto px-4">
+    
+    <div class="text-center max-w-3xl mx-auto mb-8">
+      <div class="inline-flex items-center gap-1.5 bg-pop-yellow text-pop-dark border-2 border-on-surface text-xs font-pop font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full mb-2 shadow-[2px_2px_0px_#1e293b]">
+        <span>☕️</span> 30-Minute Walk Doorstep Radius (2.2 km)
+      </div>
+      <h2 class="font-pop font-extrabold text-4xl md:text-5xl text-on-surface tracking-tight mb-2">Le Café &amp; La Pâtisserie</h2>
+      <p class="font-body text-on-surface-variant text-base">
+        Morning strolls across The Plateau, Mile End, and Outremont within a 30-minute walk of <strong>3831 St-Laurent</strong>. Filter for <strong>Single-Origin Roasters</strong> vs. <strong>French Bakeries &amp; Doughnuts</strong>.
+      </p>
+    </div>
+
+    <!-- Traz Coffee Sticker Banner -->
+    <div class="traz-note traz-bubble p-3.5 flex items-center gap-3 mb-8 max-w-3xl mx-auto">
+      <img src="assets/traz_coffee.jpg" alt="Traz Coffee" class="w-14 h-14 rounded-full object-cover border-2 border-purple-950 flex-shrink-0" />
+      <div>
+        <span class="font-pop font-extrabold text-xs text-purple-950 uppercase tracking-wider block">Traz 30-Minute Morning Fuel Doctrine</span>
+        <p class="text-xs text-purple-900 font-medium leading-relaxed">
+          "Haley's coffee radar expanded to a 30-minute walking radius! Grab single-origin pour-overs at In Gamba (5m), monster cookies at Névé (7m), artisanal bread at Guillaume (14m), or pastries at Rhubarbe (22m). Google &amp; Yelp ratings listed on every card."
+        </p>
+      </div>
+    </div>
+
+    <!-- Coffee Walking Radius Map (Pop! Styled - 30 min / 2.2km radius) -->
+    <div class="pop-map-container p-3 mb-10">
+      <div class="flex items-center justify-between px-3 py-2 border-b-2 border-on-surface mb-2 font-pop text-xs font-bold bg-amber-50 rounded-lg">
+        <span class="flex items-center gap-1 text-pop-dark"><span>🚶‍♂️</span> 30-Minute Doorstep Walking Radius (2.2 km Circle)</span>
+        <span class="text-pop-red font-extrabold">Haley's Coffee Desire Tracker Active</span>
+      </div>
+      <div id="coffeeMap" class="coffee-map-frame rounded-xl overflow-hidden"></div>
+    </div>
+
+    <!-- Coffee Filter Tabs -->
+    <div class="flex items-center justify-center gap-2 pb-3 mb-8 overflow-x-auto scrollbar-none" id="coffeeFilters">
+      <button onclick="filterCoffeeCards('all')" class="pop-pill active text-xs font-pop font-extrabold px-5 py-2 rounded-full bg-white" data-cfilter="all">All 12 Spots (30 Min Radius)</button>
+      <button onclick="filterCoffeeCards('roaster')" class="pop-pill text-xs font-pop font-extrabold px-5 py-2 rounded-full bg-white text-on-surface-variant" data-cfilter="roaster">☕️ Single-Origin Roasters</button>
+      <button onclick="filterCoffeeCards('bakery')" class="pop-pill text-xs font-pop font-extrabold px-5 py-2 rounded-full bg-white text-on-surface-variant" data-cfilter="bakery">🥐 French Bakeries &amp; Pastries</button>
+    </div>
+
+    <!-- Coffee Cards Grid (With Google & Yelp scores side-by-side) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6" id="coffeeGrid">
+      <!-- Populated via JS -->
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════ SECTION 5: LA TABLE — GROUP DINNERS (11 GUESTS) ═══════════════════════ -->
+<section id="marquee-dinners" class="py-12 md:py-16 max-w-6xl mx-auto px-4 scroll-mt-14">
+  <div class="text-center max-w-2xl mx-auto mb-10">
+    <div class="inline-flex items-center gap-1.5 bg-pop-red text-white border-2 border-on-surface text-xs font-pop font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full mb-2 shadow-[2px_2px_0px_#1e293b]">
+      <span>🍽️</span> Marquee Group Tables
+    </div>
+    <h2 class="font-pop font-extrabold text-4xl md:text-5xl text-on-surface tracking-tight mb-2">La Table &mdash; Group Dinners for 11</h2>
+    <p class="font-body text-on-surface-variant text-base">Cast your vote on the top contenders. Upvote the tables you want Michael to book!</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="marqueeGrid">
+    
+    <!-- 1. Schwartz's -->
+    <div class="pop-card overflow-hidden flex flex-col justify-between" data-item="schwartzs">
+      <div>
+        <div class="h-48 bg-cover bg-center relative border-b-2 border-on-surface" style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80')">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between">
+            <span class="bg-emerald-600 text-white text-[10px] font-pop font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full border border-white">Thu Arrival &middot; Same Block</span>
+            <span class="text-white text-xs font-bold bg-black/50 px-2 py-0.5 rounded border border-white/40">💵 Cash Only</span>
+          </div>
+        </div>
+        <div class="p-5">
+          <div class="flex items-baseline justify-between mb-1">
+            <h3 class="font-pop font-extrabold text-xl text-on-surface">Schwartz's Deli</h3>
+            <span class="text-xs text-on-surface-variant font-bold">3895 St-Laurent</span>
+          </div>
+          <p class="font-pop text-xs text-pop-red font-extrabold uppercase tracking-wider mb-2">30-second walk &middot; The Main Institution</p>
+          
+          <div class="flex items-center gap-2 mb-3 flex-wrap">
+            <span class="review-badge-google"><span>G</span> 4.5 ★ <span class="text-[10px] font-normal text-blue-700">(18,500+)</span></span>
+            <span class="review-badge-yelp"><span>Yelp</span> 4.2 ★ <span class="text-[10px] font-normal text-red-700">(3,400+)</span></span>
+          </div>
+
+          <p class="font-body text-xs text-on-surface-variant leading-relaxed mb-3">World-famous Montreal smoked meat since 1928. Grab towering briskets, cherry sodas, and pickles back to our two rooftop patios.</p>
+          
+          <div class="traz-note traz-bubble p-2.5 flex items-center gap-2 mb-3">
+            <img src="assets/traz_food.jpg" alt="Traz" class="w-10 h-10 rounded-full object-cover border-2 border-purple-900 flex-shrink-0" />
+            <p class="text-[11px] text-purple-900 font-bold leading-tight"><strong>Traz:</strong> "100% Shield Refill. Stack briskets high on the rooftop terrace."</p>
+          </div>
+        </div>
+      </div>
+      <div class="p-5 pt-0">
+        <div class="pt-3 border-t-2 border-outline-variant flex items-center justify-between vote-widget" data-id="schwartzs"></div>
+      </div>
+    </div>
+
+    <!-- 2. Le Serpent -->
+    <div class="pop-card overflow-hidden flex flex-col justify-between" data-item="le-serpent">
+      <div>
+        <div class="h-48 bg-cover bg-center relative border-b-2 border-on-surface" style="background-image: url('https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&q=80')">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between">
+            <span class="bg-pop-red text-white text-[10px] font-pop font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full border border-white">Fri Target &middot; Old Mtl</span>
+            <span class="text-amber-200 text-xs font-bold bg-black/50 px-2 py-0.5 rounded border border-white/40">⚠️ Closed Sun</span>
+          </div>
+        </div>
+        <div class="p-5">
+          <div class="flex items-baseline justify-between mb-1">
+            <h3 class="font-pop font-extrabold text-xl text-on-surface">Le Serpent</h3>
+            <span class="text-xs text-on-surface-variant font-bold">257 Rue Prince</span>
+          </div>
+          <p class="font-pop text-xs text-pop-red font-extrabold uppercase tracking-wider mb-2">12 min drive &middot; Industrial Chic Italian</p>
+          
+          <div class="flex items-center gap-2 mb-3 flex-wrap">
+            <span class="review-badge-google"><span>G</span> 4.7 ★ <span class="text-[10px] font-normal text-blue-700">(1,800+)</span></span>
+            <span class="review-badge-yelp"><span>Yelp</span> 4.6 ★ <span class="text-[10px] font-normal text-red-700">(650+)</span></span>
+          </div>
+
+          <p class="font-body text-xs text-on-surface-variant leading-relaxed mb-3">Set inside Darling Foundry in Old Montreal. Lobster risotto, handmade pasta, and sublime wine list. Our marquee Old Montreal night.</p>
+          
+          <div class="traz-note traz-bubble p-2.5 flex items-center gap-2 mb-3">
+            <img src="assets/traz_victory.jpg" alt="Traz" class="w-9 h-9 rounded-full object-cover border border-purple-900 flex-shrink-0" />
+            <p class="text-[11px] text-purple-900 font-bold leading-tight"><strong>Traz:</strong> "Old Montreal stealth mission. Lobster risotto inside an industrial foundry."</p>
+          </div>
+        </div>
+      </div>
+      <div class="p-5 pt-0">
+        <div class="pt-3 border-t-2 border-outline-variant flex items-center justify-between vote-widget" data-id="le-serpent"></div>
+      </div>
+    </div>
+
+    <!-- 3. Monarque -->
+    <div class="pop-card overflow-hidden flex flex-col justify-between" data-item="monarque">
+      <div>
+        <div class="h-48 bg-cover bg-center relative border-b-2 border-on-surface" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80')">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between">
+            <span class="bg-pop-yellow text-pop-dark text-[10px] font-pop font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full border border-on-surface">Sat Contender &middot; Old Mtl</span>
+            <span class="text-white text-xs font-bold bg-black/50 px-2 py-0.5 rounded border border-white/40">Private Room 22</span>
+          </div>
+        </div>
+        <div class="p-5">
+          <div class="flex items-baseline justify-between mb-1">
+            <h3 class="font-pop font-extrabold text-xl text-on-surface">Monarque</h3>
+            <span class="text-xs text-on-surface-variant font-bold">406 St-Jacques</span>
+          </div>
+          <p class="font-pop text-xs text-pop-red font-extrabold uppercase tracking-wider mb-2">15 min drive &middot; French Brasserie</p>
+          
+          <div class="flex items-center gap-2 mb-3 flex-wrap">
+            <span class="review-badge-google"><span>G</span> 4.7 ★ <span class="text-[10px] font-normal text-blue-700">(2,400+)</span></span>
+            <span class="review-badge-yelp"><span>Yelp</span> 4.5 ★ <span class="text-[10px] font-normal text-red-700">(420+)</span></span>
+          </div>
+
+          <p class="font-body text-xs text-on-surface-variant leading-relaxed mb-3">Stunning Old Montreal flagship. Private dining room seats up to 22. Group menus $55/$75/$95/$120 (mind minimum spend on Sat).</p>
+          
+          <div class="traz-note traz-bubble p-2.5 flex items-center gap-2 mb-3">
+            <img src="assets/traz_victory.jpg" alt="Traz" class="w-9 h-9 rounded-full object-cover border border-purple-900 flex-shrink-0" />
+            <p class="text-[11px] text-purple-900 font-bold leading-tight"><strong>Traz:</strong> "Private room for 22. Big Saturday night squad showdown."</p>
+          </div>
+        </div>
+      </div>
+      <div class="p-5 pt-0">
+        <div class="pt-3 border-t-2 border-outline-variant flex items-center justify-between vote-widget" data-id="monarque"></div>
+      </div>
+    </div>
+
+    <!-- 4. Au Pied de Cochon -->
+    <div class="pop-card overflow-hidden flex flex-col justify-between" data-item="au-pied-de-cochon">
+      <div>
+        <div class="h-48 bg-cover bg-center relative border-b-2 border-on-surface" style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80')">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between">
+            <span class="bg-pop-blue text-white text-[10px] font-pop font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full border border-white">Sat Walkable Pick</span>
+            <span class="text-white text-xs font-bold bg-black/50 px-2 py-0.5 rounded border border-white/40">⭐️ 9 Min Walk</span>
+          </div>
+        </div>
+        <div class="p-5">
+          <div class="flex items-baseline justify-between mb-1">
+            <h3 class="font-pop font-extrabold text-xl text-on-surface">Au Pied de Cochon</h3>
+            <span class="text-xs text-on-surface-variant font-bold">536 Duluth E</span>
+          </div>
+          <p class="font-pop text-xs text-pop-red font-extrabold uppercase tracking-wider mb-2">9 min walk from house &middot; Legend</p>
+          
+          <div class="flex items-center gap-2 mb-3 flex-wrap">
+            <span class="review-badge-google"><span>G</span> 4.6 ★ <span class="text-[10px] font-normal text-blue-700">(3,800+)</span></span>
+            <span class="review-badge-yelp"><span>Yelp</span> 4.4 ★ <span class="text-[10px] font-normal text-red-700">(2,100+)</span></span>
+          </div>
+
+          <p class="font-body text-xs text-on-surface-variant leading-relaxed mb-3">Martin Picard's temple of decadent Québécois cuisine. Duck in a can, foie gras poutine, stuffed pig's foot. Walkable home after a feast!</p>
+          
+          <div class="traz-note traz-bubble p-2.5 flex items-center gap-2 mb-3">
+            <img src="assets/traz_food.jpg" alt="Traz" class="w-10 h-10 rounded-full object-cover border border-purple-900 flex-shrink-0" />
+            <p class="text-[11px] text-purple-900 font-bold leading-tight"><strong>Traz:</strong> "Decadent meat fortress. Foie gras poutine = +200 Health."</p>
+          </div>
+        </div>
+      </div>
+      <div class="p-5 pt-0">
+        <div class="pt-3 border-t-2 border-outline-variant flex items-center justify-between vote-widget" data-id="au-pied-de-cochon"></div>
+      </div>
+    </div>
+
+    <!-- 5. Damas -->
+    <div class="pop-card overflow-hidden flex flex-col justify-between" data-item="damas">
+      <div>
+        <div class="h-48 bg-cover bg-center relative border-b-2 border-on-surface" style="background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80')">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between">
+            <span class="bg-pop-red text-white text-[10px] font-pop font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full border border-white">Sun Splurge</span>
+            <span class="text-white text-xs font-bold bg-black/50 px-2 py-0.5 rounded border border-white/40">Top 5 in Canada</span>
+          </div>
+        </div>
+        <div class="p-5">
+          <div class="flex items-baseline justify-between mb-1">
+            <h3 class="font-pop font-extrabold text-xl text-on-surface">Damas</h3>
+            <span class="text-xs text-on-surface-variant font-bold">1201 Van Horne</span>
+          </div>
+          <p class="font-pop text-xs text-pop-red font-extrabold uppercase tracking-wider mb-2">10 min drive &middot; Outremont Syrian</p>
+          
+          <div class="flex items-center gap-2 mb-3 flex-wrap">
+            <span class="review-badge-google"><span>G</span> 4.7 ★ <span class="text-[10px] font-normal text-blue-700">(3,100+)</span></span>
+            <span class="review-badge-yelp"><span>Yelp</span> 4.6 ★ <span class="text-[10px] font-normal text-red-700">(820+)</span></span>
+          </div>
+
+          <p class="font-body text-xs text-on-surface-variant leading-relaxed mb-3">Ranked among the best restaurants in the country. Sumptuous Syrian tasting menus, pomegranate marinades, and Persian rugs.</p>
+          
+          <div class="traz-note traz-bubble p-2.5 flex items-center gap-2 mb-3">
+            <img src="assets/traz_victory.jpg" alt="Traz" class="w-9 h-9 rounded-full object-cover border border-purple-900 flex-shrink-0" />
+            <p class="text-[11px] text-purple-900 font-bold leading-tight"><strong>Traz:</strong> "Mythic feast tier. Top 5 in Canada. Legendary drop."</p>
+          </div>
+        </div>
+      </div>
+      <div class="p-5 pt-0">
+        <div class="pt-3 border-t-2 border-outline-variant flex items-center justify-between vote-widget" data-id="damas"></div>
+      </div>
+    </div>
+
+    <!-- 6. L'Express -->
+    <div class="pop-card overflow-hidden flex flex-col justify-between" data-item="lexpress">
+      <div>
+        <div class="h-48 bg-cover bg-center relative border-b-2 border-on-surface" style="background-image: url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80')">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between">
+            <span class="bg-pop-blue text-white text-[10px] font-pop font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full border border-white">Sun / Mon &middot; 8 Min Walk</span>
+            <span class="text-white text-xs font-bold bg-black/50 px-2 py-0.5 rounded border border-white/40">Open 7 Days to 1am</span>
+          </div>
+        </div>
+        <div class="p-5">
+          <div class="flex items-baseline justify-between mb-1">
+            <h3 class="font-pop font-extrabold text-xl text-on-surface">L'Express</h3>
+            <span class="text-xs text-on-surface-variant font-bold">3927 St-Denis</span>
+          </div>
+          <p class="font-pop text-xs text-pop-red font-extrabold uppercase tracking-wider mb-2">8 min walk &middot; Classic Paris Bistro</p>
+          
+          <div class="flex items-center gap-2 mb-3 flex-wrap">
+            <span class="review-badge-google"><span>G</span> 4.6 ★ <span class="text-[10px] font-normal text-blue-700">(3,400+)</span></span>
+            <span class="review-badge-yelp"><span>Yelp</span> 4.4 ★ <span class="text-[10px] font-normal text-red-700">(1,250+)</span></span>
+          </div>
+
+          <p class="font-body text-xs text-on-surface-variant leading-relaxed mb-3">Checkerboard floor, jar of cornichons on every table, steak frites, and bone marrow. The easiest, most reliable YES in Montreal.</p>
+          
+          <div class="traz-note traz-bubble p-2.5 flex items-center gap-2 mb-3">
+            <img src="assets/traz_food.jpg" alt="Traz" class="w-10 h-10 rounded-full object-cover border border-purple-900 flex-shrink-0" />
+            <p class="text-[11px] text-purple-900 font-bold leading-tight"><strong>Traz:</strong> "Infinite pickles in the jar. Open to 1am. The easiest YES."</p>
+          </div>
+        </div>
+      </div>
+      <div class="p-5 pt-0">
+        <div class="pt-3 border-t-2 border-outline-variant flex items-center justify-between vote-widget" data-id="lexpress"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════ SECTION 6: DISCOVERY & POLLS (ALAN & TRAVIS) ═══════════════════════ -->
+<section id="alan-travis-guide" class="py-12 md:py-16 bg-surface-container-low scroll-mt-14">
+  <div class="max-w-6xl mx-auto px-4">
+    
+    <div class="text-center max-w-2xl mx-auto mb-8">
+      <div class="inline-flex items-center gap-1.5 bg-pop-yellow text-pop-dark border-2 border-on-surface text-xs font-pop font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full mb-2 shadow-[2px_2px_0px_#1e293b]">
+        <span>🎯</span> Discovery &amp; Group Polls
+      </div>
+      <h2 class="font-pop font-extrabold text-4xl md:text-5xl text-on-surface tracking-tight mb-2">Explore &amp; Upvote</h2>
+      <p class="font-body text-on-surface-variant text-base">Browse every recommendation from Alan's illustrated menu with Traz's field commentary. Upvote the spots you want to hit!</p>
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="flex items-center justify-center overflow-x-auto gap-2 pb-3 mb-8 scrollbar-none" id="guideTabs">
+      <button onclick="switchGuideTab('breakfast')" class="pop-pill active text-xs font-pop font-extrabold px-5 py-2 rounded-full bg-white whitespace-nowrap" data-tab="breakfast">🍳 Breakfast &amp; Bagels</button>
+      <button onclick="switchGuideTab('lunch')" class="pop-pill text-xs font-pop font-extrabold px-5 py-2 rounded-full bg-white text-on-surface-variant whitespace-nowrap" data-tab="lunch">🍟 Poutine &amp; Casual</button>
+      <button onclick="switchGuideTab('pastries')" class="pop-pill text-xs font-pop font-extrabold px-5 py-2 rounded-full bg-white text-on-surface-variant whitespace-nowrap" data-tab="pastries">🥧 Desserts &amp; Pastries</button>
+      <button onclick="switchGuideTab('bars')" class="pop-pill text-xs font-pop font-extrabold px-5 py-2 rounded-full bg-white text-on-surface-variant whitespace-nowrap" data-tab="bars">🍻 Bars &amp; Nightlife</button>
+      <button onclick="switchGuideTab('attractions')" class="pop-pill text-xs font-pop font-extrabold px-5 py-2 rounded-full bg-white text-on-surface-variant whitespace-nowrap" data-tab="attractions">🍁 Attractions &amp; Sights</button>
+    </div>
+
+    <!-- Guide Items Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="guideGrid"></div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════ SECTION 7: CONSEILS — PRACTICAL FIELD TIPS ═══════════════════════ -->
+<section id="tips" class="py-12 md:py-16 max-w-5xl mx-auto px-4 scroll-mt-14">
+  <div class="text-center max-w-2xl mx-auto mb-10">
+    <div class="inline-flex items-center gap-1.5 bg-pop-blue text-white border-2 border-on-surface text-xs font-pop font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full mb-2 shadow-[2px_2px_0px_#1e293b]">
+      <span>💡</span> Field Survival Notes
+    </div>
+    <h2 class="font-pop font-extrabold text-4xl md:text-5xl text-on-surface tracking-tight mb-2">Conseils &amp; Practical Tips</h2>
+    <p class="font-body text-on-surface-variant text-base">Key survival tips from Alan's guide with Traz tactical notes to keep parking tickets at zero.</p>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    
+    <div class="pop-card p-5 flex flex-col justify-between">
+      <div>
+        <div class="text-3xl mb-2">🏧</div>
+        <h3 class="font-pop font-extrabold text-base text-on-surface mb-1">Fee-Free ATMs</h3>
+        <p class="font-body text-xs text-on-surface-variant leading-relaxed mb-3">
+          <strong>Bank of America</strong> cardholders get 0% ATM alliance fees at <strong>Scotiabank</strong> ATMs throughout Montreal. Great for Schwartz's cash!
+        </p>
+      </div>
+      <div class="traz-note traz-bubble p-2 flex items-center gap-2">
+        <img src="assets/traz_victory.jpg" alt="Traz" class="w-7 h-7 rounded-full object-cover" />
+        <span class="text-[10px] text-purple-950 font-bold">Traz: "Scotiabank is our free loot vault for BofA."</span>
+      </div>
+    </div>
+
+    <div class="pop-card p-5 flex flex-col justify-between">
+      <div>
+        <div class="text-3xl mb-2">🚗</div>
+        <h3 class="font-pop font-extrabold text-base text-on-surface mb-1">Parking &amp; French Signs</h3>
+        <p class="font-body text-xs text-on-surface-variant leading-relaxed mb-3">
+          Street cleaning and sector parking tickets are brutally expensive. Remember: <em>Lun (Mon), Mar (Tue), Mer (Wed), Jeu (Thu), Ven (Fri), Sam (Sat), Dim (Sun)</em>.
+        </p>
+      </div>
+      <div class="traz-note traz-bubble p-2 flex items-center gap-2">
+        <img src="assets/traz_roadtrip.jpg" alt="Traz" class="w-7 h-7 rounded-full object-cover" />
+        <span class="text-[10px] text-purple-950 font-bold">Traz: "'Lun-Ven' with an arrow = instant towing trap!"</span>
+      </div>
+    </div>
+
+    <div class="pop-card p-5 flex flex-col justify-between">
+      <div>
+        <div class="text-3xl mb-2">🚇</div>
+        <h3 class="font-pop font-extrabold text-base text-on-surface mb-1">Metro &amp; STM Transit</h3>
+        <p class="font-body text-xs text-on-surface-variant leading-relaxed mb-3">
+          Buses and subway (metro) are super clean and easy. Note: Canadian Thanksgiving Monday (Oct 12) runs on a Sunday holiday schedule.
+        </p>
+      </div>
+      <div class="traz-note traz-bubble p-2 flex items-center gap-2">
+        <img src="assets/traz_victory.jpg" alt="Traz" class="w-7 h-7 rounded-full object-cover" />
+        <span class="text-[10px] text-purple-950 font-bold">Traz: "Cleanest transit in North America. Easy metro hops."</span>
+      </div>
+    </div>
+
+    <div class="pop-card p-5 flex flex-col justify-between">
+      <div>
+        <div class="text-3xl mb-2">🚖</div>
+        <h3 class="font-pop font-extrabold text-base text-on-surface mb-1">Cabs &amp; Rideshares</h3>
+        <p class="font-body text-xs text-on-surface-variant leading-relaxed mb-3">
+          Official Montreal taxis won't rip you off. Ubers work everywhere. For 11 people moving to Old Montreal, plan on a 3-Uber convoy.
+        </p>
+      </div>
+      <div class="traz-note traz-bubble p-2 flex items-center gap-2">
+        <img src="assets/traz_roadtrip.jpg" alt="Traz" class="w-7 h-7 rounded-full object-cover" />
+        <span class="text-[10px] text-purple-950 font-bold">Traz: "3-car convoy formation to Old Montreal."</span>
+      </div>
+    </div>
+
+    <div class="pop-card p-5 flex flex-col justify-between">
+      <div>
+        <div class="text-3xl mb-2">🏠</div>
+        <h3 class="font-pop font-extrabold text-base text-on-surface mb-1">Airbnb Lock-in Date</h3>
+        <p class="font-body text-xs text-on-surface-variant leading-relaxed mb-3">
+          <strong>Thu Oct 1 @ 4:00 PM</strong> is the partial refund cancellation cutoff. After this, the $8,119.58 reservation is non-refundable.
+        </p>
+      </div>
+      <div class="traz-note traz-bubble p-2 flex items-center gap-2">
+        <img src="assets/traz_victory.jpg" alt="Traz" class="w-7 h-7 rounded-full object-cover" />
+        <span class="text-[10px] text-purple-950 font-bold">Traz: "Storm circle closes Oct 1 @ 4pm. We are fully locked in."</span>
+      </div>
+    </div>
+
+    <div class="pop-card p-5 flex flex-col justify-between">
+      <div>
+        <div class="text-3xl mb-2">🛂</div>
+        <h3 class="font-pop font-extrabold text-base text-on-surface mb-1">Passports for All 11</h3>
+        <p class="font-body text-xs text-on-surface-variant leading-relaxed mb-3">
+          Ensure everyone's passport is valid for travel to Canada (including Owen &amp; Izzy). Arrive YUL terminal 2+ hours before Monday flights.
+        </p>
+      </div>
+      <div class="traz-note traz-bubble p-2 flex items-center gap-2">
+        <img src="assets/traz_flight.jpg" alt="Traz" class="w-7 h-7 rounded-full object-cover" />
+        <span class="text-[10px] text-purple-950 font-bold">Traz: "Don't forget passports for the whole squad."</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer class="text-center py-14 bg-surface-container border-t-2 border-on-surface">
+  <p class="font-pop font-extrabold text-xl text-on-surface mb-2">Pop! Montréal &middot; Octobre 2026</p>
+  <p class="font-body text-xs text-on-surface-variant mb-4">Made with love, smoked meat, and strong opinions about bagels.</p>
+  <div class="flex items-center justify-center gap-4 text-xs font-pop font-bold text-pop-red">
+    <button onclick="openAdminModal()" class="hover:underline text-on-surface-variant">Admin Plan Settings</button>
+  </div>
+</footer>
+
+<!-- ═══════════════════════ MODAL: EDIT MY ARRIVAL ═══════════════════════ -->
+<div id="arrivalModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden">
+  <div class="pop-card p-6 md:p-8 max-w-md w-full mx-4 shadow-2xl bg-white">
+    <div class="flex justify-between items-center mb-5">
+      <h3 class="font-pop font-extrabold text-xl text-on-surface">Update Arrival &middot; <span id="modalMemberName" class="text-pop-red"></span></h3>
+      <button onclick="closeArrivalModal()" class="text-on-surface-variant/60 hover:text-on-surface text-xl font-bold">&times;</button>
+    </div>
+    <form onsubmit="saveArrivalForm(event)" class="space-y-4">
+      <div>
+        <label class="block text-xs font-pop font-extrabold uppercase tracking-wider text-on-surface-variant mb-1">Date</label>
+        <input type="text" id="arrDateInput" class="w-full text-sm rounded-xl border-2 border-on-surface p-2.5 font-medium" value="Thu Oct 8" required>
+      </div>
+      <div>
+        <label class="block text-xs font-pop font-extrabold uppercase tracking-wider text-on-surface-variant mb-1">Estimated Arrival Time</label>
+        <input type="text" id="arrTimeInput" class="w-full text-sm rounded-xl border-2 border-on-surface p-2.5 font-medium" placeholder="e.g. 4:15 PM or ~5:30 PM" required>
+      </div>
+      <div>
+        <label class="block text-xs font-pop font-extrabold uppercase tracking-wider text-on-surface-variant mb-1">Flight # / Transportation</label>
+        <input type="text" id="arrFlightInput" class="w-full text-sm rounded-xl border-2 border-on-surface p-2.5 font-medium" placeholder="e.g. Air Canada AC8588 or Driving I-91 N">
+      </div>
+      <div>
+        <label class="block text-xs font-pop font-extrabold uppercase tracking-wider text-on-surface-variant mb-1">Notes / Checked Bags / Passengers</label>
+        <input type="text" id="arrNotesInput" class="w-full text-sm rounded-xl border-2 border-on-surface p-2.5 font-medium" placeholder="e.g. 2 checked bags, taking airport Uber">
+      </div>
+      <div class="flex justify-end gap-2 pt-4">
+        <button type="button" onclick="closeArrivalModal()" class="px-4 py-2 text-xs font-pop font-bold text-on-surface-variant hover:bg-surface-container rounded-xl pop-btn">Cancel</button>
+        <button type="submit" class="px-5 py-2 text-xs font-pop font-extrabold bg-pop-red text-white rounded-xl pop-btn">Save Arrival</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ═══════════════════════ MODAL: ADMIN PLAN CONTROLS ═══════════════════════ -->
+<div id="adminModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden">
+  <div class="pop-card p-6 md:p-8 max-w-2xl w-full mx-4 shadow-2xl bg-white max-h-[90vh] overflow-y-auto">
+    <div class="flex justify-between items-center mb-5">
+      <h3 class="font-pop font-extrabold text-xl text-on-surface">Michael's Admin Plan Settings</h3>
+      <button onclick="closeAdminModal()" class="text-on-surface-variant/60 hover:text-on-surface text-xl font-bold">&times;</button>
+    </div>
+
+    <!-- PIN Entry Step -->
+    <div id="adminPinStep" class="space-y-4">
+      <p class="text-xs text-on-surface-variant">Enter your admin PIN to unlock live schedule editing controls.</p>
+      <div class="flex gap-2">
+        <input type="password" id="adminPinInput" class="text-sm rounded-xl border-2 border-on-surface p-2.5 flex-grow" placeholder="Enter PIN (Default: 2026)">
+        <button onclick="verifyAdminPin()" class="px-5 py-2.5 text-xs font-pop font-extrabold bg-pop-red text-white rounded-xl pop-btn">Unlock</button>
+      </div>
+      <p id="adminPinError" class="text-xs text-red-600 font-bold hidden">Incorrect PIN.</p>
+    </div>
+
+    <!-- Schedule Editor (Unlocked) -->
+    <div id="adminEditStep" class="hidden space-y-6">
+      <p class="text-xs text-emerald-900 bg-emerald-100 border-2 border-on-surface p-3 rounded-xl font-bold">🔓 Admin unlocked. Edit schedule slots and click Save to push live changes to all family devices.</p>
+      <div id="adminScheduleFields" class="space-y-4"></div>
+      <div class="flex justify-end gap-2 pt-4">
+        <button onclick="closeAdminModal()" class="px-4 py-2 text-xs font-pop font-bold text-on-surface-variant hover:bg-surface-container rounded-xl pop-btn">Close</button>
+        <button onclick="saveAdminSchedule()" class="px-5 py-2 text-xs font-pop font-extrabold bg-pop-red text-white rounded-xl pop-btn">Publish Schedule Changes</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Leaflet.js -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+<!-- ═══════════════════════ CLIENT SCRIPT & LIVE API SYNC ═══════════════════════ -->
+<script>
+/* ── COFFEE & BAKERY CATALOG DATA (30-MIN WALK RADIUS WITH GOOGLE & YELP SCORES) ── */
+const COFFEE_CATALOG = [
+  {
+    id: "in-gamba",
+    name: "Café In Gamba",
+    addr: "71 Avenue du Parc",
+    walk: "5 min walk",
+    distance: "400m",
+    type: "roaster",
+    specialty: "Single-Origin Multi-Roaster",
+    googleRating: "4.7",
+    googleReviews: "950+",
+    yelpRating: "4.7",
+    yelpReviews: "410+",
+    hours: "Daily 7:30am - 6:00pm",
+    order: "Pour-over (Heart / 49th Parallel) + almond croissant",
+    desc: "Legendary temple of third-wave espresso. Pulls single-origins from Counter Culture, 49th Parallel, and Heart Roasters on precision Synesso machines.",
+    img: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&q=80",
+    lat: 45.5198,
+    lng: -73.5828,
+    traz: "Top tier single-origin espresso pull. Instant +100 energy."
+  },
+  {
+    id: "dispatch",
+    name: "Dispatch Coffee (The Main)",
+    addr: "4021 Boulevard Saint-Laurent",
+    walk: "3 min walk (Same Block)",
+    distance: "250m",
+    type: "roaster",
+    specialty: "Direct-Trade Small Batch Roaster",
+    googleRating: "4.6",
+    googleReviews: "650+",
+    yelpRating: "4.5",
+    yelpReviews: "180+",
+    hours: "Daily 7:30am - 4:00pm",
+    order: "Seasonal batch brew single origin + cardamom bun",
+    desc: "Montreal's premier homegrown ethical small-batch roaster. Minimalist sunlit shop right down the block on St-Laurent with exceptional seasonal beans.",
+    img: "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&q=80",
+    lat: 45.5186,
+    lng: -73.5822,
+    traz: "Right down the block on our street. Fast cardamom bun loot."
+  },
+  {
+    id: "neve",
+    name: "Café Névé",
+    addr: "151 Rue Rachel Est",
+    walk: "7 min walk",
+    distance: "550m",
+    type: "bakery",
+    specialty: "Famous Monster Cookies & Lattes",
+    googleRating: "4.6",
+    googleReviews: "1,150+",
+    yelpRating: "4.6",
+    yelpReviews: "390+",
+    hours: "Daily 7:30am - 5:00pm",
+    order: "Warm giant chocolate chunk sea salt cookie + cortado",
+    desc: "Famous throughout the Plateau for giant, warm chocolate-chunk cookies baked fresh every single hour, paired with smooth, velvety espresso.",
+    img: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=80",
+    lat: 45.5212,
+    lng: -73.5802,
+    traz: "Warm monster cookies baked hourly. That sea-salt cookie is mythic."
+  },
+  {
+    id: "pikolo",
+    name: "Pikolo Espresso Bar",
+    addr: "3418b Avenue du Parc",
+    walk: "10 min walk",
+    distance: "800m",
+    type: "roaster",
+    specialty: "Single-Origin Specialty & Scones",
+    googleRating: "4.7",
+    googleReviews: "1,450+",
+    yelpRating: "4.8",
+    yelpReviews: "520+",
+    hours: "Mon-Fri 7am-5pm, Sat-Sun 8am-5pm",
+    order: "Flat white + house cheddar & chive scone",
+    desc: "Montreal specialty coffee royalty. Two-story mezzanine space, direct-trade single origin coffees roasted by Phil & Sebastian, and stellar fresh pastries.",
+    img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80",
+    lat: 45.5118,
+    lng: -73.5752,
+    traz: "Mezzanine hideout with elite flat whites and warm scones."
+  },
+  {
+    id: "replika",
+    name: "Café Replika",
+    addr: "252 Rue Rachel Est",
+    walk: "6 min walk",
+    distance: "500m",
+    type: "bakery",
+    specialty: "Artisanal Simit Bagels & Cold Brew",
+    googleRating: "4.7",
+    googleReviews: "820+",
+    yelpRating: "4.7",
+    yelpReviews: "260+",
+    hours: "Daily 8:00am - 5:00pm",
+    order: "House-made Turkish Simit bagel sandwich + draft cold brew",
+    desc: "Cozy neighborhood gem known for baking their own Turkish sesame simit rings and tahini cookies alongside top-notch specialty coffee.",
+    img: "https://images.unsplash.com/photo-1509785307050-d4066910ec1e?w=600&q=80",
+    lat: 45.5205,
+    lng: -73.5768,
+    traz: "House-baked Turkish simit rings. Elite breakfast upgrade."
+  },
+  {
+    id: "olimpico",
+    name: "Café Olimpico",
+    addr: "124 Rue Saint-Viateur Ouest",
+    walk: "14 min walk &middot; Mile End",
+    distance: "1.2 km",
+    type: "bakery",
+    specialty: "Classic Italian Espresso & Cannoli",
+    googleRating: "4.7",
+    googleReviews: "3,600+",
+    yelpRating: "4.6",
+    yelpReviews: "850+",
+    hours: "Daily 6:00am - midnight",
+    order: "Traditional Freddo espresso + fresh ricotta cannoli",
+    desc: "The heartbeat of Mile End since 1970. Bustling, vibrant terrace, rich Italian roast espresso, and fresh pastries delivered every morning.",
+    img: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&q=80",
+    lat: 45.5229,
+    lng: -73.5962,
+    traz: "Italian terrace legend. Grab a freddo and ricotta cannoli."
+  },
+  {
+    id: "guillaume",
+    name: "Boulangerie Guillaume",
+    addr: "5170 Boulevard Saint-Laurent",
+    walk: "14 min walk &middot; Mile End",
+    distance: "1.1 km",
+    type: "bakery",
+    specialty: "Artisanal French Boulangerie & Fougasse",
+    googleRating: "4.7",
+    googleReviews: "2,850+",
+    yelpRating: "4.7",
+    yelpReviews: "420+",
+    hours: "Daily 7:00am - 7:00pm",
+    order: "Chocolate babka roll + warm cheese & bacon fougasse",
+    desc: "Widely celebrated as one of Montreal's finest artisanal bakeries. Master French bakers crafting rustic sourdough, brioches, and savory bread treats all day.",
+    img: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80",
+    lat: 45.5268,
+    lng: -73.5925,
+    traz: "Unbeatable French bakery run. That chocolate babka is incredible."
+  },
+  {
+    id: "myriade",
+    name: "Café Myriade (St-Denis)",
+    addr: "4627 Rue Saint-Denis",
+    walk: "15 min walk",
+    distance: "1.2 km",
+    type: "roaster",
+    specialty: "Specialty Pioneer & 49th Parallel",
+    googleRating: "4.6",
+    googleReviews: "1,300+",
+    yelpRating: "4.6",
+    yelpReviews: "380+",
+    hours: "Daily 7:30am - 5:30pm",
+    order: "Guatemala single-origin espresso + almond butter croissant",
+    desc: "Founded in 2008 by world barista competitors. High-extraction espresso, rare single-origin coffees, and exquisite butter pastries.",
+    img: "https://images.unsplash.com/photo-1497636577773-f1231844b336?w=600&q=80",
+    lat: 45.5235,
+    lng: -73.5835,
+    traz: "Barista champion heritage. Precision single-origin pulls."
+  },
+  {
+    id: "rhubarbe",
+    name: "Pâtisserie Rhubarbe",
+    addr: "1480 Avenue Laurier Est",
+    walk: "22 min walk &middot; Laurier Village",
+    distance: "1.8 km",
+    type: "bakery",
+    specialty: "High-End Haute Pâtisserie & Tarts",
+    googleRating: "4.7",
+    googleReviews: "1,550+",
+    yelpRating: "4.7",
+    yelpReviews: "280+",
+    hours: "Wed-Sun 9:00am - 5:00pm",
+    order: "Signature Rhubarb Tart + Mille-Feuille + Cortado",
+    desc: "Stephanie Labelle's acclaimed Parisian-style pastry shop on Laurier. Seasonal fruit tarts, delicate mille-feuilles, and house-made viennoiseries.",
+    img: "https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=600&q=80",
+    lat: 45.5348,
+    lng: -73.5780,
+    traz: "Parisian haute pastry destination. Rhubarb tart is legendary."
+  },
+  {
+    id: "bernie",
+    name: "Bernie Beigne",
+    addr: "23 Rue Bernard Ouest",
+    walk: "18 min walk &middot; Mile End",
+    distance: "1.5 km",
+    type: "bakery",
+    specialty: "Handcrafted Hot Doughnuts & Apple Fritters",
+    googleRating: "4.8",
+    googleReviews: "1,200+",
+    yelpRating: "4.7",
+    yelpReviews: "310+",
+    hours: "Daily 8:00am - 7:00pm",
+    order: "Fresh glazed honey cruller + warm giant apple fritter",
+    desc: "Retro doughnut boutique frying small-batch dough constantly. Crispy outside, fluffy inside, with retro charm and classic filter coffee.",
+    img: "https://images.unsplash.com/photo-1527515862127-a4fc05baf7a5?w=600&q=80",
+    lat: 45.5248,
+    lng: -73.5988,
+    traz: "Hot glazed crullers fried every 15 minutes. Pure speed boost."
+  },
+  {
+    id: "mamie",
+    name: "Mamie Clafoutis",
+    addr: "3660 Rue Saint-Denis",
+    walk: "14 min walk &middot; Plateau",
+    distance: "1.1 km",
+    type: "bakery",
+    specialty: "French Viennoiserie & Pistachio Croissants",
+    googleRating: "4.6",
+    googleReviews: "1,900+",
+    yelpRating: "4.5",
+    yelpReviews: "450+",
+    hours: "Daily 7:30am - 6:00pm",
+    order: "Pistachio chocolate croissant + house clafoutis",
+    desc: "Beloved French bakery with an open kitchen where you can watch bakers roll buttery puff pastry. Two-floor cozy tearoom on Saint-Denis.",
+    img: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=80",
+    lat: 45.5182,
+    lng: -73.5695,
+    traz: "Pistachio chocolate croissants right out of the oven."
+  },
+  {
+    id: "standard",
+    name: "Le Standard Café",
+    addr: "5135 Boulevard Saint-Laurent",
+    walk: "13 min walk &middot; Mile End",
+    distance: "1.0 km",
+    type: "roaster",
+    specialty: "Hyper-Local Plateau Espresso & Scones",
+    googleRating: "4.6",
+    googleReviews: "480+",
+    yelpRating: "4.5",
+    yelpReviews: "140+",
+    hours: "Daily 7:00am - 6:00pm",
+    order: "Double cortado + blueberry lemon scone",
+    desc: "Intimate, stylish neighborhood outpost straight up St-Laurent. Fantastic third-wave beans, house baked pastries, and sidewalk seating.",
+    img: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=600&q=80",
+    lat: 45.5270,
+    lng: -73.5930,
+    traz: "Cool sunny sidewalk bench for morning cortados on St-Laurent."
+  }
+];
+
+/* ── MASTER MAP DESTINATIONS ── */
+const MAP_DESTINATIONS = [
+  { id: "basecamp", name: "3831 St-Laurent (Basecamp)", category: "base", lat: 45.5167, lng: -73.5786, walk: "0 min", desc: "Our 11-person Airbnb on The Main with 2 rooftop terraces.", icon: "🏡", color: "#ffb703", badge: "Our Basecamp" },
+  { id: "schwartzs", name: "Schwartz's Deli", category: "dinner", lat: 45.5163, lng: -73.5777, walk: "30 sec walk", desc: "Legendary Montreal smoked meat since 1928 across the street.", icon: "🥩", color: "#e63946", badge: "Thu Arrival" },
+  { id: "le-serpent", name: "Le Serpent", category: "dinner", lat: 45.4984, lng: -73.5574, walk: "12 min drive", desc: "Old Montreal marquee Italian inside Darling Foundry (Closed Sun).", icon: "🍷", color: "#e63946", badge: "Fri Target" },
+  { id: "monarque", name: "Monarque", category: "dinner", lat: 45.5019, lng: -73.5601, walk: "15 min drive", desc: "Old Montreal French brasserie & private dining room for 22.", icon: "🍾", color: "#e63946", badge: "Sat Contender" },
+  { id: "au-pied-de-cochon", name: "Au Pied de Cochon", category: "dinner", lat: 45.5222, lng: -73.5756, walk: "9 min walk", desc: "Martin Picard's temple of decadent Québécois cuisine on Duluth.", icon: "🐷", color: "#e63946", badge: "Sat Walkable" },
+  { id: "damas", name: "Damas", category: "dinner", lat: 45.5181, lng: -73.6062, walk: "10 min drive", desc: "Outremont Syrian feast. Ranked top 5 in Canada.", icon: "✨", color: "#e63946", badge: "Sun Splurge" },
+  { id: "lexpress", name: "L'Express", category: "dinner", lat: 45.5188, lng: -73.5724, walk: "8 min walk", desc: "Iconic French bistro on St-Denis open 7 days to 1am.", icon: "🥖", color: "#e63946", badge: "Sun / Mon" },
+  { id: "la-banquise", name: "La Banquise", category: "casual", lat: 45.5255, lng: -73.5746, walk: "11 min walk", desc: "24/7 Poutine institution with 30+ topping options.", icon: "🍟", color: "#2a9d8f", badge: "24/7 Poutine" },
+  { id: "fairmount-bagel", name: "Fairmount Bagel", category: "casual", lat: 45.5233, lng: -73.5956, walk: "15 min walk", desc: "Wood-fired 24/7 bagel institution since 1919.", icon: "🥯", color: "#2a9d8f", badge: "Wood-Fired" },
+  { id: "st-viateur-bagel", name: "St-Viateur Bagel", category: "casual", lat: 45.5229, lng: -73.5962, walk: "16 min walk", desc: "Hand-rolled sesame bagel perfection.", icon: "🥯", color: "#2a9d8f", badge: "Wood-Fired" },
+  { id: "mount-royal", name: "Mount Royal Observatory", category: "attraction", lat: 45.5039, lng: -73.5878, walk: "20 min walk", desc: "Kondiaronk Belvedere with panoramic Montreal skyline view.", icon: "🍁", color: "#219ebc", badge: "Best View" },
+  { id: "biodome", name: "Biodome & Olympic Park", category: "attraction", lat: 45.5592, lng: -73.5502, walk: "15 min metro", desc: "5 ecosystems under one roof + Olympic Tower view.", icon: "🐧", color: "#219ebc", badge: "Kids Love" },
+  { id: "old-port", name: "Old Montreal & Notre-Dame", category: "attraction", lat: 45.5048, lng: -73.5560, walk: "12 min drive", desc: "Cobblestone streets, historic basilica, and waterfront promenade.", icon: "⛪️", color: "#219ebc", badge: "Historic" },
+  { id: "jean-talon", name: "Jean-Talon Market", category: "attraction", lat: 45.5361, lng: -73.6150, walk: "12 min metro", desc: "Vibrant open-air market in Little Italy.", icon: "🍎", color: "#219ebc", badge: "Market" }
+];
+
+/* ── GUIDE CATALOG DATA (Alan & Travis recommendations) ── */
+const GUIDE_CATALOG = {
+  breakfast: [
+    { id: "eggspectation", name: "Eggspectation", addr: "1313 De Maisonneuve Ouest", tag: "Alan's Pick", desc: "Popular for all egg dishes, Benedicts, and brunch classics in downtown.", fort: "Fuel-up zone for +100 shields before exploring downtown." },
+    { id: "cafeteria", name: "Cafeteria", addr: "3581 St Laurent Blvd", tag: "Alan's Pick · On The Main", desc: "Nightclub by night, great breakfast & lunch food by day. Highly recommended by Alan.", fort: "Stealth landing spot right on our home street." },
+    { id: "chez-cora", name: "Chez Cora", addr: "3465 Park Ave", tag: "Alan's Pick", desc: "Classic Quebec institution. Incredible fruit mountains, crepes, and fresh fruit smoothies.", fort: "Health boost station. Massive fruit mountains." },
+    { id: "place-milton", name: "Place Milton", addr: "505 Milton St", tag: "Alan's Pick · Cash Only", desc: "Tiny, really good, cheap breakfast spot near McGill with a charming back patio.", fort: "Secret loot chest spot near McGill campus." },
+    { id: "fairmount-bagel", name: "Fairmount Bagel", addr: "74 Fairmount Ouest", tag: "Mile End Legend", desc: "Wood-fired since 1919. Hot sesame bagels straight from the wood oven 24/7.", fort: "Legendary consumable. Grab a hot bag at midnight." },
+    { id: "st-viateur-bagel", name: "St-Viateur Bagel", addr: "263 St-Viateur Ouest", tag: "The Rival Legend", desc: "The iconic rival to Fairmount. Hand-rolled, honey-water boiled, wood-fired perfection.", fort: "Mythic drop point. The sesame bagel showdown." }
+  ],
+  lunch: [
+    { id: "la-banquise", name: "La Banquise", addr: "994 Rachel E", tag: "24/7 Poutine Temple", desc: "30+ varieties of poutine around the clock. Walkable to Parc La Fontaine. Alan & Travis top pick!", fort: "24/7 Supply drop. Squeaky cheese curds on demand." },
+    { id: "frite-alors", name: "Frite Alors!", addr: "Multiple Locations", tag: "Belgian Style Fries", desc: "Belgian-style double-fried frites with authentic dipping sauces and burgers.", fort: "Belgian frites shield recharge." },
+    { id: "lola-rosa", name: "Lola Rosa", addr: "545 Milton St", tag: "100% Vegetarian Favorite", desc: "Beloved even by meat-lovers. Table drawers filled with notes from past travelers.", fort: "Secret notes in the table drawers. Veronica-approved outpost." },
+    { id: "mange-dans-mon-hood", name: "Mange Dans Mon Hood", addr: "Jean-Talon Market", tag: "Smash Burgers", desc: "Viral smash burgers, crispy chicken, and nostalgic sides near Little Italy.", fort: "High-tier smash burger loot drop." }
+  ],
+  pastries: [
+    { id: "rockaberry", name: "Rockaberry", addr: "4275 St Denis St", tag: "Alan's Pie Pick", desc: "Legendary pie and pastry spot with unique architecture. Massive fruit & cream pies.", fort: "Victory pie station. Giant slices of heaven." },
+    { id: "juliette-chocolat", name: "Juliette & Chocolat", addr: "3600 St Laurent Blvd", tag: "Alan's Chocolate Pick", desc: "Right on The Main. Decadent chocolate drinks, fondues, brownies, and hot drinks.", fort: "Liquid shield potion refinery on The Main." },
+    { id: "bernie-beigne", name: "Bernie Beigne", addr: "23 Bernard Ouest", tag: "Mile End Donuts", desc: "Retro hand-cut doughnuts made fresh all day. Apple fritters and classic glazes.", fort: "Speed boost treats. Apple fritters the size of your head." },
+    { id: "drogheria-fine", name: "Drogheria Fine", addr: "68 Fairmount Ouest", tag: "Gnocchi in a Box ($5)", desc: "Simple walk-up window serving fresh hot gnocchi in house tomato sauce for five bucks.", fort: "$5 quick power-up box. Best walk-up in Mile End." }
+  ],
+  bars: [
+    { id: "bar-bifteck", name: "Bar Bifteck", addr: "3702 St Laurent Blvd", tag: "Same Block As House!", desc: "Famous, lively, crowded at night, cheap local beer and free popcorn. Right across from us.", fort: "Squad spawn room! Free popcorn and cheap local pints." },
+    { id: "brutopia", name: "Brutopia", addr: "1219 Crescent St", tag: "Alan's Brewery Pick", desc: "Brews their own craft beers, multi-floor layout, live musicians. Crescent Street anchor.", fort: "Live battle stage on Crescent Street." },
+    { id: "benelux", name: "Benelux Brasserie", addr: "245 Sherbrooke Ouest", tag: "Alan's Pick", desc: "Great craft brewery in an old 1960s bank. Excellent IPAs and outdoor summer patio.", fort: "Brewery built in a 1960s bank vault." },
+    { id: "la-distillerie", name: "La Distillerie", addr: "300 Rue Ontario", tag: "Alan's Cocktail Pick", desc: "Serves signature creative cocktails in massive mason jars. Fun, vibrant atmosphere.", fort: "Mega shield jars. Giant creative cocktail potions." },
+    { id: "st-sulpice", name: "St. Sulpice", addr: "1680 St Denis St", tag: "Alan's Patio Pick", desc: "Massive multi-level terrace with a courtyard fountain. Great pitchers of sangria.", fort: "Massive terrace sniper perch with courtyard fountain." },
+    { id: "lamere-a-boire", name: "L'amère à boire", addr: "2049 St Denis St", tag: "Alan's Pick", desc: "Artisanal European-style brewery with authentic German and Czech-style lagers.", fort: "Authentic German & Czech lagers on tap." },
+    { id: "le-lab", name: "Le Lab Cocktails", addr: "1351 Rachel Est", tag: "Alan's Fire Show Pick", desc: "Famous for flair bartending and high-end flaming cocktail shows around 11pm/midnight!", fort: "Pyrotechnic fire show drop around midnight!" }
+  ],
+  attractions: [
+    { id: "mount-royal", name: "Mount Royal Observatory", addr: "Kondiaronk Belvedere", tag: "Alan's #1 View", desc: "The defining panoramic viewpoint over Montreal. Gorgeous autumn walk through the park.", fort: "The ultimate high ground. View of the entire island." },
+    { id: "biodome", name: "Biodome & Olympic Park", addr: "4777 Pierre-de Coubertin", tag: "Alan's Pick · Kids Love", desc: "Explore 5 American ecosystems under one roof (penguins, rainforest, lynx). Get the combo pass!", fort: "Biome raid: Penguins, rainforest, and lynx all in one dome." },
+    { id: "old-montreal", name: "Old Montreal & Notre-Dame", addr: "Rue Saint-Paul", tag: "Historic District", desc: "Cobblestone streets, horse carriages, Old Port promenade, and the breathtaking basilica.", fort: "Ancient cobblestone fortress zone." },
+    { id: "mcgill", name: "McGill University Campus", addr: "845 Sherbrooke Ouest", tag: "Alan's Pick", desc: "Stunning historic campus right in the heart of downtown at the foot of Mount Royal.", fort: "Historic academy grounds." },
+    { id: "museum-fine-arts", name: "Montreal Museum of Fine Arts", addr: "1380 Sherbrooke Ouest", tag: "Alan's Pick", desc: "World-class pavilions, cutting-edge exhibits, and historic Quebec art.", fort: "Rare cultural artifact gallery." },
+    { id: "underground-city", name: "Underground City (RÉSO)", addr: "Downtown Montreal", tag: "Alan's Pick", desc: "33km of subterranean tunnels connecting shopping malls, metro stations, and plazas.", fort: "33km underground tunnels maze." },
+    { id: "jean-talon-market", name: "Jean-Talon Market", addr: "7070 Henri-Julien", tag: "Little Italy Market", desc: "One of North America's largest open-air markets. Maple butter, local cheeses, pastries.", fort: "Bountiful market loot: Maple butter & cheeses." }
+  ]
+};
+
+/* ── STATE MANAGEMENT ── */
+let currentMemberId = "michael";
+let activeGuideTab = "breakfast";
+let activeCoffeeFilter = "all";
+let activeMapFilter = "all";
+let isTrazMode = true; // Default ON for fun
+let appState = {
+  family_members: [],
+  arrivals: {},
+  schedule: [],
+  votes: {},
+  coffee_prefs: {}
+};
+
+let masterMapInstance = null;
+let coffeeMapInstance = null;
+let masterMarkerMap = {};
+
+/* ── INITIAL LOAD & POLLING ── */
+async function fetchState() {
+  try {
+    const res = await fetch('/api/state');
+    if (res.ok) {
+      appState = await res.json();
+      renderAll();
+    }
+  } catch (err) {
+    console.error("Fetch state error:", err);
+  }
+}
+
+function renderAll() {
+  renderMemberSelector();
+  renderArrivals();
+  renderSchedule();
+  renderMarqueeWidgets();
+  renderCoffeeGrid();
+  renderGuideGrid();
+  renderMapCardDeck();
+  applyTrazVisibility();
+}
+
+/* ── MEMBER SELECTION ── */
+function selectMember(id) {
+  currentMemberId = id;
+  const member = appState.family_members.find(m => m.id === id);
+  if (member) {
+    document.getElementById('activeMemberLabel').textContent = member.name;
+  }
+  renderMemberSelector();
+  renderMarqueeWidgets();
+  renderGuideGrid();
+}
+
+function renderMemberSelector() {
+  const container = document.getElementById('memberSelector');
+  if (!container || !appState.family_members) return;
+  
+  container.innerHTML = appState.family_members.map(m => {
+    const isActive = m.id === currentMemberId;
+    return `<button onclick="selectMember('${m.id}')" class="member-pill text-xs font-pop font-bold px-3 py-1 rounded-full border-2 border-on-surface whitespace-nowrap ${isActive ? 'active' : 'bg-white text-on-surface-variant hover:bg-surface-container'}">
+      ${m.name}
+    </button>`;
+  }).join('');
+}
+
+/* ── ARRIVALS BOARD (WITH SPECIFIC TRAZ STICKERS) ── */
+function renderArrivals() {
+  const grid = document.getElementById('arrivalsGrid');
+  if (!grid || !appState.family_members) return;
+
+  grid.innerHTML = appState.family_members.map(m => {
+    const arr = (appState.arrivals && appState.arrivals[m.id]) || { date: "Thu Oct 8", time: "TBD", flight: "", notes: "" };
+    const hasTime = arr.time && !arr.time.includes("TBD") && !arr.time.includes("???");
+
+    // Choose the best specific Traz sticker & note per member
+    let stickerImg = 'assets/traz_victory.jpg';
+    let trazCardComment = '';
+    let badgeBg = hasTime ? 'bg-emerald-200 text-emerald-950' : 'bg-amber-200 text-amber-950';
+
+    if (m.id === 'dani-travis') {
+      stickerImg = 'assets/traz_flight.jpg';
+      trazCardComment = 'Air Canada AC8588 direct from Pittsburgh! YUL landing 4:59 PM.';
+    } else if (m.id === 'greg-cat' || m.id === 'michele') {
+      stickerImg = 'assets/traz_roadtrip.jpg';
+      trazCardComment = 'Road Trip Northbound up I-91 N from South Windsor, CT!';
+    } else if (m.id === 'haley') {
+      stickerImg = 'assets/traz_coffee.jpg';
+      trazCardComment = 'United UA3715 from Newark (Seat 20C). Touchdown 4:10 PM!';
+    } else if (m.id === 'michael') {
+      stickerImg = 'assets/traz_flight.jpg';
+      trazCardComment = 'Delta DL4816 from Detroit. Landing 4:15 PM & unlocking 3831 St-Laurent!';
+    } else if (m.id === 'andrew-liz') {
+      stickerImg = 'assets/traz_mystery.jpg';
+      trazCardComment = 'Radar scanning for Andrew & Liz flight coordinates... Where you at?!';
+      badgeBg = 'bg-purple-200 text-purple-950';
+    }
+
+    return `
+      <div class="pop-card p-5 flex flex-col justify-between">
+        <div>
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <div>
+              <h3 class="font-pop font-extrabold text-lg text-on-surface leading-tight">${m.name}</h3>
+              <span class="text-[11px] text-pop-red font-pop font-extrabold uppercase tracking-wide block">${m.tag || 'Family'}</span>
+            </div>
+            <span class="text-[10px] font-pop font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full border border-on-surface whitespace-nowrap ${badgeBg}">
+              ${arr.time || 'TBD'}
+            </span>
+          </div>
+
+          <div class="space-y-1.5 text-xs text-on-surface-variant font-body mb-4">
+            <div class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-pop-dark !text-sm">event</span>
+              <span><strong>${arr.date || 'Thu Oct 8'}</strong></span>
+            </div>
+            ${arr.flight ? `
+              <div class="flex items-start gap-1.5 font-semibold text-on-surface">
+                <span class="material-symbols-outlined text-pop-blue !text-sm flex-shrink-0">flight</span>
+                <span>${arr.flight}</span>
+              </div>
+            ` : ''}
+            ${arr.notes ? `
+              <p class="text-[11px] text-on-surface-variant bg-surface-container p-2.5 rounded-xl border border-outline-variant leading-relaxed">
+                ${arr.notes}
+              </p>
+            ` : ''}
+          </div>
+
+          <!-- Specific Traz Sticker Note -->
+          <div class="traz-note traz-bubble p-2 flex items-center gap-2 mb-2">
+            <img src="${stickerImg}" alt="Traz" class="w-8 h-8 rounded-full object-cover border border-purple-900 flex-shrink-0" />
+            <p class="text-[10px] text-purple-950 font-bold leading-tight"><strong>Traz:</strong> "${trazCardComment}"</p>
+          </div>
+        </div>
+
+        <div class="mt-2 pt-3 border-t-2 border-outline-variant flex justify-between items-center">
+          <span class="text-[10px] text-on-surface-variant font-medium">Status: ${hasTime ? 'Confirmed' : 'Pending Info'}</span>
+          <button onclick="openArrivalModal('${m.id}')" class="text-xs font-pop font-extrabold text-pop-red hover:underline inline-flex items-center gap-1">
+            <span class="material-symbols-outlined !text-sm">edit</span> Update
+          </button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+let activeModalMemberId = null;
+function openArrivalModal(memberId) {
+  activeModalMemberId = memberId;
+  const member = appState.family_members.find(m => m.id === memberId);
+  const arr = (appState.arrivals && appState.arrivals[memberId]) || { date: "Thu Oct 8", time: "", flight: "", notes: "" };
+  
+  document.getElementById('modalMemberName').textContent = member ? member.name : '';
+  document.getElementById('arrDateInput').value = arr.date || 'Thu Oct 8';
+  document.getElementById('arrTimeInput').value = (arr.time && !arr.time.includes('TBD')) ? arr.time : '';
+  document.getElementById('arrFlightInput').value = arr.flight || '';
+  document.getElementById('arrNotesInput').value = arr.notes || '';
+  
+  document.getElementById('arrivalModal').classList.remove('hidden');
+}
+function closeArrivalModal() {
+  document.getElementById('arrivalModal').classList.add('hidden');
+}
+
+async function saveArrivalForm(e) {
+  e.preventDefault();
+  if (!activeModalMemberId) return;
+
+  const payload = {
+    member_id: activeModalMemberId,
+    date: document.getElementById('arrDateInput').value,
+    time: document.getElementById('arrTimeInput').value || 'TBD',
+    flight: document.getElementById('arrFlightInput').value,
+    notes: document.getElementById('arrNotesInput').value
+  };
+
+  try {
+    const res = await fetch('/api/arrival', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (res.ok) {
+      appState = await res.json();
+      closeArrivalModal();
+      renderArrivals();
+    }
+  } catch (err) {
+    console.error("Save arrival error:", err);
+  }
+}
+
+/* ── CONCIERGE SCHEDULE ── */
+function renderSchedule() {
+  const container = document.getElementById('scheduleContainer');
+  if (!container || !appState.schedule) return;
+
+  container.innerHTML = appState.schedule.map((item, idx) => {
+    let statusBadge = '';
+    if (item.dinner_status === 'confirmed') {
+      statusBadge = `<span class="inline-flex items-center gap-1 bg-emerald-100 text-emerald-900 border border-on-surface text-[10px] font-pop font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> Confirmed</span>`;
+    } else if (item.dinner_status === 'target') {
+      statusBadge = `<span class="inline-flex items-center gap-1 bg-rose-100 text-rose-900 border border-on-surface text-[10px] font-pop font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-rose-600"></span> Target Table</span>`;
+    } else {
+      statusBadge = `<span class="inline-flex items-center gap-1 bg-amber-100 text-amber-900 border border-on-surface text-[10px] font-pop font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span> Voting Active</span>`;
+    }
+
+    return `
+      <div class="p-4 lg:grid lg:grid-cols-[130px_1fr_1fr_1fr_1.3fr] gap-4 items-center hover:bg-amber-50/50 transition-colors">
+        
+        <!-- Day Col -->
+        <div class="mb-2 lg:mb-0">
+          <span class="font-pop font-extrabold text-pop-red text-xl block leading-none">${item.day}</span>
+          <span class="font-body text-xs font-bold text-on-surface-variant block mb-1">${item.date}</span>
+          <span class="font-pop text-xs text-pop-dark font-extrabold block">${item.theme || ''}</span>
+        </div>
+
+        <!-- Coffee Col -->
+        <div class="mb-2 lg:mb-0 text-xs">
+          <span class="lg:hidden text-[10px] uppercase font-bold text-on-surface-variant block">Morning Coffee</span>
+          <span class="font-semibold text-on-surface">${item.coffee || 'TBD'}</span>
+        </div>
+
+        <!-- Breakfast Col -->
+        <div class="mb-2 lg:mb-0 text-xs">
+          <span class="lg:hidden text-[10px] uppercase font-bold text-on-surface-variant block">Breakfast / Brunch</span>
+          <span class="font-semibold text-on-surface">${item.breakfast || 'TBD'}</span>
+        </div>
+
+        <!-- Lunch / Activity Col -->
+        <div class="mb-2 lg:mb-0 text-xs">
+          <span class="lg:hidden text-[10px] uppercase font-bold text-on-surface-variant block">Lunch &middot; Activity</span>
+          <span class="font-semibold text-on-surface block">${item.lunch || 'TBD'}</span>
+          ${item.activity ? `<span class="text-[11px] text-on-surface-variant font-medium block mt-0.5">${item.activity}</span>` : ''}
+        </div>
+
+        <!-- Dinner Col -->
+        <div class="bg-surface-container/70 lg:bg-transparent p-3 lg:p-0 rounded-xl">
+          <div class="flex items-center justify-between gap-2 mb-1">
+            <span class="font-pop font-extrabold text-sm text-on-surface">${item.dinner}</span>
+            ${statusBadge}
+          </div>
+          ${item.dinner_note ? `<p class="font-body text-[11px] text-on-surface-variant leading-tight">${item.dinner_note}</p>` : ''}
+        </div>
+
+      </div>
+    `;
+  }).join('');
+}
+
+/* ── POP! MAP & INTERACTIVE CARD DECK ── */
+function initMaps() {
+  if (masterMapInstance || coffeeMapInstance) return;
+
+  const baseLat = 45.5167, baseLng = -73.5786;
+  
+  /* 1. Master City Map */
+  masterMapInstance = L.map('masterMap', { scrollWheelZoom: false }).setView([45.516, -73.578], 13);
+  
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; OpenStreetMap',
+    maxZoom: 19
+  }).addTo(masterMapInstance);
+
+  renderMasterMapMarkers('all');
+  renderMapCardDeck();
+
+  /* 2. Coffee Walking Radius Map (Expanded 30-Min / 2.2km Radius) */
+  coffeeMapInstance = L.map('coffeeMap', { scrollWheelZoom: false }).setView([baseLat, baseLng], 14);
+  
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; OpenStreetMap',
+    maxZoom: 19
+  }).addTo(coffeeMapInstance);
+
+  L.circle([baseLat, baseLng], {
+    color: '#ffb703',
+    fillColor: '#ffb703',
+    fillOpacity: 0.12,
+    weight: 3,
+    dashArray: '6, 6',
+    radius: 2200
+  }).addTo(coffeeMapInstance).bindTooltip("30-Minute Stroll Radius (2.2 km) from 3831 St-Laurent", { permanent: false, direction: 'top' });
+
+  const homeIcon = L.divIcon({
+    className: '',
+    html: `<div class="pop-map-pin pin-basecamp-pop"><span>🏡</span><span>3831 Basecamp</span></div>`,
+    iconSize: [140, 32],
+    iconAnchor: [70, 16]
+  });
+  L.marker([baseLat, baseLng], { icon: homeIcon })
+    .addTo(coffeeMapInstance)
+    .bindPopup(`<strong>🏡 Our Basecamp</strong><br>3831 Boulevard Saint-Laurent<br>The center of our Montreal coffee universe.`);
+
+  COFFEE_CATALOG.forEach(shop => {
+    const isR = shop.type === 'roaster';
+    const cIcon = L.divIcon({
+      className: '',
+      html: `<div class="pop-map-pin" style="background:${isR ? '#e63946' : '#ffb703'}; color:${isR ? '#ffffff' : '#023047'};"><span>${isR ? '☕️' : '🥐'}</span><span>${shop.name}</span></div>`,
+      iconSize: [135, 28],
+      iconAnchor: [67, 14]
+    });
+
+    L.marker([shop.lat, shop.lng], { icon: cIcon })
+      .addTo(coffeeMapInstance)
+      .bindPopup(`
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; max-width:230px;">
+          <strong style="font-size:14px; color:#1e293b; font-family:'Bricolage Grotesque',sans-serif;">${shop.name}</strong><br>
+          <span style="font-size:11px; color:#e63946; font-weight:800;">⏱️ ${shop.walk} &middot; ${shop.specialty}</span><br>
+          <div style="margin:4px 0; font-size:10px; display:flex; gap:4px;">
+            <span style="background:#eff6ff; color:#1e40af; padding:1px 4px; border-radius:4px; font-weight:700;">G ${shop.googleRating} ★</span>
+            <span style="background:#fef2f2; color:#991b1b; padding:1px 4px; border-radius:4px; font-weight:700;">Yelp ${shop.yelpRating} ★</span>
+          </div>
+          <p style="font-size:11px; color:#475569; margin:4px 0;">${shop.order}</p>
+        </div>
+      `);
+  });
+}
+
+function renderMasterMapMarkers(filter) {
+  if (!masterMapInstance) return;
+
+  Object.values(masterMarkerMap).forEach(m => masterMapInstance.removeLayer(m));
+  masterMarkerMap = {};
+
+  const filtered = MAP_DESTINATIONS.filter(d => {
+    if (d.category === 'base') return true;
+    if (filter === 'all') return true;
+    return d.category === filter;
+  });
+
+  filtered.forEach(dest => {
+    const isBase = dest.category === 'base';
+    let textColor = '#ffffff';
+    if (dest.color === '#ffb703') textColor = '#023047';
+
+    const customIcon = L.divIcon({
+      className: '',
+      html: `<div class="pop-map-pin ${isBase ? 'pin-basecamp-pop' : ''}" style="background:${dest.color}; color:${textColor};"><span>${dest.icon}</span><span>${dest.name.split(' (')[0]}</span></div>`,
+      iconSize: [140, 30],
+      iconAnchor: [70, 15]
+    });
+
+    const m = L.marker([dest.lat, dest.lng], { icon: customIcon })
+      .addTo(masterMapInstance)
+      .bindPopup(`
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; max-width:220px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+            <strong style="font-size:14px; color:#1e293b; font-family:'Bricolage Grotesque',sans-serif;">${dest.name}</strong>
+          </div>
+          <span style="font-size:11px; color:#e63946; font-weight:800;">⏱️ ${dest.walk} from Basecamp</span>
+          <p style="font-size:11px; color:#475569; margin:4px 0;">${dest.desc}</p>
+        </div>
+      `);
+    masterMarkerMap[dest.id] = m;
+  });
+}
+
+function filterMapMarkers(filter) {
+  activeMapFilter = filter;
+  document.querySelectorAll('#mapFilters .pop-pill').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.mapfilter === filter);
+    btn.classList.toggle('text-on-surface-variant', btn.dataset.mapfilter !== filter);
+  });
+  renderMasterMapMarkers(filter);
+  renderMapCardDeck();
+}
+
+function flyToDestination(id) {
+  const dest = MAP_DESTINATIONS.find(d => d.id === id);
+  const marker = masterMarkerMap[id];
+  if (dest && masterMapInstance) {
+    masterMapInstance.flyTo([dest.lat, dest.lng], 15, { animate: true, duration: 1.0 });
+    if (marker) {
+      setTimeout(() => marker.openPopup(), 900);
+    }
+  }
+}
+
+function renderMapCardDeck() {
+  const deck = document.getElementById('mapCardDeck');
+  if (!deck) return;
+
+  const filtered = MAP_DESTINATIONS.filter(d => {
+    if (d.category === 'base') return true;
+    if (activeMapFilter === 'all') return true;
+    return d.category === activeMapFilter;
+  });
+
+  deck.innerHTML = filtered.map(d => {
+    const isBase = d.category === 'base';
+    return `
+      <div onclick="flyToDestination('${d.id}')" class="pop-card p-3.5 cursor-pointer hover:border-pop-red flex items-start justify-between gap-2.5 transition-all">
+        <div class="flex items-start gap-2.5">
+          <div class="w-8 h-8 rounded-full border-2 border-on-surface flex items-center justify-center text-sm flex-shrink-0" style="background:${d.color}; color:${d.color === '#ffb703' ? '#023047' : '#ffffff'};">
+            ${d.icon}
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5 flex-wrap">
+              <h4 class="font-pop font-extrabold text-sm text-on-surface">${d.name}</h4>
+              <span class="text-[9px] font-pop font-extrabold uppercase px-1.5 py-0.2 rounded border border-on-surface" style="background:${d.color}33;">${d.badge}</span>
+            </div>
+            <p class="text-[11px] text-on-surface-variant leading-tight mt-0.5">${d.desc}</p>
+          </div>
+        </div>
+        <span class="text-[10px] font-pop font-extrabold text-pop-red whitespace-nowrap pt-1">${d.walk}</span>
+      </div>
+    `;
+  }).join('');
+}
+
+/* ── VOTING LOGIC & RENDERING ── */
+async function castVote(itemId, voteType) {
+  const currentVoteData = (appState.votes && appState.votes[itemId]) || { up: [], down: [] };
+  const userHasUp = currentVoteData.up.includes(currentMemberId);
+  const userHasDown = currentVoteData.down.includes(currentMemberId);
+
+  let newVote = voteType;
+  if ((voteType === 'up' && userHasUp) || (voteType === 'down' && userHasDown)) {
+    newVote = 'none';
+  }
+
+  try {
+    const res = await fetch('/api/vote', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        member_id: currentMemberId,
+        item_id: itemId,
+        vote: newVote
+      })
+    });
+    if (res.ok) {
+      appState = await res.json();
+      renderMarqueeWidgets();
+      renderGuideGrid();
+    }
+  } catch (err) {
+    console.error("Cast vote error:", err);
+  }
+}
+
+function renderVoteWidgetHtml(itemId) {
+  const voteData = (appState.votes && appState.votes[itemId]) || { up: [], down: [] };
+  const upCount = voteData.up ? voteData.up.length : 0;
+  const downCount = voteData.down ? voteData.down.length : 0;
+  const isUp = voteData.up && voteData.up.includes(currentMemberId);
+  const isDown = voteData.down && voteData.down.includes(currentMemberId);
+
+  const upVoterNames = (voteData.up || []).map(id => {
+    const m = (appState.family_members || []).find(x => x.id === id);
+    return m ? m.name : id;
+  }).join(', ');
+
+  return `
+    <div class="flex items-center gap-1.5">
+      <button onclick="castVote('${itemId}', 'up')" class="flex items-center gap-1 px-3 py-1 rounded-full text-xs font-pop font-extrabold transition-all pop-btn ${isUp ? 'bg-emerald-600 text-white' : 'bg-surface-container text-on-surface hover:bg-emerald-100'}" title="Upvote (${upVoterNames || 'No votes yet'})">
+        <span>👍</span> <span>${upCount}</span>
+      </button>
+      <button onclick="castVote('${itemId}', 'down')" class="flex items-center gap-1 px-3 py-1 rounded-full text-xs font-pop font-extrabold transition-all pop-btn ${isDown ? 'bg-rose-600 text-white' : 'bg-surface-container text-on-surface hover:bg-rose-100'}" title="Downvote">
+        <span>👎</span> <span>${downCount}</span>
+      </button>
+    </div>
+    ${upVoterNames ? `<span class="text-[10px] text-on-surface-variant font-bold truncate max-w-[150px]" title="${upVoterNames}">${upVoterNames}</span>` : '<span class="text-[10px] text-on-surface-variant/40 italic font-medium">Be first to vote</span>'}
+  `;
+}
+
+function renderMarqueeWidgets() {
+  document.querySelectorAll('.vote-widget').forEach(el => {
+    const id = el.dataset.id;
+    if (id) el.innerHTML = renderVoteWidgetHtml(id);
+  });
+}
+
+/* ── COFFEE & BAKERY LOGIC ── */
+async function cycleCoffeeHeart(shopId) {
+  const currentLevel = (appState.coffee_prefs && appState.coffee_prefs[shopId]) || 0;
+  const nextLevel = (currentLevel + 1) % 3;
+
+  try {
+    const res = await fetch('/api/coffee', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ shop_id: shopId, level: nextLevel })
+    });
+    if (res.ok) {
+      appState = await res.json();
+      renderCoffeeGrid();
+    }
+  } catch (err) {
+    console.error("Save coffee error:", err);
+  }
+}
+
+function filterCoffeeCards(filter) {
+  activeCoffeeFilter = filter;
+  document.querySelectorAll('#coffeeFilters .pop-pill').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.cfilter === filter);
+    btn.classList.toggle('text-on-surface-variant', btn.dataset.cfilter !== filter);
+  });
+  renderCoffeeGrid();
+}
+
+function renderCoffeeGrid() {
+  const grid = document.getElementById('coffeeGrid');
+  if (!grid) return;
+
+  const hearts = ['🤍🤍', '❤️', '❤️❤️'];
+  const filtered = COFFEE_CATALOG.filter(item => {
+    if (activeCoffeeFilter === 'all') return true;
+    return item.type === activeCoffeeFilter;
+  });
+
+  grid.innerHTML = filtered.map(item => {
+    const heartLevel = (appState.coffee_prefs && appState.coffee_prefs[item.id]) || 0;
+    const isRoaster = item.type === 'roaster';
+
+    return `
+      <article class="pop-card flex flex-col sm:flex-row overflow-hidden group">
+        <div class="sm:w-48 h-48 sm:h-auto bg-cover bg-center flex-shrink-0 relative border-b-2 sm:border-b-0 sm:border-r-2 border-on-surface" style="background-image: url('${item.img}')">
+          <span class="absolute top-3 left-3 text-[10px] font-pop font-extrabold uppercase px-2.5 py-0.5 rounded-full border border-on-surface text-white ${isRoaster ? 'bg-pop-red' : 'bg-pop-yellow text-pop-dark'}">
+            ${isRoaster ? '☕️ Roaster' : '🥐 Bakery'}
+          </span>
+          <span class="absolute bottom-3 left-3 bg-black/75 text-white text-[10px] font-pop font-bold px-2 py-0.5 rounded border border-white/30">
+            ${item.distance || ''}
+          </span>
+        </div>
+        <div class="p-5 flex flex-col justify-between flex-grow">
+          <div>
+            <div class="flex justify-between items-start gap-2 mb-1">
+              <h4 class="font-pop font-extrabold text-lg text-on-surface">${item.name}</h4>
+              <div class="coffee-heart-btn" onclick="cycleCoffeeHeart('${item.id}')" title="Haley's Desire Rating: Tap to cycle">
+                <span>${hearts[heartLevel]}</span>
+              </div>
+            </div>
+            <p class="font-pop text-xs text-pop-red font-extrabold mb-2">${item.specialty}</p>
+            
+            <!-- Google & Yelp Side-by-Side Ratings -->
+            <div class="flex items-center gap-2 mb-3 flex-wrap">
+              <span class="review-badge-google">
+                <span class="font-black text-[#4285F4]">G</span>
+                <span>${item.googleRating} ★</span>
+                <span class="text-[10px] text-blue-700 font-normal">(${item.googleReviews})</span>
+              </span>
+              <span class="review-badge-yelp">
+                <span class="font-black text-[#d32323]">Yelp</span>
+                <span>${item.yelpRating} ★</span>
+                <span class="text-[10px] text-red-700 font-normal">(${item.yelpReviews})</span>
+              </span>
+            </div>
+
+            <div class="space-y-1 text-xs text-on-surface-variant mb-3 font-body">
+              <div class="flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-pop-red !text-sm">location_on</span>
+                <span><strong>${item.walk}</strong> &middot; ${item.addr}</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-pop-yellow !text-sm">schedule</span>
+                <span>${item.hours}</span>
+              </div>
+            </div>
+
+            <p class="text-xs text-on-surface-variant leading-relaxed mb-3">${item.desc}</p>
+            
+            ${item.traz ? `
+              <div class="traz-note traz-bubble p-2 flex items-center gap-2 mb-3">
+                <img src="assets/traz_coffee.jpg" alt="Traz" class="w-7 h-7 rounded-full object-cover border border-purple-900 flex-shrink-0" />
+                <span class="text-[10px] text-purple-950 font-bold leading-tight"><strong>Traz:</strong> "${item.traz}"</span>
+              </div>
+            ` : ''}
+          </div>
+
+          <div class="pt-3 border-t-2 border-outline-variant flex items-center justify-between">
+            <p class="text-xs font-semibold text-on-surface">
+              <span class="text-pop-dark font-pop uppercase text-[10px] tracking-wider font-extrabold mr-1.5">Signature:</span>
+              ${item.order}
+            </p>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join('');
+}
+
+/* ── GUIDE CATALOG & TABS ── */
+function switchGuideTab(tab) {
+  activeGuideTab = tab;
+  document.querySelectorAll('#guideTabs .pop-pill').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.tab === tab);
+    btn.classList.toggle('text-on-surface-variant', btn.dataset.tab !== tab);
+  });
+  renderGuideGrid();
+}
+
+function renderGuideGrid() {
+  const grid = document.getElementById('guideGrid');
+  if (!grid) return;
+
+  const items = GUIDE_CATALOG[activeGuideTab] || [];
+  grid.innerHTML = items.map(item => {
+    return `
+      <div class="pop-card p-5 flex flex-col justify-between">
+        <div>
+          <div class="flex items-start justify-between gap-2 mb-1.5">
+            <h3 class="font-pop font-extrabold text-lg text-on-surface">${item.name}</h3>
+            <span class="text-[10px] font-pop font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-pop-yellow/30 text-on-surface border border-on-surface whitespace-nowrap">
+              ${item.tag}
+            </span>
+          </div>
+          <p class="text-xs text-on-surface-variant font-bold mb-2">${item.addr}</p>
+          <p class="text-xs text-on-surface-variant leading-relaxed mb-3">${item.desc}</p>
+          <div class="traz-note traz-bubble p-2.5 flex items-center gap-2 mb-3">
+            <img src="assets/traz_victory.jpg" alt="Traz" class="w-8 h-8 rounded-full object-cover border border-purple-900 flex-shrink-0" />
+            <p class="text-[11px] text-purple-950 font-bold leading-tight"><strong>Traz:</strong> "${item.fort}"</p>
+          </div>
+        </div>
+        <div class="pt-3 border-t-2 border-outline-variant flex items-center justify-between">
+          ${renderVoteWidgetHtml(item.id)}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+/* ── TRAVIS "TRAZ" MODE TOGGLE ── */
+function toggleTrazMode() {
+  isTrazMode = !isTrazMode;
+  applyTrazVisibility();
+}
+
+function applyTrazVisibility() {
+  const banner = document.getElementById('trazBanner');
+  const btn = document.getElementById('trazToggleBtn');
+  const statusText = document.getElementById('trazStatusText');
+  const notes = document.querySelectorAll('.traz-note');
+
+  if (banner) banner.classList.toggle('hidden', !isTrazMode);
+  if (statusText) statusText.textContent = isTrazMode ? 'ON' : 'OFF';
+
+  if (btn) {
+    if (isTrazMode) {
+      btn.classList.add('bg-purple-200', 'text-purple-950');
+      btn.classList.remove('bg-white', 'text-on-surface-variant');
+    } else {
+      btn.classList.remove('bg-purple-200', 'text-purple-950');
+      btn.classList.add('bg-white', 'text-on-surface-variant');
+    }
+  }
+
+  notes.forEach(el => {
+    el.classList.toggle('hidden', !isTrazMode);
+  });
+}
+
+/* ── ADMIN MODAL & SCHEDULE EDITING ── */
+function openAdminModal() {
+  document.getElementById('adminModal').classList.remove('hidden');
+}
+function closeAdminModal() {
+  document.getElementById('adminModal').classList.add('hidden');
+  document.getElementById('adminPinStep').classList.remove('hidden');
+  document.getElementById('adminEditStep').classList.add('hidden');
+  document.getElementById('adminPinInput').value = '';
+}
+
+async function verifyAdminPin() {
+  const pin = document.getElementById('adminPinInput').value;
+  try {
+    const res = await fetch('/api/admin/verify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pin })
+    });
+    if (res.ok) {
+      document.getElementById('adminPinStep').classList.add('hidden');
+      document.getElementById('adminEditStep').classList.remove('hidden');
+      renderAdminScheduleFields();
+    } else {
+      document.getElementById('adminPinError').classList.remove('hidden');
+    }
+  } catch (err) {
+    console.error("Admin verify error:", err);
+  }
+}
+
+function renderAdminScheduleFields() {
+  const container = document.getElementById('adminScheduleFields');
+  if (!container || !appState.schedule) return;
+
+  container.innerHTML = appState.schedule.map((item, idx) => `
+    <div class="p-4 bg-surface-container rounded-2xl border-2 border-on-surface space-y-3 shadow-[3px_3px_0px_#1e293b]">
+      <div class="font-pop font-extrabold text-sm text-pop-red flex items-center justify-between">
+        <span>${item.day} &middot; ${item.date}</span>
+        <span class="text-xs text-on-surface-variant font-normal">Day ${idx + 1}</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+        <div>
+          <label class="block text-on-surface-variant font-bold mb-1">Theme</label>
+          <input type="text" class="w-full text-xs rounded-xl border-2 border-on-surface p-2 font-medium" id="admTheme_${idx}" value="${item.theme || ''}">
+        </div>
+        <div>
+          <label class="block text-on-surface-variant font-bold mb-1">Dinner Location</label>
+          <input type="text" class="w-full text-xs rounded-xl border-2 border-on-surface p-2 font-medium" id="admDinner_${idx}" value="${item.dinner || ''}">
+        </div>
+        <div>
+          <label class="block text-on-surface-variant font-bold mb-1">Dinner Status</label>
+          <select class="w-full text-xs rounded-xl border-2 border-on-surface p-2 font-medium" id="admStatus_${idx}">
+            <option value="confirmed" ${item.dinner_status === 'confirmed' ? 'selected' : ''}>Confirmed & Pinned</option>
+            <option value="target" ${item.dinner_status === 'target' ? 'selected' : ''}>Target Table</option>
+            <option value="voting" ${item.dinner_status === 'voting' ? 'selected' : ''}>Voting Active</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-on-surface-variant font-bold mb-1">Dinner Details / Notes</label>
+          <input type="text" class="w-full text-xs rounded-xl border-2 border-on-surface p-2 font-medium" id="admNote_${idx}" value="${item.dinner_note || ''}">
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+async function saveAdminSchedule() {
+  const pin = document.getElementById('adminPinInput').value;
+  const updatedSchedule = appState.schedule.map((item, idx) => ({
+    ...item,
+    theme: document.getElementById(`admTheme_${idx}`).value,
+    dinner: document.getElementById(`admDinner_${idx}`).value,
+    dinner_status: document.getElementById(`admStatus_${idx}`).value,
+    dinner_note: document.getElementById(`admNote_${idx}`).value,
+  }));
+
+  try {
+    const res = await fetch('/api/admin/schedule', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pin, schedule: updatedSchedule })
+    });
+    if (res.ok) {
+      appState = await res.json();
+      closeAdminModal();
+      renderSchedule();
+    }
+  } catch (err) {
+    console.error("Save schedule error:", err);
+  }
+}
+
+// Initial Fetch, Map Init, and Polling every 5 seconds for live sync
+window.addEventListener('DOMContentLoaded', () => {
+  fetchState();
+  setTimeout(initMaps, 300);
+});
+setInterval(fetchState, 5000);
+</script>
+</body>
+</html>
