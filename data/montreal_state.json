@@ -100,24 +100,24 @@
     {
       "day": "Dim 11",
       "date": "Sun Oct 11",
-      "theme": "Biodome & Classic Bistro",
+      "theme": "Biodome & Grand Thanksgiving Feast",
       "coffee": "Pikolo Espresso Bar",
       "breakfast": "Café Replika (Simit Bagels)",
       "lunch": "Montreal Biodome (5 Ecosystems)",
-      "dinner": "Damas OR L'Express",
+      "dinner": "Canadian Thanksgiving Grand Feast (6 Hotel & Historic Contenders)",
       "dinner_status": "voting",
-      "dinner_note": "Vote active: Top 5 Syrian culinary tasting at Damas vs. Parisian steak frites & late-night bistro at L'Express (8 min walk)."
+      "dinner_note": "Vote active: Fairmont Queen Elizabeth Grand Buffet, Ritz-Carlton Maison Boulud, Auberge Saint-Gabriel (1688 Inn), Gibbys Historic Stable, Maggie Oakes (William Gray), or Brasserie 701."
     },
     {
       "day": "Lun 12",
       "date": "Mon Oct 12",
-      "theme": "Thanksgiving & Farewell",
+      "theme": "Thanksgiving Day & Farewell",
       "coffee": "Café Olimpico (Mile End)",
       "breakfast": "Bagel Run & Packing",
       "lunch": "La Banquise Poutine & Parc La Fontaine",
       "dinner": "YUL Airport Flights & Drive Home",
       "dinner_status": "confirmed",
-      "dinner_note": "Canadian Thanksgiving holiday. Dani & Travis fly 4:10 PM, Michael & Haley fly 5:10 PM. CT crew drives south."
+      "dinner_note": "Canadian Thanksgiving statutory holiday. Dani & Travis fly 4:10 PM, Michael & Haley fly 5:10 PM. CT crew drives south."
     }
   ],
   "votes": {
@@ -127,6 +127,12 @@
     "au-pied-de-cochon": { "up": ["michael", "greg-cat", "dani-travis"], "down": [] },
     "damas": { "up": ["michael", "haley"], "down": [] },
     "lexpress": { "up": ["michael", "haley", "dani-travis"], "down": [] },
+    "roselys-fairmont": { "up": ["michael", "haley"], "down": [] },
+    "maison-boulud": { "up": ["michael"], "down": [] },
+    "auberge-saint-gabriel": { "up": ["michael", "dani-travis", "greg-cat"], "down": [] },
+    "gibbys": { "up": ["michael", "greg-cat", "haley"], "down": [] },
+    "maggie-oakes": { "up": ["michael"], "down": [] },
+    "brasserie-701": { "up": ["michael"], "down": [] },
     "la-banquise": { "up": ["michael", "dani-travis", "greg-cat"], "down": [] },
     "fairmount-bagel": { "up": ["michael", "haley"], "down": [] },
     "st-viateur-bagel": { "up": ["michael", "dani-travis"], "down": [] },
