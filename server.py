@@ -6,26 +6,67 @@ import threading
 
 PORT = int(os.environ.get("PORT", 5000))
 DATA_FILE = os.path.join(os.path.dirname(__file__), "data", "montreal_state.json")
+BACKUP_FILE = os.path.join(os.path.dirname(__file__), "data", "montreal_state.backup.json")
 lock = threading.Lock()
 
 def load_state():
     with lock:
         if not os.path.exists(DATA_FILE):
+            if os.path.exists(BACKUP_FILE):
+                try:
+                    with open(BACKUP_FILE, "r", encoding="utf-8") as f:
+                        return json.load(f)
+                except Exception:
+                    pass
             return {}
         try:
             with open(DATA_FILE, "r", encoding="utf-8") as f:
-                return json.load(f)
+                state = json.load(f)
+                
+            # If backup exists and has votes that might have been clobbered by a git pull, preserve them
+            if os.path.exists(BACKUP_FILE):
+                try:
+                    with open(BACKUP_FILE, "r", encoding="utf-8") as bf:
+                        b_state = json.load(bf)
+                        b_votes = b_state.get("votes", {})
+                        p_votes = state.get("votes", {})
+                        # Preserve any vote items or voters that existed in backup
+                        modified = False
+                        for k, v in b_votes.items():
+                            if k not in p_votes:
+                                p_votes[k] = v
+                                modified = True
+                            else:
+                                for up_voter in v.get("up", []):
+                                    if up_voter not in p_votes[k].get("up", []) and up_voter not in p_votes[k].get("down", []):
+                                        p_votes[k]["up"].append(up_voter)
+                                        modified = True
+                        if modified:
+                            state["votes"] = p_votes
+                            # Resave merged state
+                            save_state_unlocked(state)
+                except Exception as e:
+                    print(f"Notice: backup merge check {e}")
+            return state
         except Exception as e:
             print(f"Error loading state: {e}")
             return {}
 
+def save_state_unlocked(state):
+    os.makedirs(os.path.dirname(DATA_FILE), exist_ok=True)
+    tmp_file = DATA_FILE + ".tmp"
+    with open(tmp_file, "w", encoding="utf-8") as f:
+        json.dump(state, f, indent=2)
+    os.replace(tmp_file, DATA_FILE)
+    # Also update backup file
+    tmp_backup = BACKUP_FILE + ".tmp"
+    with open(tmp_backup, "w", encoding="utf-8") as f:
+        json.dump(state, f, indent=2)
+    os.replace(tmp_backup, BACKUP_FILE)
+
 def save_state(state):
     with lock:
-        os.makedirs(os.path.dirname(DATA_FILE), exist_ok=True)
-        tmp_file = DATA_FILE + ".tmp"
-        with open(tmp_file, "w", encoding="utf-8") as f:
-            json.dump(state, f, indent=2)
-        os.replace(tmp_file, DATA_FILE)
+        save_state_unlocked(state)
 
 class MontrealTripHandler(http.server.SimpleHTTPRequestHandler):
     def end_headers(self):
