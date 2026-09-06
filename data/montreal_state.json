@@ -89,10 +89,11 @@
     {
       "day": "Sam 10",
       "date": "Sat Oct 10",
-      "theme": "Mount Royal & Splurge",
+      "theme": "Bateau-Mouche & Splurge Dinner",
       "coffee": "Café Névé (Rachel)",
       "breakfast": "Eggspectation / Chez Cora",
-      "lunch": "Mount Royal Observatory Walk",
+      "lunch": "Old Port Stroll & Waterfront",
+      "activity": "🚢 <strong>12:30 PM: Bateau-Mouche Cruise</strong> (90-min St. Lawrence River tour w/ drinks & snacks)",
       "dinner": "Au Pied de Cochon OR Monarque",
       "dinner_status": "voting",
       "dinner_note": "Vote active: Walkable Québécois feast at Au Pied de Cochon (9 min walk) vs. Monarque French Brasserie private room for 22."
@@ -100,13 +101,14 @@
     {
       "day": "Dim 11",
       "date": "Sun Oct 11",
-      "theme": "Biodome & Grand Thanksgiving Feast",
+      "theme": "Biodome, DodgeBow & Thanksgiving",
       "coffee": "Pikolo Espresso Bar",
       "breakfast": "Café Replika (Simit Bagels)",
       "lunch": "Montreal Biodome (5 Ecosystems)",
+      "activity": "🏹 <strong>2:30 PM: DodgeBow Montreal</strong> (Combat archery tag arena battle for 11)",
       "dinner": "Canadian Thanksgiving Grand Feast (6 Hotel & Historic Contenders)",
       "dinner_status": "voting",
-      "dinner_note": "Vote active: Fairmont Queen Elizabeth Grand Buffet, Ritz-Carlton Maison Boulud, Auberge Saint-Gabriel (1688 Inn), Gibbys Historic Stable, Maggie Oakes (William Gray), or Brasserie 701."
+      "dinner_note": "Vote active: Michael votes Fairmont Queen Elizabeth, Michele (Mom) votes Gibbys Historic Stable! Auberge Saint-Gabriel, Maison Boulud also contending."
     },
     {
       "day": "Lun 12",
@@ -127,17 +129,19 @@
     "au-pied-de-cochon": { "up": ["michael", "greg-cat", "dani-travis"], "down": [] },
     "damas": { "up": ["michael", "haley"], "down": [] },
     "lexpress": { "up": ["michael", "haley", "dani-travis"], "down": [] },
-    "roselys-fairmont": { "up": [], "down": [] },
+    "roselys-fairmont": { "up": ["michael"], "down": [] },
     "maison-boulud": { "up": [], "down": [] },
     "auberge-saint-gabriel": { "up": [], "down": [] },
-    "gibbys": { "up": [], "down": [] },
+    "gibbys": { "up": ["michele"], "down": [] },
     "maggie-oakes": { "up": [], "down": [] },
     "brasserie-701": { "up": [], "down": [] },
     "la-banquise": { "up": ["michael", "dani-travis", "greg-cat"], "down": [] },
     "fairmount-bagel": { "up": ["michael", "haley"], "down": [] },
     "st-viateur-bagel": { "up": ["michael", "dani-travis"], "down": [] },
     "mount-royal": { "up": ["michael", "haley", "greg-cat"], "down": [] },
-    "biodome": { "up": ["michael", "greg-cat"], "down": [] }
+    "biodome": { "up": ["michael", "greg-cat"], "down": [] },
+    "bateau-mouche": { "up": ["greg-cat", "michael", "michele", "haley"], "down": [] },
+    "dodgebow-montreal": { "up": ["greg-cat", "michael"], "down": [] }
   },
   "coffee_prefs": {
     "in-gamba": 2,

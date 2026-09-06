@@ -1687,7 +1687,9 @@ const MAP_DESTINATIONS = [
   { id: "mount-royal", name: "Mount Royal Observatory", category: "attraction", lat: 45.5039, lng: -73.5878, walk: "20 min walk", desc: "Kondiaronk Belvedere with panoramic Montreal skyline view.", icon: "🍁", color: "#219ebc", badge: "Best View" },
   { id: "biodome", name: "Biodome & Olympic Park", category: "attraction", lat: 45.5592, lng: -73.5502, walk: "15 min metro", desc: "5 ecosystems under one roof + Olympic Tower view.", icon: "🐧", color: "#219ebc", badge: "Kids Love" },
   { id: "old-port", name: "Old Montreal & Notre-Dame", category: "attraction", lat: 45.5048, lng: -73.5560, walk: "12 min drive", desc: "Cobblestone streets, historic basilica, and waterfront promenade.", icon: "⛪️", color: "#219ebc", badge: "Historic" },
-  { id: "jean-talon", name: "Jean-Talon Market", category: "attraction", lat: 45.5361, lng: -73.6150, walk: "12 min metro", desc: "Vibrant open-air market in Little Italy.", icon: "🍎", color: "#219ebc", badge: "Market" }
+  { id: "jean-talon", name: "Jean-Talon Market", category: "attraction", lat: 45.5361, lng: -73.6150, walk: "12 min metro", desc: "Vibrant open-air market in Little Italy.", icon: "🍎", color: "#219ebc", badge: "Market" },
+  { id: "bateau-mouche", name: "Bateau-Mouche Cruise", category: "attraction", lat: 45.5072, lng: -73.5510, walk: "12 min drive", desc: "90-min St. Lawrence River panoramic cruise (Sat 12:30 PM).", icon: "🚢", color: "#219ebc", badge: "Sat 12:30 PM" },
+  { id: "dodgebow-montreal", name: "DodgeBow Montreal", category: "attraction", lat: 45.5284, lng: -73.5975, walk: "8 min drive", desc: "Combat archery tag indoor arena for 11 (Sun 2:30 PM).", icon: "🏹", color: "#219ebc", badge: "Sun 2:30 PM" }
 ];
 
 /* ── GUIDE CATALOG DATA (Alan & Travis recommendations with Yelp & Google Reviews) ── */
@@ -1722,6 +1724,8 @@ const GUIDE_CATALOG = {
     { id: "le-lab", name: "Le Lab Cocktails", addr: "1351 Rachel Est", tag: "Alan's Fire Show Pick", yelpRating: "4.4", yelpReviews: "340+", googleRating: "4.5", googleReviews: "1,500+", desc: "Famous for flair bartending and high-end flaming cocktail shows around 11pm/midnight!", fort: "Pyrotechnic fire show drop around midnight!" }
   ],
   attractions: [
+    { id: "bateau-mouche", name: "Bateau-Mouche 90-Min Cruise", addr: "Jacques-Cartier Pier, Old Port", tag: "🔒 Sat 12:30 PM · Locked In", yelpRating: "4.0", yelpReviews: "120+", googleRating: "4.4", googleReviews: "2,100+", desc: "Panoramic glass-enclosed cruise on the St. Lawrence River with upper open deck, full bar & snacks. 90-minute cruise (12:30 PM departure).", fort: "River naval expedition. 90 mins of skyline views, snacks, and cocktails." },
+    { id: "dodgebow-montreal", name: "DodgeBow Montreal (Combat Archers)", addr: "5425 Rue Casgrain / Mile End Arena", tag: "🔒 Sun 2:30 PM · Locked In", yelpRating: "4.8", yelpReviews: "90+", googleRating: "4.9", googleReviews: "850+", desc: "High-energy archery dodgeball arena. Soft foam-tipped arrows, face masks & inflatable bunkers. Owen (12) & Izzy (10) qualify (ages 10+)! Perfect for our group of 11.", fort: "Full PvP battle arena. Bows, foam arrows, and tactical bunker combat for 11." },
     { id: "mount-royal", name: "Mount Royal Observatory", addr: "Kondiaronk Belvedere", tag: "Alan's #1 View", yelpRating: "4.7", yelpReviews: "680+", googleRating: "4.8", googleReviews: "14,000+", desc: "The defining panoramic viewpoint over Montreal. Gorgeous autumn walk through the park.", fort: "The ultimate high ground. View of the entire island." },
     { id: "biodome", name: "Biodome & Olympic Park", addr: "4777 Pierre-de Coubertin", tag: "Alan's Pick · Kids Love", yelpRating: "4.3", yelpReviews: "450+", googleRating: "4.6", googleReviews: "19,000+", desc: "Explore 5 American ecosystems under one roof (penguins, rainforest, lynx). Get the combo pass!", fort: "Biome raid: Penguins, rainforest, and lynx all in one dome." },
     { id: "old-montreal", name: "Old Montreal & Notre-Dame", addr: "Rue Saint-Paul", tag: "Historic District", yelpRating: "4.7", yelpReviews: "1,400+", googleRating: "4.8", googleReviews: "28,000+", desc: "Cobblestone streets, horse carriages, Old Port promenade, and the breathtaking basilica.", fort: "Ancient cobblestone fortress zone." },
@@ -1967,7 +1971,7 @@ function renderSchedule() {
         <div class="mb-2 lg:mb-0 text-xs">
           <span class="lg:hidden text-[10px] uppercase font-bold text-on-surface-variant block">Lunch &middot; Activity</span>
           <span class="font-semibold text-on-surface block">${item.lunch || 'TBD'}</span>
-          ${item.activity ? `<span class="text-[11px] text-on-surface-variant font-medium block mt-0.5">${item.activity}</span>` : ''}
+          ${item.activity ? `<div class="text-[11px] text-blue-950 font-bold bg-blue-50 border border-blue-300 px-2 py-1 rounded-lg mt-1.5 shadow-sm leading-snug">${item.activity}</div>` : ''}
         </div>
 
         <!-- Dinner Col -->
