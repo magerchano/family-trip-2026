@@ -41,25 +41,24 @@ Michael Germano is organizing a 4-night family trip to Montreal for **11 people*
    * **Dinner:** **Monarque** (Old Montreal French Brasserie / Private Room for 22) **vs. Au Pied de Cochon** (walkable).
 4. **Sun Oct 11 (Canadian Thanksgiving Eve):** 
    * **2:30 PM (LOCKED IN):** DodgeBow Montreal Combat Archery Arena Battle (Owen & Izzy qualify, ages 10+).
-   * **Dinner (THANKSGIVING FEAST):** **Fairmont Queen Elizabeth (Rosélys Grand Buffet)** vs. **Gibbys (Historic Stable Steakhouse)** vs. **Auberge Saint-Gabriel (1688 Inn)**.
-     * *Current family voting:* Michael voted for Fairmont Rosélys; Michele (Mom) voted for Gibbys.
+   * **Dinner (THANKSGIVING FEAST) — LOCKED & BOOKED:** **Fairmont Queen Elizabeth (Rosélys Grand Buffet)** confirmed for 11 at 5:30 PM via OpenTable ([opentable.com/l/WQfF5i6eu](https://opentable.com/l/WQfF5i6eu)).
 5. **Mon Oct 12 (Canadian Thanksgiving Day):** **L'Express** (Lunch / walk-in before 4:10 PM / 5:10 PM YUL departures).
 
 ---
 
-## 3. Email Outreach Campaign (Immediate Dispatch Required)
+## 3. Email Outreach Campaign (Status & Action Items)
 
-The Claude agent is tasked with planning, tracking, and coordinating outbound email communications with the following five dining establishments.
+The Claude agent is tasked with planning, tracking, and coordinating outbound communications with dining establishments.
 
 ### Campaign Matrix
 
-| Target Restaurant | Target Date & Time | Primary Contact / Email | Objective / Room Type |
-| :--- | :--- | :--- | :--- |
-| **1. Rosélys (Fairmont Queen E)** | Sun Oct 11 @ 5:30–6:30 PM | `Fabien.Renaud@Fairmont.com`<br>Alt: `info@restaurantroselys.com` | Thanksgiving Grand Buffet for 11 (Carved turkey station, seafood bar, dessert salon) |
-| **2. Gibbys (Old Montreal)** | Sun Oct 11 @ 6:00–7:00 PM | `info@gibbys.com`<br>Phone: `(514) 282-1837` | 200-year-old stable steakhouse table for 11 (Mom's top pick) |
-| **3. Le Serpent (Old Montreal)** | Fri Oct 9 @ 6:30–7:30 PM | `leserpent@leserpent.ca`<br>Phone: `(514) 316-4666` | Marquee Old Montreal table for 11 (Closed Sundays) |
-| **4. Monarque (Old Montreal)** | Sat Oct 10 @ 6:30–7:30 PM | `info@restaurantmonarque.ca`<br>Phone: `(514) 875-3896` | Brasserie table for 11 vs. Salle Privée (check minimum spend) |
-| **5. Auberge Saint-Gabriel** | Sun Oct 11 @ 5:30–6:30 PM | `info@aubergesaint-gabriel.com`<br>Phone: `(514) 878-3561` | Historic private stone salon (*Salon Duluth* / *Salon Grenier*) with fondue & fireplace |
+| Target Restaurant | Target Date & Time | Primary Contact / Email | Objective / Room Type | Status |
+| :--- | :--- | :--- | :--- | :--- |
+| **1. Rosélys (Fairmont Queen E)** | Sun Oct 11 @ 5:30 PM | OpenTable Confirmation | Thanksgiving Grand Buffet for 11 | **LOCKED & BOOKED** |
+| **2. Gibbys (Old Montreal)** | Sun Oct 11 @ 6:00–7:00 PM | `info@gibbys.com` | Stable steakhouse table for 11 | *Closed (Rosélys booked)* |
+| **3. Le Serpent (Old Montreal)** | Fri Oct 9 @ 6:30 PM | `leserpent@leserpent.ca` | Table for 11 offered @ 6:30 PM | **Decision Pending** |
+| **4. Monarque (Old Montreal)** | Sat Oct 10 @ 6:30–7:30 PM | `info@restaurantmonarque.ca` | Brasserie table vs Salle Privée | Draft Ready |
+| **5. Auberge Saint-Gabriel** | Sun Oct 11 @ 5:30–6:30 PM | `info@aubergesaint-gabriel.com` | Private stone salon fondue | *Closed (Rosélys booked)* |
 
 ---
 
