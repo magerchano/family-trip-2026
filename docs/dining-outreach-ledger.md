@@ -9,15 +9,15 @@ Last updated: 2026-09-10
 
 | # | Venue | Target slot | Sent | Reply | Quoted price | Min spend | Deposit | Cancel cutoff | Kids policy | Status |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 1 | Rosélys (Fairmont Queen E) | Sun Oct 11, 5:30pm | 2026-09-08 | 2026-09-10 | Thanksgiving Grand Buffet | none | CC on file (OpenTable) | Standard OpenTable | Kids buffet welcome | **BOOKED & CONFIRMED** |
-| 2 | Gibbys | Sun Oct 11, 6:00–7:00pm | — | — | — | — | — | — | — | *closed (Rosélys booked)* |
+| 1 | Rosélys (Fairmont Queen E) | Sun Oct 11, 5:30pm | 2026-09-08 | 2026-09-10 | À la carte only (NO buffet) | none | CC on file (OpenTable) | Standard OpenTable | Children menu available | **HELD (À la carte only)** |
+| 2 | Gibbys | Sun Oct 11, 6:00–7:00pm | — | — | — | — | — | — | — | **DRAFT READY (Reopened)** |
 | 3 | Le Serpent | Fri Oct 9, **6:30pm only** | 2026-09-08 | 2026-09-08 | à la carte, no group menu | none | card via OpenTable link | not stated | chef adapts dishes (mac & cheese) | **table offered, decision pending** |
 | 4 | Monarque | Sat Oct 10, 6:30–7:30pm | — | — | — | — | — | — | — | draft ready |
-| 5 | Auberge Saint-Gabriel | Sun Oct 11, 5:30–6:30pm | — | — | — | — | — | — | — | *closed (Rosélys booked)* |
+| 5 | Auberge Saint-Gabriel | Sun Oct 11, 5:30–6:30pm | — | — | — | — | — | — | — | stand by |
 
 ## Reply log
 
-**2026-09-10 — Rosélys / Fairmont (Booked & Confirmed).** Party of 11 booked and locked for Sunday, Oct 11, 2026 @ 5:30 PM (17 h 30) via OpenTable: https://opentable.com/l/WQfF5i6eu. Canadian Thanksgiving Grand Harvest Buffet secured! Outreach to Gibbys and Auberge Saint-Gabriel closed.
+**2026-09-10 — Rosélys / Fairmont (Florence Hostess Reply).** Confirmed that **Rosélys does NOT do a Thanksgiving buffet at night or brunch** (standard à la carte regular menu only). Terms for 11: children menu available, automatic 15% gratuity, single bill. Michael holds an OpenTable reservation for 11 @ 5:30 PM (https://opentable.com/l/WQfF5i6eu), but without the harvest buffet, Gibbys (Mom's pick) is reopened as the prime contender for the holiday feast.
 
 **2026-09-08 — Rosélys / Fairmont (auto-reply).** Fabien Renaud is out of the office until **Thu Sep 10** and works Tuesday to Saturday. Title is Catering Group Sales Representative. Urgent matters route to **Linda.Dehbi@Fairmont.com**. Direct +1 514 861-3511 ext 2869, cell +1 514 559-2919, alternate address fabien.renaud@accor.com. Auto-reply was French first, English second, which set the format for the rest of the campaign.
 
@@ -34,7 +34,7 @@ All outreach after the Fairmont email is bilingual, French first with the Englis
 
 ## Open decisions
 
-- **Sunday Thanksgiving Feast:** **LOCKED & CONFIRMED** at Rosélys (Fairmont The Queen Elizabeth) @ 5:30 PM.
+- **Sunday Thanksgiving Feast:** Held at Rosélys @ 5:30 PM (regular à la carte only; confirmed NO holiday buffet). Re-evaluating Gibbys (Mom's top pick) for the traditional festive dinner atmosphere.
 - **Friday Dinner:** Decision pending on Le Serpent (table offered @ 6:30 PM) vs. Syrian alternative (Restaurant Alep / Damas).
 - **Saturday Dinner:** Monarque Brasserie vs Salle Privée depends on the date-specific minimum spend. Au Pied de Cochon is the walkable fallback.
 
