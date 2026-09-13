@@ -207,8 +207,8 @@ The Sept 8 handover asserted several things that turned out to be false. Treat i
 6. Trim and decide on the **Monarque** and **Auberge** drafts.
 
 **Non-dining, still open**
-7. **Airport transfer for 11** with luggage, Thu Oct 8 from ~4:45pm, staggered arrivals 4:10–5:30pm.
-8. **Biodome tickets for 11**, Sunday.
+7. **Airport transfer for flight crew** (~6 people + luggage; Michael & Haley ~4:15pm, Dani & Travis ~5:00pm, Andrew & Liz TBD). *CT minivan crew (Greg, Cat, Owen, Izzy, Mom) drives up, departing 3:00pm, arriving ~9:00pm.*
+8. **Biodome tickets for 11**, Saturday morning (between breakfast & lunch).
 9. **Monday lunch** — La Banquise or L'Express; verify statutory holiday hours either way.
 10. **Passports valid for all 11.**
 11. **Andrew & Liz flight details** — booked, not yet shared. Arrivals board updated to "Booked / details pending".

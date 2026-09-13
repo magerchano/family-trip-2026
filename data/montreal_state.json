@@ -61,18 +61,18 @@
     },
     "greg-cat": {
       "date": "Thu Oct 8",
-      "time": "~5:00–5:30 PM",
+      "time": "~9:00 PM",
       "flight": "Driving Up from South Windsor, CT (I-91 N)",
-      "notes": "Road trip convoy carrying Greg, Cat, Izzy (10), Owen (12), and Michele (Mom). ~5.5 hr drive + border crossing.",
+      "notes": "Departing CT ~3:00 PM. Minivan convoy carrying Greg, Cat, Izzy (10), Owen (12), and Michele (Mom). ~5.5 hr drive + border crossing brings arrival to ~9:00 PM.",
       "type": "drive",
       "seat": "Minivan Squad",
       "confirmation": "Road Trip"
     },
     "michele": {
       "date": "Thu Oct 8",
-      "time": "~5:00–5:30 PM",
+      "time": "~9:00 PM",
       "flight": "Riding in CT Road Trip Convoy",
-      "notes": "Riding in comfort with Greg, Cat, Owen, and Izzy from South Windsor. Ready for rooftop wine and Schwartz's.",
+      "notes": "Departing CT ~3:00 PM with Greg, Cat, Owen, and Izzy. Arriving basecamp ~9:00 PM ready for late-night Schwartz's briskets and rooftop terrace reunion.",
       "type": "drive",
       "seat": "VIP Passenger",
       "confirmation": "Road Trip"
@@ -94,10 +94,10 @@
       "theme": "Arrivals & The Main",
       "coffee": "Café In Gamba (Parc)",
       "breakfast": "Travel Morning",
-      "lunch": "Touchdowns & Road Trip Arrival",
+      "lunch": "Touchdowns & Early Basecamp Unpack",
       "dinner": "Schwartz's Smoked Meat Feasts",
       "dinner_status": "confirmed",
-      "dinner_note": "No reservations needed. Grab towering briskets, pickles, and cherry sodas across the street to our two rooftop garden patios."
+      "dinner_note": "Flights land ~4:15–5:00 PM to unlock basecamp. CT road trip crew departs 3:00 PM, landing ~9:00 PM. Schwartz's is open late on our block—steaming hot brisket feast waiting on the rooftop patios!"
     },
     {
       "day": "Ven 9",
