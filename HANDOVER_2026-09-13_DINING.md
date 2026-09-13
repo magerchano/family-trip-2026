@@ -37,7 +37,7 @@
 | | — | Airport transfer for 11 + luggage | **NOT ARRANGED** |
 | **Fri Oct 9** | Breakfast | Bagels | Walk-up |
 | | Lunch | Jean-Talon Market | Walk-up |
-| | Dinner | **Rôtisserie La Lune**, Salon La Foret, 6:30pm | **Requested Sep 10, no reply.** Reply drafted, unsent |
+| | Dinner | **Rôtisserie La Lune**, Salon La Foret, 6:30pm | **Follow-up sent Sep 12 @ 3:39pm; awaiting reply.** |
 | **Sat Oct 10** | 12:30pm | Bateau-Mouche cruise, Jacques-Cartier Pier | Locked per vault |
 | | Dinner | **Undecided** | **Nothing sent.** APDC draft ready |
 | **Sun Oct 11** | Lunch | Biodome | **Tickets for 11 not arranged** |
@@ -70,14 +70,14 @@
 - No deposit; a secure OpenTable card link is sent to confirm.
 - **Michael's decision: no.** Wrong fit for 11 with two kids, and a three-Uber Old Montreal convoy. **The release email has never been written or sent. This is the most overdue courtesy on the list.**
 
-**Rôtisserie La Lune** — private dining request submitted via OpenTable Sep 10. Le Salon La Foret, Fri Oct 9, 6:30pm, 11 guests, flexible on date. **No reply in 3 days.**
+**Rôtisserie La Lune** — private dining request submitted via OpenTable Sep 10. Le Salon La Foret, Fri Oct 9, 6:30pm, 11 guests (flexible with Sat Oct 10). **Follow-up email SENT by Michael on Sat Sep 12 @ 3:39 PM** directly to `contact@rotisserielalune.com` (threaded on the OpenTable confirmation).
 
 - Room holds **8 to 12**, so 11 fits with one spare seat and no headroom.
 - Three-course family-style group menu: grain-fed chicken $75pp, guinea fowl $85pp, mix $80pp.
 - Bib Gourmand **and** the top new restaurant on Canada's 100 Best 2026.
 - 391 rue Saint-Zotique Est, Petite-Patrie, ~4 km / 10–15 min from the house. **Open Mon–Sat 5:00–10:30pm, closed Sundays.**
-- Contact `contact@rotisserielalune.com`, (514) 948-9999. The Reply-To on the OpenTable mail routes straight to the restaurant.
-- **Two defects in the submitted request:** the Additional Details field captured only "9 adults and 2 children (10 and 12)", so no commercial questions reached them; and the occasion was logged as "Birthday". Leave the latter alone.
+- Contact `contact@rotisserielalune.com`, (514) 948-9999.
+- Michael's follow-up clarified party of 11 (9 adults, 2 kids 10 & 12) and asked the key commercial questions: kids pricing, minimum spend, and deposit terms. **Awaiting reply.**
 - Estimated all-in for 11: **~$1,150–1,250**.
 
 **Gibbys** — sent Sep 12 to `info@gibbys.com`. No reply yet.
@@ -89,10 +89,9 @@
 
 ### Drafted in Gmail, NOT sent
 
-1. **Rôtisserie La Lune reply** — threaded under the OpenTable message. Warm, three questions (kids pricing, minimum spend, deposit terms). Ready.
-2. **Au Pied de Cochon** → `info@pieddecochon.ca`, Sat Oct 10, 6:00–6:30pm. Three questions (dining room vs buyout, time limit, kids). Ready.
-3. **Monarque** → `info@restaurantmonarque.ca`, Sat Oct 10. **Still in the old long format, five questions. Trim to three before sending.**
-4. **Auberge Saint-Gabriel** → `info@aubergesaint-gabriel.com`, Sun Oct 11. **Same, needs trimming.**
+1. **Au Pied de Cochon** → `info@pieddecochon.ca`, Sat Oct 10, 6:00–6:30pm. Three questions (dining room vs buyout, time limit, kids). Ready.
+2. **Monarque** → `info@restaurantmonarque.ca`, Sat Oct 10. **Still in the old long format, five questions. Trim to three before sending.**
+3. **Auberge Saint-Gabriel** → `info@aubergesaint-gabriel.com`, Sun Oct 11. **Same, needs trimming.**
 
 Some orphaned duplicate drafts may remain in Gmail and should be deleted by hand.
 
@@ -191,7 +190,7 @@ The Sept 8 handover asserted several things that turned out to be false. Treat i
 
 **Overdue**
 1. **Release Le Serpent.** 8 days of silence on a table they are holding.
-2. **Send the La Lune reply.** 3 days with no response to the request; this doubles as a nudge.
+2. ~~**Send the La Lune reply.**~~ **DONE.** Sent by Michael on Sat Sep 12 @ 3:39 PM. Awaiting reply.
 
 **Decisions needed**
 3. **Saturday dinner.** Au Pied de Cochon (Greg's pick, email-reachable, walkable, ~$1,200) vs L'Express (walkable, ~$900, phone only) vs Alep (~$800, phone only) vs Monarque (Old Montreal, $1,500+ minimum).
@@ -205,7 +204,7 @@ The Sept 8 handover asserted several things that turned out to be false. Treat i
 9. **Monday lunch** — La Banquise or L'Express; verify statutory holiday hours either way.
 10. **Passports valid for all 11.**
 11. **Andrew & Liz flight details** — booked, not yet shared. Arrivals board updated to "Booked / details pending".
-12. **Sync `data/montreal_state.json`** — still shows Friday as Le Serpent and Sunday as an open vote. Stale.
+12. ~~**Sync `data/montreal_state.json`**~~ **DONE.** Updated Friday to La Lune target, Sunday to Rosélys hold, and Andrew & Liz flights booked.
 13. Delete orphaned Gmail drafts.
 14. Optional: ping Rosélys around **Sep 24** in case a holiday menu appears, per Florence's suggestion.
 

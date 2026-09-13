@@ -10,10 +10,11 @@ Last updated: 2026-09-13
 | # | Venue | Target slot | Sent | Reply | Quoted price | Min spend | Deposit | Cancel cutoff | Kids policy | Status |
 |---|---|---|---|---|---|---|---|---|---|---|
 | 1 | Rosélys (Fairmont Queen E) | Sun Oct 11, 5:30pm | 2026-09-08 | 2026-09-10 | À la carte only (NO buffet) | none | CC on file (OpenTable) | Standard OpenTable | Children menu available | **HELD (À la carte only)** |
-| 2 | Gibbys | Sun Oct 11, 6:00–7:00pm | — | — | — | — | — | — | — | **DRAFT READY (Reopened)** |
-| 3 | Le Serpent | Fri Oct 9, **6:30pm only** | 2026-09-08 | 2026-09-08 | à la carte, no group menu | none | card via OpenTable link | not stated | chef adapts dishes (mac & cheese) | **table offered, decision pending** |
+| 2 | Gibbys | Sun Oct 11, 6:00–7:00pm | 2026-09-12 | — | Mains $56–$175 | — | — | — | — | **SENT (Awaiting reply)** |
+| 3 | Le Serpent | Fri Oct 9, **6:30pm only** | 2026-09-08 | 2026-09-08 | à la carte, no group menu | none | card via OpenTable link | not stated | chef adapts dishes (mac & cheese) | **table offered, release pending** |
 | 4 | Monarque | Sat Oct 10, 6:30–7:30pm | — | — | — | — | — | — | — | draft ready |
 | 5 | Auberge Saint-Gabriel | Sun Oct 11, 5:30–6:30pm | — | — | — | — | — | — | — | stand by |
+| 6 | Rôtisserie La Lune | Fri Oct 9 (or Sat Oct 10), 6:30pm | 2026-09-10 / 2026-09-12 | — | $75–$85pp set menu | TBD | TBD | TBD | Questions sent | **SENT (Awaiting reply)** |
 
 ## Reply log
 
