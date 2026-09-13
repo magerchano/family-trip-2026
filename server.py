@@ -133,6 +133,9 @@ class MontrealTripHandler(http.server.SimpleHTTPRequestHandler):
             return self.send_json(safe_state)
 
         elif self.path == "/api/vote":
+            if state.get("voting_closed", False):
+                return self.send_json({"error": "Voting on dinners and activities is closed. Final tallies are locked."}, 403)
+
             member_id = payload.get("member_id")
             item_id = payload.get("item_id")
             vote_type = payload.get("vote") # 'up', 'down', 'none'

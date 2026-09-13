@@ -294,5 +294,6 @@
     "olimpico": 2,
     "replika": 1
   },
-  "sold_out": []
+  "sold_out": [],
+  "voting_closed": true
 }

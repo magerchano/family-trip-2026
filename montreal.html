@@ -642,10 +642,10 @@ tailwind.config = {
 <section id="marquee-dinners" class="py-12 md:py-16 max-w-6xl mx-auto px-4 scroll-mt-14">
   <div class="text-center max-w-2xl mx-auto mb-10">
     <div class="inline-flex items-center gap-1.5 bg-pop-red text-white border-2 border-on-surface text-xs font-pop font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full mb-2 shadow-[2px_2px_0px_#1e293b]">
-      <span>🍽️</span> Marquee Group Tables
+      <span>🔒 🍽️</span> Group Dinners for 11 &middot; Voting Closed
     </div>
     <h2 class="font-pop font-extrabold text-4xl md:text-5xl text-on-surface tracking-tight mb-2">La Table &mdash; Group Dinners for 11</h2>
-    <p class="font-body text-on-surface-variant text-base">Cast your vote on the top contenders. Upvote the tables you want Michael to book!</p>
+    <p class="font-body text-on-surface-variant text-base"><strong>Voting is closed &mdash; final tallies are locked!</strong> Outbound inquiries have been sent for our target tables (La Lune, Au Pied de Cochon, and Gibbys). Review final rankings and tallies below.</p>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="marqueeGrid">
@@ -1043,11 +1043,11 @@ tailwind.config = {
 <section id="thanksgiving-section" class="py-12 md:py-16 max-w-6xl mx-auto px-4 scroll-mt-14">
   <div class="text-center max-w-3xl mx-auto mb-10">
     <div class="inline-flex items-center gap-1.5 bg-amber-500 text-white border-2 border-on-surface text-xs font-pop font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full mb-2 shadow-[2px_2px_0px_#1e293b]">
-      <span>🦃</span> Dimanche 11 Octobre &middot; Action de Grâce
+      <span>🔒 🦃</span> Dimanche 11 Octobre &middot; Action de Grâce &middot; Voting Closed
     </div>
     <h2 class="font-pop font-extrabold text-4xl md:text-5xl text-on-surface tracking-tight mb-2">Le Grand Festin &mdash; Thanksgiving for 11</h2>
     <p class="font-body text-on-surface-variant text-base">
-      In Canada, Thanksgiving (<em>Action de grâce</em>) is celebrated on Monday, making <strong>Sunday evening (Oct 11)</strong> the premier night for our big group celebration! Below are Montreal's top 6 luxury hotel dining rooms and historic private halls equipped for our squad of 11. Cast your vote!
+      In Canada, Thanksgiving (<em>Action de grâce</em>) is celebrated on Monday, making <strong>Sunday evening (Oct 11)</strong> the premier night for our big group celebration! Voting is closed &mdash; Gibbys is our target table with inquiry sent for 11 (Mom's #1 pick), and Rosélys is held via OpenTable at 5:30 PM as our zero-penalty safety net. Review final tallies below.
     </p>
   </div>
 
@@ -1057,7 +1057,7 @@ tailwind.config = {
     <div>
       <span class="font-pop font-extrabold text-xs text-purple-950 uppercase tracking-wider block">Traz Tactical Thanksgiving Directive</span>
       <p class="text-xs text-purple-900 font-medium leading-relaxed">
-        "Canadian Thanksgiving drop point on Sunday night! Inquiry sent to Gibbys for 11 between 6:00–7:00 PM (Mom's #1 pick) with Rosélys held at 5:30 PM via OpenTable as our zero-risk safety net. <em>Note:</em> Hostess Florence confirmed Rosélys does regular à la carte only (no holiday buffet exists). Vote and track below!"
+        "Voting is closed and the squad has spoken! Gibbys in the 200-year stable is Mom's #1 pick with inquiry sent for 11. Rosélys is locked at 5:30 PM via OpenTable as our zero-risk safety net. <em>Note:</em> Florence confirmed regular à la carte only (no holiday buffet). Tables locked!"
       </p>
     </div>
   </div>
@@ -1426,10 +1426,10 @@ tailwind.config = {
     
     <div class="text-center max-w-2xl mx-auto mb-8">
       <div class="inline-flex items-center gap-1.5 bg-pop-yellow text-pop-dark border-2 border-on-surface text-xs font-pop font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full mb-2 shadow-[2px_2px_0px_#1e293b]">
-        <span>🎯</span> Discovery &amp; Group Polls
+        <span>🔒 🎯</span> Discovery &amp; Field Guide &middot; Activities Locked
       </div>
-      <h2 class="font-pop font-extrabold text-4xl md:text-5xl text-on-surface tracking-tight mb-2">Explore &amp; Upvote</h2>
-      <p class="font-body text-on-surface-variant text-base">Browse every recommendation from Alan's illustrated menu with Traz's field commentary. Upvote the spots you want to hit!</p>
+      <h2 class="font-pop font-extrabold text-4xl md:text-5xl text-on-surface tracking-tight mb-2">Explore &amp; Field Guide</h2>
+      <p class="font-body text-on-surface-variant text-base"><strong>Activity voting is closed &mdash; schedule is locked!</strong> (Bateau-Mouche Cruise booked for Sat 2:30 PM, Biodome Sat morning, DodgeBow Sun 2:30 PM, and Mile End / Jean-Talon / Mount Royal Friday). Review recommendations and final group tallies below.</p>
     </div>
 
     <!-- Category Tabs -->
@@ -2180,7 +2180,7 @@ function renderSchedule() {
     } else if (item.dinner_status === 'target') {
       statusBadge = `<span class="inline-flex items-center gap-1 bg-rose-100 text-rose-900 border border-on-surface text-[10px] font-pop font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-rose-600"></span> Target Table</span>`;
     } else {
-      statusBadge = `<span class="inline-flex items-center gap-1 bg-amber-100 text-amber-900 border border-on-surface text-[10px] font-pop font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span> Voting Active</span>`;
+      statusBadge = `<span class="inline-flex items-center gap-1 bg-slate-100 text-slate-900 border border-on-surface text-[10px] font-pop font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span> Decisions Locked</span>`;
     }
 
     return `
@@ -2389,6 +2389,10 @@ function renderMapCardDeck() {
 
 /* ── VOTING LOGIC & RENDERING ── */
 async function castVote(itemId, voteType) {
+  if (appState && appState.voting_closed) {
+    console.warn("Voting is closed. Final tallies locked.");
+    return;
+  }
   const currentVoteData = (appState.votes && appState.votes[itemId]) || { up: [], down: [] };
   const userHasUp = currentVoteData.up.includes(currentMemberId);
   const userHasDown = currentVoteData.down.includes(currentMemberId);
@@ -2419,6 +2423,7 @@ async function castVote(itemId, voteType) {
 }
 
 function renderVoteWidgetHtml(itemId) {
+  const isVotingClosed = appState && appState.voting_closed === true;
   const voteData = (appState.votes && appState.votes[itemId]) || { up: [], down: [] };
   const upCount = voteData.up ? voteData.up.length : 0;
   const downCount = voteData.down ? voteData.down.length : 0;
@@ -2429,6 +2434,24 @@ function renderVoteWidgetHtml(itemId) {
     const m = (appState.family_members || []).find(x => x.id === id);
     return m ? m.name : id;
   }).join(', ');
+
+  if (isVotingClosed) {
+    return `
+      <div class="flex items-center gap-1.5" title="Voting is closed. Final tallies locked.">
+        <div class="flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-pop font-extrabold ${isUp ? 'bg-emerald-600 text-white shadow-sm' : 'bg-surface-container text-on-surface'}" title="Final upvotes: ${upVoterNames || 'None'}">
+          <span>👍</span> <span>${upCount}</span>
+        </div>
+        ${downCount > 0 ? `
+        <div class="flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-pop font-extrabold ${isDown ? 'bg-rose-600 text-white shadow-sm' : 'bg-surface-container text-on-surface'}" title="Final downvotes">
+          <span>👎</span> <span>${downCount}</span>
+        </div>` : ''}
+        <span class="inline-flex items-center gap-1 text-[10px] font-mono uppercase tracking-wider font-extrabold px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant border border-outline/20">
+          <span>🔒</span> Locked
+        </span>
+      </div>
+      ${upVoterNames ? `<span class="text-[10px] text-on-surface-variant font-bold truncate max-w-[140px]" title="${upVoterNames}">${upVoterNames}</span>` : '<span class="text-[10px] text-on-surface-variant/40 italic font-medium">Final: 0 votes</span>'}
+    `;
+  }
 
   return `
     <div class="flex items-center gap-1.5">
