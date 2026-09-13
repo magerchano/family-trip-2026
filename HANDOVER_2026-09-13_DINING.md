@@ -35,8 +35,8 @@
 |---|---|---|---|
 | **Thu Oct 8** | Dinner | Schwartz's takeout to the patios | No booking needed, same block |
 | | — | Airport transfer for 11 + luggage | **NOT ARRANGED** |
-| **Fri Oct 9** | Morning / Midday | **Mount Royal Observatory & Mile End Stroll** | Kondiaronk Belvedere skyline walk + Mile End bagel stroll & Jean-Talon Market |
-| | Lunch | Mile End bites / Jean-Talon Market | Walk-up |
+| **Fri Oct 9** | Morning / Midday | **Mile End Stroll → Jean-Talon Market** | Walk through Mile End (bagels & shops) to Jean-Talon Market. Afternoon split: Mount Royal Observatory hike vs. linger in Little Italy cafés |
+| | Lunch | Jean-Talon Market bites & Little Italy | Walk-up |
 | | Dinner | **Rôtisserie La Lune**, Salon La Foret, 6:30pm | Follow-up sent Sep 12 @ 3:39pm; awaiting reply |
 | **Sat Oct 10** | Mid-Morning | **Montreal Biodome** (between breakfast & lunch) | Olympic Park (tickets for 11 needed) |
 | | Lunch | Old Port Waterfront | Walk-up |
