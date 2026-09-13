@@ -109,11 +109,23 @@ class MontrealTripHandler(http.server.SimpleHTTPRequestHandler):
             if "arrivals" not in state:
                 state["arrivals"] = {}
             
+            existing_arr = state["arrivals"].get(member_id, {})
+            arr_type = payload.get("type") or existing_arr.get("type")
+            if not arr_type:
+                flight_str = (payload.get("flight") or "").lower()
+                if "drive" in flight_str or "car" in flight_str or "road" in flight_str or member_id in ("greg-cat", "michele"):
+                    arr_type = "drive"
+                else:
+                    arr_type = "flight"
+
             state["arrivals"][member_id] = {
-                "date": payload.get("date", "Thu Oct 8"),
-                "time": payload.get("time", ""),
-                "flight": payload.get("flight", ""),
-                "notes": payload.get("notes", "")
+                "date": payload.get("date", existing_arr.get("date", "Thu Oct 8")),
+                "time": payload.get("time", existing_arr.get("time", "")),
+                "flight": payload.get("flight", existing_arr.get("flight", "")),
+                "notes": payload.get("notes", existing_arr.get("notes", "")),
+                "type": arr_type,
+                "seat": payload.get("seat", existing_arr.get("seat", "")),
+                "confirmation": payload.get("confirmation", existing_arr.get("confirmation", ""))
             }
             save_state(state)
             safe_state = dict(state)
