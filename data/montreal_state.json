@@ -1,11 +1,35 @@
 {
   "family_members": [
-    { "id": "michael", "name": "Michael", "tag": "Host & Coordinator" },
-    { "id": "haley", "name": "Haley", "tag": "Chief Coffee & Pastry Officer" },
-    { "id": "dani-travis", "name": "Dani & Travis", "tag": "Air Canada Flight Crew · PIT" },
-    { "id": "greg-cat", "name": "Greg & Cat", "tag": "CT Road Trip Crew (w/ Owen & Izzy)" },
-    { "id": "michele", "name": "Michele (Mom)", "tag": "CT Road Trip Co-Pilot" },
-    { "id": "andrew-liz", "name": "Andrew & Liz", "tag": "Coordinates Pending ???" }
+    {
+      "id": "michael",
+      "name": "Michael",
+      "tag": "Host & Coordinator"
+    },
+    {
+      "id": "haley",
+      "name": "Haley",
+      "tag": "Chief Coffee & Pastry Officer"
+    },
+    {
+      "id": "dani-travis",
+      "name": "Dani & Travis",
+      "tag": "Air Canada Flight Crew · PIT"
+    },
+    {
+      "id": "greg-cat",
+      "name": "Greg & Cat",
+      "tag": "CT Road Trip Crew (w/ Owen & Izzy)"
+    },
+    {
+      "id": "michele",
+      "name": "Michele (Mom)",
+      "tag": "CT Road Trip Co-Pilot"
+    },
+    {
+      "id": "andrew-liz",
+      "name": "Andrew & Liz",
+      "tag": "Coordinates Pending ???"
+    }
   ],
   "arrivals": {
     "michael": {
@@ -55,12 +79,12 @@
     },
     "andrew-liz": {
       "date": "Thu Oct 8",
-      "time": "TBD / Pending",
-      "flight": "Flight / Route coordinates pending ???",
-      "notes": "Awaiting flight confirmation from Andrew & Liz! Traz is actively scanning radar.",
-      "type": "unknown",
+      "time": "Booked / details pending",
+      "flight": "Flights booked — times and route not yet shared",
+      "notes": "Andrew & Liz have booked their flights; waiting on the details to fill in times and route. Andrew is one of the three belated birthdays (Sep 22) this trip is built around.",
+      "type": "flight",
       "seat": "",
-      "confirmation": "PENDING"
+      "confirmation": "BOOKED"
     }
   },
   "schedule": [
@@ -123,25 +147,133 @@
     }
   ],
   "votes": {
-    "schwartzs": { "up": ["michael", "haley", "dani-travis", "greg-cat"], "down": [] },
-    "le-serpent": { "up": ["michael", "haley", "dani-travis"], "down": [] },
-    "monarque": { "up": ["michael"], "down": [] },
-    "au-pied-de-cochon": { "up": ["michael", "greg-cat", "dani-travis"], "down": [] },
-    "damas": { "up": ["michael", "haley"], "down": [] },
-    "lexpress": { "up": ["michael", "haley", "dani-travis"], "down": [] },
-    "roselys-fairmont": { "up": ["michael"], "down": [] },
-    "maison-boulud": { "up": [], "down": [] },
-    "auberge-saint-gabriel": { "up": [], "down": [] },
-    "gibbys": { "up": ["michele"], "down": [] },
-    "maggie-oakes": { "up": [], "down": [] },
-    "brasserie-701": { "up": [], "down": [] },
-    "la-banquise": { "up": ["michael", "dani-travis", "greg-cat"], "down": [] },
-    "fairmount-bagel": { "up": ["michael", "haley"], "down": [] },
-    "st-viateur-bagel": { "up": ["michael", "dani-travis"], "down": [] },
-    "mount-royal": { "up": ["michael", "haley", "greg-cat"], "down": [] },
-    "biodome": { "up": ["michael", "greg-cat"], "down": [] },
-    "bateau-mouche": { "up": ["greg-cat", "michael", "michele", "haley"], "down": [] },
-    "dodgebow-montreal": { "up": ["greg-cat", "michael"], "down": [] }
+    "schwartzs": {
+      "up": [
+        "michael",
+        "haley",
+        "dani-travis",
+        "greg-cat"
+      ],
+      "down": []
+    },
+    "le-serpent": {
+      "up": [
+        "michael",
+        "haley",
+        "dani-travis"
+      ],
+      "down": []
+    },
+    "monarque": {
+      "up": [
+        "michael"
+      ],
+      "down": []
+    },
+    "au-pied-de-cochon": {
+      "up": [
+        "michael",
+        "greg-cat",
+        "dani-travis"
+      ],
+      "down": []
+    },
+    "damas": {
+      "up": [
+        "michael",
+        "haley"
+      ],
+      "down": []
+    },
+    "lexpress": {
+      "up": [
+        "michael",
+        "haley",
+        "dani-travis"
+      ],
+      "down": []
+    },
+    "roselys-fairmont": {
+      "up": [
+        "michael"
+      ],
+      "down": []
+    },
+    "maison-boulud": {
+      "up": [],
+      "down": []
+    },
+    "auberge-saint-gabriel": {
+      "up": [],
+      "down": []
+    },
+    "gibbys": {
+      "up": [
+        "michele"
+      ],
+      "down": []
+    },
+    "maggie-oakes": {
+      "up": [],
+      "down": []
+    },
+    "brasserie-701": {
+      "up": [],
+      "down": []
+    },
+    "la-banquise": {
+      "up": [
+        "michael",
+        "dani-travis",
+        "greg-cat"
+      ],
+      "down": []
+    },
+    "fairmount-bagel": {
+      "up": [
+        "michael",
+        "haley"
+      ],
+      "down": []
+    },
+    "st-viateur-bagel": {
+      "up": [
+        "michael",
+        "dani-travis"
+      ],
+      "down": []
+    },
+    "mount-royal": {
+      "up": [
+        "michael",
+        "haley",
+        "greg-cat"
+      ],
+      "down": []
+    },
+    "biodome": {
+      "up": [
+        "michael",
+        "greg-cat"
+      ],
+      "down": []
+    },
+    "bateau-mouche": {
+      "up": [
+        "greg-cat",
+        "michael",
+        "michele",
+        "haley"
+      ],
+      "down": []
+    },
+    "dodgebow-montreal": {
+      "up": [
+        "greg-cat",
+        "michael"
+      ],
+      "down": []
+    }
   },
   "coffee_prefs": {
     "in-gamba": 2,
