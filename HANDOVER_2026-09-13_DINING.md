@@ -39,7 +39,7 @@
 | | Lunch | Jean-Talon Market | Walk-up |
 | | Dinner | **Rôtisserie La Lune**, Salon La Foret, 6:30pm | **Follow-up sent Sep 12 @ 3:39pm; awaiting reply.** |
 | **Sat Oct 10** | 12:30pm | Bateau-Mouche cruise, Jacques-Cartier Pier | Locked per vault |
-| | Dinner | **Undecided** | **Nothing sent.** APDC draft ready |
+| | Dinner | **Au Pied de Cochon**, 6:00 or 6:30pm | **Inquiry sent Sep 13 @ 12:07pm; awaiting reply.** |
 | **Sun Oct 11** | Lunch | Biodome | **Tickets for 11 not arranged** |
 | | 2:30pm | DodgeBow combat archery | Locked per vault |
 | | Dinner | **Rosélys, 5:30pm, 11** | **CONFIRMED** |
@@ -80,6 +80,13 @@
 - Michael's follow-up clarified party of 11 (9 adults, 2 kids 10 & 12) and asked the key commercial questions: kids pricing, minimum spend, and deposit terms. **Awaiting reply.**
 - Estimated all-in for 11: **~$1,150–1,250**.
 
+**Au Pied de Cochon** — sent by Michael on **Sun Sep 13 @ 12:07 PM** to `info@pieddecochon.ca`.
+
+- Requested table for 11 (9 adults, 2 kids ages 10 & 12) for **Saturday, Oct 10 at 6:00 or 6:30 PM**.
+- Highlighted that the group is staying in the Plateau a few minutes' walk away (536 Duluth Ave E, 8–10 min walk).
+- Greg's top pick; walkable Québécois culinary benchmark.
+- Estimated all-in for 11: **~$1,100–1,400**. **Awaiting reply.**
+
 **Gibbys** — sent Sep 12 to `info@gibbys.com`. No reply yet.
 
 - Verified: **open Sunday 4:45pm–10:00pm.** 298 Place d'Youville. Publicly welcomes "groups of just about any size"; covered patio seats 50. (514) 282-1837.
@@ -89,9 +96,8 @@
 
 ### Drafted in Gmail, NOT sent
 
-1. **Au Pied de Cochon** → `info@pieddecochon.ca`, Sat Oct 10, 6:00–6:30pm. Three questions (dining room vs buyout, time limit, kids). Ready.
-2. **Monarque** → `info@restaurantmonarque.ca`, Sat Oct 10. **Still in the old long format, five questions. Trim to three before sending.**
-3. **Auberge Saint-Gabriel** → `info@aubergesaint-gabriel.com`, Sun Oct 11. **Same, needs trimming.**
+1. **Monarque** → `info@restaurantmonarque.ca`, Sat Oct 10. **Still in the old long format, five questions. Standby fallback to Au Pied de Cochon.**
+2. **Auberge Saint-Gabriel** → `info@aubergesaint-gabriel.com`, Sun Oct 11. **Standby fallback.**
 
 Some orphaned duplicate drafts may remain in Gmail and should be deleted by hand.
 
@@ -193,7 +199,7 @@ The Sept 8 handover asserted several things that turned out to be false. Treat i
 2. ~~**Send the La Lune reply.**~~ **DONE.** Sent by Michael on Sat Sep 12 @ 3:39 PM. Awaiting reply.
 
 **Decisions needed**
-3. **Saturday dinner.** Au Pied de Cochon (Greg's pick, email-reachable, walkable, ~$1,200) vs L'Express (walkable, ~$900, phone only) vs Alep (~$800, phone only) vs Monarque (Old Montreal, $1,500+ minimum).
+3. ~~**Saturday dinner.**~~ **INQUIRY SENT.** Au Pied de Cochon email sent by Michael on Sep 13 @ 12:07 PM (`info@pieddecochon.ca`). Monarque kept on standby fallback.
 4. **Sunday dinner.** Keep Rosélys, or switch to Gibbys when they reply. Cancel the loser promptly via the OpenTable link in the SMS.
 5. **Friday dinner** rides on La Lune's answer. Fallbacks: Le Petit Alep (phone) or L'Express (phone).
 6. Trim and decide on the **Monarque** and **Auberge** drafts.
