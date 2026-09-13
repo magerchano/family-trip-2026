@@ -40,7 +40,7 @@
 | | Dinner | **Rôtisserie La Lune**, Salon La Foret, 6:30pm | Follow-up sent Sep 12 @ 3:39pm; awaiting reply |
 | **Sat Oct 10** | Mid-Morning | **Montreal Biodome** (between breakfast & lunch) | Olympic Park (tickets for 11 needed) |
 | | Lunch | Old Port Waterfront | Walk-up |
-| | Afternoon | **Bateau-Mouche cruise** (after lunch, before dinner) | Jacques-Cartier Pier (St. Lawrence River tour) |
+| | 2:30pm | **Bateau-Mouche 60-min cruise** (Jacques-Cartier Pier) | **BOOKED** (St. Lawrence River tour) |
 | | Dinner | **Au Pied de Cochon**, 6:00 or 6:30pm | Inquiry sent Sep 13 @ 12:07pm; awaiting reply |
 | **Sun Oct 11** | Morning / Lunch | Plateau brunch / Café Replika | Walk-up |
 | | 2:30pm | **DodgeBow combat archery** + 2nd arena activity | 5425 Casgrain arena battle for 11 |
