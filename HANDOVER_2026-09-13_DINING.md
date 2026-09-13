@@ -35,14 +35,16 @@
 |---|---|---|---|
 | **Thu Oct 8** | Dinner | Schwartz's takeout to the patios | No booking needed, same block |
 | | — | Airport transfer for 11 + luggage | **NOT ARRANGED** |
-| **Fri Oct 9** | Breakfast | Bagels | Walk-up |
-| | Lunch | Jean-Talon Market | Walk-up |
-| | Dinner | **Rôtisserie La Lune**, Salon La Foret, 6:30pm | **Follow-up sent Sep 12 @ 3:39pm; awaiting reply.** |
-| **Sat Oct 10** | 12:30pm | Bateau-Mouche cruise, Jacques-Cartier Pier | Locked per vault |
-| | Dinner | **Au Pied de Cochon**, 6:00 or 6:30pm | **Inquiry sent Sep 13 @ 12:07pm; awaiting reply.** |
-| **Sun Oct 11** | Lunch | Biodome | **Tickets for 11 not arranged** |
-| | 2:30pm | DodgeBow combat archery | Locked per vault |
-| | Dinner | **Rosélys, 5:30pm, 11** | **CONFIRMED** |
+| **Fri Oct 9** | Morning / Midday | **Mount Royal Observatory & Mile End Stroll** | Kondiaronk Belvedere skyline walk + Mile End bagel stroll & Jean-Talon Market |
+| | Lunch | Mile End bites / Jean-Talon Market | Walk-up |
+| | Dinner | **Rôtisserie La Lune**, Salon La Foret, 6:30pm | Follow-up sent Sep 12 @ 3:39pm; awaiting reply |
+| **Sat Oct 10** | Mid-Morning | **Montreal Biodome** (between breakfast & lunch) | Olympic Park (tickets for 11 needed) |
+| | Lunch | Old Port Waterfront | Walk-up |
+| | Afternoon | **Bateau-Mouche cruise** (after lunch, before dinner) | Jacques-Cartier Pier (St. Lawrence River tour) |
+| | Dinner | **Au Pied de Cochon**, 6:00 or 6:30pm | Inquiry sent Sep 13 @ 12:07pm; awaiting reply |
+| **Sun Oct 11** | Morning / Lunch | Plateau brunch / Café Replika | Walk-up |
+| | 2:30pm | **DodgeBow combat archery** + 2nd arena activity | 5425 Casgrain arena battle for 11 |
+| | Dinner | **Gibbys** (target) / **Rosélys** (hold, 5:30pm) | Gibbys inquiry sent Sep 12; Rosélys confirmed hold |
 | **Mon Oct 12** | Lunch | La Banquise or L'Express | Walk-up. Verify holiday hours |
 | | — | Checkout 11am; flights 4:10pm and 5:10pm | — |
 
