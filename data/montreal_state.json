@@ -157,12 +157,22 @@
       ],
       "down": []
     },
+    "rotisserie-la-lune": {
+      "up": [
+        "michael"
+      ],
+      "down": []
+    },
     "le-serpent": {
       "up": [
         "michael",
         "haley",
         "dani-travis"
       ],
+      "down": []
+    },
+    "le-petit-alep": {
+      "up": [],
       "down": []
     },
     "monarque": {
