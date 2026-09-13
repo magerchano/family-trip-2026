@@ -10,18 +10,18 @@ Last updated: 2026-09-13
 | # | Venue | Target slot | Sent | Reply | Quoted price | Min spend | Deposit | Cancel cutoff | Kids policy | Status |
 |---|---|---|---|---|---|---|---|---|---|---|
 | 1 | Rosélys (Fairmont Queen E) | Sun Oct 11, 5:30pm | 2026-09-08 | 2026-09-10 | À la carte only (NO buffet) | none | CC on file (OpenTable) | Standard OpenTable | Children menu available | **HELD (À la carte only)** |
-| 2 | Gibbys | Sun Oct 11, 6:00–7:00pm | 2026-09-12 | — | Mains $56–$175 | — | — | — | — | **SENT (Awaiting reply)** |
+| 2 | Gibbys | Sun Oct 11, 6:00–7:00pm | 2026-09-12 @ 10:57am | — | Mains $56–$175 | — | — | — | — | **SENT (Awaiting reply)** |
 | 3 | Le Serpent | Fri Oct 9, **6:30pm only** | 2026-09-08 | 2026-09-08 | à la carte, no group menu | none | card via OpenTable link | not stated | chef adapts dishes (mac & cheese) | **table offered, release pending** |
 | 4 | Monarque | Sat Oct 10, 6:30–7:30pm | — | — | — | — | — | — | — | stand by (APDC sent) |
 | 5 | Auberge Saint-Gabriel | Sun Oct 11, 5:30–6:30pm | — | — | — | — | — | — | — | stand by |
 | 6 | Rôtisserie La Lune | Fri Oct 9 (or Sat Oct 10), 6:30pm | 2026-09-10 / 2026-09-12 | — | $75–$85pp set menu | TBD | TBD | TBD | Questions sent | **SENT (Awaiting reply)** |
-| 7 | Au Pied de Cochon | Sat Oct 10, 6:00 or 6:30pm | 2026-09-13 | — | À la carte (~$1,100–1,400) | — | — | — | Kids welcome | **SENT (Awaiting reply)** |
+| 7 | Au Pied de Cochon | Sat Oct 10, 6:00 or 6:30pm | 2026-09-13 @ 12:07pm | — | À la carte (~$1,100–1,400) | — | — | — | Kids welcome | **SENT (Awaiting reply)** |
 
 ## Reply log
 
 **2026-09-13 — Au Pied de Cochon inquiry SENT** by Michael at 12:07 PM to info@pieddecochon.ca. Requested table for 11 (9 adults, 2 kids ages 10 & 12) for Saturday, Oct 10 around 6:00 or 6:30 PM. Walkable from Plateau basecamp (8–10 min). Awaiting reply.
 
-**2026-09-12 — Gibbys inquiry SENT** to info@gibbys.com. Added two items before sending that the Sep 8 draft lacked: a question on **automatic group gratuity and its percentage** (Rosélys applies 15%, roughly $180 on a Gibbys-sized bill, and the cost estimate had assumed it without asking), and a note about the **three belated birthdays** (Sep 22 x2, Sep 23).
+**2026-09-12 — Gibbys inquiry SENT** by Michael at 10:57 AM to info@gibbys.com. Requested table for 11 (9 adults, 2 kids ages 10 & 12) on Sunday Oct 11 between 6:00 and 7:00 PM. Asked the 5 questions (availability/seating times, à la carte vs group set menu, kids policy, deposit/cancellation, and automatic group gratuity percentage). Noted the three belated birthdays and that Gibbys is the family's first choice for Sunday night. Awaiting reply.
 
 **2026-09-10 — Rosélys / Fairmont (Florence Hostess Reply).** Confirmed that **Rosélys does NOT do a Thanksgiving buffet at night or brunch** (standard à la carte regular menu only). Terms for 11: children menu available, automatic 15% gratuity, single bill. Michael holds an OpenTable reservation for 11 @ 5:30 PM (https://opentable.com/l/WQfF5i6eu), but without the harvest buffet, Gibbys (Mom's pick) is reopened as the prime contender for the holiday feast.
 

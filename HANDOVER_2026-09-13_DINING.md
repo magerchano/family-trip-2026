@@ -89,7 +89,7 @@
 - Greg's top pick; walkable Québécois culinary benchmark.
 - Estimated all-in for 11: **~$1,100–1,400**. **Awaiting reply.**
 
-**Gibbys** — sent Sep 12 to `info@gibbys.com`. No reply yet.
+**Gibbys** — sent by Michael on **Sat Sep 12 @ 10:57 AM** to `info@gibbys.com`. No reply yet.
 
 - Verified: **open Sunday 4:45pm–10:00pm.** 298 Place d'Youville. Publicly welcomes "groups of just about any size"; covered patio seats 50. (514) 282-1837.
 - Mains **include** a starter, lemon sorbet, a vegetable and a potato or rice. Standard steaks $70–$90; bone-in filet $125; 34oz cowboy $175; seafood $56–$89.
