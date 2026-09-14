@@ -102,14 +102,14 @@
     {
       "day": "Ven 9",
       "date": "Fri Oct 9",
-      "theme": "Mile End Stroll, Jean-Talon & Mount Royal Split",
+      "theme": "Mile End Stroll, Jean-Talon & Les Enfants Terribles",
       "coffee": "Dispatch Coffee (St-Laurent)",
       "breakfast": "Fairmount / St-Viateur Bagels",
       "lunch": "Jean-Talon Market Bites & Little Italy",
       "activity": "🥐 <strong>Mile End Stroll & Jean-Talon Market</strong><br>🍁 <strong>Afternoon Split:</strong> Mount Royal Observatory hike OR linger in Little Italy cafés",
-      "dinner": "Friday Contender TBD (Le Petit Alep / Damas / Le Serpent)",
-      "dinner_status": "target",
-      "dinner_note": "With La Lune shifting to Saturday at 5:00 PM, Friday dinner is now open! Top contenders: Le Petit Alep (Syrian mezze next to Jean-Talon Market), Damas, or Le Serpent."
+      "dinner": "Les Enfants Terribles (Place Ville Marie) — Confirmed @ 6:00 PM",
+      "dinner_status": "confirmed",
+      "dinner_note": "CONFIRMED & BOOKED: Table for 11 @ 6:00 PM via Libro. 3 Place Ville Marie (Esplanade PVM, 1st floor). Lively French brasserie & American comfort classics—all 11 easily seated."
     },
     {
       "day": "Sam 10",
@@ -168,6 +168,12 @@
         "michael",
         "haley",
         "dani-travis"
+      ],
+      "down": []
+    },
+    "les-enfants-terribles": {
+      "up": [
+        "michael"
       ],
       "down": []
     },

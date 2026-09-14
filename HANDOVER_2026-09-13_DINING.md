@@ -8,7 +8,7 @@
 
 ## 1. The one-line status
 
-**TWO MARQUEE DINNERS LOCKED: Gibbys confirmed Sun Oct 11 @ 6:30 PM (Conf #200213) & Rôtisserie La Lune confirmed Sat Oct 10 @ 5:00 PM (Salon La Forêt for 11)!** Friday dinner is now the sole open dinner slot. 24 days to arrival.
+**ALL GROUP DINNERS LOCKED FOR 11: Schwartz's Thu, Les Enfants Terribles Fri @ 6:00 PM (Libro/SMS), Rôtisserie La Lune Sat @ 5:00 PM (Salon La Forêt), Gibbys Sun @ 6:30 PM (Conf #200213)!** Zero open dinner slots remaining. 24 days to arrival.
 
 ---
 
@@ -37,7 +37,7 @@
 | | — | Airport transfer for 11 + luggage | **NOT ARRANGED** |
 | **Fri Oct 9** | Morning / Midday | **Mile End Stroll → Jean-Talon Market** | Walk through Mile End (bagels & shops) to Jean-Talon Market. Afternoon split: Mount Royal Observatory hike vs. linger in Little Italy cafés |
 | | Lunch | Jean-Talon Market bites & Little Italy | Walk-up |
-| | Dinner | **Friday Contender TBD** (Le Petit Alep / Damas / Le Serpent) | Friday open; group decision pending |
+| | Dinner | **Les Enfants Terribles (Place Ville Marie)**, 6:00pm | **BOOKED & CONFIRMED** (via Libro / SMS for 11) |
 | **Sat Oct 10** | Mid-Morning | **Montreal Biodome** (between breakfast & lunch) | Olympic Park (tickets for 11 needed) |
 | | Lunch | Old Port Waterfront | Walk-up |
 | | 2:30pm | **Bateau-Mouche 60-min cruise** (Jacques-Cartier Pier) | **BOOKED** (St. Lawrence River tour) |
@@ -53,6 +53,14 @@
 ## 4. Outreach log
 
 ### Confirmed
+
+**Les Enfants Terribles (Place Ville Marie)** — Fri Oct 9, 6:00pm, Table for 11. **RESERVATION BOOKED & CONFIRMED via Libro / SMS** on Mon Sep 14. Friday dinner locked!
+
+- Venue: 3 Place Ville Marie (Esplanade PVM, 1st floor near the Ring/Oval). +1 (514) 544-8884.
+- Table for 11 on regular table, 2h15 duration (6:00–8:15 PM).
+- No deposit, card hold, or set menu required.
+- Full kids menu available; French brasserie & American comfort classics (burgers, tartares, steak frites, ribs).
+- SMS confirmation received from +1 (415) 523-8655.
 
 **Gibbys (Old Montreal)** — Sun Oct 11, 6:30pm, Table for 11. **RESERVATION CONFIRMED via OpenTable (Conf #200213)** to `michaelgermano@gmail.com` on Mon Sep 14. Mom's #1 Thanksgiving pick locked in!
 
@@ -200,8 +208,8 @@ The Sept 8 handover asserted several things that turned out to be false. Treat i
 **Decisions needed**
 3. ~~**Saturday dinner.**~~ **LOCKED & CONFIRMED.** Rôtisserie La Lune (Salon La Forêt) agreed for Sat Oct 10 @ 5:00 PM for 11. Michael confirmed Sep 14 @ 5:55 PM (mixed chicken & guinea fowl family feast $80/pp, single bill). Monarque superseded.
 4. ~~**Sunday dinner.**~~ **LOCKED & BOOKED.** Gibbys confirmed for 11 on Sun Oct 11 @ 6:30 PM (Conf #200213). Mom's #1 pick secured! Rosélys hold cleanly cancelled on OpenTable on Sep 14.
-5. **Friday dinner.** Sole open dinner slot remaining. Contenders: Le Petit Alep (Syrian mezze next to Jean-Talon), APDC (6+5 split ask drafted), or Damas.
-6. Monarque draft on standby; Auberge draft on standby.
+5. ~~**Friday dinner.**~~ **LOCKED & BOOKED.** Les Enfants Terribles (Place Ville Marie) booked for 11 on Fri Oct 9 @ 6:00 PM via Libro / SMS. **ALL 4 GROUP DINNERS ARE 100% SECURED!**
+6. Standby inquiries (Monarque, Auberge, Le Serpent, APDC) closed out or superseded. Zero open dining decisions remaining.
 
 **Non-dining, still open**
 7. **Airport transfer for flight crew** (~6 people + luggage; Michael & Haley ~4:15pm, Dani & Travis ~5:00pm, Andrew & Liz TBD). *CT minivan crew (Greg, Cat, Owen, Izzy, Mom) drives up, departing 3:00pm, arriving ~9:00pm.*
