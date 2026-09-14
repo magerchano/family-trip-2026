@@ -645,7 +645,7 @@ tailwind.config = {
       <span>🔒 🍽️</span> Group Dinners for 11 &middot; Voting Closed
     </div>
     <h2 class="font-pop font-extrabold text-4xl md:text-5xl text-on-surface tracking-tight mb-2">La Table &mdash; Group Dinners for 11</h2>
-    <p class="font-body text-on-surface-variant text-base"><strong>Voting is closed &mdash; final tallies are locked!</strong> Outbound inquiries have been sent for our target tables (La Lune, Au Pied de Cochon, and Gibbys). Review final rankings and tallies below.</p>
+    <p class="font-body text-on-surface-variant text-base"><strong>Voting is closed &mdash; final tallies are locked!</strong> Status updates: La Lune &amp; Gibbys awaiting reply; Au Pied de Cochon declined for 11 (strict max 8 cap); Saturday dinner shifts to Monarque.</p>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="marqueeGrid">
@@ -823,17 +823,17 @@ tailwind.config = {
       </div>
     </div>
 
-    <!-- 5. Au Pied de Cochon (UPDATED TARGET) -->
+    <!-- 5. Au Pied de Cochon (DECLINED - MAX 8 CAP) -->
     <div class="pop-card overflow-hidden flex flex-col justify-between" data-item="au-pied-de-cochon">
       <div>
         <div class="h-48 bg-cover bg-center relative border-b-2 border-on-surface" style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80')">
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-          <div class="absolute top-3 left-3 flex items-center gap-1.5 bg-emerald-600 text-white text-[10px] font-pop font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full border border-white shadow-md">
-            <span class="material-symbols-outlined !text-xs">outgoing_mail</span> Inquiry Sent &middot; Sun Sep 13 @ 12:07 PM
+          <div class="absolute top-3 left-3 flex items-center gap-1.5 bg-rose-600 text-white text-[10px] font-pop font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full border border-white shadow-md">
+            <span class="material-symbols-outlined !text-xs">cancel</span> Unavailable for 11 &middot; Max 8 Cap
           </div>
           <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between">
-            <span class="bg-pop-blue text-white text-[10px] font-pop font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full border border-white">Sat Target &middot; Walkable Pick</span>
-            <span class="text-white text-xs font-bold bg-black/50 px-2 py-0.5 rounded border border-white/40">⭐️ 9 Min Walk</span>
+            <span class="bg-slate-700 text-white text-[10px] font-pop font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full border border-white">Declined (Max 8 Guests)</span>
+            <span class="text-white text-xs font-bold bg-black/50 px-2 py-0.5 rounded border border-white/40">🚫 Cap at 8</span>
           </div>
         </div>
         <div class="p-5">
@@ -849,25 +849,25 @@ tailwind.config = {
           </div>
 
           <!-- Outreach Status Badge -->
-          <div class="bg-emerald-50 p-3 rounded-xl border-2 border-emerald-400 mb-3 text-xs text-emerald-950 font-pop">
+          <div class="bg-rose-50 p-3 rounded-xl border-2 border-rose-300 mb-3 text-xs text-rose-950 font-pop">
             <div class="flex items-center justify-between font-extrabold mb-1">
-              <span class="text-emerald-950 flex items-center gap-1">
-                <span class="material-symbols-outlined !text-sm text-emerald-700">mark_email_read</span>
-                <span>Inquiry Sent &middot; Sun Sep 13 @ 12:07 PM</span>
+              <span class="text-rose-950 flex items-center gap-1">
+                <span class="material-symbols-outlined !text-sm text-rose-600">mail</span>
+                <span>Declined by Restaurant &middot; Mon Sep 14</span>
               </span>
-              <span class="text-emerald-800 text-[10px] bg-emerald-200/80 px-2 py-0.5 rounded-full border border-emerald-400">Sat Target</span>
+              <span class="text-rose-900 bg-rose-200/80 px-2 py-0.5 rounded-full text-[10px] border border-rose-400 font-bold">Max 8 Guests</span>
             </div>
-            <p class="text-[11px] font-body text-emerald-900 leading-snug">
-              <strong>Table for 11:</strong> Requested Sat Oct 10 @ 6:00/6:30 PM (9 adults, 2 kids 10 &amp; 12).<br/>
-              <strong>Walkable Feast:</strong> Only 8–10 min stroll down Duluth from basecamp. Martin Picard's Québécois temple. Greg's top pick!
+            <p class="text-[11px] font-body text-rose-900 leading-snug">
+              <strong>Official Reply (Ludovie Lacasse-Beaudoin):</strong> <em>"Malheureusement, dû à l’espace disponible, nous ne pouvons pas accepter de groupes de plus de 8 personnes au restaurant à Montréal."</em><br/>
+              <strong>Outcome:</strong> Party of 11 exceeds their strict 8-person limit. Saturday dinner shifts to our primary standby: <strong>Monarque</strong>.
             </p>
           </div>
 
-          <p class="font-body text-xs text-on-surface-variant leading-relaxed mb-3">Martin Picard's temple of decadent Québécois cuisine. Duck in a can, foie gras poutine, stuffed pig's foot. Walkable home after a feast!</p>
+          <p class="font-body text-xs text-on-surface-variant leading-relaxed mb-3">Martin Picard's temple of decadent Québécois cuisine on Duluth. Note: strictly limited to groups of 8 or fewer at the Montreal location.</p>
           
           <div class="traz-note traz-bubble p-2.5 flex items-center gap-2 mb-3">
             <img src="assets/traz_food.jpg" alt="Traz" class="w-10 h-10 rounded-full object-cover border border-purple-900 flex-shrink-0" />
-            <p class="text-[11px] text-purple-900 font-bold leading-tight"><strong>Traz:</strong> "Inquiry sent to info@pieddecochon.ca! Walkable 9-min stroll home after duck in a can and foie gras poutine. Greg's top pick!"</p>
+            <p class="text-[11px] text-purple-900 font-bold leading-tight"><strong>Traz:</strong> "APDC confirmed max 8 players per squad—our party of 11 is too stacked! Pivot Saturday objective to Monarque."</p>
           </div>
         </div>
       </div>
@@ -876,13 +876,16 @@ tailwind.config = {
       </div>
     </div>
 
-    <!-- 6. Monarque -->
+    <!-- 6. Monarque (SATURDAY PIVOT TARGET) -->
     <div class="pop-card overflow-hidden flex flex-col justify-between" data-item="monarque">
       <div>
         <div class="h-48 bg-cover bg-center relative border-b-2 border-on-surface" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80')">
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div class="absolute top-3 left-3 flex items-center gap-1.5 bg-emerald-600 text-white text-[10px] font-pop font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full border border-white shadow-md">
+            <span class="material-symbols-outlined !text-xs">stars</span> Saturday Pivot Target &middot; Draft Ready
+          </div>
           <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between">
-            <span class="bg-pop-yellow text-pop-dark text-[10px] font-pop font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full border border-on-surface">Sat Standby &middot; Old Mtl</span>
+            <span class="bg-pop-red text-white text-[10px] font-pop font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full border border-white">Sat Target &middot; Private Room 22</span>
             <span class="text-white text-xs font-bold bg-black/50 px-2 py-0.5 rounded border border-white/40">Private Room 22</span>
           </div>
         </div>
@@ -898,11 +901,25 @@ tailwind.config = {
             <span class="review-badge-yelp"><span>Yelp</span> 4.5 ★ <span class="text-[10px] font-normal text-red-700">(420+)</span></span>
           </div>
 
-          <p class="font-body text-xs text-on-surface-variant leading-relaxed mb-3">Stunning Old Montreal flagship. Private dining room seats up to 22. Group menus $55/$75/$95/$120. Standby fallback for Saturday night.</p>
+          <!-- Saturday Target Callout -->
+          <div class="bg-amber-50 p-3 rounded-xl border-2 border-amber-300 mb-3 text-xs text-amber-950 font-pop">
+            <div class="flex items-center justify-between font-extrabold mb-1">
+              <span class="text-amber-950 flex items-center gap-1">
+                <span class="material-symbols-outlined !text-sm text-amber-700">stars</span>
+                <span>Saturday Dinner Target:</span>
+              </span>
+              <span class="text-amber-900 bg-amber-200/80 px-2 py-0.5 rounded-full text-[10px] border border-amber-400 font-bold">Primary Option</span>
+            </div>
+            <p class="text-[11px] font-body text-amber-900 leading-snug">
+              <strong>Pivot from APDC:</strong> With APDC capped at 8, Monarque is our top Saturday target. Seats large groups easily (private dining room up to 22, brasserie tables). Outreach inquiry drafted to <code>info@restaurantmonarque.ca</code>.
+            </p>
+          </div>
+
+          <p class="font-body text-xs text-on-surface-variant leading-relaxed mb-3">Stunning Old Montreal flagship. Private dining room seats up to 22. Group menus $55/$75/$95/$120. Primary target for Saturday night.</p>
           
           <div class="traz-note traz-bubble p-2.5 flex items-center gap-2 mb-3">
             <img src="assets/traz_victory.jpg" alt="Traz" class="w-9 h-9 rounded-full object-cover border border-purple-900 flex-shrink-0" />
-            <p class="text-[11px] text-purple-900 font-bold leading-tight"><strong>Traz:</strong> "Private room for 22. Big Saturday night standby option if APDC is committed."</p>
+            <p class="text-[11px] text-purple-900 font-bold leading-tight"><strong>Traz:</strong> "APDC confirmed max 8 players per squad. Monarque is our primary Saturday pivot—private dining room up to 22 and killer brasserie vibe!"</p>
           </div>
         </div>
       </div>
@@ -1897,8 +1914,8 @@ const MAP_DESTINATIONS = [
   { id: "rotisserie-la-lune", name: "Rôtisserie La Lune", category: "dinner", lat: 45.5348, lng: -73.6068, walk: "12 min drive", desc: "Canada's #1 Best New Restaurant 2026. Ferme Antoine spit-roasted chicken & Salon La Foret.", icon: "🍗", color: "#e63946", badge: "Fri Target" },
   { id: "le-serpent", name: "Le Serpent", category: "dinner", lat: 45.4984, lng: -73.5574, walk: "12 min drive", desc: "Old Montreal marquee Italian inside Darling Foundry (Closed Sun).", icon: "🍷", color: "#e63946", badge: "Fri Contender" },
   { id: "le-petit-alep", name: "Le Petit Alep", category: "dinner", lat: 45.5365, lng: -73.6148, walk: "10 min drive", desc: "Historic Syrian-Armenian mezze institution & Bib Gourmand next to Jean-Talon Market.", icon: "🧆", color: "#e63946", badge: "Fri Contender" },
-  { id: "monarque", name: "Monarque", category: "dinner", lat: 45.5019, lng: -73.5601, walk: "15 min drive", desc: "Old Montreal French brasserie & private dining room for 22.", icon: "🍾", color: "#e63946", badge: "Sat Standby" },
-  { id: "au-pied-de-cochon", name: "Au Pied de Cochon", category: "dinner", lat: 45.5222, lng: -73.5756, walk: "9 min walk", desc: "Martin Picard's temple of decadent Québécois cuisine on Duluth.", icon: "🐷", color: "#e63946", badge: "Sat Target" },
+  { id: "monarque", name: "Monarque", category: "dinner", lat: 45.5019, lng: -73.5601, walk: "15 min drive", desc: "Old Montreal French brasserie & private dining room for 22 (Saturday pivot target).", icon: "🍾", color: "#e63946", badge: "Sat Pivot Target" },
+  { id: "au-pied-de-cochon", name: "Au Pied de Cochon", category: "dinner", lat: 45.5222, lng: -73.5756, walk: "9 min walk", desc: "Martin Picard's Québécois temple. Replied Sep 14: max 8 guests only, unable to seat party of 11.", icon: "🐷", color: "#94a3b8", badge: "Declined (Max 8)" },
   { id: "damas", name: "Damas", category: "dinner", lat: 45.5181, lng: -73.6062, walk: "10 min drive", desc: "Outremont Syrian feast. Ranked top 5 in Canada.", icon: "✨", color: "#e63946", badge: "Sun Splurge" },
   { id: "lexpress", name: "L'Express", category: "dinner", lat: 45.5188, lng: -73.5724, walk: "8 min walk", desc: "Iconic French bistro on St-Denis open 7 days to 1am.", icon: "🥖", color: "#e63946", badge: "Sun / Mon" },
   { id: "roselys-fairmont", name: "Rosélys (Fairmont)", category: "dinner", lat: 45.5000, lng: -73.5684, walk: "10 min drive", desc: "Fairmont Queen Elizabeth grand bistro. Confirmed 11-person Sun Oct 11 @ 5:30 PM reservation (regular à la carte only, no buffet).", icon: "🍽️", color: "#2563eb", badge: "Confirmed Hold (5:30 PM)" },
@@ -2685,7 +2702,7 @@ function applySoldOutOverlays() {
       if (!card.querySelector('.sold-out-ribbon')) {
         const ribbon = document.createElement('div');
         ribbon.className = 'sold-out-ribbon';
-        ribbon.innerHTML = 'COMPLET &middot; SOLD OUT';
+        ribbon.innerHTML = id === 'au-pied-de-cochon' ? 'MAX 8 GUESTS &middot; DECLINED' : 'COMPLET &middot; SOLD OUT';
         card.appendChild(ribbon);
       }
     } else {

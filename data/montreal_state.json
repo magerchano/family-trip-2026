@@ -114,14 +114,14 @@
     {
       "day": "Sam 10",
       "date": "Sat Oct 10",
-      "theme": "Biodome, Old Port Boat Cruise & Au Pied de Cochon",
+      "theme": "Biodome, Old Port Boat Cruise & Monarque (Sat Pivot)",
       "coffee": "Café Névé (Rachel)",
       "breakfast": "Eggspectation / Chez Cora",
       "lunch": "Old Port Waterfront Lunch",
       "activity": "🐧 <strong>10:30 AM: Montreal Biodome</strong> (5 ecosystems & penguins)<br>🚢 <strong>2:30 PM: Bateau-Mouche Cruise</strong> (60-min St. Lawrence River tour — Booked!)",
-      "dinner": "Au Pied de Cochon",
+      "dinner": "Monarque (Sat Pivot) · APDC Declined (>8)",
       "dinner_status": "target",
-      "dinner_note": "Inquiry sent Sep 13 for 11 @ 6:00/6:30 PM (Sat Oct 10). Walkable Québécois feast (8–10 min stroll). Monarque on standby."
+      "dinner_note": "Au Pied de Cochon replied Sep 14: Montreal location strictly capped at max 8 guests due to space. Saturday dinner target shifts to Monarque (private dining room seats 22; inquiry ready to send)."
     },
     {
       "day": "Dim 11",
@@ -294,6 +294,8 @@
     "olimpico": 2,
     "replika": 1
   },
-  "sold_out": [],
+  "sold_out": [
+    "au-pied-de-cochon"
+  ],
   "voting_closed": true
 }

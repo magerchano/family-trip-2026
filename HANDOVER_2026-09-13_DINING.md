@@ -41,7 +41,7 @@
 | **Sat Oct 10** | Mid-Morning | **Montreal Biodome** (between breakfast & lunch) | Olympic Park (tickets for 11 needed) |
 | | Lunch | Old Port Waterfront | Walk-up |
 | | 2:30pm | **Bateau-Mouche 60-min cruise** (Jacques-Cartier Pier) | **BOOKED** (St. Lawrence River tour) |
-| | Dinner | **Au Pied de Cochon**, 6:00 or 6:30pm | Inquiry sent Sep 13 @ 12:07pm; awaiting reply |
+| | Dinner | **Monarque** (pivot target) / **Au Pied de Cochon** (declined, max 8) | APDC replied Sep 14 declining >8; Monarque draft ready |
 | **Sun Oct 11** | Morning / Lunch | Plateau brunch / Café Replika | Walk-up |
 | | 2:30pm | **DodgeBow combat archery** + 2nd arena activity | 5425 Casgrain arena battle for 11 |
 | | Dinner | **Gibbys** (target) / **Rosélys** (hold, 5:30pm) | Gibbys inquiry sent Sep 12; Rosélys confirmed hold |
@@ -82,12 +82,11 @@
 - Michael's follow-up clarified party of 11 (9 adults, 2 kids 10 & 12) and asked the key commercial questions: kids pricing, minimum spend, and deposit terms. **Awaiting reply.**
 - Estimated all-in for 11: **~$1,150–1,250**.
 
-**Au Pied de Cochon** — sent by Michael on **Sun Sep 13 @ 12:07 PM** to `info@pieddecochon.ca`.
+**Au Pied de Cochon** — sent by Michael on **Sun Sep 13 @ 12:07 PM** to `info@pieddecochon.ca`. **REPLY RECEIVED Mon Sep 14 @ 12:55 PM (Declined).**
 
-- Requested table for 11 (9 adults, 2 kids ages 10 & 12) for **Saturday, Oct 10 at 6:00 or 6:30 PM**.
-- Highlighted that the group is staying in the Plateau a few minutes' walk away (536 Duluth Ave E, 8–10 min walk).
-- Greg's top pick; walkable Québécois culinary benchmark.
-- Estimated all-in for 11: **~$1,100–1,400**. **Awaiting reply.**
+- Ludovie Lacasse-Beaudoin (Marketing & Réseaux Sociaux, 438-868-0884) replied: *"Malheureusement, dû à l’espace disponible, nous ne pouvons pas accepter de groupes de plus de 8 personnes au restaurant à Montréal."*
+- Strictly capped at 8 guests maximum due to space. Party of 11 cannot be accommodated at the Montreal location.
+- **Outcome:** Saturday dinner target pivots to **Monarque** (private room seats 22, draft ready in Gmail).
 
 **Gibbys** — sent by Michael on **Sat Sep 12 @ 10:57 AM** to `info@gibbys.com`. No reply yet.
 
@@ -201,7 +200,7 @@ The Sept 8 handover asserted several things that turned out to be false. Treat i
 2. ~~**Send the La Lune reply.**~~ **DONE.** Sent by Michael on Sat Sep 12 @ 3:39 PM. Awaiting reply.
 
 **Decisions needed**
-3. ~~**Saturday dinner.**~~ **INQUIRY SENT.** Au Pied de Cochon email sent by Michael on Sep 13 @ 12:07 PM (`info@pieddecochon.ca`). Monarque kept on standby fallback.
+3. ~~**Saturday dinner.**~~ **APDC DECLINED (>8); PIVOT TO MONARQUE.** Au Pied de Cochon replied Sep 14 declining party of 11 (hard cap of 8). Send the trimmed Monarque inquiry to `info@restaurantmonarque.ca` for private dining / group seating.
 4. **Sunday dinner.** Keep Rosélys, or switch to Gibbys when they reply. Cancel the loser promptly via the OpenTable link in the SMS.
 5. **Friday dinner** rides on La Lune's answer. Fallbacks: Le Petit Alep (phone) or L'Express (phone).
 6. Trim and decide on the **Monarque** and **Auberge** drafts.
