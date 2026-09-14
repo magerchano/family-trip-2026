@@ -9,7 +9,7 @@ Last updated: 2026-09-14
 
 | # | Venue | Target slot | Sent | Reply | Quoted price | Min spend | Deposit | Cancel cutoff | Kids policy | Status |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 1 | Rosélys (Fairmont Queen E) | Sun Oct 11, 5:30pm | 2026-09-08 | 2026-09-10 | À la carte only (NO buffet) | none | CC on file (OpenTable) | Standard OpenTable | Children menu available | **SUPERSEDED (Release pending via OpenTable)** |
+| 1 | Rosélys (Fairmont Queen E) | Sun Oct 11, 5:30pm | 2026-09-08 | 2026-09-10 | À la carte only (NO buffet) | none | CC on file (OpenTable) | Standard OpenTable | Children menu available | **CANCELLED (2026-09-14)** |
 | 2 | Gibbys | Sun Oct 11, 6:30pm | 2026-09-12 @ 10:57am | 2026-09-14 @ 1:16pm | Mains $56–$175 | none | CC guarantee ($25/pp if <24h cancel) | 24 hours | Smart casual (no tank tops) | **BOOKED & CONFIRMED (Conf #200213)** |
 | 3 | Le Serpent | Fri Oct 9, **6:30pm only** | 2026-09-08 | 2026-09-08 | à la carte, no group menu | none | card via OpenTable link | not stated | chef adapts dishes (mac & cheese) | **table offered, release pending** |
 | 4 | Monarque | Sat Oct 10, 6:30–7:30pm | — | — | — | — | — | — | — | **Sat target (draft ready)** |
@@ -18,6 +18,12 @@ Last updated: 2026-09-14
 | 7 | Au Pied de Cochon | Sat Oct 10, 6:00 or 6:30pm | 2026-09-13 @ 12:07pm | 2026-09-14 @ 12:55pm | Max 8 guests only | — | — | — | Not accommodated (>8) | **DECLINED (Cap at 8)** |
 
 ## Reply log
+
+**2026-09-14 — GIBBYS CONFIRMED.** Sun Oct 11, **6:30pm**, 11 guests. Booked via Amex concierge / OpenTable (confirmation no. 200213), and Gibbys also replied on the email thread. Terms from the restaurant: **no deposit and no card required**; cancel anytime, 48 hours' notice appreciated; **gratuity discretionary**, offered at settlement; group menus are optional but if chosen are tied to a single bill. **Children's options are limited to butter pasta or tomato pasta** — worth knowing before the night. The restaurant acknowledged "trois anniversaires à souligner", from the unwanted birthday line; per Michael, leave it.
+
+**Conflict check sent 2026-09-14** to confirm only one booking exists under Michael Germano for 11 at 6:30pm, since the table came through Amex/OpenTable while Gibbys was separately answering the email thread. **Note:** the OpenTable confirmation states a card secures the booking with a $25/person fee for no-shows or cancellation within 3 days, which contradicts the restaurant's own "no deposit, cancel anytime" email. Treat the stricter OpenTable terms as controlling until reconciled.
+
+**2026-09-14 — Rosélys cancelled** in OpenTable (11, Sun Oct 11, 5:30pm). Courtesy note to Fabien and Florence drafted, not yet sent. Sunday is settled on Gibbys.
 
 **2026-09-14 — Gibbys RESERVATION CONFIRMED (Table for 11 @ 6:30 PM).** OpenTable reservation confirmed for Michael Germano (Confirmation #200213) for Sunday, October 11, 2026 @ 6:30 PM. Party size: 11. Credit card secured with standard late cancellation/no-show fee ($25 CAD per person if cancelled <24 hours in advance). 10-minute grace period. Smart casual dress code. Mom's #1 Thanksgiving pick locked in! Rosélys hold superseded and pending cancellation via OpenTable.
 
@@ -95,7 +101,7 @@ Google Duplex and "Ask for Me" are US-only and do not cover Canada. No AI callin
 
 ## Open decisions
 
-- **Sunday Thanksgiving Feast:** **LOCKED & BOOKED!** Confirmed table for 11 at **Gibbys Old Montreal** for Sunday Oct 11 @ 6:30 PM (OpenTable Conf #200213). Mom's #1 pick secured! Rosélys hold is superseded and pending cancellation by Michael.
+- **Sunday Thanksgiving Feast:** **LOCKED & BOOKED!** Confirmed table for 11 at **Gibbys Old Montreal** for Sunday Oct 11 @ 6:30 PM (OpenTable Conf #200213). Mom's #1 pick secured! Rosélys hold cleanly cancelled on OpenTable by Michael on Sep 14.
 - **Friday Dinner:** Decision pending on Le Serpent (table offered @ 6:30 PM) vs. Syrian alternative (Restaurant Alep / Damas).
 - **Saturday Dinner:** Au Pied de Cochon declined on Sep 14 (max 8 guests). Saturday dinner target shifts to **Monarque** (private dining room seats 22, brasserie tables; inquiry ready to send).
 

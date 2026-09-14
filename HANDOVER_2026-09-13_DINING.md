@@ -8,7 +8,7 @@
 
 ## 1. The one-line status
 
-**Gibbys is BOOKED & CONFIRMED for Sunday Oct 11 @ 6:30 PM (Table for 11, Conf #200213) — Mom's #1 pick locked!** Rosélys hold is superseded and ready to release. 24 days to arrival.
+**Gibbys is BOOKED & CONFIRMED for Sunday Oct 11 @ 6:30 PM (Table for 11, Conf #200213) — Mom's #1 pick locked!** Rosélys backup hold cleanly cancelled on OpenTable on Sep 14 with zero penalty. 24 days to arrival.
 
 ---
 
@@ -44,7 +44,7 @@
 | | Dinner | **Monarque** (pivot target) / **Au Pied de Cochon** (declined, max 8) | APDC replied Sep 14 declining >8; Monarque draft ready |
 | **Sun Oct 11** | Morning / Lunch | Plateau brunch / Café Replika | Walk-up |
 | | 2:30pm | **DodgeBow combat archery** + 2nd arena activity | 5425 Casgrain arena battle for 11 |
-| | Dinner | **Gibbys** (Historic Stable), 6:30pm (Mom's #1 pick) | **BOOKED & CONFIRMED** (Conf #200213); Rosélys hold superseded |
+| | Dinner | **Gibbys** (Historic Stable), 6:30pm (Mom's #1 pick) | **BOOKED & CONFIRMED** (Conf #200213); Rosélys hold cancelled |
 | **Mon Oct 12** | Lunch | La Banquise or L'Express | Walk-up. Verify holiday hours |
 | | — | Checkout 11am; flights 4:10pm and 5:10pm | — |
 
@@ -61,12 +61,12 @@
 - Cancellation policy: Credit card secured. Cancellation or no-show less than 24 hours in advance incurs **$25 per person ($275 total)**.
 - Historic 200-year stone stable courtyard. Mains **include** starter, warm sourdough loaves, dill pickles, garlic bacon salad, lemon sorbet cleanser, and choice of vegetable and potato/rice.
 - Estimated all-in for 11: **~$1,340–1,390 CAD**.
-- Next action: Michael releases the Rosélys OpenTable hold via the SMS link (`https://opentable.com/l/WQfF5i6eu`).
+- Rosélys backup hold cleanly cancelled on OpenTable on Sep 14.
 
-**Rosélys (Fairmont The Queen Elizabeth)** — Sun Oct 11, 5:30pm, 11 people. **SUPERSEDED HOLD (Release pending).** Booked via OpenTable (confirmation arrived by SMS).
+**Rosélys (Fairmont The Queen Elizabeth)** — Sun Oct 11, 5:30pm, 11 people. **HOLD CANCELLED (Clean release on Sep 14).**
 
-- Served as our zero-penalty safety net. Now superseded by confirmed Gibbys booking.
-- Michael holds the cancellation link (`https://opentable.com/l/WQfF5i6eu`) and will release it to free up the table.
+- Booked via OpenTable as our zero-penalty safety net.
+- Cleanly cancelled by Michael on Sep 14 following confirmed Gibbys booking. Zero penalties or fees incurred. Table released back to inventory.
 - Regular à la carte only (confirmed no Thanksgiving buffet or holiday menu).
 
 ### Sent, awaiting reply
@@ -200,7 +200,7 @@ The Sept 8 handover asserted several things that turned out to be false. Treat i
 
 **Decisions needed**
 3. ~~**Saturday dinner.**~~ **APDC DECLINED (>8); PIVOT TO MONARQUE.** Au Pied de Cochon replied Sep 14 declining party of 11 (hard cap of 8). Send the trimmed Monarque inquiry to `info@restaurantmonarque.ca` for private dining / group seating.
-4. ~~**Sunday dinner.**~~ **LOCKED & BOOKED.** Gibbys confirmed for 11 on Sun Oct 11 @ 6:30 PM (Conf #200213). Mom's #1 pick secured! Next action: Michael releases the Rosélys OpenTable hold via the SMS link.
+4. ~~**Sunday dinner.**~~ **LOCKED & BOOKED.** Gibbys confirmed for 11 on Sun Oct 11 @ 6:30 PM (Conf #200213). Mom's #1 pick secured! Rosélys hold cleanly cancelled on OpenTable on Sep 14.
 5. **Friday dinner** rides on La Lune's answer. Fallbacks: Le Petit Alep (phone) or L'Express (phone).
 6. Trim and decide on the **Monarque** and **Auberge** drafts.
 
@@ -212,7 +212,7 @@ The Sept 8 handover asserted several things that turned out to be false. Treat i
 11. **Andrew & Liz flight details** — booked, not yet shared. Arrivals board updated to "Booked / details pending".
 12. ~~**Sync `data/montreal_state.json`**~~ **DONE.** Updated Friday to La Lune target, Sunday to Rosélys hold, and Andrew & Liz flights booked.
 13. Delete orphaned Gmail drafts.
-14. Optional: ping Rosélys around **Sep 24** in case a holiday menu appears, per Florence's suggestion.
+14. ~~**Ping Rosélys around Sep 24**~~ — No longer applicable (hold cancelled following Gibbys confirmed booking).
 
 ---
 
