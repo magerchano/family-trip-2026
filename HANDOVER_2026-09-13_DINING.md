@@ -8,7 +8,7 @@
 
 ## 1. The one-line status
 
-**Exactly one restaurant is booked: Rosélys, Sunday Oct 11, 5:30pm.** Everything else is pending, drafted, or undecided. 25 days to arrival.
+**Gibbys is BOOKED & CONFIRMED for Sunday Oct 11 @ 6:30 PM (Table for 11, Conf #200213) — Mom's #1 pick locked!** Rosélys hold is superseded and ready to release. 24 days to arrival.
 
 ---
 
@@ -44,7 +44,7 @@
 | | Dinner | **Monarque** (pivot target) / **Au Pied de Cochon** (declined, max 8) | APDC replied Sep 14 declining >8; Monarque draft ready |
 | **Sun Oct 11** | Morning / Lunch | Plateau brunch / Café Replika | Walk-up |
 | | 2:30pm | **DodgeBow combat archery** + 2nd arena activity | 5425 Casgrain arena battle for 11 |
-| | Dinner | **Gibbys** (target) / **Rosélys** (hold, 5:30pm) | Gibbys inquiry sent Sep 12; Rosélys confirmed hold |
+| | Dinner | **Gibbys** (Historic Stable), 6:30pm (Mom's #1 pick) | **BOOKED & CONFIRMED** (Conf #200213); Rosélys hold superseded |
 | **Mon Oct 12** | Lunch | La Banquise or L'Express | Walk-up. Verify holiday hours |
 | | — | Checkout 11am; flights 4:10pm and 5:10pm | — |
 
@@ -54,14 +54,20 @@
 
 ### Confirmed
 
-**Rosélys (Fairmont The Queen Elizabeth)** — Sun Oct 11, 5:30pm, 11 people. Booked via OpenTable; **confirmation arrived by SMS, not email**, so it is invisible to mailbox searches.
+**Gibbys (Old Montreal)** — Sun Oct 11, 6:30pm, Table for 11. **RESERVATION CONFIRMED via OpenTable (Conf #200213)** to `michaelgermano@gmail.com` on Mon Sep 14. Mom's #1 Thanksgiving pick locked in!
 
-- **There is no Thanksgiving buffet or holiday menu.** Florence (hostess): *"It is not buffet at night, it's an à la carte regular menu."* On a holiday menu: *"In the past years there has not been, but maybe this year the chefs will decide on something different"* — suggested checking back in a couple of weeks.
-- There **is** a children's menu.
-- Group terms: **automatic 15% gratuity and one single bill**.
-- Contacts: `info@restaurantroselys.com` (Florence) · Fabien Renaud, Catering Group Sales, `Fabien.Renaud@fairmont.com` / `fabien.renaud@accor.com`, +1 514 861-3511 ext 2869, cell +1 514 559-2919, in office Tue–Sat · urgent overflow `Linda.Dehbi@Fairmont.com`
-- **Date-format trap:** OpenTable Canada sends DD/MM. `11/10/26 Sun` is 11 October. Siri misread it as November 10 (a Tuesday) and offered to calendar it. Do not accept that suggestion.
-- Estimated all-in for 11: **~$1,250**.
+- Venue: 298 Place d'Youville, Old Montreal, 514-282-1837.
+- Terms: 10-minute grace period. Smart casual dress (no tank tops).
+- Cancellation policy: Credit card secured. Cancellation or no-show less than 24 hours in advance incurs **$25 per person ($275 total)**.
+- Historic 200-year stone stable courtyard. Mains **include** starter, warm sourdough loaves, dill pickles, garlic bacon salad, lemon sorbet cleanser, and choice of vegetable and potato/rice.
+- Estimated all-in for 11: **~$1,340–1,390 CAD**.
+- Next action: Michael releases the Rosélys OpenTable hold via the SMS link (`https://opentable.com/l/WQfF5i6eu`).
+
+**Rosélys (Fairmont The Queen Elizabeth)** — Sun Oct 11, 5:30pm, 11 people. **SUPERSEDED HOLD (Release pending).** Booked via OpenTable (confirmation arrived by SMS).
+
+- Served as our zero-penalty safety net. Now superseded by confirmed Gibbys booking.
+- Michael holds the cancellation link (`https://opentable.com/l/WQfF5i6eu`) and will release it to free up the table.
+- Regular à la carte only (confirmed no Thanksgiving buffet or holiday menu).
 
 ### Sent, awaiting reply
 
@@ -87,13 +93,6 @@
 - Ludovie Lacasse-Beaudoin (Marketing & Réseaux Sociaux, 438-868-0884) replied: *"Malheureusement, dû à l’espace disponible, nous ne pouvons pas accepter de groupes de plus de 8 personnes au restaurant à Montréal."*
 - Strictly capped at 8 guests maximum due to space. Party of 11 cannot be accommodated at the Montreal location.
 - **Outcome:** Saturday dinner target pivots to **Monarque** (private room seats 22, draft ready in Gmail).
-
-**Gibbys** — sent by Michael on **Sat Sep 12 @ 10:57 AM** to `info@gibbys.com`. No reply yet.
-
-- Verified: **open Sunday 4:45pm–10:00pm.** 298 Place d'Youville. Publicly welcomes "groups of just about any size"; covered patio seats 50. (514) 282-1837.
-- Mains **include** a starter, lemon sorbet, a vegetable and a potato or rice. Standard steaks $70–$90; bone-in filet $125; 34oz cowboy $175; seafood $56–$89.
-- Estimated all-in for 11: **~$1,340–1,390**.
-- **Contains the unwanted birthday sentence.** Do not send a correction.
 
 ### Drafted in Gmail, NOT sent
 
@@ -201,7 +200,7 @@ The Sept 8 handover asserted several things that turned out to be false. Treat i
 
 **Decisions needed**
 3. ~~**Saturday dinner.**~~ **APDC DECLINED (>8); PIVOT TO MONARQUE.** Au Pied de Cochon replied Sep 14 declining party of 11 (hard cap of 8). Send the trimmed Monarque inquiry to `info@restaurantmonarque.ca` for private dining / group seating.
-4. **Sunday dinner.** Keep Rosélys, or switch to Gibbys when they reply. Cancel the loser promptly via the OpenTable link in the SMS.
+4. ~~**Sunday dinner.**~~ **LOCKED & BOOKED.** Gibbys confirmed for 11 on Sun Oct 11 @ 6:30 PM (Conf #200213). Mom's #1 pick secured! Next action: Michael releases the Rosélys OpenTable hold via the SMS link.
 5. **Friday dinner** rides on La Lune's answer. Fallbacks: Le Petit Alep (phone) or L'Express (phone).
 6. Trim and decide on the **Monarque** and **Auberge** drafts.
 

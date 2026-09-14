@@ -3,14 +3,14 @@
 Party of 11 (9 adults + Owen 12, Izzy 10). Basecamp 3831 St-Laurent.
 Contact on all outreach: Michael Germano, 412-626-8705, michaelgermano@gmail.com.
 
-Last updated: 2026-09-13
+Last updated: 2026-09-14
 
 ## Status
 
 | # | Venue | Target slot | Sent | Reply | Quoted price | Min spend | Deposit | Cancel cutoff | Kids policy | Status |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 1 | Rosélys (Fairmont Queen E) | Sun Oct 11, 5:30pm | 2026-09-08 | 2026-09-10 | À la carte only (NO buffet) | none | CC on file (OpenTable) | Standard OpenTable | Children menu available | **HELD (À la carte only)** |
-| 2 | Gibbys | Sun Oct 11, 6:00–7:00pm | 2026-09-12 @ 10:57am | — | Mains $56–$175 | — | — | — | — | **SENT (Awaiting reply)** |
+| 1 | Rosélys (Fairmont Queen E) | Sun Oct 11, 5:30pm | 2026-09-08 | 2026-09-10 | À la carte only (NO buffet) | none | CC on file (OpenTable) | Standard OpenTable | Children menu available | **SUPERSEDED (Release pending via OpenTable)** |
+| 2 | Gibbys | Sun Oct 11, 6:30pm | 2026-09-12 @ 10:57am | 2026-09-14 @ 1:16pm | Mains $56–$175 | none | CC guarantee ($25/pp if <24h cancel) | 24 hours | Smart casual (no tank tops) | **BOOKED & CONFIRMED (Conf #200213)** |
 | 3 | Le Serpent | Fri Oct 9, **6:30pm only** | 2026-09-08 | 2026-09-08 | à la carte, no group menu | none | card via OpenTable link | not stated | chef adapts dishes (mac & cheese) | **table offered, release pending** |
 | 4 | Monarque | Sat Oct 10, 6:30–7:30pm | — | — | — | — | — | — | — | **Sat target (draft ready)** |
 | 5 | Auberge Saint-Gabriel | Sun Oct 11, 5:30–6:30pm | — | — | — | — | — | — | — | stand by |
@@ -18,6 +18,8 @@ Last updated: 2026-09-13
 | 7 | Au Pied de Cochon | Sat Oct 10, 6:00 or 6:30pm | 2026-09-13 @ 12:07pm | 2026-09-14 @ 12:55pm | Max 8 guests only | — | — | — | Not accommodated (>8) | **DECLINED (Cap at 8)** |
 
 ## Reply log
+
+**2026-09-14 — Gibbys RESERVATION CONFIRMED (Table for 11 @ 6:30 PM).** OpenTable reservation confirmed for Michael Germano (Confirmation #200213) for Sunday, October 11, 2026 @ 6:30 PM. Party size: 11. Credit card secured with standard late cancellation/no-show fee ($25 CAD per person if cancelled <24 hours in advance). 10-minute grace period. Smart casual dress code. Mom's #1 Thanksgiving pick locked in! Rosélys hold superseded and pending cancellation via OpenTable.
 
 **2026-09-14 — Au Pied de Cochon REPLY RECEIVED (Declined for 11).** Ludovie Lacasse-Beaudoin (Marketing & Réseaux Sociaux, 438-868-0884) replied to Michael's inquiry:
 > *"Bonjour, Malheureusement, dû à l’espace disponible, nous ne pouvons pas accepter de groupes de plus de 8 personnes au restaurant à Montréal. Merci de votre compréhension, Au plaisir"*
@@ -93,7 +95,7 @@ Google Duplex and "Ask for Me" are US-only and do not cover Canada. No AI callin
 
 ## Open decisions
 
-- **Sunday Thanksgiving Feast:** Held at Rosélys @ 5:30 PM (regular à la carte only; confirmed NO holiday buffet). Re-evaluating Gibbys (Mom's top pick) for the traditional festive dinner atmosphere.
+- **Sunday Thanksgiving Feast:** **LOCKED & BOOKED!** Confirmed table for 11 at **Gibbys Old Montreal** for Sunday Oct 11 @ 6:30 PM (OpenTable Conf #200213). Mom's #1 pick secured! Rosélys hold is superseded and pending cancellation by Michael.
 - **Friday Dinner:** Decision pending on Le Serpent (table offered @ 6:30 PM) vs. Syrian alternative (Restaurant Alep / Damas).
 - **Saturday Dinner:** Au Pied de Cochon declined on Sep 14 (max 8 guests). Saturday dinner target shifts to **Monarque** (private dining room seats 22, brasserie tables; inquiry ready to send).
 
