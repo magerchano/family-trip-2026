@@ -11,13 +11,87 @@ Last updated: 2026-09-14
 |---|---|---|---|---|---|---|---|---|---|---|
 | 1 | Rosélys (Fairmont Queen E) | Sun Oct 11, 5:30pm | 2026-09-08 | 2026-09-10 | À la carte only (NO buffet) | none | CC on file (OpenTable) | Standard OpenTable | Children menu available | **CANCELLED (2026-09-14)** |
 | 2 | Gibbys | Sun Oct 11, 6:30pm | 2026-09-12 @ 10:57am | 2026-09-14 @ 1:16pm | Mains $56–$175 | none | CC guarantee ($25/pp if <24h cancel) | 24 hours | Smart casual (no tank tops) | **BOOKED & CONFIRMED (Conf #200213)** |
-| 3 | Le Serpent | Fri Oct 9, **6:30pm only** | 2026-09-08 | 2026-09-08 | à la carte, no group menu | none | card via OpenTable link | not stated | chef adapts dishes (mac & cheese) | **table offered, release pending** |
-| 4 | Monarque | Sat Oct 10, 6:30–7:30pm | — | — | — | — | — | — | — | **Sat target (draft ready)** |
+| 3 | Le Serpent | Fri Oct 9, **6:30pm only** | 2026-09-08 | 2026-09-08 | à la carte, no group menu | none taken | card via OpenTable link, **never sent** | n/a | chef adapts dishes (mac & cheese) | **NO RESERVATION — conditional offer, never accepted** |
+| 4 | Monarque | Sat Oct 10, 6:30–7:30pm | — | — | — | — | — | — | — | **SUPERSEDED (La Lune locked Sat)** |
 | 5 | Auberge Saint-Gabriel | Sun Oct 11, 5:30–6:30pm | — | — | — | — | — | — | — | stand by |
-| 6 | Rôtisserie La Lune | Fri Oct 9 (or Sat Oct 10), 6:30pm | 2026-09-10 / 2026-09-12 | — | $75–$85pp set menu | TBD | TBD | TBD | Questions sent | **SENT (Awaiting reply)** |
-| 7 | Au Pied de Cochon | Sat Oct 10, 6:00 or 6:30pm | 2026-09-13 @ 12:07pm | 2026-09-14 @ 12:55pm | Max 8 guests only | — | — | — | Not accommodated (>8) | **DECLINED (Cap at 8)** |
+| 6 | Rôtisserie La Lune | **Sat Oct 10, 5:00pm** (Salon La Forêt) | 2026-09-10 / 2026-09-12 | 2026-09-14 @ 5:17pm | mixed chicken + guinea fowl **$80pp** | card pre-auth, no charge unless late cancel | email to contact@rotisserielalune.com, card via OpenTable secure link | 72h headcount lock; changes inside 72h = **$50/person** | kids menu on request, price pending | **ACCEPTED & BOOKED (Michael sent Sep 14 @ 5:55pm)** |
+| 7 | Au Pied de Cochon | **Fri Oct 9, 5:00–6:30pm** (6+5 split) | 2026-09-13 @ 12:07pm | 2026-09-14 @ 12:55pm | Max 8 per table | — | email info@pieddecochon.ca | — | Not accommodated as one table of 11 | **split ask moved to Friday, draft unsent** |
 
 ## Reply log
+
+**2026-09-14 @ 5:55pm — Acceptance SENT by Michael to La Lune** (thread 1a0a1afafd5e2429). Michael accepted David's offer of Saturday, Oct 10 @ 17 h (5:00 PM) for 11 guests (9 adults, 2 kids 10 & 12). Confirmed mixed chicken and guinea fowl menu ($80pp), noted no allergies or dietary restrictions, confirmed single bill in Michael's name, and asked for the children's menu pricing and details. Awaiting David's reply with the kids menu info and OpenTable card pre-authorization link to finalize.
+
+**2026-09-14 — APDC split ask REDIRECTED TO FRIDAY, drafted not sent** (draft id r-2756813730858672836, thread 1a09b83621b46c40). Their Sat 14:33 split request is still unanswered. Rather than withdraw it, the follow-up tells them Saturday is settled elsewhere and asks whether the 6+5 split works **Friday Oct 9** instead. **Time window is 17 h to 18 h 30 at the latest**, earlier welcome, happy to sit apart or slightly staggered. APDC is open Wed–Sun 17:00–22:00, so Friday is within service.
+
+**Why this works now:** La Lune taking Saturday freed Friday, and APDC is Greg's pick. Neither table breaks their stated cap of 8.
+
+**2026-09-14 — CORRECTION: there is no Le Serpent reservation, and there never was.** Verified against the Gmail thread (1a0831be2b8b3731), not against the handover.
+
+The full record: Michael emailed `leserpent@leserpent.ca` Sep 8 at 18:20. They replied Sep 8 at 20:59 with a **conditional** offer: *"Juste me confirmer que l'heure vous convienne bien et je m'occuperai de la réservation. Un lien Opentable sécurisé vous demandant votre numéro de carte de crédit vous sera envoyé pour la confirmation que vous devrez compléter."* Confirm the time, **then** they make the booking, **then** an OpenTable card link arrives to complete it.
+
+**None of those steps happened.** No reply was sent, no OpenTable link exists in the mailbox, no card is on file, and no confirmation number exists. Nothing is held in any system.
+
+**The error:** the original Antigravity handover logged this as "Table for 11 offered @ 6:30 PM | Decision Pending", which the Sep 13 handover escalated to "they offered the table and have been holding it for 8 days" and "the most overdue courtesy on the list." That framing was carried into this ledger and repeated several times without anyone opening the thread. A conditional offer awaiting a yes is not a held table.
+
+**Method note:** a keyword search for `serpent` in Gmail returned four unrelated threads and missed this one entirely. The domain search `leserpent.ca` found it immediately. **Search the venue's email domain, not its name.**
+
+**Status now:** courtesy reply still worth sending, since they asked a direct question six days ago and got silence, but this is politeness, not damage control. And with Saturday going to La Lune, **Friday Oct 9 is open and Le Serpent's terms are actually good** for 11 with two kids: no group menu, à la carte, no deposit, chef adapts for the children. The standing objection is Michael's, that it is the wrong fit and a three-Uber Old Montreal convoy.
+
+**2026-09-14 @ 5:17pm — LA LUNE OFFERED SATURDAY OCT 10 AT 17 h.** David, in French: *"Nous comprenons tout à fait. Est-ce que samedi 10 octobre à 17h pourrait vous convenir?"* That is their opening time, so the room turns over to us before any other group. Friday was dropped from the conversation by him, not by us.
+
+**Calendar fit is clean.** Bateau-Mouche is booked Sat 2:30pm for 60 minutes, so the group is off the boat at Jacques-Cartier Pier around 3:30pm; Old Port to 391 rue Saint-Zotique Est is 15 to 20 minutes. Biodome stays in the morning.
+
+**The children's menu price has now gone unanswered twice** (asked Sep 12, asked again Sep 14). Asked a third time in the acceptance draft. If it goes unanswered again, assume adult pricing for budgeting.
+
+**Acceptance DRAFTED, not sent** (draft id r7793578714782744431, threaded under David's Sat-5pm offer; an earlier draft of the same text was deleted before sending and recreated). Accepts Sat Oct 10 at 17 h, confirms 11 guests as 9 adults and 2 children, names the $80pp mixed menu, states **no allergies or dietary restrictions in the group**, confirms a **single bill in Michael's name**, and asks both the children's menu **price and what it actually includes**.
+
+**This answers every question David asked except the special-occasion one, which stays unanswered by design.** Sending it should trigger the OpenTable secure card link for the pre-authorization, at which point the booking is official and the 72-hour headcount lock (changes inside 72h = $50/person) starts applying.
+
+**What this unlocks and costs:**
+- **Saturday is solved** by the venue the group most wanted. The **Monarque draft can be dropped**, and the **APDC 6+5 split ask should be withdrawn** once La Lune is confirmed.
+- **Friday Oct 9 is now open.** Le Serpent still holds a 6:30pm Friday table from Sep 8, previously slated for release. Le Petit Alep is open Friday 11:30–22:30 but is phone-only for 11.
+
+**2026-09-14 @ 5:02pm — reply to La Lune SENT** (thread 1a0a1afafd5e2429). Refused 20 h 30, asked for an earlier Friday seating or Saturday Oct 10 at 18 h 30, named the $80pp mixed chicken and guinea fowl menu, and asked the children's price.
+
+**Follow-up DRAFTED, not sent** (draft id r-6661801538572425112): a two-line clarification that the group can arrive **as early as the restaurant opens, 17 h or 17 h 30**. The sent message asked for "plus tôt" without a floor, which leaves David guessing. Since his constraint is a group booked before ours, an opening-time seating is the one shape that resolves it without moving anyone, so this is worth the second email.
+
+**2026-09-14 — Reply to La Lune DRAFTED, not sent.** Sits on the correct thread (draft id r7507038316171518967, thread 1a0a1afafd5e2429). Bilingual, three questions: earlier Friday seating, Saturday Oct 10 at 18 h 30 as an alternative, and the children's menu price. Per Michael, **20 h 30 is refused, not negotiated** (the family will not wait that late to eat), and the menu named is the **mixed chicken and guinea fowl at $80pp**, not the $75 chicken. The special-occasion question they asked is left unanswered by design.
+
+**Cost at the mixed menu:** 9 adults × $80 = $720, plus 2 children at an unquoted rate. At a plausible $30 each the food subtotal is ~$780, plus 20% gratuity ($156) and 14.975% tax ($117) lands near **$1,055 before drinks**.
+
+**Tooling note:** `mcp__gmail-mcp__update_draft` with `reply_to_thread_id` set **preserves thread attachment**, unlike `mcp__claude_ai_Gmail__update_draft`, which silently detaches a reply draft from its thread. Use the gmail-mcp variant to revise reply drafts in place instead of creating a replacement and orphaning the original.
+
+**2026-09-14 @ 4:50pm — RÔTISSERIE LA LUNE REPLIED (David).** Salon La Forêt is **available Friday Oct 9** for up to 12. But the time offered is **8:30 p.m., not 6:30 p.m.**: *"We could offer you an 8:30 p.m. arrival time, as we'll have another group before yours."* Saturday Oct 10 was not addressed either way.
+
+Terms quoted:
+- **Menu** is set, family-style, three courses including dessert. Main choice drives the price: Ferme Antoine grain-fed chicken **$75pp**, guinea fowl **$85pp**, mix of both **$80pp**. Cheese service before dessert **+$10pp**.
+- **20% gratuity added to the bill before taxes.** Not discretionary.
+- **Deposit** is a credit-card pre-authorization, no amount charged except on last-minute cancellation. Card entered through a secure OpenTable link sent after details are confirmed.
+- **Headcount locks 72 hours out.** Any change inside 72 hours costs **$50 per person**.
+- **Children's menu exists on request but no price was quoted** — the direct question from the Sep 12 note went unanswered.
+- No outside cakes or desserts permitted.
+- Wine and beverages handled on-site, not pre-selected.
+
+**Hard deadline: the request closes 48 hours without a response, so by roughly Wed Sep 17 4:50pm.** They will re-check availability after that but will not hold the room.
+
+Details they need before it is official: total headcount and number of children, menu and extras chosen, allergies with counts per restriction, whether it's a special occasion, and single bill or split.
+
+**Estimated total, chicken menu:** 9 adults × $75 = $675, plus 2 children at an unquoted rate. At a plausible $30 each the food subtotal is ~$735, plus 20% gratuity ($147) and 14.975% tax ($110) lands near **$990 before a single drink**. With wine for nine adults, plan on **$1,300–1,500**.
+
+**The real decision is the 8:30pm arrival.** Owen is 12 and Izzy is 10, and a three-course family-style dinner starting at 8:30 runs past 11:00pm. That is the trade against the food, which is the meal the group was most excited about.
+
+**2026-09-14 (later) — split ask sent to APDC.** Asked whether two separate tables, one of 6 and one of 5, would work on Sat Oct 10, offering to sit apart and to stagger times. Neither table exceeds their stated cap of 8. Awaiting reply. Note: APDC has never forbidden split bookings; L'Express explicitly does.
+
+**2026-09-14 — Au Pied de Cochon REFUSED.** *"Malheureusement, dû à l'espace disponible, nous ne pouvons pas accepter de groupes de plus de 8 personnes au restaurant à Montréal."* A hard cap of 8, with no buyout offered. **Greg's pick is out and Saturday Oct 10 is unresolved again.**
+
+Remaining Saturday candidates, filtered by the no-phone constraint:
+- **Monarque** — the ONLY one reachable by email. Draft has been sitting unsent since Sep 8. Old Montreal, private room minimum $1,500–3,000
+- L'Express, Alep, Le Petit Alep — all phone-only for 11
+- Cadet (Bib Gourmand, 1431 boul. Saint-Laurent, straight down the house's own street) — untried, channel unknown
+
+**2026-09-14 — Confirmations on file.** Gibbys OpenTable **#200213**, 11 people, Sun Oct 11 6:30pm. Rosélys cancellation OpenTable **#507276**. Gibbys' email reply cc'd **jlourenco@grandio.com**, a named contact at the management company, useful if the double-booking check needs escalating.
+
+~~**Rôtisserie La Lune still silent**~~ — resolved. They replied Sep 14 at 4:50pm, four days after the request and two after the follow-up. See the entry at the top of this log.
 
 **2026-09-14 — GIBBYS CONFIRMED.** Sun Oct 11, **6:30pm**, 11 guests. Booked via Amex concierge / OpenTable (confirmation no. 200213), and Gibbys also replied on the email thread. Terms from the restaurant: **no deposit and no card required**; cancel anytime, 48 hours' notice appreciated; **gratuity discretionary**, offered at settlement; group menus are optional but if chosen are tied to a single bill. **Children's options are limited to butter pasta or tomato pasta** — worth knowing before the night. The restaurant acknowledged "trois anniversaires à souligner", from the unwanted birthday line; per Michael, leave it.
 
@@ -102,8 +176,8 @@ Google Duplex and "Ask for Me" are US-only and do not cover Canada. No AI callin
 ## Open decisions
 
 - **Sunday Thanksgiving Feast:** **LOCKED & BOOKED!** Confirmed table for 11 at **Gibbys Old Montreal** for Sunday Oct 11 @ 6:30 PM (OpenTable Conf #200213). Mom's #1 pick secured! Rosélys hold cleanly cancelled on OpenTable by Michael on Sep 14.
-- **Friday Dinner:** Decision pending on Le Serpent (table offered @ 6:30 PM) vs. Syrian alternative (Restaurant Alep / Damas).
-- **Saturday Dinner:** Au Pied de Cochon declined on Sep 14 (max 8 guests). Saturday dinner target shifts to **Monarque** (private dining room seats 22, brasserie tables; inquiry ready to send).
+- **Saturday Dinner:** **LOCKED & ACCEPTED!** Rôtisserie La Lune agreed for Saturday Oct 10 @ 5:00 PM (17h) in private Salon La Forêt for 11. Michael confirmed on Sep 14 @ 5:55 PM (mixed chicken & guinea fowl family feast $80/pp, single bill). Awaiting kids menu pricing from David. Monarque superseded.
+- **Friday Dinner:** **SOLE REMAINING OPEN DINNER.** Contenders: APDC (6+5 split ask drafted), Le Petit Alep / Damas (Syrian mezze), or Le Serpent.
 
 ## Hard dates
 

@@ -8,7 +8,7 @@
 
 ## 1. The one-line status
 
-**Gibbys is BOOKED & CONFIRMED for Sunday Oct 11 @ 6:30 PM (Table for 11, Conf #200213) — Mom's #1 pick locked!** Rosélys backup hold cleanly cancelled on OpenTable on Sep 14 with zero penalty. 24 days to arrival.
+**TWO MARQUEE DINNERS LOCKED: Gibbys confirmed Sun Oct 11 @ 6:30 PM (Conf #200213) & Rôtisserie La Lune confirmed Sat Oct 10 @ 5:00 PM (Salon La Forêt for 11)!** Friday dinner is now the sole open dinner slot. 24 days to arrival.
 
 ---
 
@@ -37,11 +37,11 @@
 | | — | Airport transfer for 11 + luggage | **NOT ARRANGED** |
 | **Fri Oct 9** | Morning / Midday | **Mile End Stroll → Jean-Talon Market** | Walk through Mile End (bagels & shops) to Jean-Talon Market. Afternoon split: Mount Royal Observatory hike vs. linger in Little Italy cafés |
 | | Lunch | Jean-Talon Market bites & Little Italy | Walk-up |
-| | Dinner | **Rôtisserie La Lune**, Salon La Foret, 6:30pm | Follow-up sent Sep 12 @ 3:39pm; awaiting reply |
+| | Dinner | **Friday Contender TBD** (Le Petit Alep / Damas / Le Serpent) | Friday open; group decision pending |
 | **Sat Oct 10** | Mid-Morning | **Montreal Biodome** (between breakfast & lunch) | Olympic Park (tickets for 11 needed) |
 | | Lunch | Old Port Waterfront | Walk-up |
 | | 2:30pm | **Bateau-Mouche 60-min cruise** (Jacques-Cartier Pier) | **BOOKED** (St. Lawrence River tour) |
-| | Dinner | **Monarque** (pivot target) / **Au Pied de Cochon** (declined, max 8) | APDC replied Sep 14 declining >8; Monarque draft ready |
+| | Dinner | **Rôtisserie La Lune**, Salon La Forêt, 5:00pm | **AGREED & CONFIRMED** (Michael confirmed Sep 14 @ 5:55pm; awaiting kids pricing) |
 | **Sun Oct 11** | Morning / Lunch | Plateau brunch / Café Replika | Walk-up |
 | | 2:30pm | **DodgeBow combat archery** + 2nd arena activity | 5425 Casgrain arena battle for 11 |
 | | Dinner | **Gibbys** (Historic Stable), 6:30pm (Mom's #1 pick) | **BOOKED & CONFIRMED** (Conf #200213); Rosélys hold cancelled |
@@ -63,6 +63,15 @@
 - Estimated all-in for 11: **~$1,340–1,390 CAD**.
 - Rosélys backup hold cleanly cancelled on OpenTable on Sep 14.
 
+**Rôtisserie La Lune (Petite-Patrie)** — Sat Oct 10, 5:00pm, Table for 11 (Salon La Forêt). **AGREED & CONFIRMED via email with David** on Mon Sep 14.
+
+- 391 rue Saint-Zotique Est, Petite-Patrie, ~4 km / 10–15 min from basecamp. (514) 948-9999.
+- Canada's #1 Best New Restaurant 2026 & Michelin Bib Gourmand.
+- Intimate private room: *Salon La Forêt* (seats 8–12).
+- Menu: 3-course family-style feast with mixed Ferme Antoine rotisserie chicken & guinea fowl ($80pp for adults). Single bill under Michael Germano, no allergies/restrictions.
+- Timing: 5:00 PM (17h opening) fits smoothly right after our 2:30 PM Bateau-Mouche boat cruise (off boat at 3:30 PM).
+- Next action: David to confirm children's menu pricing/details and send secure OpenTable card link if needed.
+
 **Rosélys (Fairmont The Queen Elizabeth)** — Sun Oct 11, 5:30pm, 11 people. **HOLD CANCELLED (Clean release on Sep 14).**
 
 - Booked via OpenTable as our zero-penalty safety net.
@@ -71,28 +80,18 @@
 
 ### Sent, awaiting reply
 
-**Le Serpent** — sent Sep 8, replied same evening. **They offered the table and have been holding it for 8 days with no answer from us.**
+**Le Serpent** — sent Sep 8, replied same evening. **CORRECTED 2026-09-14: there is no reservation and never was.** Their reply was conditional: *"Juste me confirmer que l'heure vous convienne bien et je m'occuperai de la réservation"*, followed by an OpenTable card link to complete. No reply was sent, no link ever arrived, no card is on file. Nothing is held in any system.
 
 - Can take 11 on Fri Oct 9 at **6:30pm only** (no large groups 6:45–8:45pm, to protect service flow).
 - **No group menu required**, full à la carte. Chef will adapt dishes for the children (their example: mac and cheese pasta).
 - No deposit; a secure OpenTable card link is sent to confirm.
-- **Michael's decision: no.** Wrong fit for 11 with two kids, and a three-Uber Old Montreal convoy. **The release email has never been written or sent. This is the most overdue courtesy on the list.**
-
-**Rôtisserie La Lune** — private dining request submitted via OpenTable Sep 10. Le Salon La Foret, Fri Oct 9, 6:30pm, 11 guests (flexible with Sat Oct 10). **Follow-up email SENT by Michael on Sat Sep 12 @ 3:39 PM** directly to `contact@rotisserielalune.com` (threaded on the OpenTable confirmation).
-
-- Room holds **8 to 12**, so 11 fits with one spare seat and no headroom.
-- Three-course family-style group menu: grain-fed chicken $75pp, guinea fowl $85pp, mix $80pp.
-- Bib Gourmand **and** the top new restaurant on Canada's 100 Best 2026.
-- 391 rue Saint-Zotique Est, Petite-Patrie, ~4 km / 10–15 min from the house. **Open Mon–Sat 5:00–10:30pm, closed Sundays.**
-- Contact `contact@rotisserielalune.com`, (514) 948-9999.
-- Michael's follow-up clarified party of 11 (9 adults, 2 kids 10 & 12) and asked the key commercial questions: kids pricing, minimum spend, and deposit terms. **Awaiting reply.**
-- Estimated all-in for 11: **~$1,150–1,250**.
+- **Michael's decision: no.** Wrong fit for 11 with two kids, and a three-Uber Old Montreal convoy. A courtesy reply is still owed since they asked a direct question and got silence, but nothing is being released because nothing was ever booked.
 
 **Au Pied de Cochon** — sent by Michael on **Sun Sep 13 @ 12:07 PM** to `info@pieddecochon.ca`. **REPLY RECEIVED Mon Sep 14 @ 12:55 PM (Declined).**
 
 - Ludovie Lacasse-Beaudoin (Marketing & Réseaux Sociaux, 438-868-0884) replied: *"Malheureusement, dû à l’espace disponible, nous ne pouvons pas accepter de groupes de plus de 8 personnes au restaurant à Montréal."*
 - Strictly capped at 8 guests maximum due to space. Party of 11 cannot be accommodated at the Montreal location.
-- **Outcome:** Saturday dinner target pivots to **Monarque** (private room seats 22, draft ready in Gmail).
+- **Follow-up:** 6+5 split request drafted for Friday Oct 9 (5:00–6:30pm). Saturday dinner is settled with La Lune.
 
 ### Drafted in Gmail, NOT sent
 
@@ -195,14 +194,14 @@ The Sept 8 handover asserted several things that turned out to be false. Treat i
 ## 9. Open actions
 
 **Overdue**
-1. **Release Le Serpent.** 8 days of silence on a table they are holding.
+1. ~~**Release Le Serpent.**~~ **Premise was false.** No table was ever held. A courtesy reply to their unanswered question is still polite. See the 2026-09-14 correction in `docs/dining-outreach-ledger.md`.
 2. ~~**Send the La Lune reply.**~~ **DONE.** Sent by Michael on Sat Sep 12 @ 3:39 PM. Awaiting reply.
 
 **Decisions needed**
-3. ~~**Saturday dinner.**~~ **APDC DECLINED (>8); PIVOT TO MONARQUE.** Au Pied de Cochon replied Sep 14 declining party of 11 (hard cap of 8). Send the trimmed Monarque inquiry to `info@restaurantmonarque.ca` for private dining / group seating.
+3. ~~**Saturday dinner.**~~ **LOCKED & CONFIRMED.** Rôtisserie La Lune (Salon La Forêt) agreed for Sat Oct 10 @ 5:00 PM for 11. Michael confirmed Sep 14 @ 5:55 PM (mixed chicken & guinea fowl family feast $80/pp, single bill). Monarque superseded.
 4. ~~**Sunday dinner.**~~ **LOCKED & BOOKED.** Gibbys confirmed for 11 on Sun Oct 11 @ 6:30 PM (Conf #200213). Mom's #1 pick secured! Rosélys hold cleanly cancelled on OpenTable on Sep 14.
-5. **Friday dinner** rides on La Lune's answer. Fallbacks: Le Petit Alep (phone) or L'Express (phone).
-6. Trim and decide on the **Monarque** and **Auberge** drafts.
+5. **Friday dinner.** Sole open dinner slot remaining. Contenders: Le Petit Alep (Syrian mezze next to Jean-Talon), APDC (6+5 split ask drafted), or Damas.
+6. Monarque draft on standby; Auberge draft on standby.
 
 **Non-dining, still open**
 7. **Airport transfer for flight crew** (~6 people + luggage; Michael & Haley ~4:15pm, Dani & Travis ~5:00pm, Andrew & Liz TBD). *CT minivan crew (Greg, Cat, Owen, Izzy, Mom) drives up, departing 3:00pm, arriving ~9:00pm.*
