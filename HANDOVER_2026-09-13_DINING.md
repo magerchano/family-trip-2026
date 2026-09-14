@@ -157,6 +157,16 @@ The 2026 MICHELIN Guide Québec landed in May 2026.
 | L'Express | **7 days, 11:30–01:00** |
 | Au Pied de Cochon | Wed–Sun 17:00–22:00 |
 | Le Serpent | Mon–Sat. **Closed Sun** |
+| Cloakroom Bar | **Daily from 16:00, Fri–Sat until 03:00** (walk-in only, max 6 per party) |
+
+### Adult nightcap: Cloakroom Bar
+
+**Cloakroom Bar** — 2175 rue de la Montagne (Golden Square Mile / Downtown).
+- **Status:** Open, trading, walk-in only (no reservations ever).
+- **Hours:** Open daily from 4:00 PM; Friday and Saturday until 3:00 AM.
+- **The Setup:** Hidden behind a mirror inside Maison Cloakroom (bespoke men's suiting shop). Ranked Canada's #1 Bar. Bespoke cocktails crafted to taste without a fixed menu; custom hand-carved ice.
+- **Capacity & Group Rule:** Total room capacity ~25. **Strict hard cap of 6 guests per party.**
+- **Logistics:** Not a group or kids outing. Ideal late-night escape for Michael and a few adults slipping out after dinner. 27-minute walk or 10-minute Uber from basecamp or any group dinner.
 
 ### Cost comparison, all-in for 11 (incl. 14.975% QC tax + tip)
 
