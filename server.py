@@ -133,12 +133,17 @@ class MontrealTripHandler(http.server.SimpleHTTPRequestHandler):
             return self.send_json(safe_state)
 
         elif self.path == "/api/vote":
-            if state.get("voting_closed", False):
-                return self.send_json({"error": "Voting on dinners and activities is closed. Final tallies are locked."}, 403)
-
+            OPEN_VOTE_IDS = [
+                'showdown-arcade', 'showdown-karts',
+                'les-trois-monkeys', 'action-500-dorval',
+                'tag-e-karting', 'mira-amusement'
+            ]
             member_id = payload.get("member_id")
             item_id = payload.get("item_id")
             vote_type = payload.get("vote") # 'up', 'down', 'none'
+            
+            if state.get("voting_closed", False) and item_id not in OPEN_VOTE_IDS:
+                return self.send_json({"error": "Voting on dinners and fixed activities is closed. Only Go-Karts vs Arcade is open for voting."}, 403)
             
             if not member_id or not item_id or vote_type not in ("up", "down", "none"):
                 return self.send_json({"error": "Invalid vote parameters"}, 400)

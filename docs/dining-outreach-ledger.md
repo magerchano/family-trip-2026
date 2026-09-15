@@ -20,6 +20,26 @@ Last updated: 2026-09-14
 
 ## Reply log
 
+**2026-09-14 — ACTIVITY SHORTLIST (arcade / bowling / karting), each verified on the venue's own site.** Distances from 3831 St-Laurent.
+
+| Venue | Distance | What | Hours | Status |
+|---|---|---|---|---|
+| **Les Trois Monkeys**, 1455 Peel #200 | 2.1 km, 25 min walk | bowling, laser tag, mini-golf, AR darts, arcade, resto-bar | 11am daily; Fri–Sat to 1am | **open** |
+| **North Star Machines à Piastres**, 3908 St-Laurent | 0.2 km, 2 min walk | 14 pinball machines, air hockey | opens 5pm | **open, ADULTS ONLY** |
+| **Mira Amusement**, 2313 Ste-Catherine O | 3.6 km | 100+ arcade, VR, mini-golf, billiards | noon weekdays, 10am weekends | **open, no karting or bowling** |
+| **Salon de quilles Darling**, 3350 Ontario E | 4.0 km | 24 lanes, restaurant + bar | Fri 5–11pm, Sat 4pm–12am, **closed Sun–Mon** | **open** |
+| Quilles G Plus, 920 St-Zotique E | 3.5 km | bowling | — | **unverified** |
+| **Action 500 Dorval**, 1865 Transcanadienne | 16.4 km, ~25 min drive | karting, laser tag, escape rooms, arcade | karting Mon–Fri 10am–12am, Sat–Sun from 9am | **open** |
+| **TAG E-Karting**, 270 rue Sicard, Ste-Thérèse | 24.3 km, ~35–40 min | 3-level karting, bowling, laser tag, axe throwing, VR, 7D | — | **open** |
+
+- **Les Trois Monkeys takes reservations only at 12+.** At 11 the group is a walk-in.
+- **Karting minimums:** Action 500 adult 5 ft / junior 4 ft; TAG kids 7+, adult karting 10+. Izzy at 10 is likely junior-only at Action 500.
+- **Permanently closed, do not resurface:** Action 500 Hochelaga, Kart-O-Mania. **Action 500's own site still lists Hochelaga**, so even the venue-site rule failed here; only their Dorval page is trustworthy.
+
+**The binding constraint is the calendar, not the venues.** Thu is staggered arrivals to ~9pm; Sat is Biodome + Bateau-Mouche 2:30 + La Lune 5:00; Sun is DodgeBow 2:30 + Gibbys 6:30; Mon is flights at 4:10/5:10. **Friday daytime is the only open block**, which eliminates Darling (opens 5pm).
+
+**Recommendation: Friday afternoon at Les Trois Monkeys.** Bowling, arcade and laser tag in one place, 25 min walk, and Cours Mont-Royal to Place Ville Marie for the 6pm dinner is about 10 minutes on foot. Whole day stays downtown, no cars. If karting is non-negotiable for Greg, Action 500 Dorval Friday morning is the only fit.
+
 **2026-09-14 @ 6:41pm — APDC routed the question, did not answer it.** Ludovie Lacasse-Beaudoin: *"Pour les questions plus spécifiques je ne suis pas en mesure de vous aider. Je vais ajouter le restaurant en CC afin qu'ils puissent vous répondre plus adéquatement."* She CC'd **`resto@pieddecochon.ca`** (Réservations - Restaurant Au Pied De Cochon).
 
 **Material nuance: the "max 8" cap came from marketing, not reservations.** Ludovie signs as *Marketing & Réseaux Sociaux* and has now said specifics are outside her scope. The cap may still hold, but the Friday 6+5 question is now in front of the desk that actually owns it. **Use `resto@pieddecochon.ca` for anything substantive from here, and copy it on the withdrawal if that gets sent.**
