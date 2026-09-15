@@ -20,6 +20,48 @@ Last updated: 2026-09-14
 
 ## Reply log
 
+**2026-09-15 — SUNDAY ACTIVITY = COMBAT D'ARCHERS (per Michael), 3955 rue De Rouen.** Not DodgeBow. Plan: combat archery + karting, possibly bazooka ball or Nerf. Details from the venue's own pages:
+
+| Activity | Wall-clock | Min age | Min players | Booking | Price for 11 (pre-tax) |
+|---|---|---|---|---|---|
+| **Combat archery** | 90 min (check-in on the hour, 20 training + 60 games) | **10** | 8 (private needs 18) | **Online (Bookeo)** or phone | $280 for 10 + $28 extra = **$308** |
+| **Karting** | 35 min (10 instruction + 25 racing) | **9 on weekends** | **4 on Sunday** | **Phone only** | 11 × $32.50 = **$357.50** |
+| **Bazooka ball** | 90 min (check-in on the hour, 15 training + 60 games) | 6 | 4 (private needs 16) | **Phone only** | $280 for 10 + ~$25 extra = **~$305** |
+| Nerf battle | 75–90 min | 6 | 8 (private needs 16) | **Phone only**, "we group players by age" | $280 + $25 = $305 |
+
+- **Sessions check in on the hour. The planned "2:30pm" start is not a real slot.**
+- 11 is below the private threshold, so archery/bazooka are **public sessions that may include other players**.
+- **Bazooka over Nerf** for this group: same price, lower minimum (4 vs 8), and Nerf groups players by age, which is awkward for 9 adults + 2 kids.
+- **Totals incl. 14.975% tax:** archery + karting + bazooka ≈ **$1,116**; archery + karting only ≈ **$765**.
+- Gibbys (298 Place d'Youville) is **7.4 km, ~13–20 min drive** from De Rouen. Leave by ~5:45pm for 6:30.
+
+**Workable Sunday (three activities):** 12:00 archery check-in (done 1:30) → ~1:45 karting (done ~2:20, time TBC by venue) → 3:00 bazooka check-in (done 4:30) → leave ~5:45 for Gibbys. A 1:00 start only fits if bazooka is at 4:00 (done 5:30), which leaves no slack.
+
+**Booking under the no-phone constraint:** archery Michael can book himself online via Bookeo. Karting and bazooka are phone-only; `info@combatdarchers.ca` is listed but not stated as a booking channel. Greg can call (438) 496-6339, or email as a fallback. **No existing Combat d'Archers booking found in Gmail**; confirm whether anything is already held before booking.
+
+**2026-09-15 — CORRECTION: on-island karting exists. Karting MTL at Combat d'Archers.** The Sep 14 claim that on-island indoor karting was extinct was wrong, and the Sep 14 activity shortlist omitted this venue. Surfaced by Greg, not by research. Missed because searches targeted go-kart tracks; this is electric drift-kart "Mario Kart" battles inside a combat-archery venue and is not listed as a karting track.
+
+- **3955 rue De Rouen, Hochelaga, H1W 1N4.** ~4.5 km straight from basecamp, **~15 min drive**, not walkable (~68 min).
+- Indoor electric **drift karts** with game items (shell, banana, star). **35 min session: 10 instruction + 25 racing.**
+- **$35 + tax pp; $32.50 pp for 8+.** Standard max 10 players, larger on request, so 11 needs asking.
+- **Age 9+ on weekends**, so Owen (12) and Izzy (10) can both drive. No height minimum stated.
+- **Minimum players: 8 on Saturday, 4 on Sunday, none on weekdays.**
+- Hours Mon–Fri 12pm–11pm, Sat–Sun 9am–11pm. Same address also runs combat archery, Pixel Arena, bazooka ball, Nerf, demolition room, VR, axe throwing.
+- **Booking is phone only**: "La séance de Karting doit être réservé par téléphone", (438) 496-6339. `info@combatdarchers.ca` exists but is not stated as a booking channel.
+- Verified open: own site with current hours and pricing, no closure notice; Yelp updated September 2026 at the De Rouen address.
+
+**PROBLEM: the Sunday 2:30pm archery booking conflates two different businesses and has an address that matches neither.**
+- The handover and site call it **DodgeBow** at **5425 Casgrain**, "+ Second Arena Activity".
+- **DodgeBow** (dodgebow.ca, Sports DodgeBow Inc.) is at **202-4767 Dagenais, Saint-Henri**. Archery only, **no karting**, no second activity.
+- **Combat d'Archers** is at **3955 rue De Rouen** and offers the multi-activity lineup, including karting. Older reviews place it on Casgrain (5335), so it moved.
+- **5425 Casgrain matches neither business.** It looks like a stale Combat d'Archers address carried into the plan under the DodgeBow name.
+- **No confirmation for either business exists in Michael's Gmail.** Who booked it, with which business, and through what channel is unknown.
+- "+ Second Arena Activity" fits Combat d'Archers, which would mean karting can be the second activity in the same building on Sunday (4-player minimum that day).
+
+**Open:** find the actual Sunday confirmation (possibly Greg's, possibly SMS) before anyone relies on the Casgrain address. Site data (`data/montreal_state.json`) still says DodgeBow at Casgrain; that is Antigravity's to fix once the real booking is known.
+
+**2026-09-15 @ 1:21pm — GIBBYS FULLY CLOSED.** Fatima: *"Merci pour ces informations. Nous avons bien noté tout. Au plaisir de vous accueillir prochainement."* À la carte, single bill, and the possible split among two or three families on the night are all noted with no objection. No reply needed. **Nothing further open on Sunday.**
+
 **2026-09-15 @ 10:14am — Gibbys confirmed a single booking and asked about billing.** Fatima Morales Roman, Floor Manager: *"Oui, il n'y a qu'une seule réservation au nom de Michael Germano pour cette date et cette heure."* The double-booking question is closed in writing. She asked whether billing should be separate per person or one bill for all food and drinks.
 
 **Reply SENT 2026-09-15 @ 11:03am** (to info@gibbys.com, cc jlourenco@grandio.com, threaded under her message). **À la carte, single bill for simplicity, with a heads-up that two or three families may want to split between them on the night, if that works for them.** À la carte matters: per her Sep 14 email, group menus are optional but force a single bill, so ordering à la carte keeps the split possible.
