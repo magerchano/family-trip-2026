@@ -20,6 +20,10 @@ Last updated: 2026-09-14
 
 ## Reply log
 
+**2026-09-15 @ 10:14am — Gibbys confirmed a single booking and asked about billing.** Fatima Morales Roman, Floor Manager: *"Oui, il n'y a qu'une seule réservation au nom de Michael Germano pour cette date et cette heure."* The double-booking question is closed in writing. She asked whether billing should be separate per person or one bill for all food and drinks.
+
+**Reply SENT 2026-09-15 @ 11:03am** (to info@gibbys.com, cc jlourenco@grandio.com, threaded under her message). **À la carte, single bill for simplicity, with a heads-up that two or three families may want to split between them on the night, if that works for them.** À la carte matters: per her Sep 14 email, group menus are optional but force a single bill, so ordering à la carte keeps the split possible.
+
 **2026-09-14 — ACTIVITY SHORTLIST (arcade / bowling / karting), each verified on the venue's own site.** Distances from 3831 St-Laurent.
 
 | Venue | Distance | What | Hours | Status |
