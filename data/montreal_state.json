@@ -28,7 +28,7 @@
     {
       "id": "andrew-liz",
       "name": "Andrew & Liz",
-      "tag": "Coordinates Pending ???"
+      "tag": "First Touchdown \u00b7 RDU via IAD"
     }
   ],
   "arrivals": {
@@ -79,12 +79,12 @@
     },
     "andrew-liz": {
       "date": "Thu Oct 8",
-      "time": "Booked / details pending",
-      "flight": "Flights booked \u2014 times and route not yet shared",
-      "notes": "Andrew & Liz have booked their flights; waiting on the details to fill in times and route. Andrew is one of the three belated birthdays (Sep 22) this trip is built around.",
+      "time": "2:40 PM",
+      "flight": "United UA1535 / UA3539 (RDU \u2192 IAD \u2192 YUL)",
+      "notes": "First squad to touch down in Montreal! Depart RDU 10:40 AM (UA1535, First Class 1A/1B), 56m connection at Dulles, depart IAD 12:43 PM (UA3539), land YUL 2:40 PM. Conf: HEBSKL.",
       "type": "flight",
-      "seat": "",
-      "confirmation": "BOOKED"
+      "seat": "1A, 1B (RDU\u2192IAD)",
+      "confirmation": "HEBSKL"
     }
   },
   "schedule": [
@@ -97,7 +97,7 @@
       "lunch": "Touchdowns & Early Basecamp Unpack",
       "dinner": "Schwartz's Smoked Meat Feasts",
       "dinner_status": "confirmed",
-      "dinner_note": "Flights land ~4:15\u20135:00 PM to unlock basecamp. CT road trip crew departs 3:00 PM, landing ~9:00 PM. Schwartz's is open late on our block\u2014steaming hot brisket feast waiting on the rooftop patios!"
+      "dinner_note": "Andrew & Liz touch down first at 2:40 PM! Flights continue landing ~4:10–5:00 PM to unlock basecamp. CT road trip crew departs 3:00 PM, landing ~9:00 PM. Schwartz's is open late on our block—steaming hot brisket feast waiting on the rooftop patios!"
     },
     {
       "day": "Ven 9",

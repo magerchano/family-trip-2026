@@ -471,8 +471,14 @@ tailwind.config = {
         <span>Traz: "Flight Crew lands YUL. Road trip rolls in from CT. Convergence at 3831 St-Laurent!"</span>
       </div>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3 text-xs font-body">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 text-xs font-body">
       
+      <div class="bg-white p-3.5 rounded-xl border-2 border-on-surface shadow-[2px_2px_0px_#1e293b]">
+        <span class="font-pop font-extrabold text-purple-600 text-sm block mb-0.5">2:40 PM</span>
+        <span class="font-bold text-on-surface block">Andrew &amp; Liz Touchdown</span>
+        <span class="text-on-surface-variant">First arrival! UA3539 from RDU via IAD. Conf: HEBSKL.</span>
+      </div>
+
       <div class="bg-white p-3.5 rounded-xl border-2 border-on-surface shadow-[2px_2px_0px_#1e293b]">
         <span class="font-pop font-extrabold text-pop-yellow text-sm block mb-0.5">4:00 PM</span>
         <span class="font-bold text-on-surface block">Airbnb Unlocks</span>
@@ -1897,9 +1903,9 @@ function renderArrivals() {
       stickerImg = 'assets/traz_flight.jpg';
       trazCardComment = 'Delta DL4816 from Detroit. Landing 4:15 PM & unlocking 3831 St-Laurent!';
     } else if (m.id === 'andrew-liz') {
-      stickerImg = 'assets/traz_mystery.jpg';
-      trazCardComment = 'Radar scanning for Andrew & Liz flight coordinates... Where you at?!';
-      badgeBg = 'bg-purple-200 text-purple-950';
+      stickerImg = 'assets/traz_flight.jpg';
+      trazCardComment = 'United First Class from RDU via Dulles! 2:40 PM touchdown — first squad on Montreal soil!';
+      badgeBg = 'bg-emerald-200 text-emerald-950';
     }
 
     return `
