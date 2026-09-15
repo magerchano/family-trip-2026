@@ -15,10 +15,16 @@ Last updated: 2026-09-14
 | 4 | Monarque | Sat Oct 10, 6:30–7:30pm | — | — | — | — | — | — | — | **SUPERSEDED (La Lune locked Sat)** |
 | 5 | Auberge Saint-Gabriel | Sun Oct 11, 5:30–6:30pm | — | — | — | — | — | — | — | stand by |
 | 6 | Rôtisserie La Lune | **Sat Oct 10, 5:00pm** (Salon La Forêt) | 2026-09-10 / 2026-09-12 | 2026-09-14 @ 5:17pm | mixed chicken + guinea fowl **$80pp** | card pre-auth, no charge unless late cancel | email to contact@rotisserielalune.com, card via OpenTable secure link | 72h headcount lock; changes inside 72h = **$50/person** | kids menu on request, price pending | **ACCEPTED & BOOKED (Michael sent Sep 14 @ 5:55pm)** |
-| 7 | Au Pied de Cochon | **Fri Oct 9, 5:00–6:30pm** (6+5 split) | 2026-09-13 @ 12:07pm | 2026-09-14 @ 12:55pm | Max 8 per table | — | email info@pieddecochon.ca | — | Not accommodated as one table of 11 | **WITHDRAWN (Friday booked elsewhere), decline drafted** |
+| 7 | Au Pied de Cochon | **Fri Oct 9, 5:00–6:30pm** (6+5 split) | 2026-09-13 @ 12:07pm | 2026-09-14 @ 12:55pm | Max 8 per table | — | **resto@pieddecochon.ca** (reservations desk; info@ is marketing) | — | Cap of 8 stated by marketing, unconfirmed by reservations | **Routed to reservations desk, awaiting real answer; decline drafted and held** |
 | 8 | Les Enfants Terribles (PVM) | **Fri Oct 9, 6:00pm** | 2026-09-14 @ 6:22pm (Libro) | 2026-09-14 @ 6:22pm (SMS) | à la carte | none | none | Standard Libro | Full kids menu available | **BOOKED & CONFIRMED (Libro / SMS)** |
 
 ## Reply log
+
+**2026-09-14 @ 6:41pm — APDC routed the question, did not answer it.** Ludovie Lacasse-Beaudoin: *"Pour les questions plus spécifiques je ne suis pas en mesure de vous aider. Je vais ajouter le restaurant en CC afin qu'ils puissent vous répondre plus adéquatement."* She CC'd **`resto@pieddecochon.ca`** (Réservations - Restaurant Au Pied De Cochon).
+
+**Material nuance: the "max 8" cap came from marketing, not reservations.** Ludovie signs as *Marketing & Réseaux Sociaux* and has now said specifics are outside her scope. The cap may still hold, but the Friday 6+5 question is now in front of the desk that actually owns it. **Use `resto@pieddecochon.ca` for anything substantive from here, and copy it on the withdrawal if that gets sent.**
+
+**Decision: hold the withdrawal.** Friday at Les Enfants Terribles took **no card and no deposit**, so a pivot costs nothing up to the night, and APDC is Greg's pick. If reservations says yes and the answer is still no, send the decline same-day rather than repeating the six-day Le Serpent lag.
 
 **2026-09-14 — FRIDAY CONFIRMED: Les Enfants Terribles (Place Ville Marie).** Party of **11, Fri Oct 9, 6:00 PM, Regular Table**, booked direct through their Libro widget under Michael Germano. **SMS at 6:22pm from +1 (415) 523-8655 reads "Reservation approved"**, which is a firmer state than the widget's "booked successfully".
 
@@ -208,7 +214,7 @@ Google Duplex and "Ask for Me" are US-only and do not cover Canada. No AI callin
  
 - **MASTER DINING STATUS: ALL 4 GROUP DINNERS (11 GUESTS) ARE 100% BOOKED & LOCKED! (0 open dinner decisions remaining).**
 - **Thursday Dinner:** Schwartz's Smoked Meat feast delivered to basecamp rooftop terraces (no reservation needed, same block).
-- **Friday Dinner:** **LOCKED & BOOKED!** Confirmed table for 11 at **Les Enfants Terribles (Place Ville Marie)** for Friday Oct 9 @ 6:00 PM via Libro (SMS confirmation received). APDC split ask and Le Serpent declined/withdrawn.
+- **Friday Dinner:** **LOCKED & BOOKED (Les Enfants Terribles @ 6:00 PM via Libro).** APDC 6+5 split inquiry for Friday 5:00–6:30 PM was routed by Ludovie to the restaurant reservations desk (`resto@pieddecochon.ca`). If APDC accommodates the 6+5 split, Michael will take APDC (Greg's #1 pick, 9m walk on Duluth) and cancel the zero-deposit Les Enfants Terribles reservation. Until then, Les Enfants Terribles remains our fully locked safety net.
 - **Saturday Dinner:** **LOCKED & ACCEPTED!** Rôtisserie La Lune agreed for Saturday Oct 10 @ 5:00 PM (17h) in private Salon La Forêt for 11. Michael confirmed on Sep 14 @ 5:55 PM (mixed chicken & guinea fowl family feast $80/pp, single bill). Awaiting kids menu pricing from David. Monarque superseded.
 - **Sunday Thanksgiving Feast:** **LOCKED & BOOKED!** Confirmed table for 11 at **Gibbys Old Montreal** for Sunday Oct 11 @ 6:30 PM (OpenTable Conf #200213). Mom's #1 pick secured! Rosélys hold cleanly cancelled on OpenTable by Michael on Sep 14.
 

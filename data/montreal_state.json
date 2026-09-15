@@ -306,8 +306,6 @@
     "olimpico": 2,
     "replika": 1
   },
-  "sold_out": [
-    "au-pied-de-cochon"
-  ],
+  "sold_out": [],
   "voting_closed": true
 }

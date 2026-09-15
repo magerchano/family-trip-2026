@@ -95,11 +95,12 @@
 - No deposit; a secure OpenTable card link is sent to confirm.
 - **Michael's decision: no.** Wrong fit for 11 with two kids, and a three-Uber Old Montreal convoy. A courtesy reply is still owed since they asked a direct question and got silence, but nothing is being released because nothing was ever booked.
 
-**Au Pied de Cochon** — sent by Michael on **Sun Sep 13 @ 12:07 PM** to `info@pieddecochon.ca`. **REPLY RECEIVED Mon Sep 14 @ 12:55 PM (Declined).**
+**Au Pied de Cochon** — sent by Michael on **Sun Sep 13 @ 12:07 PM** to `info@pieddecochon.ca`. **FOLLOW-UP ESCALATED Mon Sep 14.**
 
-- Ludovie Lacasse-Beaudoin (Marketing & Réseaux Sociaux, 438-868-0884) replied: *"Malheureusement, dû à l’espace disponible, nous ne pouvons pas accepter de groupes de plus de 8 personnes au restaurant à Montréal."*
-- Strictly capped at 8 guests maximum due to space. Party of 11 cannot be accommodated at the Montreal location.
-- **Follow-up:** 6+5 split request drafted for Friday Oct 9 (5:00–6:30pm). Saturday dinner is settled with La Lune.
+- Ludovie Lacasse-Beaudoin (Marketing & Réseaux Sociaux, 438-868-0884) replied at 12:55 PM: *"Malheureusement, dû à l’espace disponible, nous ne pouvons pas accepter de groupes de plus de 8 personnes au restaurant à Montréal."*
+- Michael sent follow-up at ~5:41 PM redirecting inquiry to Friday Oct 9 (between 5:00 and 6:30 PM) asking for two tables (6 and 5).
+- At 6:41 PM, Ludovie replied: *"Pour les questions plus spécifiques je ne suis pas en mesure de vous aider. Je vais ajouter le restaurant en CC afin qu'ils puissent vous répondre plus adéquatement."* She CC'd the floor reservations desk: `resto@pieddecochon.ca`.
+- **Strategy & Contingency:** If `resto@pieddecochon.ca` can accommodate the 6+5 split on Friday, Michael will book APDC (Greg's top pick, 9-min walk on Duluth) and cleanly cancel the zero-deposit Les Enfants Terribles reservation. Until APDC responds, Les Enfants Terribles remains our locked reservation.
 
 ### Drafted in Gmail, NOT sent
 
