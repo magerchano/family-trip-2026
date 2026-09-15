@@ -20,6 +20,17 @@ Last updated: 2026-09-14
 
 ## Reply log
 
+**2026-09-15 — Karting headcount is 10 or fewer.** Michele likely won't kart; Liz is uncertain. That keeps karting **within the standard 10-player cap**, so no special request is needed. Group rate of $32.50 still applies (8+).
+
+| Scenario | Karting | Total incl. 14.975% tax |
+|---|---|---|
+| Archery 11 + karting 10 + bazooka 11 | $325 | **~$1,078** |
+| Archery 11 + karting 9 + bazooka 11 | $292.50 | **~$1,041** |
+| Archery 11 + karting 10 | $325 | **~$728** |
+| Archery 11 + karting 9 | $292.50 | **~$690** |
+
+Headcount for archery and bazooka assumed to stay at 11.
+
 **2026-09-15 — SUNDAY ACTIVITY = COMBAT D'ARCHERS (per Michael), 3955 rue De Rouen.** Not DodgeBow. Plan: combat archery + karting, possibly bazooka ball or Nerf. Details from the venue's own pages:
 
 | Activity | Wall-clock | Min age | Min players | Booking | Price for 11 (pre-tax) |
