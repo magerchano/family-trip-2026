@@ -436,10 +436,10 @@ tailwind.config = {
     <div class="flex flex-wrap justify-center gap-2.5 mt-6">
       <a href="#arrivals" class="bg-white text-on-surface font-pop font-extrabold text-xs px-4 py-2 rounded-full pop-btn">✈️ 🚗 Arrivals Board</a>
       <a href="#the-plan" class="bg-pop-red text-white font-pop font-extrabold text-xs px-4 py-2 rounded-full pop-btn">📅 Concierge Schedule</a>
-      <a href="#friday-showdown" class="bg-purple-600 text-white font-pop font-extrabold text-xs px-4 py-2 rounded-full pop-btn border-2 border-on-surface">🏎️ vs 👾 Vote: Karts vs Arcade</a>
       <a href="#city-map" class="bg-pop-yellow text-pop-dark font-pop font-extrabold text-xs px-4 py-2 rounded-full pop-btn">🗺️ Pop! City Map</a>
       <a href="#coffee-section" class="bg-pop-blue text-white font-pop font-extrabold text-xs px-4 py-2 rounded-full pop-btn">☕️ 30-Min Coffee Walk</a>
       <a href="#marquee-dinners" class="bg-emerald-600 text-white font-pop font-extrabold text-xs px-4 py-2 rounded-full pop-btn">🍽️ Group Dinners for 11</a>
+      <a href="#alan-travis-guide" class="bg-amber-400 text-pop-dark font-pop font-extrabold text-xs px-4 py-2 rounded-full pop-btn">🧭 Field Guide</a>
     </div>
 
   </div>
@@ -876,375 +876,6 @@ tailwind.config = {
       </div>
     </div>
 
-  </div>
-</section>
-
-<!-- ═══════════════════════ SECTION 5B: FRIDAY SHOWDOWN — GO-KARTS VS. ARCADE ═══════════════════════ -->
-<section id="friday-showdown" class="py-12 md:py-16 max-w-6xl mx-auto px-4 scroll-mt-14">
-  <!-- Section Header -->
-  <div class="text-center max-w-3xl mx-auto mb-10">
-    <div class="inline-flex items-center gap-1.5 bg-purple-600 text-white border-2 border-on-surface text-xs font-pop font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full mb-3 shadow-[2px_2px_0px_#1e293b]">
-      <span>🔥 🏎️ vs 👾</span> ONLY OPEN GROUP VOTE &middot; FRIDAY OCT 9 WINDOW
-    </div>
-    <h2 class="font-pop font-extrabold text-4xl md:text-5xl text-on-surface tracking-tight mb-3">
-      Friday Showdown: Go-Karts vs. Arcade
-    </h2>
-    <p class="font-body text-on-surface-variant text-base leading-relaxed">
-      All group dinners are locked (Schwartz's Thu, Les Enfants Terribles Fri, La Lune Sat, Gibbys Sun) and fixed events are pinned (Biodome Sat morning, Bateau-Mouche Sat 2:30 PM, Combat d'Archers &amp; Karting Sun afternoon). 
-      <strong>Friday afternoon (1:30 PM &ndash; 5:00 PM) is the sole open window on the entire trip.</strong>
-      Cast your vote below: Walkable downtown multi-activity hub, or high-octane off-island go-kart sprint?
-    </p>
-  </div>
-
-  <!-- Live Head-to-Head Tug-of-War Card -->
-  <div class="pop-card p-6 md:p-8 mb-10 bg-gradient-to-br from-purple-50 via-white to-amber-50 border-3 border-on-surface">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
-      <!-- Arcade Side -->
-      <div class="flex items-center gap-3 w-full md:w-auto">
-        <div class="w-12 h-12 rounded-2xl bg-purple-600 text-white flex items-center justify-center text-2xl shadow-md border-2 border-on-surface">
-          👾
-        </div>
-        <div>
-          <span class="text-[10px] font-pop font-extrabold uppercase tracking-widest text-purple-800">Team Downtown / Walkable</span>
-          <h3 class="font-pop font-extrabold text-xl text-on-surface">Arcade, Bowling &amp; Games</h3>
-          <p class="text-xs text-on-surface-variant font-medium">Les Trois Monkeys &middot; Zero cars needed &middot; 10m walk to dinner</p>
-        </div>
-      </div>
-
-      <!-- VS Badge -->
-      <div class="px-4 py-1.5 rounded-full bg-pop-dark text-white font-pop font-extrabold text-sm border-2 border-on-surface shadow-[2px_2px_0px_#1e293b] flex-shrink-0">
-        VS
-      </div>
-
-      <!-- Karting Side -->
-      <div class="flex items-center gap-3 w-full md:w-auto md:text-right flex-row-reverse md:flex-row">
-        <div class="md:text-right">
-          <span class="text-[10px] font-pop font-extrabold uppercase tracking-widest text-amber-800">Team Off-Island Sprint</span>
-          <h3 class="font-pop font-extrabold text-xl text-on-surface">High-Speed Go-Karting</h3>
-          <p class="text-xs text-on-surface-variant font-medium">Action 500 Dorval / TAG &middot; Morning run &middot; Greg's pick</p>
-        </div>
-        <div class="w-12 h-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center text-2xl shadow-md border-2 border-on-surface">
-          🏎️
-        </div>
-      </div>
-    </div>
-
-    <!-- Tug-of-War Bar -->
-    <div class="space-y-2 mb-6">
-      <div class="flex justify-between items-center text-xs font-pop font-extrabold">
-        <span class="text-purple-700 flex items-center gap-1">
-          <span>👾 Team Arcade:</span> <span id="showdown-arcade-pct">50%</span> (<span id="showdown-arcade-votes">1 vote</span>)
-        </span>
-        <span class="text-amber-700 flex items-center gap-1">
-          (<span id="showdown-karts-votes">1 vote</span>) <span id="showdown-karts-pct">50%</span> <span>:Team Karts 🏎️</span>
-        </span>
-      </div>
-      <div class="w-full h-5 rounded-full bg-surface-container border-2 border-on-surface overflow-hidden flex shadow-inner">
-        <div id="showdown-arcade-bar" class="h-full bg-purple-600 transition-all duration-500 flex items-center justify-end pr-2 text-[10px] font-bold text-white" style="width: 50%;"></div>
-        <div id="showdown-karts-bar" class="h-full bg-amber-500 transition-all duration-500 flex items-center justify-start pl-2 text-[10px] font-bold text-white" style="width: 50%;"></div>
-      </div>
-    </div>
-
-    <!-- Active Voting Buttons for the 2 Main Camps -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t-2 border-outline-variant">
-      <!-- Arcade Camp Vote Button -->
-      <div class="p-4 rounded-xl bg-white border-2 border-purple-200 flex items-center justify-between">
-        <div>
-          <span class="text-xs font-pop font-extrabold text-purple-900 block">Vote Team Arcade &amp; Multi-Activity</span>
-          <span class="text-[11px] text-on-surface-variant" id="showdown-arcade-voters">Voters: Michael</span>
-        </div>
-        <div class="vote-widget flex-shrink-0" data-id="showdown-arcade"></div>
-      </div>
-
-      <!-- Karting Camp Vote Button -->
-      <div class="p-4 rounded-xl bg-white border-2 border-amber-200 flex items-center justify-between">
-        <div>
-          <span class="text-xs font-pop font-extrabold text-amber-900 block">Vote Team Go-Karting</span>
-          <span class="text-[11px] text-on-surface-variant" id="showdown-karts-voters">Voters: Greg &amp; Cat</span>
-        </div>
-        <div class="vote-widget flex-shrink-0" data-id="showdown-karts"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Venue Cards Grid: 4 Contenders -->
-  <div class="mb-4">
-    <div class="flex items-center justify-between mb-2">
-      <h3 class="font-pop font-extrabold text-2xl text-on-surface">The 4 Contender Venues</h3>
-      <span class="text-xs font-pop font-bold text-on-surface-variant bg-surface-container px-3 py-1 rounded-full border border-outline-variant">Vote for your favorite spot below</span>
-    </div>
-    <p class="text-xs text-on-surface-variant font-body mb-6">Each family member can vote directly on specific venues. Tap thumbs up/down to record your preference.</p>
-  </div>
-
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-    
-    <!-- 1. Les Trois Monkeys -->
-    <div class="pop-card overflow-hidden flex flex-col justify-between" data-item="les-trois-monkeys">
-      <div>
-        <div class="h-48 bg-cover bg-center relative border-b-2 border-on-surface" style="background-image: url('assets/venues/les_trois_monkeys.jpg')">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-          <div class="absolute top-3 left-3 flex items-center gap-1.5 bg-purple-600 text-white text-[10px] font-pop font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full border border-white shadow-md">
-            <span>👾</span> Frontrunner &middot; Downtown &amp; Walkable
-          </div>
-          <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between">
-            <span class="bg-purple-800 text-white text-[10px] font-pop font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full border border-white">Cours Mont-Royal &middot; Suite 200</span>
-            <span class="text-white text-xs font-bold bg-black/50 px-2 py-0.5 rounded border border-white/40">🎳 Bowling &bull; 🎯 Laser Tag &bull; 🕹️ Arcade</span>
-          </div>
-        </div>
-        <div class="p-5">
-          <div class="flex items-baseline justify-between mb-1">
-            <h3 class="font-pop font-extrabold text-xl text-on-surface">Les Trois Monkeys</h3>
-            <span class="text-xs text-on-surface-variant font-bold">Peel / Downtown</span>
-          </div>
-          <p class="font-pop text-xs text-purple-900 font-extrabold uppercase tracking-wider mb-2">1455 Peel, Suite 200 &middot; 2.1 km (25 min walk from house)</p>
-          
-          <div class="flex items-center gap-2 mb-3 flex-wrap">
-            <span class="review-badge-google"><span>G</span> 4.5 ★ <span class="text-[10px] font-normal text-blue-700">(1,200+)</span></span>
-            <span class="text-[11px] font-pop font-bold bg-emerald-50 text-emerald-800 px-2.5 py-0.5 rounded-full border border-emerald-300">Open 11:00 AM &ndash; 1:00 AM</span>
-          </div>
-
-          <!-- Strategic Dinner Proximity Callout -->
-          <div class="bg-emerald-50 p-3 rounded-xl border-2 border-emerald-400 mb-3 text-xs text-emerald-950 font-pop">
-            <div class="flex items-center justify-between font-extrabold mb-1">
-              <span class="text-emerald-950 flex items-center gap-1">
-                <span class="material-symbols-outlined !text-sm text-emerald-700">near_me</span>
-                <span>Tactical Advantage: 10 Min Walk to Dinner!</span>
-              </span>
-              <span class="text-emerald-800 text-[10px] bg-emerald-200/80 px-2 py-0.5 rounded-full border border-emerald-400">Zero Cars Needed</span>
-            </div>
-            <p class="text-[11px] font-body text-emerald-900 leading-snug">
-              Cours Mont-Royal to Place Ville Marie (6:00 PM dinner at <em>Les Enfants Terribles</em>) is exactly a 10-minute walk down Mansfield/Metcalfe. <strong>No car transfers, zero parking fees, and zero traffic risk.</strong>
-            </p>
-          </div>
-
-          <p class="font-body text-xs text-on-surface-variant leading-relaxed mb-3">
-            Multi-activity entertainment complex: Bowling ($9.95/game or $44.95/hr Fri&ndash;Sun), multi-level laser tag ($11.95&ndash;$19.95), Lucky Putt mini-golf, AR darts, arcade classics, karaoke &amp; full resto-bar.
-          </p>
-
-          <div class="bg-surface-container-low p-2.5 rounded-lg border border-outline-variant mb-3 text-[11px] text-on-surface-variant font-medium">
-            <strong>Group Booking Policy:</strong> Reservations start at 12 people &mdash; so at 11 guests, we are a walk-in. Arriving early afternoon (1:30 PM) avoids all peak evening queues!
-          </div>
-          
-          <div class="traz-note traz-bubble p-2.5 flex items-center gap-2 mb-3">
-            <img src="assets/traz_fortnite.jpg" alt="Traz" class="w-10 h-10 rounded-full object-cover border border-purple-900 flex-shrink-0" />
-            <p class="text-[11px] text-purple-900 font-bold leading-tight"><strong>Traz:</strong> "The cleanest battle plan: everyone strolls together down Peel, plays bowling, laser tag and arcade, and at 5:45 PM we walk 10 mins right into Place Ville Marie for dinner. Flawless squad logistics."</p>
-          </div>
-        </div>
-      </div>
-      <div class="p-5 pt-0">
-        <div class="pt-3 border-t-2 border-outline-variant flex items-center justify-between vote-widget" data-id="les-trois-monkeys"></div>
-      </div>
-    </div>
-
-    <!-- 2. Action 500 Dorval -->
-    <div class="pop-card overflow-hidden flex flex-col justify-between" data-item="action-500-dorval">
-      <div>
-        <div class="h-48 bg-cover bg-center relative border-b-2 border-on-surface" style="background-image: url('assets/venues/action_500_dorval.jpg')">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-          <div class="absolute top-3 left-3 flex items-center gap-1.5 bg-amber-500 text-white text-[10px] font-pop font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full border border-white shadow-md">
-            <span>🏎️</span> Frontrunner Karting &middot; Groups 8+ Bookable
-          </div>
-          <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between">
-            <span class="bg-amber-700 text-white text-[10px] font-pop font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full border border-white">Dorval &middot; 1865 Transcanadienne</span>
-            <span class="text-white text-xs font-bold bg-black/50 px-2 py-0.5 rounded border border-white/40">🏎️ Adult &bull; 🏎️ Junior &bull; 🎯 Laser Tag</span>
-          </div>
-        </div>
-        <div class="p-5">
-          <div class="flex items-baseline justify-between mb-1">
-            <h3 class="font-pop font-extrabold text-xl text-on-surface">Action 500 Dorval</h3>
-            <span class="text-xs text-on-surface-variant font-bold">Dorval (West Island)</span>
-          </div>
-          <p class="font-pop text-xs text-amber-800 font-extrabold uppercase tracking-wider mb-2">1865 Transcanadienne &middot; 16.4 km (~25 min drive)</p>
-          
-          <div class="flex items-center gap-2 mb-3 flex-wrap">
-            <span class="review-badge-google"><span>G</span> 4.4 ★ <span class="text-[10px] font-normal text-blue-700">(3,400+)</span></span>
-            <span class="text-[11px] font-pop font-bold bg-amber-50 text-amber-900 px-2.5 py-0.5 rounded-full border border-amber-300">Open Fri 10:00 AM &ndash; Midnight</span>
-          </div>
-
-          <!-- Schedule Window Callout -->
-          <div class="bg-amber-50 p-3 rounded-xl border-2 border-amber-400 mb-3 text-xs text-amber-950 font-pop">
-            <div class="flex items-center justify-between font-extrabold mb-1">
-              <span class="text-amber-950 flex items-center gap-1">
-                <span class="material-symbols-outlined !text-sm text-amber-700">schedule</span>
-                <span>Calendar Window: Friday Morning Run Only</span>
-              </span>
-              <span class="text-amber-800 text-[10px] bg-amber-200/80 px-2 py-0.5 rounded-full border border-amber-400">Cars Required</span>
-            </div>
-            <p class="text-[11px] font-body text-amber-900 leading-snug">
-              If chosen, this must happen Friday late morning/early afternoon so both cars can return to Plateau/Mile End to recharge before our 6:00 PM confirmed dinner downtown.
-            </p>
-          </div>
-
-          <p class="font-body text-xs text-on-surface-variant leading-relaxed mb-3">
-            High-speed asphalt go-karting with both Adult karts (min 5 ft / 1.52m) and Junior karts (min 4 ft / 1.22m &mdash; Izzy at 10 qualifies!). Also features laser tag, escape rooms, and arcade games.
-          </p>
-
-          <div class="bg-surface-container-low p-2.5 rounded-lg border border-outline-variant mb-3 text-[11px] text-on-surface-variant font-medium">
-            <strong>Group Booking Policy:</strong> Group packages for 8+ racers are bookable in advance with guaranteed track time.
-          </div>
-          
-          <div class="traz-note traz-bubble p-2.5 flex items-center gap-2 mb-3">
-            <img src="assets/traz_sports.jpg" alt="Traz" class="w-10 h-10 rounded-full object-cover border border-purple-900 flex-shrink-0" />
-            <p class="text-[11px] text-purple-900 font-bold leading-tight"><strong>Traz:</strong> "If Greg and the squad must satisfy their need for speed, Dorval is the only legitimate track! Izzy clears the junior height threshold, and Owen can burn rubber."</p>
-          </div>
-        </div>
-      </div>
-      <div class="p-5 pt-0">
-        <div class="pt-3 border-t-2 border-outline-variant flex items-center justify-between vote-widget" data-id="action-500-dorval"></div>
-      </div>
-    </div>
-
-    <!-- 3. TAG E-Karting Sainte-Thérèse -->
-    <div class="pop-card overflow-hidden flex flex-col justify-between" data-item="tag-e-karting">
-      <div>
-        <div class="h-48 bg-cover bg-center relative border-b-2 border-on-surface" style="background-image: url('assets/venues/tag_e_karting.jpg')">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-          <div class="absolute top-3 left-3 flex items-center gap-1.5 bg-rose-600 text-white text-[10px] font-pop font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full border border-white shadow-md">
-            <span>🏎️</span> 3-Level Electric Mega-Track
-          </div>
-          <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between">
-            <span class="bg-rose-800 text-white text-[10px] font-pop font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full border border-white">Sainte-Thérèse &middot; Off-Island North</span>
-            <span class="text-white text-xs font-bold bg-black/50 px-2 py-0.5 rounded border border-white/40">3-Tier Track &bull; VR &bull; 7D Cinema</span>
-          </div>
-        </div>
-        <div class="p-5">
-          <div class="flex items-baseline justify-between mb-1">
-            <h3 class="font-pop font-extrabold text-xl text-on-surface">TAG E-Karting</h3>
-            <span class="text-xs text-on-surface-variant font-bold">Sainte-Thérèse (North Shore)</span>
-          </div>
-          <p class="font-pop text-xs text-rose-800 font-extrabold uppercase tracking-wider mb-2">270 rue Sicard &middot; 24.3 km (~35&ndash;40 min drive)</p>
-          
-          <div class="flex items-center gap-2 mb-3 flex-wrap">
-            <span class="review-badge-google"><span>G</span> 4.6 ★ <span class="text-[10px] font-normal text-blue-700">(2,100+)</span></span>
-            <span class="text-[11px] font-pop font-bold bg-rose-50 text-rose-900 px-2.5 py-0.5 rounded-full border border-rose-300">Open Fri 10:00 AM &ndash; Midnight</span>
-          </div>
-
-          <!-- Traffic Risk Callout -->
-          <div class="bg-rose-50 p-3 rounded-xl border-2 border-rose-300 mb-3 text-xs text-rose-950 font-pop">
-            <div class="flex items-center justify-between font-extrabold mb-1">
-              <span class="text-rose-950 flex items-center gap-1">
-                <span class="material-symbols-outlined !text-sm text-rose-700">warning</span>
-                <span>Distance Warning: 35&ndash;40 Min Drive Each Way</span>
-              </span>
-              <span class="text-rose-900 bg-rose-200/80 px-2 py-0.5 rounded-full text-[10px] border border-rose-400">Traffic Risk</span>
-            </div>
-            <p class="text-[11px] font-body text-rose-900 leading-snug">
-              Located 24 km north of Montreal. Friday afternoon return traffic across the bridge heading back downtown for our 6:00 PM dinner reservation is a major bottleneck risk.
-            </p>
-          </div>
-
-          <p class="font-body text-xs text-on-surface-variant leading-relaxed mb-3">
-            Incredible state-of-the-art multi-level electric karting designed by Alex Tagliani: 3-tier track, interactive boosts, bowling, laser tag, axe throwing, VR arenas, and a 7D motion theater. Kids 7+, adult karting 10+.
-          </p>
-
-          <div class="bg-surface-container-low p-2.5 rounded-lg border border-outline-variant mb-3 text-[11px] text-on-surface-variant font-medium">
-            <strong>Group Suitability:</strong> Top-tier facility, but requires long convoy drive and high traffic discipline.
-          </div>
-          
-          <div class="traz-note traz-bubble p-2.5 flex items-center gap-2 mb-3">
-            <img src="assets/traz_victory.jpg" alt="Traz" class="w-10 h-10 rounded-full object-cover border border-purple-900 flex-shrink-0" />
-            <p class="text-[11px] text-purple-900 font-bold leading-tight"><strong>Traz:</strong> "World-class 3-story electric track, but driving 40 minutes north and battling rush-hour bridges back for a 6 PM table is dangerous squad math."</p>
-          </div>
-        </div>
-      </div>
-      <div class="p-5 pt-0">
-        <div class="pt-3 border-t-2 border-outline-variant flex items-center justify-between vote-widget" data-id="tag-e-karting"></div>
-      </div>
-    </div>
-
-    <!-- 4. Mira Amusement (MTL Forum) -->
-    <div class="pop-card overflow-hidden flex flex-col justify-between" data-item="mira-amusement">
-      <div>
-        <div class="h-48 bg-cover bg-center relative border-b-2 border-on-surface" style="background-image: url('assets/venues/mira_amusement.jpg')">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-          <div class="absolute top-3 left-3 flex items-center gap-1.5 bg-blue-600 text-white text-[10px] font-pop font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full border border-white shadow-md">
-            <span>👾</span> Historic Forum Arcade
-          </div>
-          <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between">
-            <span class="bg-blue-800 text-white text-[10px] font-pop font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full border border-white">2313 Ste-Catherine O &middot; Montreal Forum</span>
-            <span class="text-white text-xs font-bold bg-black/50 px-2 py-0.5 rounded border border-white/40">100+ Arcades &bull; VR &bull; Glow Mini-Golf</span>
-          </div>
-        </div>
-        <div class="p-5">
-          <div class="flex items-baseline justify-between mb-1">
-            <h3 class="font-pop font-extrabold text-xl text-on-surface">Mira Amusement (Forum)</h3>
-            <span class="text-xs text-on-surface-variant font-bold">Shaughnessy Village</span>
-          </div>
-          <p class="font-pop text-xs text-blue-900 font-extrabold uppercase tracking-wider mb-2">2313 Ste-Catherine O &middot; 3.6 km (15 min metro to Atwater)</p>
-          
-          <div class="flex items-center gap-2 mb-3 flex-wrap">
-            <span class="review-badge-google"><span>G</span> 4.3 ★ <span class="text-[10px] font-normal text-blue-700">(850+)</span></span>
-            <span class="text-[11px] font-pop font-bold bg-blue-50 text-blue-900 px-2.5 py-0.5 rounded-full border border-blue-300">Open Weekdays Noon &ndash; Late</span>
-          </div>
-
-          <!-- Transit Proximity Callout -->
-          <div class="bg-blue-50 p-3 rounded-xl border-2 border-blue-300 mb-3 text-xs text-blue-950 font-pop">
-            <div class="flex items-center justify-between font-extrabold mb-1">
-              <span class="text-blue-950 flex items-center gap-1">
-                <span class="material-symbols-outlined !text-sm text-blue-700">subway</span>
-                <span>Metro Connected: Green Line to Atwater</span>
-              </span>
-              <span class="text-blue-800 text-[10px] bg-blue-200/80 px-2 py-0.5 rounded-full border border-blue-400">Easy Transit</span>
-            </div>
-            <p class="text-[11px] font-body text-blue-900 leading-snug">
-              Located directly inside the historic Montreal Forum where the Canadiens won 24 Stanley Cups. Direct metro ride on the Green Line.
-            </p>
-          </div>
-
-          <p class="font-body text-xs text-on-surface-variant leading-relaxed mb-3">
-            Over 100 arcade cabinets, VR motion simulators, 9-hole glow mini-golf ($10/player), billiards tables, ping-pong, and sports bar. (Note: No bowling lanes or go-karts on site).
-          </p>
-
-          <div class="bg-surface-container-low p-2.5 rounded-lg border border-outline-variant mb-3 text-[11px] text-on-surface-variant font-medium">
-            <strong>Group Setup:</strong> Walk-in token play, plenty of space, zero reservation constraints.
-          </div>
-          
-          <div class="traz-note traz-bubble p-2.5 flex items-center gap-2 mb-3">
-            <img src="assets/traz_music.jpg" alt="Traz" class="w-10 h-10 rounded-full object-cover border border-purple-900 flex-shrink-0" />
-            <p class="text-[11px] text-purple-900 font-bold leading-tight"><strong>Traz:</strong> "Great pure arcade play inside hockey temple holy ground. Perfect backup if bowling lanes at Les Trois Monkeys are packed."</p>
-          </div>
-        </div>
-      </div>
-      <div class="p-5 pt-0">
-        <div class="pt-3 border-t-2 border-outline-variant flex items-center justify-between vote-widget" data-id="mira-amusement"></div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Disqualified / Filtered Venues Tactical Debrief Strip -->
-  <div class="bg-surface-container-low p-5 md:p-6 rounded-2xl border-2 border-outline-variant">
-    <div class="flex items-center gap-2 mb-3 font-pop font-extrabold text-sm text-on-surface">
-      <span class="material-symbols-outlined text-pop-red !text-lg">rule</span>
-      <span>Scouted Venues &mdash; Disqualified or Reassigned by Trip Rules</span>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-body text-on-surface-variant">
-      
-      <div class="p-3 bg-white rounded-xl border border-outline-variant">
-        <div class="flex items-center justify-between font-pop font-bold text-on-surface mb-1">
-          <span>Salon de quilles Darling</span>
-          <span class="text-[10px] text-pop-red bg-rose-50 px-2 py-0.5 rounded-full border border-rose-200">❌ Time Conflict</span>
-        </div>
-        <p class="text-[11px] leading-snug">3350 Ontario E (24 vintage bowling lanes). <strong>Disqualified for Friday daytime:</strong> does not open until 5:00 PM on Fridays, making it impossible before our 6:00 PM dinner. Closed Sun&ndash;Mon.</p>
-      </div>
-
-      <div class="p-3 bg-white rounded-xl border border-outline-variant">
-        <div class="flex items-center justify-between font-pop font-bold text-on-surface mb-1">
-          <span>North Star Machines à Piastres</span>
-          <span class="text-[10px] text-purple-800 bg-purple-50 px-2 py-0.5 rounded-full border border-purple-200">🔞 Adults Only (18+)</span>
-        </div>
-        <p class="text-[11px] leading-snug">3908 St-Laurent (2 min walk across the street from house!). 14 pinball machines &amp; air hockey. <strong>Strictly 18+ and opens at 5:00 PM</strong> (Owen &amp; Izzy cannot enter). Filed as adult nightcap, not family activity!</p>
-      </div>
-
-      <div class="p-3 bg-white rounded-xl border border-outline-variant">
-        <div class="flex items-center justify-between font-pop font-bold text-on-surface mb-1">
-          <span>Hochelaga &amp; Kart-O-Mania</span>
-          <span class="text-[10px] text-gray-700 bg-gray-100 px-2 py-0.5 rounded-full border border-gray-300">🚫 Permanently Closed</span>
-        </div>
-        <p class="text-[11px] leading-snug">Action 500 Hochelaga and Kart-O-Mania are permanently shut down. (Note: Action 500's website still mistakenly displays Hochelaga, but only the Dorval location is active).</p>
-      </div>
-
-    </div>
   </div>
 </section>
 
@@ -1738,8 +1369,8 @@ const MAP_DESTINATIONS = [
   { id: "jean-talon", name: "Jean-Talon Market", category: "attraction", lat: 45.5361, lng: -73.6150, walk: "12 min metro", desc: "Vibrant open-air market in Little Italy.", icon: "🍎", color: "#219ebc", badge: "Market" },
   { id: "bateau-mouche", name: "Bateau-Mouche Cruise", category: "attraction", lat: 45.5072, lng: -73.5510, walk: "12 min drive", desc: "60-min St. Lawrence River panoramic cruise (Sat 2:30 PM).", icon: "🚢", color: "#219ebc", badge: "Sat 2:30 PM (Booked)" },
   { id: "combat-archers", name: "Combat d'Archers & Karting MTL", category: "attraction", lat: 45.5489, lng: -73.5414, walk: "15 min drive", desc: "Combat archery tag, electric drift karts, bazooka ball, Nerf & VR arena for 11 at 3955 rue De Rouen.", icon: "🏹", color: "#219ebc", badge: "Sun Afternoon" },
-  { id: "les-trois-monkeys", name: "Les Trois Monkeys (Peel)", category: "attraction", lat: 45.5005, lng: -73.5732, walk: "25 min walk / 10m metro", desc: "Cours Mont-Royal. Bowling, laser tag, mini-golf, AR darts, arcade & resto-bar. 10m walk to 6pm dinner at PVM.", icon: "👾", color: "#8b5cf6", badge: "Showdown Pick" },
-  { id: "action-500-dorval", name: "Action 500 Dorval", category: "attraction", lat: 45.4745, lng: -73.7431, walk: "25 min drive", desc: "1865 Transcanadienne. Adult & junior go-karting, laser tag & escape rooms. Groups 8+ bookable.", icon: "🏎️", color: "#e63946", badge: "Karting Pick" },
+  { id: "les-trois-monkeys", name: "Les Trois Monkeys (Peel)", category: "attraction", lat: 45.5005, lng: -73.5732, walk: "25 min walk / 10m metro", desc: "Cours Mont-Royal. Bowling, laser tag, mini-golf, AR darts, arcade & resto-bar. 10m walk to 6pm dinner at PVM.", icon: "👾", color: "#8b5cf6", badge: "Arcade & Bowling" },
+  { id: "action-500-dorval", name: "Action 500 Dorval", category: "attraction", lat: 45.4745, lng: -73.7431, walk: "25 min drive", desc: "1865 Transcanadienne. Adult & junior go-karting, laser tag & escape rooms. Groups 8+ bookable.", icon: "🏎️", color: "#e63946", badge: "Indoor Karting" },
   { id: "tag-e-karting", name: "TAG E-Karting (Ste-Thérèse)", category: "attraction", lat: 45.6425, lng: -73.8441, walk: "35-40 min drive", desc: "270 rue Sicard. 3-level electric karting track, VR, laser tag & 7D cinema. Off-island mega-complex.", icon: "🏎️", color: "#f59e0b", badge: "Mega Karting" },
   { id: "mira-amusement", name: "Mira Amusement (MTL Forum)", category: "attraction", lat: 45.4899, lng: -73.5847, walk: "10m drive / 15m metro", desc: "Historic Montreal Forum. 100+ arcades, VR games, 9-hole mini-golf ($10), billiards. Atwater Metro.", icon: "👾", color: "#219ebc", badge: "Forum Arcade" },
   { id: "north-star-pinball", name: "North Star Pinball", category: "casual", lat: 45.5173, lng: -73.5794, walk: "2 min walk", desc: "3908 St-Laurent across the street. 14 vintage pinballs & tavern snacks. 18+ Adults Only, opens 5pm (nightcap option!).", icon: "🕹️", color: "#64748b", badge: "18+ Nightcap Only" }
@@ -1841,7 +1472,6 @@ function renderAll() {
   renderCoffeeGrid();
   renderGuideGrid();
   renderMapCardDeck();
-  renderShowdownTally();
   applyTrazVisibility();
   applySoldOutOverlays();
 }
@@ -1856,7 +1486,6 @@ function selectMember(id) {
   renderMemberSelector();
   renderMarqueeWidgets();
   renderGuideGrid();
-  renderShowdownTally();
 }
 
 function renderMemberSelector() {
@@ -2237,11 +1866,7 @@ function renderMapCardDeck() {
 }
 
 /* ── VOTING LOGIC & RENDERING ── */
-const OPEN_VOTE_IDS = [
-  'showdown-arcade', 'showdown-karts',
-  'les-trois-monkeys', 'action-500-dorval',
-  'tag-e-karting', 'mira-amusement'
-];
+const OPEN_VOTE_IDS = [];
 
 function applyLocalVote(itemId, newVote) {
   if (!appState.votes) appState.votes = {};
@@ -2275,7 +1900,6 @@ async function castVote(itemId, voteType) {
   applyLocalVote(itemId, newVote);
   renderMarqueeWidgets();
   renderGuideGrid();
-  renderShowdownTally();
 
   try {
     const res = await fetch('/api/vote', {
@@ -2293,7 +1917,6 @@ async function castVote(itemId, voteType) {
         appState.votes = serverState.votes;
         renderMarqueeWidgets();
         renderGuideGrid();
-        renderShowdownTally();
       }
     }
   } catch (err) {
@@ -2352,49 +1975,6 @@ function renderMarqueeWidgets() {
     const id = el.dataset.id;
     if (id) el.innerHTML = renderVoteWidgetHtml(id);
   });
-  renderShowdownTally();
-}
-
-function renderShowdownTally() {
-  if (!appState || !appState.votes) return;
-
-  const arcadeData = appState.votes['showdown-arcade'] || { up: [], down: [] };
-  const kartsData = appState.votes['showdown-karts'] || { up: [], down: [] };
-
-  const arcadeVotes = (arcadeData.up || []).length;
-  const kartsVotes = (kartsData.up || []).length;
-  const total = arcadeVotes + kartsVotes;
-
-  let arcadePct = 50;
-  let kartsPct = 50;
-  if (total > 0) {
-    arcadePct = Math.round((arcadeVotes / total) * 100);
-    kartsPct = 100 - arcadePct;
-  }
-
-  const arcBar = document.getElementById('showdown-arcade-bar');
-  const kartBar = document.getElementById('showdown-karts-bar');
-  const arcPctEl = document.getElementById('showdown-arcade-pct');
-  const kartPctEl = document.getElementById('showdown-karts-pct');
-  const arcVotesEl = document.getElementById('showdown-arcade-votes');
-  const kartVotesEl = document.getElementById('showdown-karts-votes');
-  const arcVotersEl = document.getElementById('showdown-arcade-voters');
-  const kartVotersEl = document.getElementById('showdown-karts-voters');
-
-  if (arcBar) arcBar.style.width = `${arcadePct}%`;
-  if (kartBar) kartBar.style.width = `${kartsPct}%`;
-  if (arcPctEl) arcPctEl.textContent = `${arcadePct}%`;
-  if (kartPctEl) kartPctEl.textContent = `${kartsPct}%`;
-  if (arcVotesEl) arcVotesEl.textContent = `${arcadeVotes} ${arcadeVotes === 1 ? 'vote' : 'votes'}`;
-  if (kartVotesEl) kartVotesEl.textContent = `${kartsVotes} ${kartsVotes === 1 ? 'vote' : 'votes'}`;
-
-  const getNames = (ids) => (ids || []).map(id => {
-    const m = (appState.family_members || []).find(x => x.id === id);
-    return m ? m.name : id;
-  }).join(', ');
-
-  if (arcVotersEl) arcVotersEl.textContent = `Voters: ${getNames(arcadeData.up) || 'None yet'}`;
-  if (kartVotersEl) kartVotersEl.textContent = `Voters: ${getNames(kartsData.up) || 'None yet'}`;
 }
 
 /* ── COFFEE & BAKERY LOGIC ── */

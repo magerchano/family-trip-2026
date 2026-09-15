@@ -97,16 +97,16 @@
       "lunch": "Touchdowns & Early Basecamp Unpack",
       "dinner": "Schwartz's Smoked Meat Feasts",
       "dinner_status": "confirmed",
-      "dinner_note": "Andrew & Liz touch down first at 2:40 PM! Flights continue landing ~4:10–5:00 PM to unlock basecamp. CT road trip crew departs 3:00 PM, landing ~9:00 PM. Schwartz's is open late on our block—steaming hot brisket feast waiting on the rooftop patios!"
+      "dinner_note": "Andrew & Liz touch down first at 2:40 PM! Flights continue landing ~4:10\u20135:00 PM to unlock basecamp. CT road trip crew departs 3:00 PM, landing ~9:00 PM. Schwartz's is open late on our block\u2014steaming hot brisket feast waiting on the rooftop patios!"
     },
     {
       "day": "Ven 9",
       "date": "Fri Oct 9",
-      "theme": "Mile End Stroll, Jean-Talon & Friday Showdown",
+      "theme": "Mile End Stroll, Jean-Talon & Mount Royal",
       "coffee": "Dispatch Coffee (St-Laurent)",
       "breakfast": "Fairmount / St-Viateur Bagels",
       "lunch": "Jean-Talon Market Bites & Little Italy",
-      "activity": "\ud83e\udd50 <strong>10:30 AM: Mile End Stroll & Jean-Talon Market</strong><br>\ud83c\udfce\ufe0f vs \ud83d\udc7e <strong>1:30 PM: Go-Karts vs. Arcade Showdown</strong> (Active Group Vote Below!)<br>\ud83e\udd42 <strong>6:00 PM: Les Enfants Terribles</strong> (Place Ville Marie \u2014 Confirmed!)",
+      "activity": "\ud83e\udd50 <strong>10:30 AM: Mile End Stroll & Jean-Talon Market</strong><br>\ud83c\udf41 <strong>1:30 PM: Mount Royal Park & Plateau Exploration</strong><br>\ud83e\udd42 <strong>6:00 PM: Les Enfants Terribles</strong> (Place Ville Marie \u2014 Confirmed!)",
       "dinner": "Les Enfants Terribles (Place Ville Marie) \u2014 Confirmed @ 6:00 PM",
       "dinner_status": "confirmed",
       "dinner_note": "CONFIRMED & BOOKED: Table for 11 @ 6:00 PM via Libro. 3 Place Ville Marie (Esplanade PVM, 1st floor). Lively French brasserie & American comfort classics\u2014all 11 easily seated."
@@ -128,9 +128,9 @@
       "date": "Sun Oct 11",
       "theme": "Combat d'Archers, Karting & Gibbys Thanksgiving Feast",
       "coffee": "Pikolo Espresso Bar",
-      "breakfast": "Café Replika (Simit Bagels)",
+      "breakfast": "Caf\u00e9 Replika (Simit Bagels)",
       "lunch": "Plateau Brunch & Rest",
-      "activity": "🏹 <strong>Sunday Afternoon: Combat d'Archers & Karting MTL</strong> (Combat archery tag, electric drift karts, bazooka ball, Nerf & VR arena at 3955 rue De Rouen — <a href='https://combatdarchers.ca/en/' target='_blank' class='underline font-bold'>combatdarchers.ca</a>)",
+      "activity": "\ud83c\udff9 <strong>Sunday Afternoon: Combat d'Archers & Karting MTL</strong> (Combat archery tag, electric drift karts, bazooka ball, Nerf & VR arena at 3955 rue De Rouen \u2014 <a href='https://combatdarchers.ca/en/' target='_blank' class='underline font-bold'>combatdarchers.ca</a>)",
       "dinner": "Gibbys (Historic Stable) \u2014 Confirmed @ 6:30 PM",
       "dinner_status": "confirmed",
       "dinner_note": "CONFIRMED & BOOKED: Table for 11 @ 6:30 PM (Conf #200213). 200-year stone stable in Old Montreal (Mom's #1 pick!). Prime rib feast, warm sourdough & dills. Ros\u00e9lys backup hold cleanly cancelled on Sep 14."
@@ -297,18 +297,6 @@
       ],
       "down": []
     },
-    "showdown-arcade": {
-      "up": [
-        "michael"
-      ],
-      "down": []
-    },
-    "showdown-karts": {
-      "up": [
-        "greg-cat"
-      ],
-      "down": []
-    },
     "les-trois-monkeys": {
       "up": [
         "michael"
@@ -327,6 +315,13 @@
     },
     "mira-amusement": {
       "up": [],
+      "down": []
+    },
+    "dodgebow-montreal": {
+      "up": [
+        "greg-cat",
+        "michael"
+      ],
       "down": []
     }
   },
