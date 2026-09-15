@@ -890,7 +890,7 @@ tailwind.config = {
       Friday Showdown: Go-Karts vs. Arcade
     </h2>
     <p class="font-body text-on-surface-variant text-base leading-relaxed">
-      All group dinners are locked (Schwartz's Thu, Les Enfants Terribles Fri, La Lune Sat, Gibbys Sun) and fixed events are pinned (Biodome Sat morning, Bateau-Mouche Sat 2:30 PM, DodgeBow Sun 2:30 PM). 
+      All group dinners are locked (Schwartz's Thu, Les Enfants Terribles Fri, La Lune Sat, Gibbys Sun) and fixed events are pinned (Biodome Sat morning, Bateau-Mouche Sat 2:30 PM, Combat d'Archers &amp; Karting Sun afternoon). 
       <strong>Friday afternoon (1:30 PM &ndash; 5:00 PM) is the sole open window on the entire trip.</strong>
       Cast your vote below: Walkable downtown multi-activity hub, or high-octane off-island go-kart sprint?
     </p>
@@ -1257,7 +1257,7 @@ tailwind.config = {
         <span>🔒 🎯</span> Discovery &amp; Field Guide &middot; Activities Locked
       </div>
       <h2 class="font-pop font-extrabold text-4xl md:text-5xl text-on-surface tracking-tight mb-2">Explore &amp; Field Guide</h2>
-      <p class="font-body text-on-surface-variant text-base"><strong>Activity voting is closed &mdash; schedule is locked!</strong> (Bateau-Mouche Cruise booked for Sat 2:30 PM, Biodome Sat morning, DodgeBow Sun 2:30 PM, and Mile End / Jean-Talon / Mount Royal Friday). Review recommendations and final group tallies below.</p>
+      <p class="font-body text-on-surface-variant text-base"><strong>Activity voting is closed &mdash; schedule is locked!</strong> (Bateau-Mouche Cruise booked for Sat 2:30 PM, Biodome Sat morning, Combat d'Archers &amp; Karting Sun afternoon, and Mile End / Jean-Talon / Mount Royal Friday). Review recommendations and final group tallies below.</p>
     </div>
 
     <!-- Category Tabs -->
@@ -1737,7 +1737,7 @@ const MAP_DESTINATIONS = [
   { id: "old-port", name: "Old Montreal & Notre-Dame", category: "attraction", lat: 45.5048, lng: -73.5560, walk: "12 min drive", desc: "Cobblestone streets, historic basilica, and waterfront promenade.", icon: "⛪️", color: "#219ebc", badge: "Historic" },
   { id: "jean-talon", name: "Jean-Talon Market", category: "attraction", lat: 45.5361, lng: -73.6150, walk: "12 min metro", desc: "Vibrant open-air market in Little Italy.", icon: "🍎", color: "#219ebc", badge: "Market" },
   { id: "bateau-mouche", name: "Bateau-Mouche Cruise", category: "attraction", lat: 45.5072, lng: -73.5510, walk: "12 min drive", desc: "60-min St. Lawrence River panoramic cruise (Sat 2:30 PM).", icon: "🚢", color: "#219ebc", badge: "Sat 2:30 PM (Booked)" },
-  { id: "dodgebow-montreal", name: "DodgeBow Montreal", category: "attraction", lat: 45.5284, lng: -73.5975, walk: "8 min drive", desc: "Combat archery tag indoor arena for 11 (Sun 2:30 PM).", icon: "🏹", color: "#219ebc", badge: "Sun 2:30 PM" },
+  { id: "combat-archers", name: "Combat d'Archers & Karting MTL", category: "attraction", lat: 45.5489, lng: -73.5414, walk: "15 min drive", desc: "Combat archery tag, electric drift karts, bazooka ball, Nerf & VR arena for 11 at 3955 rue De Rouen.", icon: "🏹", color: "#219ebc", badge: "Sun Afternoon" },
   { id: "les-trois-monkeys", name: "Les Trois Monkeys (Peel)", category: "attraction", lat: 45.5005, lng: -73.5732, walk: "25 min walk / 10m metro", desc: "Cours Mont-Royal. Bowling, laser tag, mini-golf, AR darts, arcade & resto-bar. 10m walk to 6pm dinner at PVM.", icon: "👾", color: "#8b5cf6", badge: "Showdown Pick" },
   { id: "action-500-dorval", name: "Action 500 Dorval", category: "attraction", lat: 45.4745, lng: -73.7431, walk: "25 min drive", desc: "1865 Transcanadienne. Adult & junior go-karting, laser tag & escape rooms. Groups 8+ bookable.", icon: "🏎️", color: "#e63946", badge: "Karting Pick" },
   { id: "tag-e-karting", name: "TAG E-Karting (Ste-Thérèse)", category: "attraction", lat: 45.6425, lng: -73.8441, walk: "35-40 min drive", desc: "270 rue Sicard. 3-level electric karting track, VR, laser tag & 7D cinema. Off-island mega-complex.", icon: "🏎️", color: "#f59e0b", badge: "Mega Karting" },
@@ -1780,7 +1780,7 @@ const GUIDE_CATALOG = {
   ],
   attractions: [
     { id: "bateau-mouche", name: "Bateau-Mouche 60-Min Cruise", addr: "Jacques-Cartier Pier, Old Port", tag: "🔒 Sat 2:30 PM · Booked", yelpRating: "4.0", yelpReviews: "120+", googleRating: "4.4", googleReviews: "2,100+", desc: "Panoramic glass-enclosed cruise on the St. Lawrence River with upper open deck, bar & snacks. 60-minute cruise (Sat 2:30 PM departure).", fort: "River naval expedition. 60 mins of skyline views, snacks, and cocktails." },
-    { id: "dodgebow-montreal", name: "DodgeBow Montreal (Combat Archers)", addr: "5425 Rue Casgrain / Mile End Arena", tag: "🔒 Sun 2:30 PM · Locked In", yelpRating: "4.8", yelpReviews: "90+", googleRating: "4.9", googleReviews: "850+", desc: "High-energy archery dodgeball arena. Soft foam-tipped arrows, face masks & inflatable bunkers. Owen (12) & Izzy (10) qualify (ages 10+)! Perfect for our group of 11.", fort: "Full PvP battle arena. Bows, foam arrows, and tactical bunker combat for 11." },
+    { id: "combat-archers", name: "Combat d'Archers & Karting MTL", addr: "3955 Rue De Rouen, Hochelaga", tag: "🔒 Sun Afternoon · Multi-Activity Arena", yelpRating: "4.8", yelpReviews: "120+", googleRating: "4.8", googleReviews: "950+", desc: "Ultimate multi-activity arena! Combat archery tag (foam-tipped arrows & bunkers), indoor electric drift go-karts with Mario Kart power-ups, bazooka ball, Nerf battle arena, and VR. Owen (12) & Izzy (10) qualify for everything (karting age 9+, archery 10+)! Website: combatdarchers.ca", fort: "High-tier battle compound! Combat archery, drift karts, bazooka ball, and tactical PvP for 11." },
     { id: "mount-royal", name: "Mount Royal Observatory", addr: "Kondiaronk Belvedere", tag: "Alan's #1 View", yelpRating: "4.7", yelpReviews: "680+", googleRating: "4.8", googleReviews: "14,000+", desc: "The defining panoramic viewpoint over Montreal. Gorgeous autumn walk through the park.", fort: "The ultimate high ground. View of the entire island." },
     { id: "biodome", name: "Biodome & Olympic Park", addr: "4777 Pierre-de Coubertin", tag: "Alan's Pick · Kids Love", yelpRating: "4.3", yelpReviews: "450+", googleRating: "4.6", googleReviews: "19,000+", desc: "Explore 5 American ecosystems under one roof (penguins, rainforest, lynx). Get the combo pass!", fort: "Biome raid: Penguins, rainforest, and lynx all in one dome." },
     { id: "old-montreal", name: "Old Montreal & Notre-Dame", addr: "Rue Saint-Paul", tag: "Historic District", yelpRating: "4.7", yelpReviews: "1,400+", googleRating: "4.8", googleReviews: "28,000+", desc: "Cobblestone streets, horse carriages, Old Port promenade, and the breathtaking basilica.", fort: "Ancient cobblestone fortress zone." },

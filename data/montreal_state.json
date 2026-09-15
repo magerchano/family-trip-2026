@@ -126,11 +126,11 @@
     {
       "day": "Dim 11",
       "date": "Sun Oct 11",
-      "theme": "DodgeBow Arena Battles & Gibbys Thanksgiving Feast",
+      "theme": "Combat d'Archers, Karting & Gibbys Thanksgiving Feast",
       "coffee": "Pikolo Espresso Bar",
-      "breakfast": "Caf\u00e9 Replika (Simit Bagels)",
+      "breakfast": "Café Replika (Simit Bagels)",
       "lunch": "Plateau Brunch & Rest",
-      "activity": "\ud83c\udff9 <strong>2:30 PM: DodgeBow Montreal</strong> (Combat archery tag battle for 11) + Second Arena Activity",
+      "activity": "🏹 <strong>Sunday Afternoon: Combat d'Archers & Karting MTL</strong> (Combat archery tag, electric drift karts, bazooka ball, Nerf & VR arena at 3955 rue De Rouen — <a href='https://combatdarchers.ca/en/' target='_blank' class='underline font-bold'>combatdarchers.ca</a>)",
       "dinner": "Gibbys (Historic Stable) \u2014 Confirmed @ 6:30 PM",
       "dinner_status": "confirmed",
       "dinner_note": "CONFIRMED & BOOKED: Table for 11 @ 6:30 PM (Conf #200213). 200-year stone stable in Old Montreal (Mom's #1 pick!). Prime rib feast, warm sourdough & dills. Ros\u00e9lys backup hold cleanly cancelled on Sep 14."
@@ -284,7 +284,7 @@
       ],
       "down": []
     },
-    "dodgebow-montreal": {
+    "combat-archers": {
       "up": [
         "greg-cat",
         "michael"

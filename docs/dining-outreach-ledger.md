@@ -20,6 +20,19 @@ Last updated: 2026-09-14
 
 ## Reply log
 
+**2026-09-15 @ 2:13–2:14pm — LA LUNE: card link sent, kids' price finally answered.**
+
+**OpenTable email** (from "Rôtisserie La Lune" <no-reply@opentable.ca>, subject "Plus qu'une étape pour finaliser votre réservation"): **Table for 11, Sat Oct 10, 17:00, Michael Germano, reservation ref 41928.** *"Cette réservation exige une garantie par carte bancaire. Ajoutez les détails de la carte ou cette réservation peut faire l'objet d'une annulation."* Card entry (number, expiry, CVV, postal code) is Michael's to do via the email's button. **The secure token link is deliberately not copied here.**
+
+**David's reply:**
+- *"Devrions-nous prévoir deux menus pour enfant? Il s'agit d'une version réduite du menu de groupe pour adulte, à 35$/p."* → **Children's menu is a reduced version of the adult group menu, $35 per child.** Third ask answered.
+- *"Souhaitant une seule facture, aimeriez-vous que nous retirions le prix du menu?"* → Since it's one bill, **do we want prices removed from the printed menus** at the table. Michael's call.
+- *"Si possible, svp nous informer lorsque ce sera complété afin que nous puissions confirmer la réservation."* → **Tell David once the card is entered**; he confirms after that.
+
+**Revised Saturday cost:** 9 × $80 + 2 × $35 = **$790** food. 20% gratuity on pre-tax total ($158), then 14.975% QC tax on the whole (mandatory service charges are taxable) ≈ **$1,090 before drinks**. Earlier ~$1,055 estimate taxed food only and assumed $30 kids.
+
+**Open:** (1) Michael entering card via OpenTable email now; (2) reply to David **DRAFTED, not sent**, threaded under his 2:14pm message: card registered, **yes to menus without prices**, and before confirming two kids' menus, **asks what the children's version includes and whether something simpler can be prepared** (Michael's concern, likely Cat and Greg's too: whether a 10- and 12-year-old will eat a scaled-down version of the adult family-style rotisserie meal). **Send only after the card is actually in**, since the note says it is.
+
 **2026-09-15 — Karting headcount is 10 or fewer.** Michele likely won't kart; Liz is uncertain. That keeps karting **within the standard 10-player cap**, so no special request is needed. Group rate of $32.50 still applies (8+).
 
 | Scenario | Karting | Total incl. 14.975% tax |
