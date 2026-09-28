@@ -102,14 +102,14 @@
     {
       "day": "Ven 9",
       "date": "Fri Oct 9",
-      "theme": "Mile End Stroll, Jean-Talon & Mount Royal",
+      "theme": "Mile End, PVM Dinner & Friday Night Power Hour",
       "coffee": "Dispatch Coffee (St-Laurent)",
       "breakfast": "Fairmount / St-Viateur Bagels",
       "lunch": "Jean-Talon Market Bites & Little Italy",
-      "activity": "\ud83e\udd50 <strong>10:30 AM: Mile End Stroll & Jean-Talon Market</strong><br>\ud83c\udf41 <strong>1:30 PM: Mount Royal Park & Plateau Exploration</strong><br>\ud83e\udd42 <strong>6:00 PM: Les Enfants Terribles</strong> (Place Ville Marie \u2014 Confirmed!)",
-      "dinner": "Les Enfants Terribles (Place Ville Marie) \u2014 Confirmed @ 6:00 PM",
+      "activity": "\ud83e\udd50 <strong>10:30 AM: Mile End Stroll & Jean-Talon Market</strong><br>\ud83c\udf41 <strong>1:30 PM: Mount Royal Park & Plateau Exploration</strong><br>\ud83e\udd42 <strong>6:00 PM: Les Enfants Terribles</strong> (Place Ville Marie \u2014 Confirmed!)<br>\u26a1 <strong>8:30 PM: Official Power Hour at Basecamp (Hosted by Traz!)</strong>",
+      "dinner": "Les Enfants Terribles @ 6:00 PM \u00b7 Power Hour @ 8:30 PM",
       "dinner_status": "confirmed",
-      "dinner_note": "CONFIRMED & BOOKED: Table for 11 @ 6:00 PM via Libro. 3 Place Ville Marie (Esplanade PVM, 1st floor). Lively French brasserie & American comfort classics\u2014all 11 easily seated."
+      "dinner_note": "CONFIRMED & BOOKED: Table for 11 @ 6:00 PM via Libro. 3 Place Ville Marie (Esplanade PVM, 1st floor). Following dinner & The Ring photo op, we rally back to 3831 St-Laurent for the official Montreal Power Hour at 8:30 PM hosted by Traz on the rooftop terrace!"
     },
     {
       "day": "Sam 10",
@@ -321,6 +321,25 @@
       "up": [
         "greg-cat",
         "michael"
+      ],
+      "down": []
+    },
+    "power-hour": {
+      "up": [
+        "dani-travis",
+        "michael"
+      ],
+      "down": []
+    },
+    "showdown-arcade": {
+      "up": [
+        "michael"
+      ],
+      "down": []
+    },
+    "showdown-karts": {
+      "up": [
+        "greg-cat"
       ],
       "down": []
     }

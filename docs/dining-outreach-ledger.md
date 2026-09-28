@@ -15,10 +15,100 @@ Last updated: 2026-09-14
 | 4 | Monarque | Sat Oct 10, 6:30–7:30pm | — | — | — | — | — | — | — | **SUPERSEDED (La Lune locked Sat)** |
 | 5 | Auberge Saint-Gabriel | Sun Oct 11, 5:30–6:30pm | — | — | — | — | — | — | — | stand by |
 | 6 | Rôtisserie La Lune | **Sat Oct 10, 5:00pm** (Salon La Forêt) | 2026-09-10 / 2026-09-12 | 2026-09-14 @ 5:17pm | mixed chicken + guinea fowl **$80pp** | card pre-auth, no charge unless late cancel | email to contact@rotisserielalune.com, card via OpenTable secure link | 72h headcount lock; changes inside 72h = **$50/person** | kids menu on request, price pending | **ACCEPTED & BOOKED (Michael sent Sep 14 @ 5:55pm)** |
-| 7 | Au Pied de Cochon | **Fri Oct 9, 5:00–6:30pm** (6+5 split) | 2026-09-13 @ 12:07pm | 2026-09-14 @ 12:55pm | Max 8 per table | — | **resto@pieddecochon.ca** (reservations desk; info@ is marketing) | — | Cap of 8 stated by marketing, unconfirmed by reservations | **Routed to reservations desk, awaiting real answer; decline drafted and held** |
+| 7 | Au Pied de Cochon | **Fri Oct 9, 5:00–6:30pm** (6+5 split) | 2026-09-13 @ 12:07pm | 2026-09-14 @ 12:55pm | Max 8 per table | — | **resto@pieddecochon.ca** (reservations desk; info@ is marketing) | — | Cap of 8 stated by marketing, unconfirmed by reservations | **CLOSED — max 8 even across two tables; 6+5 refused by the reservations desk** |
 | 8 | Les Enfants Terribles (PVM) | **Fri Oct 9, 6:00pm** | 2026-09-14 @ 6:22pm (Libro) | 2026-09-14 @ 6:22pm (SMS) | à la carte | none | none | Standard Libro | Full kids menu available | **BOOKED & CONFIRMED (Libro / SMS)** |
 
 ## Reply log
+
+**2026-09-23 @ 3:15pm — LA LUNE: CARD RECEIVED.** David confirmed "nous avons bien reçu les détails de la carte de crédit." Sat Oct 10, 5pm, 11 is secured. His Sep 22 recap said "Factures séparées"; Michael's Sep 22 reply restated single bill + menus without prices, not explicitly acknowledged. Michael chose not to chase it. Group terms (Sep 22): final headcount by Wed Oct 7 5pm, $50/person change fee inside 72h, 20% gratuity auto-added pre-tax, 3-hour table.
+
+**2026-09-16 @ 8:04pm — AU PIED DE COCHON CLOSED FOR GOOD.** The reservations desk (`resto@pieddecochon.ca`) replied on a **new thread** ("Demande de réservation", id 1a0acada338cea47), not the original one:
+
+> *"En raison de la configuration de notre salle à manger, nous ne pouvons accueillir que des groupes de 8 personnes maximum, **même répartis sur deux tables**."*
+
+**Maximum 8, even split across two tables.** That retires the 6+5 idea entirely, for Friday and retroactively for Saturday too. They offered to host a party of 8 or fewer, which does not apply to a group of 11. **No reply owed; no action pending.** The withdrawal draft that vanished earlier never needed to exist.
+
+**This vindicates booking Friday when it was available.** Les Enfants Terribles was taken on Sep 14 rather than waiting on APDC; had that waited, Friday would now have nothing.
+
+**La Lune: still no answer from David** to the Sep 16 6:10pm message. The card confirmation remains the one open item on Saturday.
+
+**2026-09-16 — Photographer idea REJECTED by Michael. Removed from the birthday plan; do not revive it.** The surprise is now two parts, both on **Saturday Oct 10** after the 5:00pm La Lune dinner ends around 7:30:
+1. **~8:00pm — cake and bubbles back at 3831 St-Laurent**, everyone including the kids, rooftop if mild. Cake and Champagne bought Friday at Jean-Talon Market and the SAQ, both already on the Friday itinerary. Taittinger Brut Millésimé 2016 to be carried from home.
+2. **~9:00pm — Cloakroom for six**: Michael, Haley, Dani, Travis, Andrew, Liz, which is exactly the bar's cap. Walk-in only. Greg, Cat and Michele have Owen and Izzy.
+
+**Sunday morning is free again**, with Combat d'Archers from around noon.
+
+**2026-09-16 — Airbnb Oct 1 cutoff removed from the open list.** It was inherited from the original handover as a "critical cutoff to monitor" and repeated here for days. It is not an action item: nobody is cancelling, flights are booked and all four dinners are confirmed, so the refund window has no decision attached to it. **Stop surfacing it.** The only thing that would revive it is a change of plan large enough to want a different property, which is not in play.
+
+**2026-09-16 @ 6:10pm — reply to La Lune SENT** (thread 1a0ac01b0ada1fa5, the corrected Saturday thread). Confirms the kids' menus, names the three birthdays (Michael plus his younger twin siblings Andrew and Dani) without asking the restaurant to do anything, and asks the one open question: **did the card go through and is the reservation secured.** Awaiting David.
+
+**2026-09-16 @ 4:56pm — La Lune: kids' menu confirmed, and David asked about the occasion.** Note his reply came on a **new thread** with the subject corrected to *"Group Reservation Request (Saturday, October 10, 2026)"*, not the original Friday thread.
+
+- *"Oui, le menu pour enfant contiendra bien évidemment du poulet, des frites et plusieurs autres plats que les enfants adorent."* → **Kids' menu includes chicken and fries** plus other kid-friendly dishes. The à la carte fallback is no longer needed. Owen and Izzy are sorted at $35 each.
+- *"Est-ce l'occasion spéciale s'agit de votre anniversaire?"* → **David asked directly whether the occasion is Michael's birthday.** Standing rule is that birthdays are not a topic with venues in either direction, and the surprise plan deliberately keeps the celebration private at the house afterwards. **Michael's decision: disclose them.** The reply states plainly that three birthdays are being celebrated, his own plus those of **Andrew and Dani, his younger twin siblings** (both Sep 22; Michael Sep 23). It states the fact without asking the restaurant to do anything, which is the distinction that mattered on the Gibbys thread. The private rooftop plan on Saturday night stands regardless.
+
+**No confirmation of any kind has been received since the card was entered.** Verified by mailbox search: the only OpenTable messages after Sep 15 are the Titusz one (a Pittsburgh restaurant, unrelated to this trip) and the **pre-card** La Lune email, whose own text warns the booking *"peut faire l'objet d'une annulation"* without a card. **No post-card confirmation email exists.**
+
+Date, time and party size are NOT in doubt: OpenTable reference **41928, table for 11, Sat Oct 10 at 17:00, Michael Germano**. So the reply does not ask him to restate those. It asks the one genuinely open question: **did the card go through and is the hold now secure**, which is exactly what David said he would confirm.
+
+**2026-09-16 — Tariff hypothesis tested: Montreal is NOT cheaper for Champagne.** Michael's premise was that US tariffs on EU wine should make Quebec cheaper. The mechanism is real but the arithmetic kills it.
+
+**Tariff facts:** the US-EU deal effective **July 1, 2026** puts EU goods including wine under a **15% all-inclusive ceiling** (after the Feb 2026 SCOTUS ruling ended the IEEPA tariffs and a Section 122 10% interim duty applied from Feb 24). Canada, by contrast, imports EU wine **duty-free under CETA**, and Quebec eliminated its differential markup on Champagne and Cognac. So Canada's landed cost really is lower. **The SAQ's monopoly markup then more than eats the difference.**
+
+**Like-for-like, 750 ml, all-in (SAQ pre-tax + 14.975% GST/QST, converted at 1 CAD = 0.7174 USD, vs PA shelf + 6% sales tax; PA's 18% Johnstown Flood tax is already in the shelf price):**
+
+| Bottle | SAQ | Montreal all-in USD | PA (FWGS) | Pittsburgh all-in | Verdict |
+|---|---|---|---|---|---|
+| Taittinger Brut Réserve | $85.50 | **$70.52** | $67.99 | **$72.07** | Montreal cheaper by $1.55 (2%) |
+| Veuve Clicquot Yellow Label | $89.75 | **$74.03** | $64.99 | **$68.89** | **Pittsburgh cheaper by $5.14 (7%)** |
+| Bollinger Spécial Cuvée | $103.00 | **$84.96** | $69.99 | **$74.19** | **Pittsburgh cheaper by $10.77 (15%)** |
+
+**My PA assumption was wrong and worth recording:** I expected Pennsylvania's control-state pricing to run above the US national average. On Champagne it runs **below** it (Veuve $64.99 vs a $76 national average; Bollinger $69.99 vs $77). PLCB buys at state scale, so Pittsburgh is a strong Champagne market, which is exactly why Montreal loses.
+
+**Conclusion unchanged: buy at home.** Quebec's genuine price advantages are Quebec products (cidre de glace, local cider and wine) and European bottles with no US distribution, not mainstream Champagne.
+
+**2026-09-16 — Champagne for the birthday moment: buy it at home, not in Quebec.**
+
+**The bottle is Taittinger Brut Millésimé 2016** (identified from Michael's photo, 28 Jul 2025). **Not recorded anywhere in the Obsidian vault** — a grep of all 537 notes returns zero hits for "Taittinger" or even "champagne", so the only record was the photo. Worth writing to `02_Areas/Food/`.
+
+**SAQ does not appear to carry the Brut Millésimé.** No listing on saq.com and nothing in Google's index of the domain. What SAQ does list (prices verified on their own product pages, **pre-tax**; GST+QST of 14.975% is added at the till; FX 1 CAD = 0.7174 USD on 2026-09-16):
+
+| Bottling | SAQ pre-tax | SAQ all-in, USD | US retail |
+|---|---|---|---|
+| **Brut Millésimé 2016** | **not carried** | — | ~$100 Zachys, ~$115 Binny's, avg $124 ex-tax |
+| Brut Réserve 750 ml (10968752) | $85.50 | ~$70.50 | avg ~$65 ex-tax |
+| Brut Réserve 375 ml (13698823) | $50.00 | ~$41 | poor value per ml |
+| Prélude Grands Crus (15373133) | $109.00, **épuisé** | ~$90 | not checked |
+| Comtes de Champagne BdB 2013 (14714354) | $301.25, **non disponible** | ~$248 | $230–268 |
+
+**Conclusion: no saving.** On the one bottling both markets carry, Quebec lands within a dollar or two of US retail once sales tax is applied on each side, and the SAQ monopoly markup means Champagne is never the Quebec bargain. The things that *are* cheaper in Quebec are Quebec products: cidre de glace, local ciders and wines.
+
+**Recommendation:** buy the 2016 Millésimé at home before Oct 8 and pack it in a checked bag (over 100 ml, so no carry-on). Returning to the US, the duty-free allowance is 1 litre per adult 21+, and with 9 adults there is ample headroom either way. Caveat: a SAQ Signature or Sélection store could stock a vintage Taittinger that is not in the online catalogue, but that cannot be verified without a phone call.
+
+**2026-09-16 — BIRTHDAY SURPRISE PLAN (Dani + Andrew, Sep 22; Michael, Sep 23).**
+
+**The only open evening is Saturday Oct 10 after ~7:30pm**, and it exists only because La Lune seats at 5:00. Fri and Sun evenings are dinners; Thu is staggered arrivals to ~9pm; Mon is flights.
+
+**Proposed, three parts:**
+1. **Sun Oct 11, ~10:00am — surprise family portrait, all 11, Kondiaronk Belvedere on Mount Royal.** Mid-October is usually near peak fall colour. 30 minutes, then ~15 min drive to Combat d'Archers for a noon start. Photographers book by email, so the no-phone constraint is fine. ~$300–500. Weather fallback: Old Montreal or the house.
+2. **Sat Oct 10, ~8:00pm — dessert and bubbles back at 3831 St-Laurent**, everyone including the kids, rooftop terrace if mild (typical mid-Oct night is ~6°C, so have an indoor fallback). **Cake bought Friday at Jean-Talon Market**, which is already on the Friday-morning itinerary, or ordered online for Friday pickup. Champagne from the SAQ on Friday.
+3. **Sat Oct 10, ~9:00pm — Cloakroom for six.** Michael, Haley, Dani, Travis, Andrew, Liz is **exactly their 6-person cap**. Walk-in only, no reservation possible. Greg, Cat and Michele have Owen and Izzy at the house. This is the part where Michael is a guest rather than the organizer.
+
+**Deliberately ruled out:**
+- **Canadiens home games:** Oct 8 vs Nashville and Oct 10 vs Detroit, both 7:00pm at the Bell Centre. Both collide with dinners; a 7pm puck drop cannot work against a 5:00pm La Lune seating.
+- **A cake at La Lune:** outside cakes and desserts are expressly not permitted.
+- **Anything at Gibbys:** they already wrote *"avec trois anniversaires à souligner!"*, so Sunday will get a restaurant nod regardless. Keeping the real celebration private on Saturday means Michael is not sung to in a dining room, consistent with his stated preference.
+
+**Rough cost:** $800–1,100 all in. **Next action:** draft the photographer inquiry by email.
+
+**2026-09-16 @ 7:03am — Rosélys courtesy note SENT, exactly once.** Verified: the only sent copy is message 1a0a9e2ceb1ebdb6 on thread 1a082c3c423ce70d, and a sent-mail search across all time for Fabien.Renaud@fairmont.com and info@restaurantroselys.com returns that single thread. **No duplicate.** The earlier near-duplicate draft never went out. Thanks Fabien and Florence and notes the Oct 11 OpenTable cancellation directly. **Rosélys is now fully closed; no reply needed.**
+
+**2026-09-15 @ 6:19pm — La Lune reply SENT.** Card registered, menus without prices, two kids' menus, and asked whether the kids' plates will include rotisserie chicken and fries or, if not, whether regular-menu dishes can be ordered for them on the same bill. **Awaiting David's confirmation of the booking and his answer on the kids' plates.** Rosélys courtesy note sent the next morning, Sep 16.
+
+**2026-09-15 — Draft housekeeping (verified against Gmail).**
+- **La Lune kids/card/no-prices reply:** previous draft (r-5550218364244701515) disappeared unsent; **recreated as r-309938219094760373**, threaded under David's 2:14pm message. Thread still ends at David's message, so nothing has gone out. Content unchanged: card registered, menus without prices, two kids' menus, "Is it safe to assume their plates will include [rotisserie chicken and fries]? If not, could we order a few dishes from your regular menu for them on the night, on the same bill?"
+- **Rosélys courtesy note to Fabien + Florence: still UNSENT.** Draft r-8998115823890675384 on thread 1a082c3c423ce70d, dated Sep 14. No sent message to Fabien or info@restaurantroselys.com since Sep 10. Michael believed it had been sent. The OpenTable cancellation (#507276) stands regardless; the note is courtesy only.
+- **Au Pied de Cochon withdrawal draft no longer exists** and was never sent. Thread still ends at Ludovie's 6:41pm routing message; **resto@pieddecochon.ca has not replied**. Nothing is held; recreate the withdrawal if and when reservations answers.
 
 **2026-09-15 @ 2:13–2:14pm — LA LUNE: card link sent, kids' price finally answered.**
 
@@ -31,7 +121,7 @@ Last updated: 2026-09-14
 
 **Revised Saturday cost:** 9 × $80 + 2 × $35 = **$790** food. 20% gratuity on pre-tax total ($158), then 14.975% QC tax on the whole (mandatory service charges are taxable) ≈ **$1,090 before drinks**. Earlier ~$1,055 estimate taxed food only and assumed $30 kids.
 
-**Open:** (1) ~~Card entry~~ **DONE 2026-09-15, Michael registered the card on OpenTable (ref 41928)**; (2) reply to David **DRAFTED, not sent**, threaded under his 2:14pm message: card registered, **yes to menus without prices**, **confirms two kids' menus at $35**. **Greg confirmed Owen and Izzy will eat rotisserie chicken and fries**, so the draft now asks (a) **whether the kids' plates can be chicken with fries** (the adult menu is the chicken + guinea fowl mix), and (b) if not, whether regular à la carte dishes can be ordered for them on the night, on the same bill. Michael's concern, likely Cat and Greg's too: whether a 10- and 12-year-old will eat a scaled-down version of the adult family-style meal. **Kid-friendly backups on the current carte:** frites maison $10, soupe poulet & raviolini maison $15, buns chauds aux oignons $7; rotisserie birds come with fries and chicken sauce. **Language trap: in Quebec French *entrées* means starters, not mains**, so the email says *plats de votre carte régulière* instead. Card is in, so the note is accurate and ready to send.
+**Open:** (1) ~~Card entry~~ **DONE 2026-09-15, Michael registered the card on OpenTable (ref 41928)**; (2) reply to David **DRAFTED, not sent**, threaded under his 2:14pm message: card registered, **yes to menus without prices**, **confirms two kids' menus at $35**. **Greg confirmed Owen and Izzy will eat rotisserie chicken and fries**; **Cat decided both kids stay on the kids' menu** (Owen on the adult menu was considered, ~$62 more; free to change until Wed Oct 7 5pm, 72h before), so the cost stays ~$1,090 before drinks, so the draft now says both kids like rotisserie chicken and fries and asks (a) **whether it's safe to assume their plates will include those** (softened from a direct request; the adult menu is the chicken + guinea fowl mix), and (b) if not, whether regular à la carte dishes can be ordered for them on the night, on the same bill. Michael's concern, likely Cat and Greg's too: whether a 10- and 12-year-old will eat a scaled-down version of the adult family-style meal. **Kid-friendly backups on the current carte:** frites maison $10, soupe poulet & raviolini maison $15, buns chauds aux oignons $7; rotisserie birds come with fries and chicken sauce. **Language trap: in Quebec French *entrées* means starters, not mains**, so the email says *plats de votre carte régulière* instead. Card is in, so the note is accurate and ready to send.
 
 **2026-09-15 — Karting headcount is 10 or fewer.** Michele likely won't kart; Liz is uncertain. That keeps karting **within the standard 10-player cap**, so no special request is needed. Group rate of $32.50 still applies (8+).
 
@@ -124,7 +214,7 @@ Headcount for archery and bazooka assumed to stay at 11.
 - **Tables are allocated 2h15**, so 6:00pm to 8:15pm. Ask the server on the night to extend.
 
 **Two courtesy declines:**
-- **Au Pied de Cochon — drafted, deliberately HELD** (draft r7401652714609211517). Withdraws the 6+5 split ask. Michael is holding it until APDC answers, since their reply may still be worth having on file for a future trip.
+- **Au Pied de Cochon — was drafted and held; that draft has since disappeared unsent (see 2026-09-15 housekeeping).** Withdraws the 6+5 split ask. Michael is holding it until APDC answers, since their reply may still be worth having on file for a future trip.
 - **Le Serpent — SENT 2026-09-14 @ 6:28pm.** Finally answered their Sep 8 conditional offer, six days late, leading with the apology. Oldest open loop on the trip, now closed.
 
 **2026-09-14 — Friday candidate: Les Enfants Terribles (Place Ville Marie).** Verified in their **live Libro booking system**, not a directory: party of **11 on Fri Oct 9 shows 6:00, 6:15, 6:30, 6:45, 7:00 and 7:15 PM available** on a Regular Table. Bookable online directly; their own notice says email `serviceclient@jesuisunenfantterrible.com` is only needed for **more than 12** people, so 11 needs no inquiry.
