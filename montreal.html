@@ -1804,27 +1804,19 @@ let masterMapInstance = null;
 let coffeeMapInstance = null;
 let masterMarkerMap = {};
 
-/* ── INITIAL LOAD & POLLING ── */
+/* ── INITIAL LOAD ── */
 async function fetchState() {
   try {
-    let res = await fetch('/api/state');
+    let res = await fetch('data/montreal_state.json');
     if (!res.ok) {
-      res = await fetch('data/montreal_state.json');
+      res = await fetch('/api/state');
     }
     if (res.ok) {
       appState = await res.json();
       renderAll();
     }
   } catch (err) {
-    try {
-      const resFallback = await fetch('data/montreal_state.json');
-      if (resFallback.ok) {
-        appState = await resFallback.json();
-        renderAll();
-      }
-    } catch (err2) {
-      console.error("Fetch state error:", err2);
-    }
+    console.error("Fetch state error:", err);
   }
 }
 
@@ -2894,12 +2886,11 @@ function downloadStateBackup() {
   downloadAnchor.remove();
 }
 
-// Initial Fetch, Map Init, and Polling every 5 seconds for live sync
+// Initial Fetch and Map Init
 window.addEventListener('DOMContentLoaded', () => {
   fetchState();
   setTimeout(initMaps, 300);
 });
-setInterval(fetchState, 5000);
 </script>
 </body>
 </html>
