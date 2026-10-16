@@ -7,3 +7,4 @@ __pycache__/
 .env
 *.backup.json
 data/*.backup.json
+photos/coffee-walk/_excluded/

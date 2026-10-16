@@ -282,6 +282,31 @@ tailwind.config = {
   .live-dot {
     animation: livePulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
+
+  /* Native <dialog> Lightbox Modal (Modern Web Guidance) */
+  dialog:modal {
+    overscroll-behavior: contain;
+  }
+  dialog::backdrop {
+    overflow: hidden;
+    overscroll-behavior: contain;
+    background-color: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(4px);
+  }
+  .coffee-thumb {
+    width: 46px;
+    height: 46px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    border: 2px solid #1e293b;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    flex-shrink: 0;
+  }
+  .coffee-thumb:hover {
+    transform: translateY(-2px) scale(1.06);
+    box-shadow: 2px 2px 0px #1e293b;
+  }
 </style>
 </head>
 <body class="bg-background text-on-surface">
@@ -595,51 +620,91 @@ tailwind.config = {
   </div>
 </section>
 
-<!-- ═══════════════════════ SECTION 4: LE CAFÉ & LA PÂTISSERIE (EXPANDED 30-MIN WALK RADIUS) ═══════════════════════ -->
+<!-- ═══════════════════════ SECTION 4: LE CAFÉ & LA PÂTISSERIE (18 VISITED STOPS & 56 PHOTOS) ═══════════════════════ -->
 <section id="coffee-section" class="py-12 md:py-16 bg-surface-container-low scroll-mt-14">
   <div class="max-w-6xl mx-auto px-4">
     
     <div class="text-center max-w-3xl mx-auto mb-8">
       <div class="inline-flex items-center gap-1.5 bg-pop-yellow text-pop-dark border-2 border-on-surface text-xs font-pop font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full mb-2 shadow-[2px_2px_0px_#1e293b]">
-        <span>☕️</span> 30-Minute Walk Doorstep Radius (2.2 km)
+        <span>📸 ☕️</span> Official Montreal Coffee Crawl &middot; 18 Stops &middot; 56 Photos
       </div>
       <h2 class="font-pop font-extrabold text-4xl md:text-5xl text-on-surface tracking-tight mb-2">Le Café &amp; La Pâtisserie</h2>
-      <p class="font-body text-on-surface-variant text-base">
-        Morning strolls across The Plateau, Mile End, and Outremont within a 30-minute walk of <strong>3831 St-Laurent</strong>. Filter for <strong>Single-Origin Roasters</strong> vs. <strong>French Bakeries &amp; Doughnuts</strong>.
+      <p class="font-body text-on-surface-variant text-base mb-4">
+        Every single coffee bar, roaster, boulangerie, crêperie, and doughnut shop we hit across four days (<strong>Oct 9–12, 2026</strong>)—from The Plateau and Mile End up to La Petite-Patrie and down to Old Montreal. Click any photo or thumbnail to open the full-resolution gallery!
       </p>
+      <button onclick="openAllCoffeePhotos()" class="bg-pop-red text-white font-pop font-extrabold text-xs md:text-sm px-5 py-2.5 rounded-full pop-btn inline-flex items-center gap-2">
+        <span>📷</span> Launch Full 56-Photo Coffee Walk Slideshow
+      </button>
     </div>
 
     <!-- Traz Coffee Sticker Banner -->
     <div class="traz-note traz-bubble p-3.5 flex items-center gap-3 mb-8 max-w-3xl mx-auto">
       <img src="assets/traz_coffee.jpg" alt="Traz Coffee" class="w-14 h-14 rounded-full object-cover border-2 border-purple-950 flex-shrink-0" />
       <div>
-        <span class="font-pop font-extrabold text-xs text-purple-950 uppercase tracking-wider block">Traz 30-Minute Morning Fuel Doctrine</span>
+        <span class="font-pop font-extrabold text-xs text-purple-950 uppercase tracking-wider block">Traz Coffee Crawl Field Report (18 Stops Logged!)</span>
         <p class="text-xs text-purple-900 font-medium leading-relaxed">
-          "Haley's coffee radar expanded to a 30-minute walking radius! Grab single-origin pour-overs at In Gamba (5m), monster cookies at Névé (7m), artisanal bread at Guillaume (14m), or pastries at Rhubarbe (22m). Google &amp; Yelp ratings listed on every card."
+          "We crushed 18 stops across 4 days! From matching my Soot Sprite tattoo with the Ghibli cups at Micro Espresso, to hot glazed crullers &amp; Matty Matheson's shrine at Bernie Beigne, Allan Melgar Guatemala pour-overs at ZAB, and Wilder Lazo Geisha bags at Café Éclair—every stop is GPS-pinned and photographed below!"
         </p>
       </div>
     </div>
 
-    <!-- Coffee Walking Radius Map (Pop! Styled - 30 min / 2.2km radius) -->
+    <!-- Coffee Walking Radius Map (Pop! Styled - All 18 Visited Stops) -->
     <div class="pop-map-container p-3 mb-10">
-      <div class="flex items-center justify-between px-3 py-2 border-b-2 border-on-surface mb-2 font-pop text-xs font-bold bg-amber-50 rounded-lg">
-        <span class="flex items-center gap-1 text-pop-dark"><span>🚶‍♂️</span> 30-Minute Doorstep Walking Radius (2.2 km Circle)</span>
-        <span class="text-pop-red font-extrabold">Haley's Coffee Desire Tracker Active</span>
+      <div class="flex items-center justify-between px-3 py-2 border-b-2 border-on-surface mb-2 font-pop text-xs font-bold bg-amber-50 rounded-lg flex-wrap gap-2">
+        <span class="flex items-center gap-1 text-pop-dark"><span>🚶‍♂️</span> GPS-Verified Montreal Coffee Crawl Map (Stops #01–#18)</span>
+        <span class="text-pop-red font-extrabold">Tap any numbered pin to preview photos &middot; Heart to rate!</span>
       </div>
       <div id="coffeeMap" class="coffee-map-frame rounded-xl overflow-hidden"></div>
     </div>
 
     <!-- Coffee Filter Tabs -->
-    <div class="flex items-center justify-center gap-2 pb-3 mb-8 overflow-x-auto scrollbar-none" id="coffeeFilters">
-      <button onclick="filterCoffeeCards('all')" class="pop-pill active text-xs font-pop font-extrabold px-5 py-2 rounded-full bg-white" data-cfilter="all">All 12 Spots (30 Min Radius)</button>
-      <button onclick="filterCoffeeCards('roaster')" class="pop-pill text-xs font-pop font-extrabold px-5 py-2 rounded-full bg-white text-on-surface-variant" data-cfilter="roaster">☕️ Single-Origin Roasters</button>
-      <button onclick="filterCoffeeCards('bakery')" class="pop-pill text-xs font-pop font-extrabold px-5 py-2 rounded-full bg-white text-on-surface-variant" data-cfilter="bakery">🥐 French Bakeries &amp; Pastries</button>
+    <div class="flex items-center justify-center gap-2 pb-3 mb-8 overflow-x-auto scrollbar-none flex-wrap" id="coffeeFilters">
+      <button onclick="filterCoffeeCards('all')" class="pop-pill active text-xs font-pop font-extrabold px-4 py-2 rounded-full bg-white" data-cfilter="all">All 18 Visited Spots (56 Photos)</button>
+      <button onclick="filterCoffeeCards('roaster')" class="pop-pill text-xs font-pop font-extrabold px-4 py-2 rounded-full bg-white text-on-surface-variant" data-cfilter="roaster">☕️ Roasters &amp; Espresso (15)</button>
+      <button onclick="filterCoffeeCards('bakery')" class="pop-pill text-xs font-pop font-extrabold px-4 py-2 rounded-full bg-white text-on-surface-variant" data-cfilter="bakery">🥐 Bakeries, Crêpes &amp; Beignes (3)</button>
+      <button onclick="filterCoffeeCards('day1')" class="pop-pill text-xs font-pop font-extrabold px-4 py-2 rounded-full bg-white text-on-surface-variant" data-cfilter="day1">📅 Fri Oct 9 (6 Stops)</button>
+      <button onclick="filterCoffeeCards('day2')" class="pop-pill text-xs font-pop font-extrabold px-4 py-2 rounded-full bg-white text-on-surface-variant" data-cfilter="day2">📅 Sat Oct 10 (5 Stops)</button>
+      <button onclick="filterCoffeeCards('day3')" class="pop-pill text-xs font-pop font-extrabold px-4 py-2 rounded-full bg-white text-on-surface-variant" data-cfilter="day3">📅 Sun Oct 11 (6 Stops)</button>
+      <button onclick="filterCoffeeCards('day4')" class="pop-pill text-xs font-pop font-extrabold px-4 py-2 rounded-full bg-white text-on-surface-variant" data-cfilter="day4">📅 Mon Oct 12 (1 Stop)</button>
     </div>
 
-    <!-- Coffee Cards Grid (With Google & Yelp scores side-by-side) -->
+    <!-- Coffee Cards Grid (With Photo Galleries + Google & Yelp scores) -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6" id="coffeeGrid">
       <!-- Populated via JS -->
     </div>
+
+    <!-- Native <dialog> Lightbox Modal for Coffee Walk Photos -->
+    <dialog id="coffeeLightbox" closedby="any" aria-labelledby="lightboxTitle" class="rounded-2xl border-3 border-on-surface p-0 max-w-4xl w-[94vw] bg-slate-950 text-white shadow-[8px_8px_0px_#1e293b] overflow-hidden">
+      <div class="flex flex-col max-h-[90vh]">
+        <!-- Top Bar -->
+        <div class="flex items-center justify-between px-4 py-3 bg-slate-900 border-b border-slate-800 gap-3">
+          <div class="min-w-0">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span id="lightboxBadge" class="bg-pop-yellow text-pop-dark font-pop font-extrabold text-[11px] px-2.5 py-0.5 rounded-full">Stop #01</span>
+              <h3 id="lightboxTitle" class="font-pop font-extrabold text-base md:text-lg text-white truncate">Café Name</h3>
+              <span id="lightboxCounter" class="text-xs font-pop font-bold text-slate-400">1 / 6</span>
+            </div>
+            <p id="lightboxMeta" class="text-xs text-slate-300 truncate mt-0.5"></p>
+          </div>
+          <form method="dialog" class="flex-shrink-0">
+            <button type="submit" class="bg-slate-800 hover:bg-pop-red text-white font-pop font-extrabold text-xs px-3 py-1.5 rounded-lg border border-slate-700 transition-colors">✕ Close</button>
+          </form>
+        </div>
+
+        <!-- Main Image Stage -->
+        <div class="relative bg-black flex items-center justify-center min-h-[320px] max-h-[68vh] select-none">
+          <button type="button" onclick="stepCoffeeLightbox(-1)" aria-label="Previous photo" class="absolute left-3 z-10 w-10 h-10 rounded-full bg-slate-900/85 hover:bg-pop-yellow hover:text-pop-dark text-white font-pop font-extrabold text-lg flex items-center justify-center border-2 border-white/30 shadow-lg transition-colors">‹</button>
+          <img id="lightboxImg" src="" alt="" class="max-h-[68vh] w-auto max-w-full object-contain mx-auto" />
+          <button type="button" onclick="stepCoffeeLightbox(1)" aria-label="Next photo" class="absolute right-3 z-10 w-10 h-10 rounded-full bg-slate-900/85 hover:bg-pop-yellow hover:text-pop-dark text-white font-pop font-extrabold text-lg flex items-center justify-center border-2 border-white/30 shadow-lg transition-colors">›</button>
+        </div>
+
+        <!-- Caption & Thumbnail Strip -->
+        <div class="px-4 py-3 bg-slate-900 border-t border-slate-800">
+          <p id="lightboxCaption" class="text-xs md:text-sm font-medium text-amber-200 mb-2.5"></p>
+          <div id="lightboxThumbs" class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none"></div>
+        </div>
+      </div>
+    </dialog>
 
   </div>
 </section>
@@ -1114,30 +1179,76 @@ tailwind.config = {
 
 <!-- ═══════════════════════ CLIENT SCRIPT & LIVE API SYNC ═══════════════════════ -->
 <script>
-/* ── COFFEE & BAKERY CATALOG DATA (30-MIN WALK RADIUS WITH GOOGLE & YELP SCORES) ── */
+/* ── COFFEE & BAKERY CATALOG DATA (18 VISITED STOPS & 56 PHOTOS · OCT 9–12, 2026) ── */
 const COFFEE_CATALOG = [
   {
-    id: "in-gamba",
-    name: "Café In Gamba",
-    addr: "71 Avenue du Parc",
-    walk: "5 min walk",
-    distance: "400m",
+    id: "cote-bar-a-cafe",
+    stopNumber: 1,
+    day: "day1",
+    dayLabel: "Day 1 · Fri Oct 9",
+    visitedAt: "Fri Oct 9 · 7:10 AM",
+    name: "Côté Bar à Café",
+    addr: "350 Avenue des Pins Ouest",
+    walk: "4 min walk · Plateau",
+    distance: "350m",
     type: "roaster",
-    specialty: "Single-Origin Multi-Roaster",
-    googleRating: "4.7",
-    googleReviews: "950+",
+    specialty: "Neighborhood Espresso Bar & Pure Maple Lattes",
+    googleRating: "4.8",
+    googleReviews: "320+",
     yelpRating: "4.7",
-    yelpReviews: "410+",
-    hours: "Daily 7:30am - 6:00pm",
-    order: "Pour-over (Heart / 49th Parallel) + almond croissant",
-    desc: "Legendary temple of third-wave espresso. Pulls single-origins from Counter Culture, 49th Parallel, and Heart Roasters on precision Synesso machines.",
-    img: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&q=80",
-    lat: 45.5198,
-    lng: -73.5828,
-    traz: "Top tier single-origin espresso pull. Instant +100 energy."
+    yelpReviews: "95+",
+    hours: "Daily 7:00am - 5:00pm",
+    order: "Silky tulip latte + Montréal Fog + pure organic Quebec maple syrup",
+    desc: "Stop #1 of the Montreal coffee crawl right at 7:10 AM! Warm butcher-block counter, vertical blue-grey tiles, La Marzocco espresso bar, and cans of pure organic Quebec maple syrup right on the counter.",
+    img: "photos/coffee-walk/BAC0C535-F2E2-4900-8151-3CB97253D4DD_1_105_c.jpeg",
+    lat: 45.51398,
+    lng: -73.57601,
+    traz: "Kickoff stop at 7:10 AM! Côté latte art next to the autumn pumpkins and cans of pure Quebec maple syrup.",
+    photos: [
+      { src: "photos/coffee-walk/BAC0C535-F2E2-4900-8151-3CB97253D4DD_1_105_c.jpeg", caption: "Morning latte art in Côté cup with autumn pumpkins on the butcher-block counter", time: "Fri Oct 9 · 7:18 AM" },
+      { src: "photos/coffee-walk/65BC2496-5BBE-425C-95D5-AC55651BE5C4_1_105_c.jpeg", caption: "Côté Bar à Café storefront on Avenue des Pins Ouest at 7:10 AM", time: "Fri Oct 9 · 7:10 AM" },
+      { src: "photos/coffee-walk/ADD657D1-3F55-434A-902E-EF7452D78D92_1_105_c.jpeg", caption: "Warm interior, La Marzocco espresso bar, and blue-grey vertical tile wall", time: "Fri Oct 9 · 7:12 AM" },
+      { src: "photos/coffee-walk/7356134C-DEDA-4B42-9F1B-030060E22722_1_105_c.jpeg", caption: "Close-up of Côté Bar à Café tulip latte art", time: "Fri Oct 9 · 7:18 AM" },
+      { src: "photos/coffee-walk/9AD693A4-F51C-4D37-912C-7F01C1875C98_1_105_c.jpeg", caption: "Cans of organic Quebec maple syrup & Côté Bar à Café stickers", time: "Fri Oct 9 · 7:14 AM" },
+      { src: "photos/coffee-walk/6E58CB6B-0B46-43CC-A2BE-EB1D9FA98416_1_105_c.jpeg", caption: "Fall Featured Menu & Boissons board (Montréal Fog, Apple Pie Latte & Salted PB Latte)", time: "Fri Oct 9 · 7:12 AM" }
+    ]
+  },
+  {
+    id: "guillaume",
+    stopNumber: 2,
+    day: "day1",
+    dayLabel: "Day 1 · Fri Oct 9",
+    visitedAt: "Fri Oct 9 · 7:52 AM",
+    name: "Boulangerie Guillaume",
+    addr: "5170 Boulevard Saint-Laurent",
+    walk: "14 min walk · Mile End",
+    distance: "1.1 km",
+    type: "bakery",
+    specialty: "Artisanal French Boulangerie & Chouquettes",
+    googleRating: "4.7",
+    googleReviews: "2,850+",
+    yelpRating: "4.7",
+    yelpReviews: "420+",
+    hours: "Daily 7:00am - 7:00pm",
+    order: "Fresh pearl-sugar chouquettes + Quebecano + rustic sourdough loaves",
+    desc: "Widely celebrated as one of Montreal's finest artisanal bakeries. Floor-to-ceiling racks of crusty French loaves, trays of pearl-sugar chouquettes, and a full espresso bar pouring Quebecanos.",
+    img: "photos/coffee-walk/CCC4CA9F-1BA6-495F-B331-1EB20503C218_1_105_c.jpeg",
+    lat: 45.52364,
+    lng: -73.59416,
+    traz: "Wall-to-wall sourdough loaves and a giant tray of fresh pearl-sugar chouquettes!",
+    photos: [
+      { src: "photos/coffee-walk/CCC4CA9F-1BA6-495F-B331-1EB20503C218_1_105_c.jpeg", caption: "Guillaume espresso bar, yellow machine, and Cafés/Thés letterboard featuring the 'Quebecano'", time: "Fri Oct 9 · 7:53 AM" },
+      { src: "photos/coffee-walk/E7C71661-7815-47A4-AF52-092CC3C34C2A_4_5005_c.jpeg", caption: "Floor-to-ceiling artisanal sourdough bread racks and pastry display", time: "Fri Oct 9 · 7:56 AM" },
+      { src: "photos/coffee-walk/F7084DEA-8E7F-42D3-9EB0-EBE6465FDB1F_4_5005_c.jpeg", caption: "Freshly baked tray of pearl-sugar chouquettes in the window", time: "Fri Oct 9 · 7:56 AM" },
+      { src: "photos/coffee-walk/A5C827A0-3BF6-49A7-96D2-DCB4D0F3503E_1_105_c.jpeg", caption: "White brick Boissons & Cafés letterboards inside Boulangerie Guillaume", time: "Fri Oct 9 · 7:52 AM" }
+    ]
   },
   {
     id: "dispatch",
+    stopNumber: 3,
+    day: "day1",
+    dayLabel: "Day 1 · Fri Oct 9",
+    visitedAt: "Fri Oct 9 · 8:18 AM",
     name: "Dispatch Coffee (The Main)",
     addr: "4021 Boulevard Saint-Laurent",
     walk: "3 min walk (Same Block)",
@@ -1149,158 +1260,59 @@ const COFFEE_CATALOG = [
     yelpRating: "4.5",
     yelpReviews: "180+",
     hours: "Daily 7:30am - 4:00pm",
-    order: "Seasonal batch brew single origin + cardamom bun",
-    desc: "Montreal's premier homegrown ethical small-batch roaster. Minimalist sunlit shop right down the block on St-Laurent with exceptional seasonal beans.",
-    img: "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&q=80",
-    lat: 45.5186,
-    lng: -73.5822,
-    traz: "Right down the block on our street. Fast cardamom bun loot."
+    order: "Mujeres Norte Huila single-origin pour-over + Cold Brew Blanc",
+    desc: "Montreal's premier homegrown ethical small-batch roaster right down the block on St-Laurent. Minimalist curved white bar stocked with transparently sourced single-origin bags from Colombia, Burundi, and Guatemala.",
+    img: "photos/coffee-walk/A890F73B-30FD-4849-9EA8-34A789311187_1_105_c.jpeg",
+    lat: 45.51705,
+    lng: -73.57929,
+    traz: "Right down the street from 3831 Basecamp—transparent farm-gate pricing on every single-origin bag.",
+    photos: [
+      { src: "photos/coffee-walk/A890F73B-30FD-4849-9EA8-34A789311187_1_105_c.jpeg", caption: "Curved white bar & 'Notre café' single-origin lineup (Mujeres Norte Huila & Luciano Pascual)", time: "Fri Oct 9 · 8:19 AM" },
+      { src: "photos/coffee-walk/33817F64-F896-4E5E-9F13-DACFE519802D_1_105_c.jpeg", caption: "Concrete pillar Café menu, Dispatch tote bag, and AeroPress bar", time: "Fri Oct 9 · 8:19 AM" },
+      { src: "photos/coffee-walk/6E7DD01C-6583-4E4B-82BE-FA10E3CCBC6F_4_5005_c.jpeg", caption: "Dispatch Coffee corner storefront & sidewalk bench on Saint-Laurent", time: "Fri Oct 9 · 8:18 AM" }
+    ]
   },
   {
-    id: "neve",
-    name: "Café Névé",
-    addr: "151 Rue Rachel Est",
-    walk: "7 min walk",
-    distance: "550m",
-    type: "bakery",
-    specialty: "Famous Monster Cookies & Lattes",
-    googleRating: "4.6",
-    googleReviews: "1,150+",
-    yelpRating: "4.6",
-    yelpReviews: "390+",
-    hours: "Daily 7:30am - 5:00pm",
-    order: "Warm giant chocolate chunk sea salt cookie + cortado",
-    desc: "Famous throughout the Plateau for giant, warm chocolate-chunk cookies baked fresh every single hour, paired with smooth, velvety espresso.",
-    img: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=80",
-    lat: 45.5212,
-    lng: -73.5802,
-    traz: "Warm monster cookies baked hourly. That sea-salt cookie is mythic."
-  },
-  {
-    id: "pikolo",
-    name: "Pikolo Espresso Bar",
-    addr: "3418b Avenue du Parc",
-    walk: "10 min walk",
-    distance: "800m",
+    id: "micro-espresso",
+    stopNumber: 4,
+    day: "day1",
+    dayLabel: "Day 1 · Fri Oct 9",
+    visitedAt: "Fri Oct 9 · 12:18 PM",
+    name: "Micro Espresso",
+    addr: "4803 Avenue du Parc",
+    walk: "12 min walk · Mile End / Parc",
+    distance: "950m",
     type: "roaster",
-    specialty: "Single-Origin Specialty & Scones",
-    googleRating: "4.7",
-    googleReviews: "1,450+",
+    specialty: "Micro-Roaster, Easy Decaf & Ghibli Cup Art",
+    googleRating: "4.9",
+    googleReviews: "290+",
     yelpRating: "4.8",
-    yelpReviews: "520+",
-    hours: "Mon-Fri 7am-5pm, Sat-Sun 8am-5pm",
-    order: "Flat white + house cheddar & chive scone",
-    desc: "Montreal specialty coffee royalty. Two-story mezzanine space, direct-trade single origin coffees roasted by Phil & Sebastian, and stellar fresh pastries.",
-    img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80",
-    lat: 45.5118,
-    lng: -73.5752,
-    traz: "Mezzanine hideout with elite flat whites and warm scones."
-  },
-  {
-    id: "replika",
-    name: "Café Replika",
-    addr: "252 Rue Rachel Est",
-    walk: "6 min walk",
-    distance: "500m",
-    type: "bakery",
-    specialty: "Artisanal Simit Bagels & Cold Brew",
-    googleRating: "4.7",
-    googleReviews: "820+",
-    yelpRating: "4.7",
-    yelpReviews: "260+",
+    yelpReviews: "85+",
     hours: "Daily 8:00am - 5:00pm",
-    order: "House-made Turkish Simit bagel sandwich + draft cold brew",
-    desc: "Cozy neighborhood gem known for baking their own Turkish sesame simit rings and tahini cookies alongside top-notch specialty coffee.",
-    img: "https://images.unsplash.com/photo-1509785307050-d4066910ec1e?w=600&q=80",
-    lat: 45.5205,
-    lng: -73.5768,
-    traz: "House-baked Turkish simit rings. Elite breakfast upgrade."
-  },
-  {
-    id: "olimpico",
-    name: "Café Olimpico",
-    addr: "124 Rue Saint-Viateur Ouest",
-    walk: "14 min walk &middot; Mile End",
-    distance: "1.2 km",
-    type: "bakery",
-    specialty: "Classic Italian Espresso & Cannoli",
-    googleRating: "4.7",
-    googleReviews: "3,600+",
-    yelpRating: "4.6",
-    yelpReviews: "850+",
-    hours: "Daily 6:00am - midnight",
-    order: "Traditional Freddo espresso + fresh ricotta cannoli",
-    desc: "The heartbeat of Mile End since 1970. Bustling, vibrant terrace, rich Italian roast espresso, and fresh pastries delivered every morning.",
-    img: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&q=80",
-    lat: 45.5229,
-    lng: -73.5962,
-    traz: "Italian terrace legend. Grab a freddo and ricotta cannoli."
-  },
-  {
-    id: "guillaume",
-    name: "Boulangerie Guillaume",
-    addr: "5170 Boulevard Saint-Laurent",
-    walk: "14 min walk &middot; Mile End",
-    distance: "1.1 km",
-    type: "bakery",
-    specialty: "Artisanal French Boulangerie & Fougasse",
-    googleRating: "4.7",
-    googleReviews: "2,850+",
-    yelpRating: "4.7",
-    yelpReviews: "420+",
-    hours: "Daily 7:00am - 7:00pm",
-    order: "Chocolate babka roll + warm cheese & bacon fougasse",
-    desc: "Widely celebrated as one of Montreal's finest artisanal bakeries. Master French bakers crafting rustic sourdough, brioches, and savory bread treats all day.",
-    img: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80",
-    lat: 45.5268,
-    lng: -73.5925,
-    traz: "Unbeatable French bakery run. That chocolate babka is incredible."
-  },
-  {
-    id: "myriade",
-    name: "Café Myriade (St-Denis)",
-    addr: "4627 Rue Saint-Denis",
-    walk: "15 min walk",
-    distance: "1.2 km",
-    type: "roaster",
-    specialty: "Specialty Pioneer & 49th Parallel",
-    googleRating: "4.6",
-    googleReviews: "1,300+",
-    yelpRating: "4.6",
-    yelpReviews: "380+",
-    hours: "Daily 7:30am - 5:30pm",
-    order: "Guatemala single-origin espresso + almond butter croissant",
-    desc: "Founded in 2008 by world barista competitors. High-extraction espresso, rare single-origin coffees, and exquisite butter pastries.",
-    img: "https://images.unsplash.com/photo-1497636577773-f1231844b336?w=600&q=80",
-    lat: 45.5235,
-    lng: -73.5835,
-    traz: "Barista champion heritage. Precision single-origin pulls."
-  },
-  {
-    id: "rhubarbe",
-    name: "Pâtisserie Rhubarbe",
-    addr: "1480 Avenue Laurier Est",
-    walk: "22 min walk &middot; Laurier Village",
-    distance: "1.8 km",
-    type: "bakery",
-    specialty: "High-End Haute Pâtisserie & Tarts",
-    googleRating: "4.7",
-    googleReviews: "1,550+",
-    yelpRating: "4.7",
-    yelpReviews: "280+",
-    hours: "Wed-Sun 9:00am - 5:00pm",
-    order: "Signature Rhubarb Tart + Mille-Feuille + Cortado",
-    desc: "Stephanie Labelle's acclaimed Parisian-style pastry shop on Laurier. Seasonal fruit tarts, delicate mille-feuilles, and house-made viennoiseries.",
-    img: "https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=600&q=80",
-    lat: 45.5348,
-    lng: -73.5780,
-    traz: "Parisian haute pastry destination. Rhubarb tart is legendary."
+    order: "Easy Decaf (Colombia Caldas) & Dark Mode (Brazil) + white choc sesame cookie",
+    desc: "Beloved neighborhood micro-roaster on Avenue du Parc roasting pastel-bagged single-origins in-house ('Easy Decaf' Colombia Caldas with cherry/chocolate notes & 'Dark Mode' Brazil), complete with hand-drawn Studio Ghibli cups!",
+    img: "photos/coffee-walk/4F48DCEE-43FD-4A8B-BA3F-68762B1B3353_1_105_c.jpeg",
+    lat: 45.51823,
+    lng: -73.59250,
+    traz: "Unreal moment: the barista's hand-drawn Soot Sprite & No-Face coffee cups matched my Soot Sprite arm tattoo!",
+    photos: [
+      { src: "photos/coffee-walk/4F48DCEE-43FD-4A8B-BA3F-68762B1B3353_1_105_c.jpeg", caption: "Haley & Traz outside Micro Espresso (4803 Avenue du Parc)", time: "Fri Oct 9 · 12:25 PM" },
+      { src: "photos/coffee-walk/FA766DC0-B108-4433-A89E-FA85CB68BAAC_1_105_c.jpeg", caption: "Traz's Soot Sprite tattoo matching Micro Espresso's hand-drawn Soot Sprite & No-Face cups!", time: "Fri Oct 9 · 12:18 PM" },
+      { src: "photos/coffee-walk/69EE832E-8BFE-404A-8191-3ABD0BF17B3D_1_105_c.jpeg", caption: "Micro Espresso 'Easy Decaf' (Caldas, Colombia · raisin, cherry, chocolate)", time: "Fri Oct 9 · 12:21 PM" },
+      { src: "photos/coffee-walk/82BAC5AE-6870-4FD4-B6F6-5153A778D710_1_105_c.jpeg", caption: "Micro Espresso 'Dark Mode' (Cerrado Mineiro, Brazil · dark chocolate, honeycrisp apple, orange zest)", time: "Fri Oct 9 · 12:22 PM" },
+      { src: "photos/coffee-walk/F44664BB-FDDD-4E50-9D82-80F885CD57BB_1_105_c.jpeg", caption: "Minimalist teal Café / Sans Café menu board", time: "Fri Oct 9 · 12:19 PM" },
+      { src: "photos/coffee-walk/EBBE44A9-F4B7-4659-8F7A-4D4C33A88448_1_105_c.jpeg", caption: "Micro Espresso storefront & sunny window counter on Avenue du Parc", time: "Fri Oct 9 · 12:26 PM" }
+    ]
   },
   {
     id: "bernie",
+    stopNumber: 5,
+    day: "day1",
+    dayLabel: "Day 1 · Fri Oct 9",
+    visitedAt: "Fri Oct 9 · 2:03 PM",
     name: "Bernie Beigne",
     addr: "23 Rue Bernard Ouest",
-    walk: "18 min walk &middot; Mile End",
+    walk: "18 min walk · Mile End",
     distance: "1.5 km",
     type: "bakery",
     specialty: "Handcrafted Hot Doughnuts & Apple Fritters",
@@ -1309,52 +1321,389 @@ const COFFEE_CATALOG = [
     yelpRating: "4.7",
     yelpReviews: "310+",
     hours: "Daily 8:00am - 7:00pm",
-    order: "Fresh glazed honey cruller + warm giant apple fritter",
-    desc: "Retro doughnut boutique frying small-batch dough constantly. Crispy outside, fluffy inside, with retro charm and classic filter coffee.",
-    img: "https://images.unsplash.com/photo-1527515862127-a4fc05baf7a5?w=600&q=80",
-    lat: 45.5248,
-    lng: -73.5988,
-    traz: "Hot glazed crullers fried every 15 minutes. Pure speed boost."
+    order: "Fresh glazed honey crullers + Biscoff & Deluxe doughnuts",
+    desc: "Mile End's legendary small-batch doughnut shop with rolling baker's racks stacked high with hot glazed rings, crullers, and fritters under a Buffalo Bills 'BILLIEVE' banner and a framed Matty Matheson tribute.",
+    img: "photos/coffee-walk/F3E3D655-D6AB-473F-B827-2804F362C9A8_1_105_c.jpeg",
+    lat: 45.52698,
+    lng: -73.60257,
+    traz: "Wall-to-wall rolling racks of hot glazed doughnuts, a 'BILLIEVE' banner, and Matty Matheson on the wall!",
+    photos: [
+      { src: "photos/coffee-walk/F3E3D655-D6AB-473F-B827-2804F362C9A8_1_105_c.jpeg", caption: "Crew selfie in front of the towering Bernie Beigne doughnut racks & 'BILLIEVE' flag", time: "Fri Oct 9 · 2:03 PM" },
+      { src: "photos/coffee-walk/17214787-38AE-493B-8319-F0A1C782ACEC_1_105_c.jpeg", caption: "Framed photo of Matty Matheson with a box of Bernie Beigne doughnuts", time: "Fri Oct 9 · 2:04 PM" }
+    ]
   },
   {
-    id: "mamie",
-    name: "Mamie Clafoutis",
-    addr: "3660 Rue Saint-Denis",
-    walk: "14 min walk &middot; Plateau",
+    id: "les-alchimistes",
+    stopNumber: 6,
+    day: "day1",
+    dayLabel: "Day 1 · Fri Oct 9",
+    visitedAt: "Fri Oct 9 · 2:21 PM",
+    name: "Les Alchimistes Café",
+    addr: "5380 Boulevard Saint-Laurent",
+    walk: "17 min walk · Mile End",
+    distance: "1.4 km",
+    type: "roaster",
+    specialty: "Artisanal Matchas, Butterscotch Affogato & Tartines",
+    googleRating: "4.8",
+    googleReviews: "380+",
+    yelpRating: "4.7",
+    yelpReviews: "90+",
+    hours: "Daily 8:00am - 5:00pm",
+    order: "Butterscotch Affogato + Matcha Eau de Coco Lavande + Pistachio Latte",
+    desc: "Creative Mile End café on upper Saint-Laurent with a white Nuova Simonelli espresso bar, apothecary-inspired chalkboard art, owl-logo tote bags, and inventive drinks like Butterscotch Affogato and Lavender Coconut Matcha.",
+    img: "photos/coffee-walk/EA87C518-7226-44C5-8869-37F339D9FD76_1_105_c.jpeg",
+    lat: 45.52512,
+    lng: -73.59724,
+    traz: "Spot #6 on Friday afternoon—potion-grade Latte Pistache and Butterscotch Affogato.",
+    photos: [
+      { src: "photos/coffee-walk/EA87C518-7226-44C5-8869-37F339D9FD76_1_105_c.jpeg", caption: "Nuova Simonelli espresso machine & hand-lettered Cafés, Matchas & Tartines chalkboard", time: "Fri Oct 9 · 2:22 PM" },
+      { src: "photos/coffee-walk/6982F9BA-BC1C-4CDF-B0AD-92A2D4B84D7E_1_105_c.jpeg", caption: "Ornate framed specials chalkboard & 'Les Alchimistes Café' owl tote bag", time: "Fri Oct 9 · 2:21 PM" }
+    ]
+  },
+  {
+    id: "in-gamba",
+    stopNumber: 7,
+    day: "day2",
+    dayLabel: "Day 2 · Sat Oct 10",
+    visitedAt: "Sat Oct 10 · 9:08 AM",
+    name: "Café In Gamba (Parc)",
+    addr: "5263 Avenue du Parc",
+    walk: "14 min walk · Mile End",
+    distance: "1.1 km",
+    type: "roaster",
+    specialty: "Multi-Roaster Temple (Phil & Sebastian, ZAB, Pilot)",
+    googleRating: "4.7",
+    googleReviews: "950+",
+    yelpRating: "4.7",
+    yelpReviews: "410+",
+    hours: "Daily 7:30am - 6:00pm",
+    order: "Phil & Sebastian 'Lights Out Decaf' + ZAB 'Brewmance' Espresso Fruité",
+    desc: "Legendary temple of third-wave coffee with a signature yellow-tiled bar and five dedicated hoppers classified by flavor profile (Espresso Chocolaté, Espresso Fruité, Filtre Praliné, Filtre Fruité, and Espresso Décaf Chocolaté).",
+    img: "photos/coffee-walk/A6EB4D80-78C6-4BE3-9324-E5857C8A15BC_1_105_c.jpeg",
+    lat: 45.52090,
+    lng: -73.59919,
+    traz: "Five hoppers dialed by flavor profile! Look at that Phil & Sebastian 'Lights Out Decaf' from Huila, Colombia.",
+    photos: [
+      { src: "photos/coffee-walk/A6EB4D80-78C6-4BE3-9324-E5857C8A15BC_1_105_c.jpeg", caption: "Yellow-tiled multi-roaster bar with Pilot Monument, ZAB Brewmance, Bottle Neck & Phil & Sebastian Jungle Berry", time: "Sat Oct 10 · 9:08 AM" },
+      { src: "photos/coffee-walk/53EBA612-7189-45BB-92E7-ADD281975ACA_1_105_c.jpeg", caption: "Phil & Sebastian 'Lights Out Decaf' (Suaza, Huila, Colombia · brown sugar, dried fruits, walnut)", time: "Sat Oct 10 · 9:09 AM" },
+      { src: "photos/coffee-walk/B4CC86B3-2F2E-4C9E-98D8-E833C01E1636_1_105_c.jpeg", caption: "ZAB 'Brewmance' Espresso Fruité (Fruité · Chocolaté · Crémeux)", time: "Sat Oct 10 · 9:09 AM" }
+    ]
+  },
+  {
+    id: "fine-fine-fine",
+    stopNumber: 8,
+    day: "day2",
+    dayLabel: "Day 2 · Sat Oct 10",
+    visitedAt: "Sat Oct 10 · 9:34 AM",
+    name: "Fine Fine Fine Café",
+    addr: "4268 Boulevard Saint-Laurent",
+    walk: "5 min walk · The Main",
+    distance: "450m",
+    type: "roaster",
+    specialty: "Aussie-Inspired Espresso Bar, ST. ALi & Vinyl Wall",
+    googleRating: "4.9",
+    googleReviews: "240+",
+    yelpRating: "4.8",
+    yelpReviews: "75+",
+    hours: "Daily 8:00am - 4:00pm",
+    order: "Flat White / Piccolo + Bondi Brekkie + Calm & Gentle House Decaf",
+    desc: "Ultra-cool Australian-inspired coffee bar at 4268 St-Laurent featuring a custom wood-paneled espresso machine carved with their signature bird emblem, ST. ALi posters, a wall of CDs/vinyl, and Aussie sandwiches like the Bondi Brekkie.",
+    img: "photos/coffee-walk/8A70C594-98D8-4C5B-A2EC-B96A0719650C_1_105_c.jpeg",
+    lat: 45.51857,
+    lng: -73.58295,
+    traz: "Custom wood-carved bird on the espresso machine, ST. ALi posters, and a 'Calm & Gentle House Decaf' gravity hopper!",
+    photos: [
+      { src: "photos/coffee-walk/8A70C594-98D8-4C5B-A2EC-B96A0719650C_1_105_c.jpeg", caption: "Olive-green 4268 Fine Fine Fine storefront, mint bench & ST. ALi Coffee frame on St-Laurent", time: "Sat Oct 10 · 9:34 AM" },
+      { src: "photos/coffee-walk/06127AEF-7C11-4C27-B3EB-4A83E5DB5F2E_1_105_c.jpeg", caption: "Custom wood bird-carved espresso machine, Marshall amp stage & CD wall", time: "Sat Oct 10 · 9:35 AM" },
+      { src: "photos/coffee-walk/DBCACDA8-00CA-4C48-86D1-C992538F369E_1_105_c.jpeg", caption: "Aussie-style menu board: Bondi Brekkie, Le Pickle, Cheese Mate & Noosa Poire", time: "Sat Oct 10 · 9:35 AM" },
+      { src: "photos/coffee-walk/77C73E1F-E277-4D1C-A78B-1D094467AD1F_1_105_c.jpeg", caption: "Wooden plant ladder, Crema magazines & 'Calm & Gentle House Decaf' bean dispenser", time: "Sat Oct 10 · 9:36 AM" },
+      { src: "photos/coffee-walk/94DA747F-0374-47D2-A4E0-E3E2DD9A5BB7_1_105_c.jpeg", caption: "Signature bird 'CAFÉ' sidewalk A-frame among autumn maple leaves", time: "Sat Oct 10 · 9:34 AM" }
+    ]
+  },
+  {
+    id: "tordu",
+    stopNumber: 9,
+    day: "day2",
+    dayLabel: "Day 2 · Sat Oct 10",
+    visitedAt: "Sat Oct 10 · 4:20 PM",
+    name: "Tordu Café et Crèmerie",
+    addr: "54 Rue Rachel Est",
+    walk: "4 min walk · Plateau",
+    distance: "300m",
+    type: "roaster",
+    specialty: "Neighborhood Espresso & Artisanal Soft-Serve Crèmerie",
+    googleRating: "4.8",
+    googleReviews: "190+",
+    yelpRating: "4.7",
+    yelpReviews: "60+",
+    hours: "Daily 8:00am - 6:00pm",
+    order: "Afternoon cortado + artisanal soft-serve twist",
+    desc: "Charming Plateau corner spot at 54 Rachel Est combining specialty espresso with a neighborhood crèmerie ('Matins décalés, saveurs parfaites').",
+    img: "photos/coffee-walk/70C11FF8-51BE-4E75-B7F9-4FD7922E06F8_1_105_c.jpeg",
+    lat: 45.51848,
+    lng: -73.58115,
+    traz: "Late-afternoon caffeine boost right around the corner on Rachel Est.",
+    photos: [
+      { src: "photos/coffee-walk/70C11FF8-51BE-4E75-B7F9-4FD7922E06F8_1_105_c.jpeg", caption: "Tordu Café et Crèmerie storefront, blade sign & pastel sidewalk bench", time: "Sat Oct 10 · 4:20 PM" },
+      { src: "photos/coffee-walk/CB1EAAC2-043C-4E95-8192-D6F63999B127_1_105_c.jpeg", caption: "54 Rue Rachel Est doorway with afternoon coffee cup in hand", time: "Sat Oct 10 · 4:20 PM" }
+    ]
+  },
+  {
+    id: "froidochaud",
+    stopNumber: 10,
+    day: "day2",
+    dayLabel: "Day 2 · Sat Oct 10",
+    visitedAt: "Sat Oct 10 · 4:32 PM",
+    name: "Froidôchaud Café & Crêperie",
+    addr: "4701 Rue Saint-Denis",
+    walk: "14 min walk · Plateau",
     distance: "1.1 km",
     type: "bakery",
-    specialty: "French Viennoiserie & Pistachio Croissants",
+    specialty: "French Crêperie, Espresso & Fresh Juices",
     googleRating: "4.6",
-    googleReviews: "1,900+",
+    googleReviews: "410+",
     yelpRating: "4.5",
-    yelpReviews: "450+",
-    hours: "Daily 7:30am - 6:00pm",
-    order: "Pistachio chocolate croissant + house clafoutis",
-    desc: "Beloved French bakery with an open kitchen where you can watch bakers roll buttery puff pastry. Two-floor cozy tearoom on Saint-Denis.",
-    img: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=80",
-    lat: 45.5182,
-    lng: -73.5695,
-    traz: "Pistachio chocolate croissants right out of the oven."
+    yelpReviews: "110+",
+    hours: "Daily 8:00am - 6:00pm",
+    order: "Made-to-order sweet & savory crêpes + espresso",
+    desc: "Sunny Saint-Denis café and crêperie at 4701 St-Denis serving warm French crêpes, fresh-pressed juices, and afternoon espresso.",
+    img: "photos/coffee-walk/7D78503B-3446-4D1C-A2BF-AA318D1F06EA_1_105_c.jpeg",
+    lat: 45.52525,
+    lng: -73.58534,
+    traz: "Quick afternoon stop at 4701 Saint-Denis for café & crêperie vibes.",
+    photos: [
+      { src: "photos/coffee-walk/7D78503B-3446-4D1C-A2BF-AA318D1F06EA_1_105_c.jpeg", caption: "Froidôchaud Café · Crêperie · Jus Frais storefront at 4701 Rue Saint-Denis", time: "Sat Oct 10 · 4:32 PM" }
+    ]
   },
   {
-    id: "standard",
-    name: "Le Standard Café",
-    addr: "5135 Boulevard Saint-Laurent",
-    walk: "13 min walk &middot; Mile End",
-    distance: "1.0 km",
+    id: "cafe-bravo",
+    stopNumber: 11,
+    day: "day2",
+    dayLabel: "Day 2 · Sat Oct 10",
+    visitedAt: "Sat Oct 10 · 8:14 PM",
+    name: "Café Bravo (Bravo Musique)",
+    addr: "4577 Boulevard Saint-Laurent",
+    walk: "9 min walk · The Main",
+    distance: "700m",
     type: "roaster",
-    specialty: "Hyper-Local Plateau Espresso & Scones",
-    googleRating: "4.6",
-    googleReviews: "480+",
-    yelpRating: "4.5",
+    specialty: "Indie Record Label Café & Design Space",
+    googleRating: "4.8",
+    googleReviews: "210+",
+    yelpRating: "4.7",
+    yelpReviews: "55+",
+    hours: "Daily 8:00am - 5:00pm",
+    order: "Filter coffee + indie vinyl & Café Marathon merch",
+    desc: "Headquarters of Montreal indie label Bravo Musique (formerly Dare to Care) at 4577 St-Laurent, housing a minimalist architectural café in the front and music studio offices above.",
+    img: "photos/coffee-walk/C6FC98AE-0A59-44A3-A052-AF817DA84694_1_105_c.jpeg",
+    lat: 45.52071,
+    lng: -73.58773,
+    traz: "Evening stroll past the glowing orange 4577 BRAVO Musique & Café blade sign on The Main.",
+    photos: [
+      { src: "photos/coffee-walk/C6FC98AE-0A59-44A3-A052-AF817DA84694_1_105_c.jpeg", caption: "Glowing orange '4577 BRAVO Musique et Talents CAFÉ' sign on Saint-Laurent at night", time: "Sat Oct 10 · 8:14 PM" },
+      { src: "photos/coffee-walk/670EC515-BBF3-4589-AF95-B6BF0F384DE9_1_105_c.jpeg", caption: "Evening window view into the minimalist Café Bravo bar & shelving", time: "Sat Oct 10 · 8:14 PM" }
+    ]
+  },
+  {
+    id: "cafe-cams",
+    stopNumber: 12,
+    day: "day3",
+    dayLabel: "Day 3 · Sun Oct 11",
+    visitedAt: "Sun Oct 11 · 8:19 AM",
+    name: "Café CAMS",
+    addr: "4649 Rue Rivard",
+    walk: "14 min walk · Plateau",
+    distance: "1.1 km",
+    type: "roaster",
+    specialty: "CAMS x Jungle Roasters & Custom Conti Espresso",
+    googleRating: "4.9",
+    googleReviews: "340+",
+    yelpRating: "4.8",
+    yelpReviews: "80+",
+    hours: "Daily 8:00am - 4:00pm",
+    order: "CAMS x Jungle espresso + breakfast sandwich & s'mores cookie",
+    desc: "Retro-cool Plateau neighborhood hangout on Rue Rivard featuring a custom see-through white Conti espresso machine showing off its copper boiler, Anfim grinders, and signature bright-orange 'CAMS x JUNGLE' coffee bags.",
+    img: "photos/coffee-walk/9D0BC41A-2AA3-466E-8111-47212FFB0A03_1_105_c.jpeg",
+    lat: 45.52533,
+    lng: -73.58436,
+    traz: "Check out the custom window cut into the white Conti espresso machine showing the copper boiler inside!",
+    photos: [
+      { src: "photos/coffee-walk/9D0BC41A-2AA3-466E-8111-47212FFB0A03_1_105_c.jpeg", caption: "Custom see-through Conti espresso machine, Anfim grinder & CAMS menu board", time: "Sun Oct 11 · 8:19 AM" },
+      { src: "photos/coffee-walk/7C117D4B-B742-4153-BC69-CD8F36BF7CCF_1_105_c.jpeg", caption: "'CAMS x JUNGLE' collaboration roast bag (chocolate, roasted nuts) & s'mores cookies", time: "Sun Oct 11 · 8:19 AM" },
+      { src: "photos/coffee-walk/0B8A8AB4-5050-486E-B844-E2C90C54385F_1_105_c.jpeg", caption: "Close-up of the exposed copper boiler inside the custom CAMS Conti machine", time: "Sun Oct 11 · 8:19 AM" }
+    ]
+  },
+  {
+    id: "zab-cafe",
+    stopNumber: 13,
+    day: "day3",
+    dayLabel: "Day 3 · Sun Oct 11",
+    visitedAt: "Sun Oct 11 · 8:54 AM",
+    name: "ZAB Café",
+    addr: "6201 Rue Saint-Denis (at Bellechasse)",
+    walk: "25 min walk · La Petite-Patrie",
+    distance: "2.1 km",
+    type: "roaster",
+    specialty: "Micro-Lot Pour-Over Flights & Half-Caf Roaster",
+    googleRating: "4.8",
+    googleReviews: "890+",
+    yelpRating: "4.8",
+    yelpReviews: "210+",
+    hours: "Daily 8:00am - 5:00pm",
+    order: "Allan Melgar Guatemala pour-over carafe flight + Demi-Caf / Decaf beans",
+    desc: "Flagship café of Montreal roaster ZAB at the corner of Saint-Denis and Bellechasse, unmistakable with its periwinkle-blue & gold door, emerald tile espresso bar, hand-written dial-in recipes on the hoppers, and yellow-tray pour-over flights.",
+    img: "photos/coffee-walk/587B639F-E6DD-4F7C-99B3-33AD6AE40FB5_1_105_c.jpeg",
+    lat: 45.53269,
+    lng: -73.60190,
+    traz: "Elite pour-over presentation: Allan Melgar Guatemala served in a glass carafe with its trading card on a yellow tray!",
+    photos: [
+      { src: "photos/coffee-walk/587B639F-E6DD-4F7C-99B3-33AD6AE40FB5_1_105_c.jpeg", caption: "Iconic periwinkle-blue & gold '6201 ZAB Compagnie de Café' corner entrance", time: "Sun Oct 11 · 9:13 AM" },
+      { src: "photos/coffee-walk/592AC694-4A74-4F87-8DEC-569D78FDE27A_1_105_c.jpeg", caption: "Allan Melgar Guatemala pour-over carafe, tasting card & cortado on a yellow tray", time: "Sun Oct 11 · 9:04 AM" },
+      { src: "photos/coffee-walk/984F4E51-ABED-40B6-A4F7-5082F3A0A40F_1_105_c.jpeg", caption: "ZAB 'Mélange Demi-Caf / Half-Caf' filter & espresso bean bags", time: "Sun Oct 11 · 8:55 AM" },
+      { src: "photos/coffee-walk/1B6BB1AE-057D-4CFA-A1E6-B92C54CECB1A_1_105_c.jpeg", caption: "Emerald-tiled bar with '18.5g in / 36g out / 27 sec' written right on the Jesus Galeas & Decaf hoppers", time: "Sun Oct 11 · 8:54 AM" }
+    ]
+  },
+  {
+    id: "cafe-eclair",
+    stopNumber: 14,
+    day: "day3",
+    dayLabel: "Day 3 · Sun Oct 11",
+    visitedAt: "Sun Oct 11 · 9:30 AM",
+    name: "Café Éclair",
+    addr: "12 Rue Maguire",
+    walk: "16 min walk · Mile End",
+    distance: "1.3 km",
+    type: "roaster",
+    specialty: "Rare Geisha Micro-Lots & Multi-Roaster Library",
+    googleRating: "4.8",
+    googleReviews: "540+",
+    yelpRating: "4.7",
     yelpReviews: "140+",
-    hours: "Daily 7:00am - 6:00pm",
-    order: "Double cortado + blueberry lemon scone",
-    desc: "Intimate, stylish neighborhood outpost straight up St-Laurent. Fantastic third-wave beans, house baked pastries, and sidewalk seating.",
-    img: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=600&q=80",
-    lat: 45.5270,
-    lng: -73.5930,
-    traz: "Cool sunny sidewalk bench for morning cortados on St-Laurent."
+    hours: "Daily 8:00am - 5:00pm",
+    order: "Wilder Lazo Geisha pour-over + Espresso Micro-Lot",
+    desc: "Sun-drenched Mile End specialty coffee showroom on Rue Maguire featuring a 16-cubby library wall of rare international and Canadian micro-lot beans, including Wilder Lazo Geisha.",
+    img: "photos/coffee-walk/BCCD745E-219F-4F87-97E8-4CF4B129E883_1_105_c.jpeg",
+    lat: 45.52472,
+    lng: -73.59557,
+    traz: "Look at that 16-cubby coffee library wall—Wilder Lazo Geisha right on the top right shelf!",
+    photos: [
+      { src: "photos/coffee-walk/BCCD745E-219F-4F87-97E8-4CF4B129E883_1_105_c.jpeg", caption: "Café Éclair's floor-to-ceiling specialty bean library featuring Wilder Lazo Geisha", time: "Sun Oct 11 · 9:30 AM" }
+    ]
+  },
+  {
+    id: "cafe-pista",
+    stopNumber: 15,
+    day: "day3",
+    dayLabel: "Day 3 · Sun Oct 11",
+    visitedAt: "Sun Oct 11 · 10:55 AM",
+    name: "Café Pista (Quartier des Spectacles)",
+    addr: "1587 Boulevard Saint-Laurent",
+    walk: "18 min walk · Downtown / Main",
+    distance: "1.5 km",
+    type: "roaster",
+    specialty: "World Top 100 Coffee Shop & Sugarcane Decaf",
+    googleRating: "4.7",
+    googleReviews: "1,100+",
+    yelpRating: "4.7",
+    yelpReviews: "290+",
+    hours: "Daily 7:30am - 5:00pm",
+    order: "Colis Resistencia Guatemala / Bookkisa Naturel Ethiopia + Décaf Guarapo",
+    desc: "Recognized among the World's 100 Best Coffee Shops! Pista's Saint-Laurent outpost showcases producer-spotlight hoppers (Colis Resistencia Guatemala & Bookkisa Naturel Ethiopia) and 86-point ethyl-acetate 'Décaf Guarapo' from Huila, Colombia.",
+    img: "photos/coffee-walk/F3376451-BF57-479B-942C-FF8CEDAE2F4E_1_105_c.jpeg",
+    lat: 45.51085,
+    lng: -73.56582,
+    traz: "World Top 100 Coffee Shop badge on the brick wall—and an 86-cup-score Colombia Huila sugarcane decaf!",
+    photos: [
+      { src: "photos/coffee-walk/F3376451-BF57-479B-942C-FF8CEDAE2F4E_1_105_c.jpeg", caption: "PISTA brick storefront at 1587 St-Laurent with 'World's 100 Best Coffee Shops' plaque", time: "Sun Oct 11 · 10:55 AM" },
+      { src: "photos/coffee-walk/58403E74-AE50-4003-A011-D7D6A81B66B6_1_105_c.jpeg", caption: "Forest-green espresso machine & producer hoppers (Colis Resistencia Guatemala & Bookkisa Naturel Ethiopia)", time: "Sun Oct 11 · 10:57 AM" },
+      { src: "photos/coffee-walk/F98E5042-A8EA-4908-9239-DF0F150726C5_1_105_c.jpeg", caption: "Pista 'Décaf Guarapo' (Huila, Colombia · ethyl-acetate sugarcane process · Cup Score 86)", time: "Sun Oct 11 · 10:57 AM" }
+    ]
+  },
+  {
+    id: "columbus-cafe",
+    stopNumber: 16,
+    day: "day3",
+    dayLabel: "Day 3 · Sun Oct 11",
+    visitedAt: "Sun Oct 11 · 12:34 PM",
+    name: "Columbus Café & Co (Old Montreal)",
+    addr: "485 Rue McGill",
+    walk: "Old Montreal Stroll",
+    distance: "2.3 km",
+    type: "roaster",
+    specialty: "French-Born Bear Café & Pumpkin Dirty Chai",
+    googleRating: "4.5",
+    googleReviews: "520+",
+    yelpRating: "4.4",
+    yelpReviews: "115+",
+    hours: "Daily 7:00am - 7:00pm",
+    order: "Dirty Chaï à la Citrouille + espresso macchiato",
+    desc: "Set inside a grand stone heritage building at 485 Rue McGill in Old Montreal, featuring giant white bear window illustrations, bright yellow tilework, and fall specials like the Dirty Chaï à la Citrouille.",
+    img: "photos/coffee-walk/B0C29CD4-F034-49C9-87F5-0864B3F19B7A_1_105_c.jpeg",
+    lat: 45.50097,
+    lng: -73.55908,
+    traz: "Midday Old Montreal pit stop on historic Rue McGill under the giant window bear.",
+    photos: [
+      { src: "photos/coffee-walk/B0C29CD4-F034-49C9-87F5-0864B3F19B7A_1_105_c.jpeg", caption: "Signature bear window illustration on the stone facade at 485 Rue McGill", time: "Sun Oct 11 · 12:34 PM" },
+      { src: "photos/coffee-walk/4B78BF57-CE7E-499C-96D2-BF1B1C31623D_1_105_c.jpeg", caption: "Yellow espresso bar & 'Dirty Chaï à la Citrouille' fall feature at Columbus McGill", time: "Sun Oct 11 · 12:34 PM" },
+      { src: "photos/coffee-walk/256F6E7B-6F9D-46C9-B679-F2FC9613CCA3_1_105_c.jpeg", caption: "Sunny yellow-tiled coffee bar and Columbus Café & Co bear mural", time: "Sun Oct 11 · 12:34 PM" },
+      { src: "photos/coffee-walk/E9679E7B-4E72-428C-93E0-18B55105803C_1_105_c.jpeg", caption: "Exterior view along Rue McGill in Old Montreal", time: "Sun Oct 11 · 12:39 PM" }
+    ]
+  },
+  {
+    id: "pikolo",
+    stopNumber: 17,
+    day: "day3",
+    dayLabel: "Day 3 · Sun Oct 11",
+    visitedAt: "Sun Oct 11 · 2:06 PM",
+    name: "Pikolo Espresso Bar",
+    addr: "1635 Rue Clark",
+    walk: "15 min walk · Quartier des Spectacles",
+    distance: "1.2 km",
+    type: "roaster",
+    specialty: "Precision Third-Wave Espresso & Multi-Grinder Bar",
+    googleRating: "4.7",
+    googleReviews: "1,450+",
+    yelpRating: "4.8",
+    yelpReviews: "520+",
+    hours: "Mon-Fri 7am-5pm, Sat-Sun 8am-5pm",
+    order: "Altura (Mexico) or Macarena (Colombia) espresso + flat white",
+    desc: "Montreal specialty coffee royalty at 1635 Rue Clark. Wood-paneled 3-group La Marzocco Strada, mint-green ceramic cups, and four dedicated grinders (including a copper Mahlkönig EK43) pulling Altura Mexico and Macarena Colombia.",
+    img: "photos/coffee-walk/8636F903-5A09-4579-A743-C5FD356D0341_1_105_c.jpeg",
+    lat: 45.51082,
+    lng: -73.56685,
+    traz: "Four-grinder lineup including a copper EK43 and wood-paneled La Marzocco pulling Mexico & Colombia shots!",
+    photos: [
+      { src: "photos/coffee-walk/8636F903-5A09-4579-A743-C5FD356D0341_1_105_c.jpeg", caption: "Pikolo storefront at 1635 Rue Clark with Altura (Mexico) & Macarena (Colombia) chalkboard", time: "Sun Oct 11 · 2:06 PM" },
+      { src: "photos/coffee-walk/72A2850B-47DA-4C5D-B392-CEFF263B1B46_1_105_c.jpeg", caption: "Wood-paneled 3-group La Marzocco espresso bar & mint ceramic cups", time: "Sun Oct 11 · 2:07 PM" },
+      { src: "photos/coffee-walk/812DF2D5-5D96-432A-AFC9-7C56E0A6DD99_1_105_c.jpeg", caption: "Quad-grinder specialty bar & copper Mahlkönig EK43 under the Pride flag", time: "Sun Oct 11 · 2:07 PM" }
+    ]
+  },
+  {
+    id: "krema-cafe",
+    stopNumber: 18,
+    day: "day4",
+    dayLabel: "Day 4 · Mon Oct 12",
+    visitedAt: "Mon Oct 12 · 1:21 PM",
+    name: "Krema Café (Fairmont Queen Elizabeth)",
+    addr: "900 Boulevard René-Lévesque Ouest",
+    walk: "Downtown Farewell Stop",
+    distance: "2.0 km",
+    type: "roaster",
+    specialty: "Krema x Jungle Guatemala Single-Origin & Victoria Arduino Bar",
+    googleRating: "4.6",
+    googleReviews: "410+",
+    yelpRating: "4.5",
+    yelpReviews: "120+",
+    hours: "Daily 6:30am - 6:00pm",
+    order: "Krema x Jungle (Recinos Family, Guatemala) cortado + farewell latte",
+    desc: "Our 18th and final coffee stop on Thanksgiving Monday before heading to YUL! Located inside Fairmont The Queen Elizabeth with a geometric sculptural ceiling, Victoria Arduino Mythos grinders, and a custom 'Krema x Jungle' direct-trade roast from the Recinos family in Guatemala.",
+    img: "photos/coffee-walk/6FB3B24D-BBB6-4262-804C-F0D598A245C7_1_105_c.jpeg",
+    lat: 45.50029,
+    lng: -73.56879,
+    traz: "Stop #18 finale before the airport! Krema x Jungle Guatemala beans ground on Victoria Arduino Mythos grinders.",
+    photos: [
+      { src: "photos/coffee-walk/6FB3B24D-BBB6-4262-804C-F0D598A245C7_1_105_c.jpeg", caption: "Glowing 'KREMA' sign, geometric ceiling & ceramic cup stacks at Fairmont Queen Elizabeth", time: "Mon Oct 12 · 1:21 PM" },
+      { src: "photos/coffee-walk/894C5E4F-2320-4B73-A87A-C74B39BC8727_4_5005_c.jpeg", caption: "Victoria Arduino grinders featuring 'Krema x Jungle' (Recinos Family, Guatemala) & '1867' blend", time: "Mon Oct 12 · 1:21 PM" }
+    ]
   }
 ];
 
@@ -1725,29 +2074,47 @@ function initMaps() {
 
   const baseLat = 45.5167, baseLng = -73.5786;
   
-  /* 1. Master City Map */
+  /* 1. Master City Map (Google Maps Tiles) */
   masterMapInstance = L.map('masterMap', { scrollWheelZoom: false }).setView([45.516, -73.578], 13);
   
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; OpenStreetMap',
-    maxZoom: 19
+  const masterGoogleStreets = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+    attribution: '&copy; Google Maps',
+    maxZoom: 20
   }).addTo(masterMapInstance);
+
+  const masterGoogleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+    attribution: '&copy; Google Maps',
+    maxZoom: 20
+  });
+
+  L.control.layers({ "🗺️ Google Streets": masterGoogleStreets, "🛰️ Google Satellite": masterGoogleHybrid }, null, { position: 'topright' }).addTo(masterMapInstance);
 
   renderMasterMapMarkers('all');
   renderMapCardDeck();
 
-  /* 2. Coffee Walking Radius Map (Expanded 30-Min / 2.2km Radius) */
-  coffeeMapInstance = L.map('coffeeMap', { scrollWheelZoom: false }).setView([baseLat, baseLng], 14);
+  /* 2. Coffee Crawl Map (Google Maps Tiles · All 18 GPS-Verified Visited Stops) */
+  coffeeMapInstance = L.map('coffeeMap', { scrollWheelZoom: false }).setView([baseLat, baseLng], 13);
   
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; OpenStreetMap',
-    maxZoom: 19
+  const coffeeGoogleStreets = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+    attribution: '&copy; Google Maps',
+    maxZoom: 20
   }).addTo(coffeeMapInstance);
+
+  const coffeeGoogleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+    attribution: '&copy; Google Maps',
+    maxZoom: 20
+  });
+
+  L.control.layers({ "🗺️ Google Streets": coffeeGoogleStreets, "🛰️ Google Satellite": coffeeGoogleHybrid }, null, { position: 'topright' }).addTo(coffeeMapInstance);
 
   L.circle([baseLat, baseLng], {
     color: '#ffb703',
     fillColor: '#ffb703',
-    fillOpacity: 0.12,
+    fillOpacity: 0.10,
     weight: 3,
     dashArray: '6, 6',
     radius: 2200
@@ -1761,31 +2128,43 @@ function initMaps() {
   });
   L.marker([baseLat, baseLng], { icon: homeIcon })
     .addTo(coffeeMapInstance)
-    .bindPopup(`<strong>🏡 Our Basecamp</strong><br>3831 Boulevard Saint-Laurent<br>The center of our Montreal coffee universe.`);
+    .bindPopup(`<strong>🏡 Our Basecamp</strong><br>3831 Boulevard Saint-Laurent<br>The center of our Montreal coffee universe.<br><a href="https://www.google.com/maps/search/?api=1&query=3831+Boulevard+Saint-Laurent+Montreal+QC" target="_blank" rel="noopener" style="display:inline-block; margin-top:4px; font-size:11px; font-weight:800; color:#2563eb; text-decoration:underline;">🗺️ Open in Google Maps ↗</a>`);
 
+  const crawlLatLngs = [];
   COFFEE_CATALOG.forEach(shop => {
+    crawlLatLngs.push([shop.lat, shop.lng]);
     const isR = shop.type === 'roaster';
+    const stopStr = String(shop.stopNumber).padStart(2, '0');
+    const photoCount = (shop.photos && shop.photos.length) || 1;
+    const gmapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(shop.name + ' ' + shop.addr + ' Montreal QC')}`;
     const cIcon = L.divIcon({
       className: '',
-      html: `<div class="pop-map-pin" style="background:${isR ? '#e63946' : '#ffb703'}; color:${isR ? '#ffffff' : '#023047'};"><span>${isR ? '☕️' : '🥐'}</span><span>${shop.name}</span></div>`,
-      iconSize: [135, 28],
-      iconAnchor: [67, 14]
+      html: `<div class="pop-map-pin" style="background:${isR ? '#e63946' : '#ffb703'}; color:${isR ? '#ffffff' : '#023047'};"><span>#${stopStr}</span><span>${shop.name.split(' (')[0]}</span></div>`,
+      iconSize: [145, 28],
+      iconAnchor: [72, 14]
     });
 
     L.marker([shop.lat, shop.lng], { icon: cIcon })
       .addTo(coffeeMapInstance)
       .bindPopup(`
-        <div style="font-family:'Plus Jakarta Sans',sans-serif; max-width:230px;">
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; width:240px;">
+          <img src="${shop.img}" alt="${shop.name}" onclick="openCoffeeLightbox('${shop.id}', 0)" style="width:100%; height:115px; object-fit:cover; border-radius:8px; border:2px solid #1e293b; cursor:pointer; margin-bottom:6px;" />
+          <div style="font-size:10px; font-weight:800; color:#64748b; text-transform:uppercase;">Stop #${stopStr} &middot; ${shop.visitedAt}</div>
           <strong style="font-size:14px; color:#1e293b; font-family:'Bricolage Grotesque',sans-serif;">${shop.name}</strong><br>
-          <span style="font-size:11px; color:#e63946; font-weight:800;">⏱️ ${shop.walk} &middot; ${shop.specialty}</span><br>
-          <div style="margin:4px 0; font-size:10px; display:flex; gap:4px;">
-            <span style="background:#eff6ff; color:#1e40af; padding:1px 4px; border-radius:4px; font-weight:700;">G ${shop.googleRating} ★</span>
-            <span style="background:#fef2f2; color:#991b1b; padding:1px 4px; border-radius:4px; font-weight:700;">Yelp ${shop.yelpRating} ★</span>
+          <a href="${gmapsUrl}" target="_blank" rel="noopener" style="font-size:11px; color:#e63946; font-weight:800; text-decoration:underline;">📍 ${shop.addr} (Google Maps ↗)</a><br>
+          <div style="margin:5px 0; font-size:10px; display:flex; gap:4px; align-items:center;">
+            <span style="background:#eff6ff; color:#1e40af; padding:1px 5px; border-radius:4px; font-weight:700;">G ${shop.googleRating} ★</span>
+            <span style="background:#fef2f2; color:#991b1b; padding:1px 5px; border-radius:4px; font-weight:700;">Yelp ${shop.yelpRating} ★</span>
+            <button onclick="openCoffeeLightbox('${shop.id}', 0)" style="margin-left:auto; background:#1e293b; color:#fff; border:none; border-radius:4px; padding:2px 6px; font-weight:800; cursor:pointer; font-size:10px;">📷 ${photoCount} Photo${photoCount > 1 ? 's' : ''}</button>
           </div>
-          <p style="font-size:11px; color:#475569; margin:4px 0;">${shop.order}</p>
+          <p style="font-size:11px; color:#475569; margin:4px 0 0;">${shop.order}</p>
         </div>
       `);
   });
+
+  if (crawlLatLngs.length > 0) {
+    coffeeMapInstance.fitBounds(L.latLngBounds(crawlLatLngs).pad(0.12));
+  }
 }
 
 function renderMasterMapMarkers(filter) {
@@ -1804,6 +2183,7 @@ function renderMasterMapMarkers(filter) {
     const isBase = dest.category === 'base';
     let textColor = '#ffffff';
     if (dest.color === '#ffb703') textColor = '#023047';
+    const gmapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(dest.name + ' Montreal QC')}`;
 
     const customIcon = L.divIcon({
       className: '',
@@ -1821,6 +2201,7 @@ function renderMasterMapMarkers(filter) {
           </div>
           <span style="font-size:11px; color:#e63946; font-weight:800;">⏱️ ${dest.walk} from Basecamp</span>
           <p style="font-size:11px; color:#475569; margin:4px 0;">${dest.desc}</p>
+          <a href="${gmapsUrl}" target="_blank" rel="noopener" style="display:inline-block; margin-top:2px; font-size:11px; font-weight:800; color:#2563eb; text-decoration:underline;">🗺️ Open in Google Maps ↗</a>
         </div>
       `);
     masterMarkerMap[dest.id] = m;
@@ -2028,27 +2409,44 @@ function renderCoffeeGrid() {
   const hearts = ['🤍🤍', '❤️', '❤️❤️'];
   const filtered = COFFEE_CATALOG.filter(item => {
     if (activeCoffeeFilter === 'all') return true;
+    if (activeCoffeeFilter.startsWith('day')) return item.day === activeCoffeeFilter;
     return item.type === activeCoffeeFilter;
   });
 
   grid.innerHTML = filtered.map(item => {
     const heartLevel = (appState.coffee_prefs && appState.coffee_prefs[item.id]) || 0;
     const isRoaster = item.type === 'roaster';
+    const stopStr = String(item.stopNumber || 1).padStart(2, '0');
+    const photos = item.photos || [{ src: item.img, caption: item.name, time: item.visitedAt || '' }];
 
     return `
       <article class="pop-card flex flex-col sm:flex-row overflow-hidden group">
-        <div class="sm:w-48 h-48 sm:h-auto bg-cover bg-center flex-shrink-0 relative border-b-2 sm:border-b-0 sm:border-r-2 border-on-surface" style="background-image: url('${item.img}')">
-          <span class="absolute top-3 left-3 text-[10px] font-pop font-extrabold uppercase px-2.5 py-0.5 rounded-full border border-on-surface text-white ${isRoaster ? 'bg-pop-red' : 'bg-pop-yellow text-pop-dark'}">
-            ${isRoaster ? '☕️ Roaster' : '🥐 Bakery'}
+        <div onclick="openCoffeeLightbox('${item.id}', 0)" class="sm:w-52 h-56 sm:h-auto bg-cover bg-center flex-shrink-0 relative border-b-2 sm:border-b-0 sm:border-r-2 border-on-surface cursor-pointer group/img" style="background-image: url('${item.img}')" title="Click to open ${photos.length} photo${photos.length > 1 ? 's' : ''} from ${item.name}">
+          <div class="absolute inset-0 bg-black/0 group-hover/img:bg-black/20 transition-colors flex items-center justify-center">
+            <span class="opacity-0 group-hover/img:opacity-100 transition-opacity bg-black/80 text-white font-pop font-extrabold text-xs px-3 py-1.5 rounded-full border border-white/40 shadow-lg">🔍 View ${photos.length} Photo${photos.length > 1 ? 's' : ''}</span>
+          </div>
+          <div class="absolute top-3 left-3 flex items-center gap-1.5">
+            <span class="text-[10px] font-pop font-extrabold uppercase px-2 py-0.5 rounded-full border border-on-surface bg-slate-900 text-amber-300">
+              #${stopStr}
+            </span>
+            <span class="text-[10px] font-pop font-extrabold uppercase px-2.5 py-0.5 rounded-full border border-on-surface text-white ${isRoaster ? 'bg-pop-red' : 'bg-pop-yellow text-pop-dark'}">
+              ${isRoaster ? '☕️ Roaster' : '🥐 Bakery'}
+            </span>
+          </div>
+          <span class="absolute bottom-3 left-3 bg-black/80 text-white text-[10px] font-pop font-bold px-2 py-0.5 rounded border border-white/30">
+            📸 ${item.visitedAt || item.distance || ''}
           </span>
-          <span class="absolute bottom-3 left-3 bg-black/75 text-white text-[10px] font-pop font-bold px-2 py-0.5 rounded border border-white/30">
-            ${item.distance || ''}
+          <span class="absolute bottom-3 right-3 bg-amber-400 text-slate-950 text-[10px] font-pop font-extrabold px-2 py-0.5 rounded border border-slate-900 shadow-sm">
+            📷 ${photos.length}
           </span>
         </div>
-        <div class="p-5 flex flex-col justify-between flex-grow">
+        <div class="p-5 flex flex-col justify-between flex-grow min-w-0">
           <div>
             <div class="flex justify-between items-start gap-2 mb-1">
-              <h4 class="font-pop font-extrabold text-lg text-on-surface">${item.name}</h4>
+              <div>
+                <span class="text-[10px] font-pop font-extrabold uppercase tracking-wider text-slate-500 block">${item.dayLabel || ''} &middot; Stop #${stopStr}</span>
+                <h4 class="font-pop font-extrabold text-lg text-on-surface leading-snug">${item.name}</h4>
+              </div>
               <div class="coffee-heart-btn" onclick="cycleCoffeeHeart('${item.id}')" title="Haley's Desire Rating: Tap to cycle">
                 <span>${hearts[heartLevel]}</span>
               </div>
@@ -2057,11 +2455,11 @@ function renderCoffeeGrid() {
             
             <!-- Google & Yelp Side-by-Side Ratings -->
             <div class="flex items-center gap-2 mb-3 flex-wrap">
-              <span class="review-badge-google">
+              <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.name + ' ' + item.addr + ' Montreal QC')}" target="_blank" rel="noopener" class="review-badge-google hover:bg-blue-100 transition-colors" title="Open ${item.name} in Google Maps">
                 <span class="font-black text-[#4285F4]">G</span>
                 <span>${item.googleRating} ★</span>
-                <span class="text-[10px] text-blue-700 font-normal">(${item.googleReviews})</span>
-              </span>
+                <span class="text-[10px] text-blue-700 font-normal">(${item.googleReviews}) ↗</span>
+              </a>
               <span class="review-badge-yelp">
                 <span class="font-black text-[#d32323]">Yelp</span>
                 <span>${item.yelpRating} ★</span>
@@ -2072,15 +2470,27 @@ function renderCoffeeGrid() {
             <div class="space-y-1 text-xs text-on-surface-variant mb-3 font-body">
               <div class="flex items-center gap-1.5">
                 <span class="material-symbols-outlined text-pop-red !text-sm">location_on</span>
-                <span><strong>${item.walk}</strong> &middot; ${item.addr}</span>
+                <span><strong>${item.walk}</strong> &middot; <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.name + ' ' + item.addr + ' Montreal QC')}" target="_blank" rel="noopener" class="underline hover:text-pop-red font-semibold">${item.addr} (Google Maps ↗)</a></span>
               </div>
               <div class="flex items-center gap-1.5">
                 <span class="material-symbols-outlined text-pop-yellow !text-sm">schedule</span>
-                <span>${item.hours}</span>
+                <span>Visited: <strong>${item.visitedAt}</strong> &middot; Hours: ${item.hours}</span>
               </div>
             </div>
 
             <p class="text-xs text-on-surface-variant leading-relaxed mb-3">${item.desc}</p>
+
+            <!-- Interactive Photo Thumbnail Strip -->
+            <div class="mb-3">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-[10px] font-pop font-extrabold uppercase tracking-wider text-on-surface-variant">📷 Coffee Walk Photos (${photos.length}) &mdash; Tap to enlarge</span>
+              </div>
+              <div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+                ${photos.map((p, idx) => `
+                  <img src="${p.src}" alt="${p.caption.replace(/"/g, '&quot;')}" loading="lazy" onclick="openCoffeeLightbox('${item.id}', ${idx})" class="coffee-thumb" title="${p.caption.replace(/"/g, '&quot;')}" />
+                `).join('')}
+              </div>
+            </div>
             
             ${item.traz ? `
               <div class="traz-note traz-bubble p-2 flex items-center gap-2 mb-3">
@@ -2090,9 +2500,9 @@ function renderCoffeeGrid() {
             ` : ''}
           </div>
 
-          <div class="pt-3 border-t-2 border-outline-variant flex items-center justify-between">
+          <div class="pt-3 border-t-2 border-outline-variant flex items-center justify-between gap-2">
             <p class="text-xs font-semibold text-on-surface">
-              <span class="text-pop-dark font-pop uppercase text-[10px] tracking-wider font-extrabold mr-1.5">Signature:</span>
+              <span class="text-pop-dark font-pop uppercase text-[10px] tracking-wider font-extrabold mr-1.5">Spotted / Ordered:</span>
               ${item.order}
             </p>
           </div>
@@ -2101,6 +2511,120 @@ function renderCoffeeGrid() {
     `;
   }).join('');
 }
+
+/* ── COFFEE WALK PHOTO LIGHTBOX (<dialog>) ── */
+let currentLightboxSlides = [];
+let currentLightboxIndex = 0;
+
+function openCoffeeLightbox(shopId, photoIndex = 0) {
+  const shop = COFFEE_CATALOG.find(s => s.id === shopId);
+  if (!shop) return;
+  const stopStr = String(shop.stopNumber || 1).padStart(2, '0');
+  currentLightboxSlides = (shop.photos || [{ src: shop.img, caption: shop.name, time: shop.visitedAt }]).map(p => ({
+    src: p.src,
+    caption: p.caption,
+    time: p.time || shop.visitedAt,
+    shopName: shop.name,
+    addr: shop.addr,
+    badge: `Stop #${stopStr} · ${shop.dayLabel || ''}`
+  }));
+  currentLightboxIndex = Math.max(0, Math.min(photoIndex, currentLightboxSlides.length - 1));
+  renderLightboxSlide();
+  const dialog = document.getElementById('coffeeLightbox');
+  if (dialog && !dialog.open) {
+    dialog.showModal();
+  }
+}
+
+function openAllCoffeePhotos() {
+  currentLightboxSlides = [];
+  COFFEE_CATALOG.forEach(shop => {
+    const stopStr = String(shop.stopNumber || 1).padStart(2, '0');
+    (shop.photos || [{ src: shop.img, caption: shop.name, time: shop.visitedAt }]).forEach(p => {
+      currentLightboxSlides.push({
+        src: p.src,
+        caption: p.caption,
+        time: p.time || shop.visitedAt,
+        shopName: shop.name,
+        addr: shop.addr,
+        badge: `Stop #${stopStr} · ${shop.dayLabel || ''}`
+      });
+    });
+  });
+  currentLightboxIndex = 0;
+  renderLightboxSlide();
+  const dialog = document.getElementById('coffeeLightbox');
+  if (dialog && !dialog.open) {
+    dialog.showModal();
+  }
+}
+
+function stepCoffeeLightbox(delta) {
+  if (!currentLightboxSlides.length) return;
+  currentLightboxIndex = (currentLightboxIndex + delta + currentLightboxSlides.length) % currentLightboxSlides.length;
+  renderLightboxSlide();
+}
+
+function jumpCoffeeLightbox(idx) {
+  if (idx < 0 || idx >= currentLightboxSlides.length) return;
+  currentLightboxIndex = idx;
+  renderLightboxSlide();
+}
+
+function renderLightboxSlide() {
+  const slide = currentLightboxSlides[currentLightboxIndex];
+  if (!slide) return;
+  document.getElementById('lightboxBadge').textContent = slide.badge;
+  document.getElementById('lightboxTitle').textContent = slide.shopName;
+  document.getElementById('lightboxCounter').textContent = `${currentLightboxIndex + 1} / ${currentLightboxSlides.length}`;
+  document.getElementById('lightboxMeta').textContent = `📍 ${slide.addr}  ·  🕒 ${slide.time}`;
+  const imgEl = document.getElementById('lightboxImg');
+  imgEl.src = slide.src;
+  imgEl.alt = slide.caption;
+  document.getElementById('lightboxCaption').textContent = slide.caption;
+
+  const thumbsEl = document.getElementById('lightboxThumbs');
+  thumbsEl.innerHTML = currentLightboxSlides.map((s, idx) => `
+    <img src="${s.src}" alt="" onclick="jumpCoffeeLightbox(${idx})" class="w-12 h-12 object-cover rounded-lg cursor-pointer flex-shrink-0 transition-all ${idx === currentLightboxIndex ? 'ring-2 ring-amber-400 scale-105 opacity-100' : 'opacity-55 hover:opacity-90'}" />
+  `).join('');
+  const activeThumb = thumbsEl.children[currentLightboxIndex];
+  if (activeThumb && activeThumb.scrollIntoView) {
+    activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
+}
+
+// Keyboard arrow navigation & Safari <dialog closedby> fallback
+window.addEventListener('DOMContentLoaded', () => {
+  const dialog = document.getElementById('coffeeLightbox');
+  if (!dialog) return;
+
+  window.addEventListener('keydown', (e) => {
+    if (!dialog.open) return;
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      stepCoffeeLightbox(1);
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      stepCoffeeLightbox(-1);
+    }
+  });
+
+  // Fallback for browsers without closedby support (Safari)
+  if (!('closedBy' in HTMLDialogElement.prototype)) {
+    dialog.addEventListener('click', (event) => {
+      if (event.target !== dialog) return;
+      const rect = dialog.getBoundingClientRect();
+      const isDialogContent = (
+        rect.top <= event.clientY &&
+        event.clientY <= rect.top + rect.height &&
+        rect.left <= event.clientX &&
+        event.clientX <= rect.left + rect.width
+      );
+      if (isDialogContent) return;
+      dialog.close();
+    });
+  }
+});
 
 /* ── GUIDE CATALOG & TABS ── */
 function switchGuideTab(tab) {
